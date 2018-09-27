@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Java 11]]></title>
+    <url>%2F2018%2F09%2F27%2FJava-11%2F</url>
+    <content type="text"><![CDATA[昨天得知Java 11发布。请允许我说：我的天啊，竟然Java 11了。 连Java 8还没有完全熟练使用的我，一时间有点恍惚。 近期，Java更新如此频繁，让人有点应接不暇，新的features层出不穷，而我们又真的学习使用了几个呢？ 反正我只用了一小部分吧。这里不列举Java 8之后各个版本中的features了，大家可以自行Google。 这里只想说：Java作为生命力极强的大型服务类开发语言，Oracle好像在给其注入新的活力，也在打破Java原有的墨守陈规。我们可以看出它的很多新特性是源于这个时代技术的发展，也有很多借鉴了其它语言的特性，在”提(da)升(po)”原有的语法结构方式给用户带来新的开发体验。这也是在满足新加入Java世界的开发者？ 不知Java老程序员如何感受，就我而言，我更喜欢不断更新，虽然最近更新确实有点频繁了。 当然除了语法特性的改变意外，还有很多底层结构的改进，当然这才是其核心。例如类库发展、模块化管理、安全特性与补丁、新的JVM GC、脚本化、黑匣子(JFR)等。 试试不？Java 9 和 10 简直就是一闪而过，印象中好像就一两个小版本号，而Java 11 不同了，它可是LTS。Oracle官方承诺对其会有持续的update更新。同时大家深爱的Java 8马上就要不更新了，所以这次真的可以尝试进行JDK企业级切换了。 个人感觉Java 每半年更新的方式，看来要止住其语言发展的颓势，重新崛起了。Java作为主要的开发语言还是值得大家技术投入的。小伙伴们跟上这波更新吧。后面我也希望多尝试JDK新的开发特性。 你的感觉呢？ 参考网站 infoq]]></content>
+      <categories>
+        <category>tech</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F09%2F26%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Restart]]></title>
+    <url>%2F2018%2F09%2F26%2Fnote%2F</url>
+    <content type="text"><![CDATA[尝试重新开始尝试重启这个blog，因为有越来越多的文字需要记录，也想分享，而在github上的README.md文件中写又显然不合适。所以重新启用这个工程开始整理自己的随笔。 同时，几个月前开始更新自己的github工程，主要围绕三个项目： Java Tech Java相关技术 Python Tech Python相关技术 CICD Tech CI/CD DEV/OPS相关技术 维护这三个工程主要目的在于： 帮助自己总结所学，时间长了很容已忘记 本人使用的技术绝大部分本来就是公开的，也希望今后可以帮到其他人。 所以在所有项目或者示例代码中，我尽可能说明详细，并给出我所引用的原地址而还是有很多思路上的内容需要记录下来，所以想在这里记录，此blog也将围绕我的技术领域展开。 为何重新开始作为计算机开发工程师，本人离吴军老师所定义的四级工程师水平（详见谷歌来信中的定义）还有不少差距，而我希望可以做到。唯一的方法是不断积累。这里的重新开始是给自己设定了一个目标，一个改变自己的目标，重新开始向新的目标前进。 祝所有工程师好运！]]></content>
+      <categories>
+        <category>note</category>
+      </categories>
+      <tags>
+        <tag>others</tag>
+      </tags>
+  </entry>
+</search>
