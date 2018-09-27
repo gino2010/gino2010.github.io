@@ -12,11 +12,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2F09%2F26%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[Restart]]></title>
     <url>%2F2018%2F09%2F26%2Fnote%2F</url>
     <content type="text"><![CDATA[尝试重新开始尝试重启这个blog，因为有越来越多的文字需要记录，也想分享，而在github上的README.md文件中写又显然不合适。所以重新启用这个工程开始整理自己的随笔。 同时，几个月前开始更新自己的github工程，主要围绕三个项目： Java Tech Java相关技术 Python Tech Python相关技术 CICD Tech CI/CD DEV/OPS相关技术 维护这三个工程主要目的在于： 帮助自己总结所学，时间长了很容已忘记 本人使用的技术绝大部分本来就是公开的，也希望今后可以帮到其他人。 所以在所有项目或者示例代码中，我尽可能说明详细，并给出我所引用的原地址而还是有很多思路上的内容需要记录下来，所以想在这里记录，此blog也将围绕我的技术领域展开。 为何重新开始作为计算机开发工程师，本人离吴军老师所定义的四级工程师水平（详见谷歌来信中的定义）还有不少差距，而我希望可以做到。唯一的方法是不断积累。这里的重新开始是给自己设定了一个目标，一个改变自己的目标，重新开始向新的目标前进。 祝所有工程师好运！]]></content>
