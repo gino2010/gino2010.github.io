@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Message Queue]]></title>
+    <url>%2F2018%2F10%2F16%2Fmq%2F</url>
+    <content type="text"><![CDATA[消息队列（MQ），平时经常遇到的中间件技术。个人工作中已经使用的RabbitMQ，最近开始使用Kafka，因此也打算把ActiveMQ实验一下。所以本文章将围绕这三个MQ产品进行相应的实验。 创建实验工程三个MQ实验工程地址 工程使用spring boot创建，所有实现都将基于spring全家桶，已经很完毕了，拿来直接用吧。 为了后续实验方便，分别多个mq的producer和consumer工程 使用gradle管理项目结构 使用docker搭建测试所需要的服务器，文件可以参考，实际部署环境有所调整 文档尚未完成，正在持续更新中…… Kafka首先实验了Kafka的生产和消费基本代码procuder：1this.kafkaTemplate.send(topic, message); consumer:1@KafkaListener(topics = "$&#123;app.topic&#125;") 实验说明 使用三个kafka broker 节点，使用docker-compose对应的service实现 创建topic，使用三个分区和两个副本 使用idea，运行工程，配置多个运行实例 特性总结 一个分区对应一个消费者 一个分区内消息顺序消费 分区和和服务器应该成倍数关系，保证分区均匀分布 副本数量应该小于服务器数量，当可用分区失效时，从副本中选出leader，成为新的可用分区 节点高可用性，消费服务瞬间切换 总的来说，体会到了大家喜欢的它原因，具体一些实验后续将深入。]]></content>
+      <categories>
+        <category>tech</category>
+      </categories>
+      <tags>
+        <tag>MQ</tag>
+        <tag>middleware</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[OpenStack 从入门到继续]]></title>
     <url>%2F2018%2F10%2F11%2Fopenstack%2F</url>
     <content type="text"><![CDATA[近期给自己挖的技术坑有点多，我忍不住再挖一个，最近又了解到了云服务的相关技术（算是技术储备吧） What is OpenStack?OpenStack是被广泛使用的云操作系统，它管啥，如图： Components所有组件详见：网站列出的所有组件 找几个介绍多的，简单说一下 HORIZON前端Web管理界面，包括Dashboard控件展示，便于用户对相关服务进行操作 NOVA计算服务,应该是管理计算资源的组件，提供相应的管理服务 NEUTRON提供云计算的网络虚拟化技术，为OpenStack其他服务提供网络连接服务，实现SDN SWIFTSwift是高可用、分布式、最终一致性的对象存储，具体文件对象 CINDER块存储服务，更像是硬盘，数据卷 KEYSTONE认证服务，支持LDAP Oauth OpenID等 GLANCE镜像服务，不通的操作系统镜像 HEAT编排架构资源 不通场景中需要不通的服务来构建，可以参考sample configurations What is the relationship between Docker and OpenStack Docker 主要针对 Paas 平台，是以应用为中心。 OpenStack 主要针对 Iaas 平台，以资源为中心，可以为上层的 PaaS 平台提供存储、网络、计算等资源。 这个话题先开个头，后面有机会再继续深入吧。]]></content>
@@ -8,7 +20,8 @@
         <category>tech</category>
       </categories>
       <tags>
-        <tag>openstack cloud</tag>
+        <tag>openstack</tag>
+        <tag>cloud</tag>
       </tags>
   </entry>
   <entry>

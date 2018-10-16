@@ -108,23 +108,29 @@
 
 
 
-  <meta name="description" content="Stay Hungry, Stay Foolish.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Cube Life">
-<meta property="og:url" content="http://gino2010.github.io/tags/OKR/index.html">
+  <meta name="description" content="消息队列（MQ），平时经常遇到的中间件技术。个人工作中已经使用的RabbitMQ，最近开始使用Kafka，因此也打算把ActiveMQ实验一下。所以本文章将围绕这三个MQ产品进行相应的实验。 创建实验工程三个MQ实验工程地址  工程使用spring boot创建，所有实现都将基于spring全家桶，已经很完毕了，拿来直接用吧。 为了后续实验方便，分别多个mq的producer和consumer工程">
+<meta name="keywords" content="MQ,middleware">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Message Queue">
+<meta property="og:url" content="http://gino2010.github.io/2018/10/16/mq/index.html">
 <meta property="og:site_name" content="Cube Life">
-<meta property="og:description" content="Stay Hungry, Stay Foolish.">
+<meta property="og:description" content="消息队列（MQ），平时经常遇到的中间件技术。个人工作中已经使用的RabbitMQ，最近开始使用Kafka，因此也打算把ActiveMQ实验一下。所以本文章将围绕这三个MQ产品进行相应的实验。 创建实验工程三个MQ实验工程地址  工程使用spring boot创建，所有实现都将基于spring全家桶，已经很完毕了，拿来直接用吧。 为了后续实验方便，分别多个mq的producer和consumer工程">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://gino2010.github.io/images/post/20181016/kafka%20brokers.png">
+<meta property="og:image" content="http://gino2010.github.io/images/post/20181016/topic.png">
+<meta property="og:image" content="http://gino2010.github.io/images/post/20181016/kafka%20run%20dashboard.png">
+<meta property="og:updated_time" content="2018-10-16T09:14:28.715Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cube Life">
-<meta name="twitter:description" content="Stay Hungry, Stay Foolish.">
+<meta name="twitter:title" content="Message Queue">
+<meta name="twitter:description" content="消息队列（MQ），平时经常遇到的中间件技术。个人工作中已经使用的RabbitMQ，最近开始使用Kafka，因此也打算把ActiveMQ实验一下。所以本文章将围绕这三个MQ产品进行相应的实验。 创建实验工程三个MQ实验工程地址  工程使用spring boot创建，所有实现都将基于spring全家桶，已经很完毕了，拿来直接用吧。 为了后续实验方便，分别多个mq的producer和consumer工程">
+<meta name="twitter:image" content="http://gino2010.github.io/images/post/20181016/kafka%20brokers.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://gino2010.github.io/tags/OKR/"/>
+  <link rel="canonical" href="http://gino2010.github.io/2018/10/16/mq/"/>
 
 
 
@@ -134,7 +140,7 @@
   };
 </script>
 
-  <title>Tag: OKR | Cube Life</title>
+  <title>Message Queue | Cube Life</title>
   
 
 
@@ -181,7 +187,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -230,7 +236,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
   </li>
@@ -274,28 +280,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -355,58 +339,245 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>OKR<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2018/10/16/mq/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gino Zhao">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cube Life">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/09/29/okr/" itemprop="url">
-              
-                <span itemprop="name">我的OKR(2018.10)</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Message Queue
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-29T23:09:22+08:00"
-              content="2018-09-29" >
-          09-29
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-10-16 16:41:44 / Modified: 17:14:28" itemprop="dateCreated datePublished" datetime="2018-10-16T16:41:44+08:00">2018-10-16</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/16/mq/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/10/16/mq/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>消息队列（MQ），平时经常遇到的中间件技术。个人工作中已经使用的RabbitMQ，最近开始使用Kafka，因此也打算把ActiveMQ实验一下。<br>所以本文章将围绕这三个MQ产品进行相应的实验。</p>
+<h2 id="创建实验工程"><a href="#创建实验工程" class="headerlink" title="创建实验工程"></a>创建实验工程</h2><p>三个MQ<a href="https://github.com/gino2010/javatech/tree/master/mqtest" target="_blank" rel="noopener">实验工程地址</a></p>
+<ul>
+<li>工程使用spring boot创建，所有实现都将基于spring全家桶，已经很完毕了，拿来直接用吧。</li>
+<li>为了后续实验方便，分别多个mq的producer和consumer工程</li>
+<li>使用gradle管理项目结构</li>
+<li>使用docker搭建测试所需要的服务器，文件可以<a href="https://github.com/gino2010/cicdtech/tree/master/mq-docker" target="_blank" rel="noopener">参考</a>，实际部署环境有所调整</li>
+</ul>
+<p>文档尚未完成，正在持续更新中……<br><a id="more"></a></p>
+<h2 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a>Kafka</h2><p>首先实验了Kafka的生产和消费基本代码<br>procuder：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.kafkaTemplate.send(topic, message);</span><br></pre></td></tr></table></figure></p>
+<p>consumer:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@KafkaListener(topics = <span class="string">"$&#123;app.topic&#125;"</span>)</span><br></pre></td></tr></table></figure></p>
+<h4 id="实验说明"><a href="#实验说明" class="headerlink" title="实验说明"></a>实验说明</h4><ol>
+<li><p>使用三个kafka broker 节点，使用docker-compose对应的service实现<br><img src="/images/post/20181016/kafka brokers.png" alt=""></p>
+</li>
+<li><p>创建topic，使用三个分区和两个副本<br><img src="/images/post/20181016/topic.png" alt=""></p>
+</li>
+<li><p>使用idea，运行工程，配置多个运行实例<br><img src="/images/post/20181016/kafka run dashboard.png" alt=""></p>
+</li>
+</ol>
+<h4 id="特性总结"><a href="#特性总结" class="headerlink" title="特性总结"></a>特性总结</h4><ul>
+<li>一个分区对应一个消费者</li>
+<li>一个分区内消息顺序消费</li>
+<li>分区和和服务器应该成倍数关系，保证分区均匀分布</li>
+<li>副本数量应该小于服务器数量，当可用分区失效时，从副本中选出leader，成为新的可用分区</li>
+<li>节点高可用性，消费服务瞬间切换</li>
+</ul>
+<p>总的来说，体会到了大家喜欢的它原因，具体一些实验后续将深入。</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MQ/" rel="tag"># MQ</a>
+          
+            <a href="/tags/middleware/" rel="tag"># middleware</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/11/openstack/" rel="next" title="OpenStack 从入门到继续">
+                <i class="fa fa-chevron-left"></i> OpenStack 从入门到继续
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -427,8 +598,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -528,6 +708,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建实验工程"><span class="nav-text">创建实验工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka"><span class="nav-text">Kafka</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实验说明"><span class="nav-text">实验说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特性总结"><span class="nav-text">特性总结</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -676,6 +872,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
 
   
 
@@ -690,6 +890,37 @@
     <script id="dsq-count-scr" src="https://myblog-orNkC9OX7o.disqus.com/count.js" async></script>
   
 
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://gino2010.github.io/2018/10/16/mq/';
+        this.page.identifier = '2018/10/16/mq/';
+        this.page.title = 'Message Queue';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://myblog-orNkC9OX7o.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        $(function () {
+          var offsetTop = $('#comments').offset().top - $(window).height();
+          if (offsetTop <= 0) {
+            // load directly when there's no a scrollbar
+            loadComments();
+          } else {
+            $(window).on('scroll.disqus_scroll', function () {
+              var scrollTop = document.documentElement.scrollTop;
+              if (scrollTop >= offsetTop) {
+                $(window).off('.disqus_scroll');
+                loadComments();
+              }
+            });
+          }
+        });
+      
+    </script>
   
 
 
