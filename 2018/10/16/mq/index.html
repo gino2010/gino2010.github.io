@@ -119,7 +119,7 @@
 <meta property="og:image" content="http://gino2010.github.io/images/post/20181016/kafka%20brokers.png">
 <meta property="og:image" content="http://gino2010.github.io/images/post/20181016/topic.png">
 <meta property="og:image" content="http://gino2010.github.io/images/post/20181016/kafka%20run%20dashboard.png">
-<meta property="og:updated_time" content="2018-10-16T09:14:28.715Z">
+<meta property="og:updated_time" content="2018-10-16T09:16:19.124Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Message Queue">
 <meta name="twitter:description" content="消息队列（MQ），平时经常遇到的中间件技术。个人工作中已经使用的RabbitMQ，最近开始使用Kafka，因此也打算把ActiveMQ实验一下。所以本文章将围绕这三个MQ产品进行相应的实验。 创建实验工程三个MQ实验工程地址  工程使用spring boot创建，所有实现都将基于spring全家桶，已经很完毕了，拿来直接用吧。 为了后续实验方便，分别多个mq的producer和consumer工程">
@@ -397,7 +397,7 @@
                 
               
 
-              <time title="Created: 2018-10-16 16:41:44 / Modified: 17:14:28" itemprop="dateCreated datePublished" datetime="2018-10-16T16:41:44+08:00">2018-10-16</time>
+              <time title="Created: 2018-10-16 16:41:44 / Modified: 17:16:19" itemprop="dateCreated datePublished" datetime="2018-10-16T16:41:44+08:00">2018-10-16</time>
             
 
             
@@ -481,7 +481,7 @@
 <li>使用gradle管理项目结构</li>
 <li>使用docker搭建测试所需要的服务器，文件可以<a href="https://github.com/gino2010/cicdtech/tree/master/mq-docker" target="_blank" rel="noopener">参考</a>，实际部署环境有所调整</li>
 </ul>
-<p>文档尚未完成，正在持续更新中……<br><a id="more"></a></p>
+<a id="more"></a>
 <h2 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a>Kafka</h2><p>首先实验了Kafka的生产和消费基本代码<br>procuder：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.kafkaTemplate.send(topic, message);</span><br></pre></td></tr></table></figure></p>
 <p>consumer:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@KafkaListener(topics = <span class="string">"$&#123;app.topic&#125;"</span>)</span><br></pre></td></tr></table></figure></p>
 <h4 id="实验说明"><a href="#实验说明" class="headerlink" title="实验说明"></a>实验说明</h4><ol>
@@ -500,6 +500,7 @@
 <li>节点高可用性，消费服务瞬间切换</li>
 </ul>
 <p>总的来说，体会到了大家喜欢的它原因，具体一些实验后续将深入。</p>
+<p>文档尚未完成，正在持续更新中……</p>
 
       
     </div>
