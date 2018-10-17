@@ -119,7 +119,7 @@
 <meta property="og:image" content="http://gino2010.github.io/images/post/20181016/kafka%20brokers.png">
 <meta property="og:image" content="http://gino2010.github.io/images/post/20181016/topic.png">
 <meta property="og:image" content="http://gino2010.github.io/images/post/20181016/kafka%20run%20dashboard.png">
-<meta property="og:updated_time" content="2018-10-17T00:45:38.832Z">
+<meta property="og:updated_time" content="2018-10-17T03:23:42.093Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Message Queue">
 <meta name="twitter:description" content="消息队列（MQ），平时经常遇到的中间件技术。个人工作中已经使用的RabbitMQ，最近开始使用Kafka，因此也打算把ActiveMQ实验一下。所以本文章将围绕这三个MQ产品进行相应的实验。 创建实验工程三个MQ实验工程地址  工程使用spring boot创建，所有实现都将基于spring全家桶，已经很完毕了，拿来直接用吧。 为了后续实验方便，分别多个mq的producer和consumer工程">
@@ -414,7 +414,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-17 08:45:38" itemprop="dateModified" datetime="2018-10-17T08:45:38+08:00">2018-10-17</time>
+                <time title="Modified: 2018-10-17 11:23:42" itemprop="dateModified" datetime="2018-10-17T11:23:42+08:00">2018-10-17</time>
               
             
           </span>
@@ -511,6 +511,16 @@
 <li>副本数量应该小于服务器数量，当可用分区失效时，从副本中选出leader，成为新的可用分区</li>
 <li>节点高可用性，消费服务瞬间切换</li>
 <li>保存近期所有数据，通过offset可以获得任意位置的消息</li>
+</ul>
+<h4 id="ACK-MODE-和-Commit"><a href="#ACK-MODE-和-Commit" class="headerlink" title="ACK MODE 和 Commit"></a>ACK MODE 和 Commit</h4><p>需要注意ack mode和 commit，此项影响数据的刷盘机制。根据实际情况选择</p>
+<ul>
+<li>RECORD 逐笔ack并提交</li>
+<li>BATCH 一个poll周期进行ack提交</li>
+<li>TIME 通过设置ackTime定时提交</li>
+<li>COUNT 通过设置ackCount累计数量提交</li>
+<li>COUNT_TIME 同上组合，哪个复合执行哪个</li>
+<li>MANUAL 手动方式生成ack，批量提交</li>
+<li>MANUAL_IMMEDIATE 手动方式生成ack并立即提交</li>
 </ul>
 <p>总的来说，体会到了大家喜欢的它原因，具体一些实验后续将深入。</p>
 <h2 id="ActiveMQ"><a href="#ActiveMQ" class="headerlink" title="ActiveMQ"></a>ActiveMQ</h2><h2 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h2><p>文档尚未完成，正在持续更新中……</p>
@@ -752,7 +762,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建实验工程"><span class="nav-text">创建实验工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka"><span class="nav-text">Kafka</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实验说明"><span class="nav-text">实验说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特性总结"><span class="nav-text">特性总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ActiveMQ"><span class="nav-text">ActiveMQ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RabbitMQ"><span class="nav-text">RabbitMQ</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建实验工程"><span class="nav-text">创建实验工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka"><span class="nav-text">Kafka</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实验说明"><span class="nav-text">实验说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特性总结"><span class="nav-text">特性总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ACK-MODE-和-Commit"><span class="nav-text">ACK MODE 和 Commit</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ActiveMQ"><span class="nav-text">ActiveMQ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RabbitMQ"><span class="nav-text">RabbitMQ</span></a></li></ol></div>
             
 
           </div>
