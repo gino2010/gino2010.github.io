@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Cube Life">
 <meta property="og:description" content="近期在做MQ的实验，所以又接触了一下Zookeeper，之所说又是因为之前碰到过，但是只是用而已没有了解过一些细节。 Zookeeper 做什么？引用官方原话：ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronizat">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-18T06:11:47.998Z">
+<meta property="og:updated_time" content="2018-10-18T06:48:22.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Zookeeper">
 <meta name="twitter:description" content="近期在做MQ的实验，所以又接触了一下Zookeeper，之所说又是因为之前碰到过，但是只是用而已没有了解过一些细节。 Zookeeper 做什么？引用官方原话：ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronizat">
@@ -393,7 +393,7 @@
                 
               
 
-              <time title="Created: 2018-10-18 09:05:27 / Modified: 14:11:47" itemprop="dateCreated datePublished" datetime="2018-10-18T09:05:27+08:00">2018-10-18</time>
+              <time title="Created: 2018-10-18 09:05:27 / Modified: 14:48:22" itemprop="dateCreated datePublished" datetime="2018-10-18T09:05:27+08:00">2018-10-18</time>
             
 
             
@@ -519,7 +519,7 @@
 <li>/demo/context,default</li>
 <li>/demo/context</li>
 </ul>
-<p>具体到zc这个配置，对应在default下的全路径是：/demo/zookeeperDemo，default/zc，你可以在zookeeper中创建一个：</p>
+<p>具体到zc这个配置，对应在default下的全路径是：/demo/zookeeperDemo,default/zc，你可以在zookeeper中创建一个：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create /demo/zookeeperDemo,default/zc data</span><br></pre></td></tr></table></figure>
 <p>具体到DemoProperties配置对应在default下的全路径是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create /demo/zookeeperDemo,default/demopro.key prokey</span><br><span class="line">create /demo/zookeeperDemo,default/demopro.value provalue</span><br></pre></td></tr></table></figure></p>
 <p>以上为工程实验的关键点，具体工程参考源码，工程后续可能还会更新。</p>
