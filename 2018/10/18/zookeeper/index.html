@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Cube Life">
 <meta property="og:description" content="近期在做MQ的实验，所以又接触了一下Zookeeper，之所说又是因为之前碰到过，但是只是用而已没有了解过一些细节。 Zookeeper 做什么？引用官方原话：ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronizat">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-18T03:22:43.642Z">
+<meta property="og:updated_time" content="2018-10-18T06:11:47.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Zookeeper">
 <meta name="twitter:description" content="近期在做MQ的实验，所以又接触了一下Zookeeper，之所说又是因为之前碰到过，但是只是用而已没有了解过一些细节。 Zookeeper 做什么？引用官方原话：ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronizat">
@@ -393,7 +393,7 @@
                 
               
 
-              <time title="Created: 2018-10-18 09:05:27 / Modified: 11:22:43" itemprop="dateCreated datePublished" datetime="2018-10-18T09:05:27+08:00">2018-10-18</time>
+              <time title="Created: 2018-10-18 09:05:27 / Modified: 14:11:47" itemprop="dateCreated datePublished" datetime="2018-10-18T09:05:27+08:00">2018-10-18</time>
             
 
             
@@ -509,6 +509,7 @@
 <h3 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h3><p>通过CuratorFramework 设置或读取zookeeper中的节点<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">curatorFramework.blockUntilConnected();</span><br><span class="line">Stat stat = curatorFramework.checkExists().forPath(<span class="string">"/test"</span>);</span><br><span class="line"><span class="keyword">if</span>(stat==<span class="keyword">null</span>) &#123;</span><br><span class="line">    curatorFramework.create().creatingParentsIfNeeded()</span><br><span class="line">            .withACL(ZooDefs.Ids.OPEN_ACL_UNSAFE)</span><br><span class="line">            .forPath(<span class="string">"/test"</span>, <span class="string">"data"</span>.getBytes());</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">byte</span>[] bytes = curatorFramework.getData().forPath(<span class="string">"/test"</span>);</span><br><span class="line">log.info(<span class="string">"path test:&#123;&#125;"</span>, <span class="keyword">new</span> String(bytes));</span><br></pre></td></tr></table></figure></p>
 <p>将zookeeper作为配置中心，通过value注解获取zookeeper中的配置信息，这样可以做到在不重新启动服务的情况下，动态加载配置信息<br>代码需要：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value</span>(<span class="string">"$&#123;zc&#125;"</span>)</span><br><span class="line"><span class="keyword">private</span> String zc;</span><br></pre></td></tr></table></figure>
+<p>也可以将配置信息加载到一个对象上<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(<span class="string">"demopro"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoProperties</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String key;</span><br><span class="line">    <span class="keyword">private</span> String value;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//get set</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>配置文件需要：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">application:</span><br><span class="line">  name: zookeeperDemo</span><br><span class="line">  </span><br><span class="line">config:</span><br><span class="line">  enabled: <span class="literal">true</span></span><br><span class="line">  root: <span class="regexp">/demo</span></span><br><span class="line"><span class="regexp">  defaultContext: context</span></span><br><span class="line"><span class="regexp">  profileSeparator: ','</span></span><br></pre></td></tr></table></figure>
 <p>因为spring cloud支持active profile，所以对应的zookeeper的znode路径可以是：</p>
@@ -518,8 +519,9 @@
 <li>/demo/context,default</li>
 <li>/demo/context</li>
 </ul>
-<p>具体到zc这个配置，对应在default下的全路径是：/demo/zookeeperDemo::default/zc，你可以在zookeeper中创建一个：</p>
+<p>具体到zc这个配置，对应在default下的全路径是：/demo/zookeeperDemo，default/zc，你可以在zookeeper中创建一个：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create /demo/zookeeperDemo,default/zc data</span><br></pre></td></tr></table></figure>
+<p>具体到DemoProperties配置对应在default下的全路径是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create /demo/zookeeperDemo,default/demopro.key prokey</span><br><span class="line">create /demo/zookeeperDemo,default/demopro.value provalue</span><br></pre></td></tr></table></figure></p>
 <p>以上为工程实验的关键点，具体工程参考源码，工程后续可能还会更新。</p>
 <h2 id="吐槽"><a href="#吐槽" class="headerlink" title="吐槽"></a>吐槽</h2><p>这些问题不是针对zookeeper，只是借此表达一下，其它国内实例代码也有类似的普遍现象</p>
 <ul>
