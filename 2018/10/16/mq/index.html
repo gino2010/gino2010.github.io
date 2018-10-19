@@ -131,7 +131,9 @@
 <meta property="og:image" content="https://www.rabbitmq.com/img/tutorials/python-six.png">
 <meta property="og:image" content="http://gino2010.github.io/images/post/20181016/rabbitmq%20consumer.png">
 <meta property="og:image" content="http://gino2010.github.io/images/post/20181016/rabbitmq%20run%20dashboard.png">
-<meta property="og:updated_time" content="2018-10-19T06:57:01.993Z">
+<meta property="og:image" content="http://gino2010.github.io/images/post/20181016/rabbitmq%20queue.png">
+<meta property="og:image" content="http://gino2010.github.io/images/post/20181016/rabbitmq%20exchange.png">
+<meta property="og:updated_time" content="2018-10-19T07:12:08.450Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Message Queue 初探">
 <meta name="twitter:description" content="消息队列（MQ），平时经常遇到的中间件技术。个人工作中已经使用的RabbitMQ，最近开始使用Kafka，因此也打算把ActiveMQ实验一下。所以本文章将围绕这三个MQ产品进行相应的实验。 创建实验工程三个MQ实验工程地址  工程使用spring boot创建，所有实现都将基于spring全家桶，已经很完毕了，拿来直接用吧。 为了后续实验方便，分别多个mq的producer和consumer工程">
@@ -426,7 +428,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-19 14:57:01" itemprop="dateModified" datetime="2018-10-19T14:57:01+08:00">2018-10-19</time>
+                <time title="Modified: 2018-10-19 15:12:08" itemprop="dateModified" datetime="2018-10-19T15:12:08+08:00">2018-10-19</time>
               
             
           </span>
@@ -587,6 +589,7 @@
 <li>广播消息默认堆积，其本质还是消费队列，不能多个消费者消费一个queue实现pub/sub</li>
 </ul>
 <p>同样创建多个运行实例，来观察消费情况<br><img src="/images/post/20181016/rabbitmq run dashboard.png" alt=""></p>
+<p>管理后台可以看到的信息<br><img src="/images/post/20181016/rabbitmq queue.png" alt=""><br><img src="/images/post/20181016/rabbitmq exchange.png" alt=""></p>
 <h3 id="特性总结-2"><a href="#特性总结-2" class="headerlink" title="特性总结"></a>特性总结</h3><ul>
 <li>功能多，使用灵活</li>
 <li>AMQP，性能不错</li>
