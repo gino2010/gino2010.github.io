@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Cube Life">
 <meta property="og:description" content="事务，很基础的概念，但有很多细节是大家忽略的或者平时很少注意到的。这里总结一下：实验工程 （这工程的实验代码尚不完整，再更新看心情了😛） ACID先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱  原子性（Atomicity） 操作原子性，同一个事务中要么所有操作都执行，要么都不执行。好理解 一致性（Consistency） 一致性（经常和原子性混），原意是数据库从一个状">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-25T06:09:22.132Z">
+<meta property="og:updated_time" content="2018-10-25T07:56:53.651Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Transaction">
 <meta name="twitter:description" content="事务，很基础的概念，但有很多细节是大家忽略的或者平时很少注意到的。这里总结一下：实验工程 （这工程的实验代码尚不完整，再更新看心情了😛） ACID先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱  原子性（Atomicity） 操作原子性，同一个事务中要么所有操作都执行，要么都不执行。好理解 一致性（Consistency） 一致性（经常和原子性混），原意是数据库从一个状">
@@ -393,7 +393,7 @@
                 
               
 
-              <time title="Created: 2018-10-25 10:35:49 / Modified: 14:09:22" itemprop="dateCreated datePublished" datetime="2018-10-25T10:35:49+08:00">2018-10-25</time>
+              <time title="Created: 2018-10-25 10:35:49 / Modified: 15:56:53" itemprop="dateCreated datePublished" datetime="2018-10-25T10:35:49+08:00">2018-10-25</time>
             
 
             
@@ -531,6 +531,7 @@
 <p>注意：这里说的都是数据库自身问题，如果在开发过程中，我们使用的ORM框架自身还有数据对象状态问题，例如：临时态、持久态、游离态。这些不正常处理可能会造成事务内操作出错。</p>
 <p>解决程序或数据库中类似的数据冲突问题，我们需要考虑程序锁或数据库错（无论怎样性能都将受到影响，需要合理设计），或者CAS操作（性能好，但是应用场景受限），这又将是个大话题，稍后再阐述吧。</p>
 <h2 id="进阶阅读"><a href="#进阶阅读" class="headerlink" title="进阶阅读"></a>进阶阅读</h2><p>这个<a href="https://www.jianshu.com/p/3673e612cce2" target="_blank" rel="noopener">文章</a>比我说的详细多了，pingcap团队的。 推荐阅读。</p>
+<h2 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h2><p>公司系统需要进行微服务拆分，花了一天的时间深入梳理一下ACID BASE 和 CAP，这些概念之前虽然都看过，但是现在再看又有更为深刻的理解了，温故而知新啊<br>这个部分内容专业、庞大又复杂，还是先推荐几篇别人的文章吧，如果可能，稍后再总结自己的想法<br><a href="https://www.aliyun.com/jiaocheng/868320.html" target="_blank" rel="noopener">CAP、ACID、BASE理论及NWR实践策略详解</a><br><a href="https://www.jianshu.com/p/1156151e20c8" target="_blank" rel="noopener">分布式服务化系统一致性的“最佳实干”</a></p>
 
       
     </div>
@@ -780,7 +781,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ACID"><span class="nav-text">ACID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单说隔离性"><span class="nav-text">单说隔离性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶阅读"><span class="nav-text">进阶阅读</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ACID"><span class="nav-text">ACID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单说隔离性"><span class="nav-text">单说隔离性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶阅读"><span class="nav-text">进阶阅读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后续"><span class="nav-text">后续</span></a></li></ol></div>
             
 
           </div>
