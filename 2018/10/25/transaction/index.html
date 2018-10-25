@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="事务，很基础的概念，但有很多细节是大家忽略的或者平时很少注意到的。这里总结一下：实验工程 （这工程的实验代码尚不完整，再更新看心情了😛） 先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱  原子性（Atomicity） 操作原子性，同一个事务中要么所有操作都执行，要么都不执行。好理解 一致性（Consistency） 一致性（经常和原子性混），原意是数据库从一个状态转换为">
+  <meta name="description" content="事务，很基础的概念，但有很多细节是大家忽略的或者平时很少注意到的。这里总结一下：实验工程 （这工程的实验代码尚不完整，再更新看心情了😛） ACID先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱  原子性（Atomicity） 操作原子性，同一个事务中要么所有操作都执行，要么都不执行。好理解 一致性（Consistency） 一致性（经常和原子性混），原意是数据库从一个状">
 <meta name="keywords" content="db">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Transaction">
 <meta property="og:url" content="http://gino2010.github.io/2018/10/25/transaction/index.html">
 <meta property="og:site_name" content="Cube Life">
-<meta property="og:description" content="事务，很基础的概念，但有很多细节是大家忽略的或者平时很少注意到的。这里总结一下：实验工程 （这工程的实验代码尚不完整，再更新看心情了😛） 先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱  原子性（Atomicity） 操作原子性，同一个事务中要么所有操作都执行，要么都不执行。好理解 一致性（Consistency） 一致性（经常和原子性混），原意是数据库从一个状态转换为">
+<meta property="og:description" content="事务，很基础的概念，但有很多细节是大家忽略的或者平时很少注意到的。这里总结一下：实验工程 （这工程的实验代码尚不完整，再更新看心情了😛） ACID先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱  原子性（Atomicity） 操作原子性，同一个事务中要么所有操作都执行，要么都不执行。好理解 一致性（Consistency） 一致性（经常和原子性混），原意是数据库从一个状">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-25T05:52:09.041Z">
+<meta property="og:updated_time" content="2018-10-25T06:09:22.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Transaction">
-<meta name="twitter:description" content="事务，很基础的概念，但有很多细节是大家忽略的或者平时很少注意到的。这里总结一下：实验工程 （这工程的实验代码尚不完整，再更新看心情了😛） 先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱  原子性（Atomicity） 操作原子性，同一个事务中要么所有操作都执行，要么都不执行。好理解 一致性（Consistency） 一致性（经常和原子性混），原意是数据库从一个状态转换为">
+<meta name="twitter:description" content="事务，很基础的概念，但有很多细节是大家忽略的或者平时很少注意到的。这里总结一下：实验工程 （这工程的实验代码尚不完整，再更新看心情了😛） ACID先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱  原子性（Atomicity） 操作原子性，同一个事务中要么所有操作都执行，要么都不执行。好理解 一致性（Consistency） 一致性（经常和原子性混），原意是数据库从一个状">
 
 
 
@@ -393,7 +393,7 @@
                 
               
 
-              <time title="Created: 2018-10-25 10:35:49 / Modified: 13:52:09" itemprop="dateCreated datePublished" datetime="2018-10-25T10:35:49+08:00">2018-10-25</time>
+              <time title="Created: 2018-10-25 10:35:49 / Modified: 14:09:22" itemprop="dateCreated datePublished" datetime="2018-10-25T10:35:49+08:00">2018-10-25</time>
             
 
             
@@ -470,7 +470,7 @@
 
       
         <p>事务，很基础的概念，但有很多细节是大家忽略的或者平时很少注意到的。这里总结一下：<br><a href="https://github.com/gino2010/javatech/tree/master/transaction" target="_blank" rel="noopener">实验工程</a> （这工程的实验代码尚不完整，再更新看心情了😛）</p>
-<p>先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱</p>
+<h2 id="ACID"><a href="#ACID" class="headerlink" title="ACID"></a>ACID</h2><p>先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱</p>
 <ul>
 <li>原子性（Atomicity） 操作原子性，同一个事务中要么所有操作都执行，要么都不执行。好理解</li>
 <li>一致性（Consistency） 一致性（经常和原子性混），原意是数据库从一个状态转换为另一个状态（完全不知所云哈？）。其实说的是写入数据必须复合数据库的相关约束，包括限制、级联、触发等（还不明白？）举个例：A外键关联B，一个事务试图插入B数据，但不插入与其关联的A记录，当然这是非法事务，它违反的就是一致性原则。</li>
@@ -478,7 +478,7 @@
 <li>持久性（Durability） 持久性，这个强调的是commit后不要存在内存中，commit要求写入硬盘，当然也就不丢了</li>
 </ul>
 <p><a href="https://en.wikipedia.org/wiki/ACID" target="_blank" rel="noopener">参考</a><br><a id="more"></a></p>
-<p>单说隔离性<br>隔离级别 解决脏读取、重复读、幻读</p>
+<h2 id="单说隔离性"><a href="#单说隔离性" class="headerlink" title="单说隔离性"></a>单说隔离性</h2><p>隔离级别 解决脏读取、重复读、幻读</p>
 <ul>
 <li>DEFAULT：这是默认值，表示使用底层数据库的默认隔离级别。对大部分数据库而言，通常这值就是：READ_COMMITTED。</li>
 <li>READ_UNCOMMITTED：该隔离级别表示一个事务可以读取另一个事务修改但还没有提交的数据。该级别不能防止脏读和不可重复读，因此很少使用该隔离级别。</li>
@@ -530,6 +530,7 @@
 <p>个人推断，事务隔离级别应该和数据库锁相关，不可重复读需要行级锁，而幻读需要表级锁。<font color="red">这个需要进步一验证</font></p>
 <p>注意：这里说的都是数据库自身问题，如果在开发过程中，我们使用的ORM框架自身还有数据对象状态问题，例如：临时态、持久态、游离态。这些不正常处理可能会造成事务内操作出错。</p>
 <p>解决程序或数据库中类似的数据冲突问题，我们需要考虑程序锁或数据库错（无论怎样性能都将受到影响，需要合理设计），或者CAS操作（性能好，但是应用场景受限），这又将是个大话题，稍后再阐述吧。</p>
+<h2 id="进阶阅读"><a href="#进阶阅读" class="headerlink" title="进阶阅读"></a>进阶阅读</h2><p>这个<a href="https://www.jianshu.com/p/3673e612cce2" target="_blank" rel="noopener">文章</a>比我说的详细多了，pingcap团队的。 推荐阅读。</p>
 
       
     </div>
@@ -626,8 +627,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -760,6 +770,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ACID"><span class="nav-text">ACID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单说隔离性"><span class="nav-text">单说隔离性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶阅读"><span class="nav-text">进阶阅读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

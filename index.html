@@ -396,7 +396,7 @@
                 
               
 
-              <time title="Created: 2018-10-25 10:35:49 / Modified: 13:52:09" itemprop="dateCreated datePublished" datetime="2018-10-25T10:35:49+08:00">2018-10-25</time>
+              <time title="Created: 2018-10-25 10:35:49 / Modified: 14:09:22" itemprop="dateCreated datePublished" datetime="2018-10-25T10:35:49+08:00">2018-10-25</time>
             
 
             
@@ -466,7 +466,7 @@
       
         
           <p>事务，很基础的概念，但有很多细节是大家忽略的或者平时很少注意到的。这里总结一下：<br><a href="https://github.com/gino2010/javatech/tree/master/transaction" target="_blank" rel="noopener">实验工程</a> （这工程的实验代码尚不完整，再更新看心情了😛）</p>
-<p>先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱</p>
+<h2 id="ACID"><a href="#ACID" class="headerlink" title="ACID"></a>ACID</h2><p>先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱</p>
 <ul>
 <li>原子性（Atomicity） 操作原子性，同一个事务中要么所有操作都执行，要么都不执行。好理解</li>
 <li>一致性（Consistency） 一致性（经常和原子性混），原意是数据库从一个状态转换为另一个状态（完全不知所云哈？）。其实说的是写入数据必须复合数据库的相关约束，包括限制、级联、触发等（还不明白？）举个例：A外键关联B，一个事务试图插入B数据，但不插入与其关联的A记录，当然这是非法事务，它违反的就是一致性原则。</li>
