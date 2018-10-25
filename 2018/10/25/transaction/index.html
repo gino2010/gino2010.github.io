@@ -108,28 +108,25 @@
 
 
 
-  <meta name="description" content="近期给自己挖的技术坑有点多，我忍不住再挖一个，最近又了解到了云服务的相关技术（算是技术储备吧） What is OpenStack?OpenStack是被广泛使用的云操作系统，它管啥，如图：">
-<meta name="keywords" content="openstack,cloud">
+  <meta name="description" content="事务，很基础的概念，但有很多细节是大家忽略的或者平时很少注意到的。这里总结一下：实验工程 （这工程的实验代码尚不完整，再更新看心情了😛） 先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱  原子性（Atomicity） 操作原子性，同一个事务中要么所有操作都执行，要么都不执行。好理解 一致性（Consistency） 一致性（经常和原子性混），原意是数据库从一个状态转换为">
+<meta name="keywords" content="db">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenStack 从入门到继续">
-<meta property="og:url" content="http://gino2010.github.io/2018/10/11/openstack/index.html">
+<meta property="og:title" content="Transaction">
+<meta property="og:url" content="http://gino2010.github.io/2018/10/25/transaction/index.html">
 <meta property="og:site_name" content="Cube Life">
-<meta property="og:description" content="近期给自己挖的技术坑有点多，我忍不住再挖一个，最近又了解到了云服务的相关技术（算是技术储备吧） What is OpenStack?OpenStack是被广泛使用的云操作系统，它管啥，如图：">
+<meta property="og:description" content="事务，很基础的概念，但有很多细节是大家忽略的或者平时很少注意到的。这里总结一下：实验工程 （这工程的实验代码尚不完整，再更新看心情了😛） 先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱  原子性（Atomicity） 操作原子性，同一个事务中要么所有操作都执行，要么都不执行。好理解 一致性（Consistency） 一致性（经常和原子性混），原意是数据库从一个状态转换为">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://www.openstack.org/software/images/diagram/overview-diagram.svg">
-<meta property="og:image" content="http://gino2010.github.io/images/post/20181011/docker&openstack.png">
-<meta property="og:updated_time" content="2018-10-16T08:44:14.773Z">
+<meta property="og:updated_time" content="2018-10-25T04:05:00.242Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OpenStack 从入门到继续">
-<meta name="twitter:description" content="近期给自己挖的技术坑有点多，我忍不住再挖一个，最近又了解到了云服务的相关技术（算是技术储备吧） What is OpenStack?OpenStack是被广泛使用的云操作系统，它管啥，如图：">
-<meta name="twitter:image" content="https://www.openstack.org/software/images/diagram/overview-diagram.svg">
+<meta name="twitter:title" content="Transaction">
+<meta name="twitter:description" content="事务，很基础的概念，但有很多细节是大家忽略的或者平时很少注意到的。这里总结一下：实验工程 （这工程的实验代码尚不完整，再更新看心情了😛） 先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱  原子性（Atomicity） 操作原子性，同一个事务中要么所有操作都执行，要么都不执行。好理解 一致性（Consistency） 一致性（经常和原子性混），原意是数据库从一个状态转换为">
 
 
 
 
 
 
-  <link rel="canonical" href="http://gino2010.github.io/2018/10/11/openstack/"/>
+  <link rel="canonical" href="http://gino2010.github.io/2018/10/25/transaction/"/>
 
 
 
@@ -139,7 +136,7 @@
   };
 </script>
 
-  <title>OpenStack 从入门到继续 | Cube Life</title>
+  <title>Transaction | Cube Life</title>
   
 
 
@@ -354,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2018/10/11/openstack/">
+    <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2018/10/25/transaction/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gino Zhao">
@@ -371,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">OpenStack 从入门到继续
+          <h1 class="post-title" itemprop="name headline">Transaction
               
             
           </h1>
@@ -396,24 +393,12 @@
                 
               
 
-              <time title="Created: 2018-10-11 09:12:20" itemprop="dateCreated datePublished" datetime="2018-10-11T09:12:20+08:00">2018-10-11</time>
+              <time title="Created: 2018-10-25 10:35:49 / Modified: 12:05:00" itemprop="dateCreated datePublished" datetime="2018-10-25T10:35:49+08:00">2018-10-25</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-10-16 16:44:14" itemprop="dateModified" datetime="2018-10-16T16:44:14+08:00">2018-10-16</time>
               
             
           </span>
@@ -445,10 +430,10 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/10/11/openstack/#comments" itemprop="discussionUrl">
+                <a href="/2018/10/25/transaction/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/10/11/openstack/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/10/25/transaction/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -484,26 +469,67 @@
       
 
       
-        <p>近期给自己挖的技术坑有点多，我忍不住再挖一个，最近又了解到了云服务的相关技术（算是技术储备吧）</p>
-<h2 id="What-is-OpenStack"><a href="#What-is-OpenStack" class="headerlink" title="What is OpenStack?"></a>What is OpenStack?</h2><p><a href="https://www.openstack.org" target="_blank" rel="noopener">OpenStack</a>是被广泛使用的云操作系统，它管啥，如图：<br><img src="https://www.openstack.org/software/images/diagram/overview-diagram.svg" alt=""></p>
-<a id="more"></a>
-<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><p>所有组件详见：<br><a href="https://www.openstack.org/software/project-navigator/openstack-components#operations-services" target="_blank" rel="noopener">网站列出的所有组件</a></p>
-<p>找几个介绍多的，简单说一下</p>
-<h3 id="HORIZON"><a href="#HORIZON" class="headerlink" title="HORIZON"></a><a href="https://www.openstack.org/software/releases/rocky/components/horizon" target="_blank" rel="noopener">HORIZON</a></h3><p>前端Web管理界面，包括Dashboard控件展示，便于用户对相关服务进行操作</p>
-<h3 id="NOVA"><a href="#NOVA" class="headerlink" title="NOVA"></a><a href="https://www.openstack.org/software/releases/rocky/components/nova" target="_blank" rel="noopener">NOVA</a></h3><p>计算服务,应该是管理计算资源的组件，提供相应的管理服务</p>
-<h3 id="NEUTRON"><a href="#NEUTRON" class="headerlink" title="NEUTRON"></a><a href="https://www.openstack.org/software/releases/rocky/components/neutron" target="_blank" rel="noopener">NEUTRON</a></h3><p>提供云计算的网络虚拟化技术，为OpenStack其他服务提供网络连接服务，实现SDN</p>
-<h3 id="SWIFT"><a href="#SWIFT" class="headerlink" title="SWIFT"></a><a href="https://www.openstack.org/software/releases/rocky/components/swift" target="_blank" rel="noopener">SWIFT</a></h3><p>Swift是高可用、分布式、最终一致性的对象存储，具体文件对象</p>
-<h3 id="CINDER"><a href="#CINDER" class="headerlink" title="CINDER"></a><a href="https://www.openstack.org/software/releases/rocky/components/cinder" target="_blank" rel="noopener">CINDER</a></h3><p>块存储服务，更像是硬盘，数据卷</p>
-<h3 id="KEYSTONE"><a href="#KEYSTONE" class="headerlink" title="KEYSTONE"></a><a href="https://www.openstack.org/software/releases/rocky/components/keystone" target="_blank" rel="noopener">KEYSTONE</a></h3><p>认证服务，支持LDAP Oauth OpenID等</p>
-<h3 id="GLANCE"><a href="#GLANCE" class="headerlink" title="GLANCE"></a><a href="https://www.openstack.org/software/releases/rocky/components/glance" target="_blank" rel="noopener">GLANCE</a></h3><p>镜像服务，不通的操作系统镜像</p>
-<h3 id="HEAT"><a href="#HEAT" class="headerlink" title="HEAT"></a><a href="https://www.openstack.org/software/releases/rocky/components/heat" target="_blank" rel="noopener">HEAT</a></h3><p>编排架构资源</p>
-<p>不通场景中需要不通的服务来构建，可以参考<a href="https://www.openstack.org/software/sample-configs" target="_blank" rel="noopener">sample configurations</a></p>
-<h2 id="What-is-the-relationship-between-Docker-and-OpenStack"><a href="#What-is-the-relationship-between-Docker-and-OpenStack" class="headerlink" title="What is the relationship between Docker and OpenStack"></a>What is the relationship between Docker and OpenStack</h2><p><img src="/images/post/20181011/docker&amp;openstack.png" alt=""></p>
+        <p>事务，很基础的概念，但有很多细节是大家忽略的或者平时很少注意到的。这里总结一下：<br><a href="https://github.com/gino2010/javatech/tree/master/transaction" target="_blank" rel="noopener">实验工程</a> （这工程的实验代码尚不完整，再更新看心情了😛）</p>
+<p>先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱</p>
 <ul>
-<li>Docker 主要针对 Paas 平台，是以应用为中心。</li>
-<li>OpenStack 主要针对 Iaas 平台，以资源为中心，可以为上层的 PaaS 平台提供存储、网络、计算等资源。</li>
+<li>原子性（Atomicity） 操作原子性，同一个事务中要么所有操作都执行，要么都不执行。好理解</li>
+<li>一致性（Consistency） 一致性（经常和原子性混），原意是数据库从一个状态转换为另一个状态（完全不知所云哈？）。其实说的是写入数据必须复合数据库的相关约束，包括限制、级联、触发等（还不明白？）举个例：A外键关联B，一个事务试图插入B数据，但不插入与其关联的A记录，当然这是非法事务，它违反的就是一致性原则。</li>
+<li>隔离性（Isolation） 隔离型决定了，是否可以避免脏读、不可重复读、幻读，这个下面来深入说明，这个也很少有人关注过</li>
+<li>持久性（Durability） 持久性，这个强调的是commit后不要存在内存中，commit要求写入硬盘，当然也就不丢了</li>
 </ul>
-<p>这个话题先开个头，后面有机会再继续深入吧。</p>
+<p><a href="https://en.wikipedia.org/wiki/ACID" target="_blank" rel="noopener">参考</a><br><a id="more"></a></p>
+<p>单说隔离性<br>隔离级别 解决脏读取、重复读、幻读</p>
+<ul>
+<li>DEFAULT：这是默认值，表示使用底层数据库的默认隔离级别。对大部分数据库而言，通常这值就是：READ_COMMITTED。</li>
+<li>READ_UNCOMMITTED：该隔离级别表示一个事务可以读取另一个事务修改但还没有提交的数据。该级别不能防止脏读和不可重复读，因此很少使用该隔离级别。</li>
+<li>READ_COMMITTED：该隔离级别表示一个事务只能读取另一个事务已经提交的数据。该级别可以防止脏读，这也是大多数情况下的推荐值。</li>
+<li>REPEATABLE_READ：该隔离级别表示一个事务在整个过程中可以多次重复执行某个查询，并且每次返回的记录都相同。即使在多次查询之间有新增的数据满足该查询，这些新增的记录也会被忽略。该级别可以防止脏读和不可重复读。</li>
+<li>SERIALIZABLE：所有的事务依次逐个执行，这样事务之间就完全不可能产生干扰，也就是说，该级别可以防止脏读、不可重复读以及幻读。但是这将严重影响程序的性能。通常情况下也不会用到该级别。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">脏读</th>
+<th style="text-align:center">不可重复读</th>
+<th style="text-align:center">幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>READ_UNCOMMITTED</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+</tr>
+<tr>
+<td>READ_COMMITTED</td>
+<td style="text-align:center">❎</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+</tr>
+<tr>
+<td>REPEATABLE_READ</td>
+<td style="text-align:center">❎</td>
+<td style="text-align:center">❎</td>
+<td style="text-align:center">✅</td>
+</tr>
+<tr>
+<td>SERIALIZABLE</td>
+<td style="text-align:center">❎</td>
+<td style="text-align:center">❎</td>
+<td style="text-align:center">❎</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>脏读（Dirty Read）：A事务进行中读到了B事务尚未commit的数据</li>
+<li>不可重复读(Fuzzy/Non-Repeatable Read) : A事务进行中第一次读取，B事务提交更新数据，A事务再次读取，数据不一致</li>
+<li>幻读（Phantom Read）：A事务读取了M跳数据，B事务插入数据N条提交，A事务再次读取发现为M+N条</li>
+</ul>
+<p>个人推断，事务隔离级别应该和数据库锁相关，不可重复读需要行级锁，而幻读需要表级锁。<font color="red">这个需要进步一验证</font></p>
+<p>注意：这里说的都是数据库自身问题，如果在开发过程中，我们使用的ORM框架自身还有数据对象状态问题，例如：临时态、持久态、游离态。这些不正常处理可能会造成事务内操作出错。</p>
+<p>解决程序或数据库中类似的数据冲突问题，我们需要考虑程序锁或数据库错（无论怎样性能都将受到影响，需要合理设计），这又将是个大话题，稍后再阐述吧。</p>
 
       
     </div>
@@ -524,9 +550,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/openstack/" rel="tag"># openstack</a>
-          
-            <a href="/tags/cloud/" rel="tag"># cloud</a>
+            <a href="/tags/db/" rel="tag"># db</a>
           
         </div>
       
@@ -539,8 +563,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/29/okr/" rel="next" title="我的OKR(2018.10)">
-                <i class="fa fa-chevron-left"></i> 我的OKR(2018.10)
+              <a href="/2018/10/22/distributed-lock/" rel="next" title="Distributed Lock">
+                <i class="fa fa-chevron-left"></i> Distributed Lock
               </a>
             
           </div>
@@ -548,10 +572,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/16/mq/" rel="prev" title="Message Queue 初探">
-                Message Queue 初探 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -606,17 +626,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -749,22 +760,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-OpenStack"><span class="nav-text">What is OpenStack?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Components"><span class="nav-text">Components</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HORIZON"><span class="nav-text">HORIZON</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NOVA"><span class="nav-text">NOVA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NEUTRON"><span class="nav-text">NEUTRON</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SWIFT"><span class="nav-text">SWIFT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CINDER"><span class="nav-text">CINDER</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KEYSTONE"><span class="nav-text">KEYSTONE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GLANCE"><span class="nav-text">GLANCE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HEAT"><span class="nav-text">HEAT</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-the-relationship-between-Docker-and-OpenStack"><span class="nav-text">What is the relationship between Docker and OpenStack</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -934,9 +929,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://gino2010.github.io/2018/10/11/openstack/';
-        this.page.identifier = '2018/10/11/openstack/';
-        this.page.title = 'OpenStack 从入门到继续';
+        this.page.url = 'http://gino2010.github.io/2018/10/25/transaction/';
+        this.page.identifier = '2018/10/25/transaction/';
+        this.page.title = 'Transaction';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

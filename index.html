@@ -350,6 +350,188 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2018/10/25/transaction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gino Zhao">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cube Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/25/transaction/" itemprop="url">
+                  Transaction
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-10-25 10:35:49 / Modified: 12:05:00" itemprop="dateCreated datePublished" datetime="2018-10-25T10:35:49+08:00">2018-10-25</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/25/transaction/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/10/25/transaction/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>事务，很基础的概念，但有很多细节是大家忽略的或者平时很少注意到的。这里总结一下：<br><a href="https://github.com/gino2010/javatech/tree/master/transaction" target="_blank" rel="noopener">实验工程</a> （这工程的实验代码尚不完整，再更新看心情了😛）</p>
+<p>先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱</p>
+<ul>
+<li>原子性（Atomicity） 操作原子性，同一个事务中要么所有操作都执行，要么都不执行。好理解</li>
+<li>一致性（Consistency） 一致性（经常和原子性混），原意是数据库从一个状态转换为另一个状态（完全不知所云哈？）。其实说的是写入数据必须复合数据库的相关约束，包括限制、级联、触发等（还不明白？）举个例：A外键关联B，一个事务试图插入B数据，但不插入与其关联的A记录，当然这是非法事务，它违反的就是一致性原则。</li>
+<li>隔离性（Isolation） 隔离型决定了，是否可以避免脏读、不可重复读、幻读，这个下面来深入说明，这个也很少有人关注过</li>
+<li>持久性（Durability） 持久性，这个强调的是commit后不要存在内存中，commit要求写入硬盘，当然也就不丢了</li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/ACID" target="_blank" rel="noopener">参考</a><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/25/transaction/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2018/10/22/distributed-lock/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1678,7 +1860,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1734,7 +1916,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
