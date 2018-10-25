@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Cube Life">
 <meta property="og:description" content="事务，很基础的概念，但有很多细节是大家忽略的或者平时很少注意到的。这里总结一下：实验工程 （这工程的实验代码尚不完整，再更新看心情了😛） 先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱  原子性（Atomicity） 操作原子性，同一个事务中要么所有操作都执行，要么都不执行。好理解 一致性（Consistency） 一致性（经常和原子性混），原意是数据库从一个状态转换为">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-25T04:05:00.242Z">
+<meta property="og:updated_time" content="2018-10-25T05:52:09.041Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Transaction">
 <meta name="twitter:description" content="事务，很基础的概念，但有很多细节是大家忽略的或者平时很少注意到的。这里总结一下：实验工程 （这工程的实验代码尚不完整，再更新看心情了😛） 先说ACID，工程里说自查度娘，还是算了吧，我还是解释一下吧，度娘不靠谱  原子性（Atomicity） 操作原子性，同一个事务中要么所有操作都执行，要么都不执行。好理解 一致性（Consistency） 一致性（经常和原子性混），原意是数据库从一个状态转换为">
@@ -393,7 +393,7 @@
                 
               
 
-              <time title="Created: 2018-10-25 10:35:49 / Modified: 12:05:00" itemprop="dateCreated datePublished" datetime="2018-10-25T10:35:49+08:00">2018-10-25</time>
+              <time title="Created: 2018-10-25 10:35:49 / Modified: 13:52:09" itemprop="dateCreated datePublished" datetime="2018-10-25T10:35:49+08:00">2018-10-25</time>
             
 
             
@@ -529,7 +529,7 @@
 </ul>
 <p>个人推断，事务隔离级别应该和数据库锁相关，不可重复读需要行级锁，而幻读需要表级锁。<font color="red">这个需要进步一验证</font></p>
 <p>注意：这里说的都是数据库自身问题，如果在开发过程中，我们使用的ORM框架自身还有数据对象状态问题，例如：临时态、持久态、游离态。这些不正常处理可能会造成事务内操作出错。</p>
-<p>解决程序或数据库中类似的数据冲突问题，我们需要考虑程序锁或数据库错（无论怎样性能都将受到影响，需要合理设计），这又将是个大话题，稍后再阐述吧。</p>
+<p>解决程序或数据库中类似的数据冲突问题，我们需要考虑程序锁或数据库错（无论怎样性能都将受到影响，需要合理设计），或者CAS操作（性能好，但是应用场景受限），这又将是个大话题，稍后再阐述吧。</p>
 
       
     </div>
