@@ -109,23 +109,25 @@
 
 
 
-  <meta name="description" content="Stay Hungry, Stay Foolish.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Cube Life">
-<meta property="og:url" content="http://gino2010.github.io/tags/Java/index.html">
+  <meta name="description" content="关于Spring Cloud家族中的注册发现服务，一直想了解一下对比情况，今天无意间发现这个对比文章，简单直接，可以给你一个直观的初步认识。转载原地址：服务发现比较:Consul vs Zookeeper vs Etcd vs Eureka这里仅贴出总结表格，稍作调整。其它内容请参见原文    Feature Consul zookeeper etcd euerka     服务健康检查 服务状态">
+<meta name="keywords" content="spring cloud,CAP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Register &amp; Discovery">
+<meta property="og:url" content="http://gino2010.github.io/2018/10/29/register-discovery/index.html">
 <meta property="og:site_name" content="Cube Life">
-<meta property="og:description" content="Stay Hungry, Stay Foolish.">
+<meta property="og:description" content="关于Spring Cloud家族中的注册发现服务，一直想了解一下对比情况，今天无意间发现这个对比文章，简单直接，可以给你一个直观的初步认识。转载原地址：服务发现比较:Consul vs Zookeeper vs Etcd vs Eureka这里仅贴出总结表格，稍作调整。其它内容请参见原文    Feature Consul zookeeper etcd euerka     服务健康检查 服务状态">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-29T02:25:13.812Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cube Life">
-<meta name="twitter:description" content="Stay Hungry, Stay Foolish.">
+<meta name="twitter:title" content="Register &amp; Discovery">
+<meta name="twitter:description" content="关于Spring Cloud家族中的注册发现服务，一直想了解一下对比情况，今天无意间发现这个对比文章，简单直接，可以给你一个直观的初步认识。转载原地址：服务发现比较:Consul vs Zookeeper vs Etcd vs Eureka这里仅贴出总结表格，稍作调整。其它内容请参见原文    Feature Consul zookeeper etcd euerka     服务健康检查 服务状态">
 
 
 
 
 
 
-  <link rel="canonical" href="http://gino2010.github.io/tags/Java/"/>
+  <link rel="canonical" href="http://gino2010.github.io/2018/10/29/register-discovery/"/>
 
 
 
@@ -135,7 +137,7 @@
   };
 </script>
 
-  <title>Tag: Java | Cube Life</title>
+  <title>Register & Discovery | Cube Life</title>
   
 
 
@@ -190,7 +192,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,7 +241,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
   </li>
@@ -283,28 +285,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -364,58 +344,311 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Java<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2018/10/29/register-discovery/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gino Zhao">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cube Life">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/09/27/Java-11/" itemprop="url">
-              
-                <span itemprop="name">Java 11</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Register & Discovery
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-27T09:56:46+08:00"
-              content="2018-09-27" >
-          09-27
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-10-29 09:52:26 / Modified: 10:25:13" itemprop="dateCreated datePublished" datetime="2018-10-29T09:52:26+08:00">2018-10-29</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/29/register-discovery/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/10/29/register-discovery/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>关于Spring Cloud家族中的注册发现服务，一直想了解一下对比情况，今天无意间发现这个对比文章，简单直接，可以给你一个直观的初步认识。<br>转载原地址：<a href="https://luyiisme.github.io/2017/04/22/spring-cloud-service-discovery-products/" target="_blank" rel="noopener">服务发现比较:Consul vs Zookeeper vs Etcd vs Eureka</a><br>这里仅贴出总结表格，稍作调整。其它内容请参见原文</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Consul</th>
+<th>zookeeper</th>
+<th>etcd</th>
+<th>euerka</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>服务健康检查</td>
+<td>服务状态，内存，硬盘等</td>
+<td>(弱)长连接，keepalive</td>
+<td>连接心跳</td>
+<td>可配支持</td>
+</tr>
+<tr>
+<td>多数据中心</td>
+<td>支持</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>kv存储服务</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>—</td>
+</tr>
+<tr>
+<td>一致性</td>
+<td>raft</td>
+<td>zab</td>
+<td>raft</td>
+<td>—</td>
+</tr>
+<tr>
+<td>CAP</td>
+<td>ca</td>
+<td>cp</td>
+<td>cp</td>
+<td>ap</td>
+</tr>
+<tr>
+<td>使用接口(多语言能力)</td>
+<td>支持http和dns</td>
+<td>客户端</td>
+<td>http/grpc</td>
+<td>http（sidecar）</td>
+</tr>
+<tr>
+<td>watch支持</td>
+<td>全量/支持long polling</td>
+<td>支持</td>
+<td>支持 long polling</td>
+<td>支持 long polling/大部分增量</td>
+</tr>
+<tr>
+<td>自身监控</td>
+<td>metrics</td>
+<td>—</td>
+<td>metrics</td>
+<td>metrics</td>
+</tr>
+<tr>
+<td>安全</td>
+<td>acl/https</td>
+<td>acl</td>
+<td>https支持（弱）</td>
+<td>—</td>
+</tr>
+<tr>
+<td>spring cloud集成</td>
+<td>已支持</td>
+<td>已支持</td>
+<td>已支持</td>
+<td>已支持，2.0闭源</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<p>感谢原作者的分享，并贴出与其文中一处不一样的观点，zookeeper的一致性协议不是Paxos，应该是ZAB。<br>此观点依据：<a href="https://www.elastic.co/blog/found-zookeeper-king-of-coordination#consistency-algorithm" target="_blank" rel="noopener">The core consensus algorithm of ZooKeeper is not Paxos</a></p>
+<p>另外，euerka宣布2.0闭源后，目前来看Consul是替代euerka一个不错的方案。</p>
+<h2 id="CAP-简单解释"><a href="#CAP-简单解释" class="headerlink" title="CAP 简单解释"></a>CAP 简单解释</h2><ul>
+<li>一致性(Consistency) (所有节点在同一时间具有相同的数据，客户端请求到同样的数据结果)</li>
+<li>可用性(Availability) (保证每个请求不管成功或者失败都有响应)</li>
+<li>分隔容忍(Partition tolerance) (系统中任意信息的丢失或失败不会影响系统的继续运作)</li>
+</ul>
+<p>CAP 不可能全都同时满足，这个已经被证明过了，这里先记住结论吧，具体解释网上文章很多。</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/spring-cloud/" rel="tag"># spring cloud</a>
+          
+            <a href="/tags/CAP/" rel="tag"># CAP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/28/five-events/" rel="next" title="Five Events of Scrum">
+                <i class="fa fa-chevron-left"></i> Five Events of Scrum
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -436,8 +669,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -582,6 +824,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CAP-简单解释"><span class="nav-text">CAP 简单解释</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -730,6 +988,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
 
   
 
@@ -744,6 +1006,37 @@
     <script id="dsq-count-scr" src="https://myblog-orNkC9OX7o.disqus.com/count.js" async></script>
   
 
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://gino2010.github.io/2018/10/29/register-discovery/';
+        this.page.identifier = '2018/10/29/register-discovery/';
+        this.page.title = 'Register & Discovery';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://myblog-orNkC9OX7o.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        $(function () {
+          var offsetTop = $('#comments').offset().top - $(window).height();
+          if (offsetTop <= 0) {
+            // load directly when there's no a scrollbar
+            loadComments();
+          } else {
+            $(window).on('scroll.disqus_scroll', function () {
+              var scrollTop = document.documentElement.scrollTop;
+              if (scrollTop >= offsetTop) {
+                $(window).off('.disqus_scroll');
+                loadComments();
+              }
+            });
+          }
+        });
+      
+    </script>
   
 
 
