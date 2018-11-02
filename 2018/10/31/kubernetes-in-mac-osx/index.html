@@ -109,24 +109,34 @@
 
 
 
-  <meta name="description" content="Stay Hungry, Stay Foolish.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://gino2010.github.io/tags/index.html">
+  <meta name="description" content="折腾了许久，终于在我的苹果系统上安装上了kubernetes（k8s），可以开始实战了。 由于国内网络限制原因，你想安装Google资源下的k8s十分困难，你需要VPN，比较简单直接。开始在Ubuntu Server上折腾了一下，有点麻烦，而我主要是想体会一下使用效果，最后还是决定采用Mac OSX下Docker中的k8s试试，当然它的安装也需要VPN工具。 通过Docker内部自带的k8s安装，">
+<meta name="keywords" content="docker,k8s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes in Mac OSX 初探">
+<meta property="og:url" content="http://gino2010.github.io/2018/10/31/kubernetes-in-mac-osx/index.html">
 <meta property="og:site_name" content="Cube Life">
-<meta property="og:description" content="Stay Hungry, Stay Foolish.">
+<meta property="og:description" content="折腾了许久，终于在我的苹果系统上安装上了kubernetes（k8s），可以开始实战了。 由于国内网络限制原因，你想安装Google资源下的k8s十分困难，你需要VPN，比较简单直接。开始在Ubuntu Server上折腾了一下，有点麻烦，而我主要是想体会一下使用效果，最后还是决定采用Mac OSX下Docker中的k8s试试，当然它的安装也需要VPN工具。 通过Docker内部自带的k8s安装，">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2016-07-30T16:53:26.000Z">
+<meta property="og:image" content="http://gino2010.github.io/images/post/20181031/enable.png">
+<meta property="og:image" content="http://gino2010.github.io/images/post/20181031/start.png">
+<meta property="og:image" content="http://gino2010.github.io/images/post/20181031/overview.png">
+<meta property="og:image" content="http://gino2010.github.io/images/post/20181031/deployment.png">
+<meta property="og:image" content="http://gino2010.github.io/images/post/20181031/replica%20set.png">
+<meta property="og:image" content="http://gino2010.github.io/images/post/20181031/pod.png">
+<meta property="og:image" content="http://gino2010.github.io/images/post/20181031/service.png">
+<meta property="og:image" content="http://gino2010.github.io/images/post/20181031/istio.png">
+<meta property="og:updated_time" content="2018-11-02T08:04:59.384Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="Stay Hungry, Stay Foolish.">
+<meta name="twitter:title" content="Kubernetes in Mac OSX 初探">
+<meta name="twitter:description" content="折腾了许久，终于在我的苹果系统上安装上了kubernetes（k8s），可以开始实战了。 由于国内网络限制原因，你想安装Google资源下的k8s十分困难，你需要VPN，比较简单直接。开始在Ubuntu Server上折腾了一下，有点麻烦，而我主要是想体会一下使用效果，最后还是决定采用Mac OSX下Docker中的k8s试试，当然它的安装也需要VPN工具。 通过Docker内部自带的k8s安装，">
+<meta name="twitter:image" content="http://gino2010.github.io/images/post/20181031/enable.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://gino2010.github.io/tags/"/>
+  <link rel="canonical" href="http://gino2010.github.io/2018/10/31/kubernetes-in-mac-osx/"/>
 
 
 
@@ -136,7 +146,7 @@
   };
 </script>
 
-  <title>tags | Cube Life</title>
+  <title>Kubernetes in Mac OSX 初探 | Cube Life</title>
   
 
 
@@ -240,7 +250,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
   </li>
@@ -284,28 +294,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -367,134 +355,251 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2018/10/31/kubernetes-in-mac-osx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gino Zhao">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cube Life">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">tags</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                20 tags in total
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/ActiveMQ/" style="font-size: 12px; color: #ccc">ActiveMQ</a> <a href="/tags/CAP/" style="font-size: 12px; color: #ccc">CAP</a> <a href="/tags/Java/" style="font-size: 30px; color: #111">Java</a> <a href="/tags/Kafka/" style="font-size: 12px; color: #ccc">Kafka</a> <a href="/tags/MQ/" style="font-size: 12px; color: #ccc">MQ</a> <a href="/tags/OKR/" style="font-size: 12px; color: #ccc">OKR</a> <a href="/tags/RabbitMQ/" style="font-size: 12px; color: #ccc">RabbitMQ</a> <a href="/tags/cloud/" style="font-size: 12px; color: #ccc">cloud</a> <a href="/tags/db/" style="font-size: 12px; color: #ccc">db</a> <a href="/tags/docker/" style="font-size: 12px; color: #ccc">docker</a> <a href="/tags/financial/" style="font-size: 12px; color: #ccc">financial</a> <a href="/tags/k8s/" style="font-size: 12px; color: #ccc">k8s</a> <a href="/tags/middleware/" style="font-size: 12px; color: #ccc">middleware</a> <a href="/tags/mysql/" style="font-size: 12px; color: #ccc">mysql</a> <a href="/tags/openstack/" style="font-size: 12px; color: #ccc">openstack</a> <a href="/tags/others/" style="font-size: 12px; color: #ccc">others</a> <a href="/tags/redis/" style="font-size: 12px; color: #ccc">redis</a> <a href="/tags/scrum/" style="font-size: 12px; color: #ccc">scrum</a> <a href="/tags/spring-cloud/" style="font-size: 12px; color: #ccc">spring cloud</a> <a href="/tags/zookeeper/" style="font-size: 30px; color: #111">zookeeper</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">Kubernetes in Mac OSX 初探
+              
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-10-31 16:05:54" itemprop="dateCreated datePublished" datetime="2018-10-31T16:05:54+08:00">2018-10-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-11-02 16:04:59" itemprop="dateModified" datetime="2018-11-02T16:04:59+08:00">2018-11-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/31/kubernetes-in-mac-osx/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/10/31/kubernetes-in-mac-osx/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>折腾了许久，终于在我的苹果系统上安装上了kubernetes（k8s），可以开始实战了。</p>
+<p>由于国内网络限制原因，你想安装Google资源下的k8s十分困难，你需要VPN，比较简单直接。<br>开始在Ubuntu Server上折腾了一下，有点麻烦，而我主要是想体会一下使用效果，最后还是决定采用Mac OSX下Docker中的k8s试试，当然它的安装也需要VPN工具。</p>
+<p>通过Docker内部自带的k8s安装，简单方便，不需要考虑minikube和virtual box或者其它虚拟化驱动（这里就直接跳过了，毕竟我也没有深入研究）<br>安装后的k8s是但节点环境，所以默写细节功能与集群有差别，这个我需要慢慢体会。</p>
+<a id="more"></a>
+<h2 id="启动Docker-下的-Kubernetes"><a href="#启动Docker-下的-Kubernetes" class="headerlink" title="启动Docker 下的 Kubernetes"></a>启动Docker 下的 Kubernetes</h2><p>很简单，如图所示，enable apply running<br><img src="/images/post/20181031/enable.png" alt=""></p>
+<h2 id="查看基本信息"><a href="#查看基本信息" class="headerlink" title="查看基本信息"></a>查看基本信息</h2><p>查看版本，得到如下信息<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ kubectl version</span><br><span class="line">Client Version: version.Info&#123;Major:"1", Minor:"10", GitVersion:"v1.10.3", GitCommit:"2bba0127d85d5a46ab4b778548be28623b32d0b0", GitTreeState:"clean", BuildDate:"2018-05-21T09:17:39Z", GoVersion:"go1.9.3", Compiler:"gc", Platform:"darwin/amd64"&#125;</span><br><span class="line">Server Version: version.Info&#123;Major:"1", Minor:"10", GitVersion:"v1.10.3", GitCommit:"2bba0127d85d5a46ab4b778548be28623b32d0b0", GitTreeState:"clean", BuildDate:"2018-05-21T09:05:37Z", GoVersion:"go1.9.3", Compiler:"gc", Platform:"linux/amd64"&#125;</span><br><span class="line">➜  ~ kubectl config current-context</span><br><span class="line">docker-for-desktop</span><br></pre></td></tr></table></figure></p>
+<p>分别为Client 和 Server版本，其中Platform，client是darwin/amd64，Server是linux/amd64</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ kubectl cluster-info</span><br><span class="line">Kubernetes master is running at https://localhost:6443</span><br><span class="line">KubeDNS is running at https://localhost:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy</span><br><span class="line">➜  ~ kubectl get nodes</span><br><span class="line">NAME                 STATUS    ROLES     AGE       VERSION</span><br><span class="line">docker-for-desktop   Ready     master    20h       v1.10.3</span><br></pre></td></tr></table></figure>
+<p>本机只有一个节点</p>
+<h2 id="Dashboard"><a href="#Dashboard" class="headerlink" title="Dashboard"></a>Dashboard</h2><p>管理上，目前我看到两种方式</p>
+<ul>
+<li>通过kubectl命令的方式进行管理，主要维护方式</li>
+<li>通过Dashboard进行管理， 主要是查看方式</li>
+</ul>
+<p>安装Dashboard：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml</span><br></pre></td></tr></table></figure></p>
+<p>查看Dashboard所在namespace中pod信息，需要指明namespace，否则查看的是default namespace下的pods：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ kubectl get pods --namespace=kube-system</span><br><span class="line">NAME                                         READY     STATUS    RESTARTS   AGE</span><br><span class="line">etcd-docker-for-desktop                      1/1       Running   5          1d</span><br><span class="line">kube-apiserver-docker-for-desktop            1/1       Running   5          1d</span><br><span class="line">kube-controller-manager-docker-for-desktop   1/1       Running   3          1d</span><br><span class="line">kube-dns-86f4d74b45-r9w7b                    3/3       Running   0          1d</span><br><span class="line">kube-proxy-mzrx2                             1/1       Running   0          1d</span><br><span class="line">kube-scheduler-docker-for-desktop            1/1       Running   3          1d</span><br><span class="line">kubernetes-dashboard-7b9c7bc8c9-zkgzk        1/1       Running   2          1d</span><br></pre></td></tr></table></figure></p>
+<p>开启proxy，开始访问dashboard服务<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ kubectl proxy</span><br></pre></td></tr></table></figure></p>
+<p>浏览器打开：<br><a href="http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy" target="_blank" rel="noopener">http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy</a></p>
+<p>或者使用kubctl prot-forward 将dashboard pod运行的端口暴露出来进行访问<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ kubectl port-forward pods/kubernetes-dashboard-7b9c7bc8c9-zkgzk 8443:8443 --namespace kube-system</span><br></pre></td></tr></table></figure></p>
+<p>浏览器访问：<a href="https://127.0.0.1:8443，注意chrome提示你证书安全问题，直接unsafe方式访问吧" target="_blank" rel="noopener">https://127.0.0.1:8443，注意chrome提示你证书安全问题，直接unsafe方式访问吧</a></p>
+<p><img src="/images/post/20181031/start.png" alt=""></p>
+<p>选择跳过，具体可以做什么，我还没有弄清楚，如果稍后了解，我再更新</p>
+<p>我们可以看到纵览页面</p>
+<p><img src="/images/post/20181031/overview.png" alt=""><br>这里截图是，我已经尝试部署了nginx pod，所以多了一些信息</p>
+<h2 id="用nginx部署-实战一下"><a href="#用nginx部署-实战一下" class="headerlink" title="用nginx部署 实战一下"></a>用nginx部署 实战一下</h2><p>可以通过以下指令，部署一个pod<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ kubectl run hello-nginx --image=nginx --port=80</span><br><span class="line"></span><br><span class="line">➜  ~ kubectl get deployment</span><br><span class="line">NAME          DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE</span><br><span class="line">hello-nginx   1         1         1            1           1d</span><br></pre></td></tr></table></figure></p>
+<p>说到这里就有三个基本概念不得不说了，通过系统页面中给出的连接，我们针对nginx这个部署，看到以下这三个不同的内容<br>这里我的理解尚浅，可能有描述不准确地方，欢迎告知</p>
+<ul>
+<li>deployment 用于管理 replica sets 和 pods，您只需要在 Deployment 中描述您想要的目标状态是什么，Deployment controller 就会帮您将 Pod 和ReplicaSet 的实际状态改变到您的目标状态。<br><img src="/images/post/20181031/deployment.png" alt=""> </li>
+<li>replica set 副本，用来确保容器应用的副本数始终保持在用户定义的副本数，即如果有容器异常退出，会自动创建新的Pod来替代；而如果异常多出来的容器也会自动回收。<br><img src="/images/post/20181031/replica set.png" alt=""> </li>
+<li>pod 是kubernetes中你可以创建和部署的最小也是最简的单位。一个Pod代表着集群中运行的一个进程。pod里面饱含着docker的容器<br><img src="/images/post/20181031/pod.png" alt=""><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ docker ps | grep nginx</span><br><span class="line">66f968b67cf5  nginx   "nginx -g 'daemon of…"   7 hours ago  Up 7 hours   k8s_hello-nginx_hello-nginx-6584d58b4c-gvk5b_default_f21fbf54-dce9-11e8-b679-025000000001_0</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>请注意这里的6584d58b4c-gvk5b，和对应的pod的名字中的编号一致</p>
+<p>好了，这样几个基本概念就都连起来了。</p>
+<p>怎么可以访问到这个nginx服务呢，这就需要引入service概念，我们将pod运行的实例暴露成服务<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ kubectl expose deployment hello-nginx --type=NodePort --name=hello-nginx-service</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/post/20181031/service.png" alt=""><br>命令行可以通过以下指令查看<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ kubectl get service                                                             </span><br><span class="line">NAME                  TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE</span><br><span class="line">hello-nginx-service   NodePort    10.99.167.149   &lt;none&gt;        8010:32340/TCP   1m</span><br><span class="line">kubernetes            ClusterIP   10.96.0.1       &lt;none&gt;        443/TCP          2d</span><br></pre></td></tr></table></figure></p>
+<p>问题，是我并没有成功访问localhost:32340，这个我需要再看看。</p>
+<h2 id="安装-istio"><a href="#安装-istio" class="headerlink" title="安装 istio"></a>安装 istio</h2><p>根据官方文档，我们可以很快部署istio pods<br><a href="https://istio.io/docs/setup/kubernetes/quick-start/" target="_blank" rel="noopener">https://istio.io/docs/setup/kubernetes/quick-start/</a></p>
+<p>下载istio文件后，在其目录下运行<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f install/kubernetes/helm/istio/templates/crds.yaml</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/post/20181031/istio.png" alt=""><br>这部分我还需要继续实验下去，找时间继续更新。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>kubernetes 的复杂程度超出了我对其的猜测，里面的知识点很多，需要花很多精力去深入进去，初步感觉还是挺有意思的。</p>
+<p>参考网站：<a href="https://wilbeibi.com/2018/02/2018-02-19_kub_mac/" target="_blank" rel="noopener">wilbeibi</a> <a href="https://jimmysong.io/kubernetes-handbook/concepts/pod-overview.html" target="_blank" rel="noopener">jimmysong</a></p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/docker/" rel="tag"># docker</a>
+          
+            <a href="/tags/k8s/" rel="tag"># k8s</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/31/java-11-license/" rel="next" title="Java 11 License">
+                <i class="fa fa-chevron-left"></i> Java 11 License
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -534,8 +639,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -684,6 +798,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启动Docker-下的-Kubernetes"><span class="nav-text">启动Docker 下的 Kubernetes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看基本信息"><span class="nav-text">查看基本信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dashboard"><span class="nav-text">Dashboard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用nginx部署-实战一下"><span class="nav-text">用nginx部署 实战一下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-istio"><span class="nav-text">安装 istio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -853,9 +983,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://gino2010.github.io/tags/index.html';
-        this.page.identifier = 'tags/index.html';
-        this.page.title = 'tags';
+        this.page.url = 'http://gino2010.github.io/2018/10/31/kubernetes-in-mac-osx/';
+        this.page.identifier = '2018/10/31/kubernetes-in-mac-osx/';
+        this.page.title = 'Kubernetes in Mac OSX 初探';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
