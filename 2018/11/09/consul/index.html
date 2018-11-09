@@ -109,23 +109,28 @@
 
 
 
-  <meta name="description" content="Stay Hungry, Stay Foolish.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Cube Life">
-<meta property="og:url" content="http://gino2010.github.io/tags/Kafka/index.html">
+  <meta name="description" content="公司终于要重构一个非常古老的项目了（之前我建议了好多次，也讨论了好多次，这次终于动工了），将其按照微服务方式搭建，采用spring cloud框架（之前已经在其它项目中使用了很久）很期待此项目可以顺利实现，可以支撑未来的业务发展，然而这一次稍微来的晚了一些，我就要离开了。走之前我还是站好最后一班岗，把新版工程的微服务架构搭建一下，并实现统一gateway入口路由和oauth认证逻辑还有Member">
+<meta name="keywords" content="spring cloud,consul">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Consul的多实例注册问题">
+<meta property="og:url" content="http://gino2010.github.io/2018/11/09/consul/index.html">
 <meta property="og:site_name" content="Cube Life">
-<meta property="og:description" content="Stay Hungry, Stay Foolish.">
+<meta property="og:description" content="公司终于要重构一个非常古老的项目了（之前我建议了好多次，也讨论了好多次，这次终于动工了），将其按照微服务方式搭建，采用spring cloud框架（之前已经在其它项目中使用了很久）很期待此项目可以顺利实现，可以支撑未来的业务发展，然而这一次稍微来的晚了一些，我就要离开了。走之前我还是站好最后一班岗，把新版工程的微服务架构搭建一下，并实现统一gateway入口路由和oauth认证逻辑还有Member">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://gino2010.github.io/images/post/20181109/signle.png">
+<meta property="og:image" content="http://gino2010.github.io/images/post/20181109/signle.png">
+<meta property="og:updated_time" content="2018-11-09T09:55:50.352Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cube Life">
-<meta name="twitter:description" content="Stay Hungry, Stay Foolish.">
+<meta name="twitter:title" content="Consul的多实例注册问题">
+<meta name="twitter:description" content="公司终于要重构一个非常古老的项目了（之前我建议了好多次，也讨论了好多次，这次终于动工了），将其按照微服务方式搭建，采用spring cloud框架（之前已经在其它项目中使用了很久）很期待此项目可以顺利实现，可以支撑未来的业务发展，然而这一次稍微来的晚了一些，我就要离开了。走之前我还是站好最后一班岗，把新版工程的微服务架构搭建一下，并实现统一gateway入口路由和oauth认证逻辑还有Member">
+<meta name="twitter:image" content="http://gino2010.github.io/images/post/20181109/signle.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://gino2010.github.io/tags/Kafka/"/>
+  <link rel="canonical" href="http://gino2010.github.io/2018/11/09/consul/"/>
 
 
 
@@ -135,7 +140,7 @@
   };
 </script>
 
-  <title>Tag: Kafka | Cube Life</title>
+  <title>Consul的多实例注册问题 | Cube Life</title>
   
 
 
@@ -190,7 +195,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,7 +244,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
   </li>
@@ -283,28 +288,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -364,58 +347,228 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Kafka<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2018/11/09/consul/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gino Zhao">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cube Life">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/10/16/mq/" itemprop="url">
-              
-                <span itemprop="name">Message Queue 初探</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Consul的多实例注册问题
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-16T16:41:44+08:00"
-              content="2018-10-16" >
-          10-16
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-11-09 16:27:57 / Modified: 17:55:50" itemprop="dateCreated datePublished" datetime="2018-11-09T16:27:57+08:00">2018-11-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/09/consul/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/11/09/consul/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>公司终于要重构一个非常古老的项目了（之前我建议了好多次，也讨论了好多次，这次终于动工了），将其按照微服务方式搭建，采用spring cloud框架（之前已经在其它项目中使用了很久）<br>很期待此项目可以顺利实现，可以支撑未来的业务发展，然而这一次稍微来的晚了一些，我就要离开了。<br>走之前我还是站好最后一班岗，把新版工程的微服务架构搭建一下，并实现统一gateway入口路由和oauth认证逻辑还有Member用户中心微服务中必要的接口，算是遗产了。<br>按照我的习惯，只要是全新的项目，我将尽可能更新之前使用到的技术。<br>由于之前我们使用的是Eureka作为注册服务，而它在2.0宣布闭源，这个对今后会带来什么影响未知，所以我决定将新版工程架构注册服务迁移到Consul。<br>这不就遇到问题了……<br><a id="more"></a></p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>我有一个Member用户中心服务，当我在不同主机（不同ip地址）上运行两个Member微服务时，Consul中心只能看到一个服务实例。<br>第一反应，What！？ 这个和我想象的完全不一样啊，这应该是默认功能啊，服务的多节点哪里去了！？如图：<br><img src="/images/post/20181109/signle.png" alt=""><br>我运行了两个实例，但只能看见一个</p>
+<p>我这里的consul用的是1.3版本</p>
+<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>Consul团队具体怎么考虑这个实例名称生成规则的，我不是很清楚，但是问题就是因为它<br><a href="https://github.com/spring-cloud/spring-cloud-consul/issues/318" target="_blank" rel="noopener">https://github.com/spring-cloud/spring-cloud-consul/issues/318</a><br>一年多前开的issue竟然还没有关，问题就是instance id的默认组成规则是 application name - port<br>没有ip地址，所以当我启动Member服务时，虽然在不同主机上，但是端口相同，所以instance id是一样一样的😂<br>所以，我们只能看到最后启动的那个实例<br>虽然下面回复中，中国朋友（推断）给出了明确的问题所在和建议的解决方法，然而Consul开发团队还是继续坚持他们的想法（或是spring cloud discovery包没有及时更新！？，issue没有关可能consul团队问题更多一些，人家spring团队也只是整合而已啦），额～～～为什么不改，没有理解</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>程序员DD给出了<a href="https://blog.csdn.net/dyc87112/article/details/82226960" target="_blank" rel="noopener">解决办法</a><br>顺便提及一句，程序员DD非常不错，值得关注</p>
+<p>随机端口方式我就不说了，这个不可取，我没有用。</p>
+<p>直接final way，重新实现ConsulServiceRegistry</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 调整consul服务注册实例名称</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> gino</span></span><br><span class="line"><span class="comment"> * Created on 2018/11/9</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConsulServiceRegistry</span> <span class="keyword">extends</span> <span class="title">ConsulServiceRegistry</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyConsulServiceRegistry</span><span class="params">(ConsulClient client, ConsulDiscoveryProperties properties, TtlScheduler ttlScheduler, HeartbeatProperties heartbeatProperties)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(client, properties, ttlScheduler, heartbeatProperties);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">register</span><span class="params">(ConsulRegistration reg)</span> </span>&#123;</span><br><span class="line">        reg.getService().setId(reg.getService().getName() + <span class="string">"-"</span> + reg.getService().getAddress() + <span class="string">"-"</span> + reg.getService().getPort());</span><br><span class="line">        <span class="keyword">super</span>.register(reg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>没有什么好解释的，在此启动就有两个服务了，如图<br><img src="/images/post/20181109/signle.png" alt=""><br>两个服务，正常注册上了，红色区域就是我们要解决的问题最终结果。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>除了Consul中的一些小改变，其实每次Spring Cloud的版本升级（当前使用的Greenwich.M1）都会这样那样的问题，我们需要慢慢踩雷，慢慢成长。 </p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/spring-cloud/" rel="tag"># spring cloud</a>
+          
+            <a href="/tags/consul/" rel="tag"># consul</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/05/minsky/" rel="next" title="Minsky Moment">
+                <i class="fa fa-chevron-left"></i> Minsky Moment
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -436,8 +589,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -589,6 +751,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题原因"><span class="nav-text">问题原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法"><span class="nav-text">解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -736,6 +914,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
 
   
 
@@ -750,6 +932,37 @@
     <script id="dsq-count-scr" src="https://myblog-orNkC9OX7o.disqus.com/count.js" async></script>
   
 
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://gino2010.github.io/2018/11/09/consul/';
+        this.page.identifier = '2018/11/09/consul/';
+        this.page.title = 'Consul的多实例注册问题';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://myblog-orNkC9OX7o.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        $(function () {
+          var offsetTop = $('#comments').offset().top - $(window).height();
+          if (offsetTop <= 0) {
+            // load directly when there's no a scrollbar
+            loadComments();
+          } else {
+            $(window).on('scroll.disqus_scroll', function () {
+              var scrollTop = document.documentElement.scrollTop;
+              if (scrollTop >= offsetTop) {
+                $(window).off('.disqus_scroll');
+                loadComments();
+              }
+            });
+          }
+        });
+      
+    </script>
   
 
 
