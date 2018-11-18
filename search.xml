@@ -99,8 +99,8 @@
         <category>tech</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
         <tag>zookeeper</tag>
+        <tag>mysql</tag>
         <tag>redis</tag>
       </tags>
   </entry>
