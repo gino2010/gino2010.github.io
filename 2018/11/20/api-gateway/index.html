@@ -110,13 +110,14 @@
 
 
   <meta name="description" content="说一说API Gateway，一切服务的入口。也称其为API Management，这是一个比我之前想象还要大的系统，这篇文章我尝试做一些总结。下面提到的API Gateway 和 API Management 将作为等同名词，除非我特殊说明。 什么是API Gateway？它主要做什么事情，提供什么功能简单说就是将后面的微服务的API统一暴露出来的网关的就是API Gateway。他应具备一下能">
+<meta name="keywords" content="Design">
 <meta property="og:type" content="article">
 <meta property="og:title" content="API Gateway">
 <meta property="og:url" content="http://gino2010.github.io/2018/11/20/api-gateway/index.html">
 <meta property="og:site_name" content="Cube Life">
 <meta property="og:description" content="说一说API Gateway，一切服务的入口。也称其为API Management，这是一个比我之前想象还要大的系统，这篇文章我尝试做一些总结。下面提到的API Gateway 和 API Management 将作为等同名词，除非我特殊说明。 什么是API Gateway？它主要做什么事情，提供什么功能简单说就是将后面的微服务的API统一暴露出来的网关的就是API Gateway。他应具备一下能">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-02T14:37:24.734Z">
+<meta property="og:updated_time" content="2018-12-16T12:06:43.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="API Gateway">
 <meta name="twitter:description" content="说一说API Gateway，一切服务的入口。也称其为API Management，这是一个比我之前想象还要大的系统，这篇文章我尝试做一些总结。下面提到的API Gateway 和 API Management 将作为等同名词，除非我特殊说明。 什么是API Gateway？它主要做什么事情，提供什么功能简单说就是将后面的微服务的API统一暴露出来的网关的就是API Gateway。他应具备一下能">
@@ -418,7 +419,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-02 22:37:24" itemprop="dateModified" datetime="2018-12-02T22:37:24+08:00">2018-12-02</time>
+                <time title="Modified: 2018-12-16 20:06:43" itemprop="dateModified" datetime="2018-12-16T20:06:43+08:00">2018-12-16</time>
               
             
           </span>
@@ -644,7 +645,8 @@
 <li>源码过于庞大，难以消化，基本都是自定义jar包</li>
 <li>官方公开文档信息不全，没有付费Support难以使用（我觉得是对方故意的）</li>
 </ol>
-<p>##总结<br>最终，我选了Kong作为实现基础，基于其插件进行二次开发。</p>
+<p>##选型结论<br>最终，我选了Kong作为实现基础，基于其插件进行二次开发。</p>
+<p>##后记<br>Lua的开发确实不太令人舒服，如果团队中没有人使用过Lua开发还是建议不要轻易使用。<br>Zuul的开发还是更适合Java团队使用，找时间可以看看zuul2的性能是否有所改善。</p>
 <p>P.S. 由于刚刚换了工作，所以最近一段时间没有更新文章，稍后会慢慢恢复。</p>
 
       
@@ -663,6 +665,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Design/" rel="tag"># Design</a>
+          
+        </div>
       
 
       
@@ -843,7 +851,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
