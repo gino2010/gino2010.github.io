@@ -109,25 +109,23 @@
 
 
 
-  <meta name="description" content="分布式锁，在微服务，多服务器水平扩展以及高并发的场景下，要保证共享资源正确处理，这个锁很重要。我了解到了三种实现方式：  数据库方式，基于主键唯一性约束或行级锁实现 Zookeeper实现，基于其临时有序节点实现 Redis方式，基于setNX操作实现  三种方式各有优缺点，在恢复此博客之前我已经实现了基于Redis版本的分布式锁，现在把另外两种加以实现，并做相应的对比。">
-<meta name="keywords" content="zookeeper,mysql,redis">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Distributed Lock">
-<meta property="og:url" content="http://gino2010.github.io/2018/10/22/distributed-lock/index.html">
+  <meta name="description" content="Stay Hungry, Stay Foolish.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cube Life">
+<meta property="og:url" content="http://gino2010.github.io/archives/2018/12/index.html">
 <meta property="og:site_name" content="Cube Life">
-<meta property="og:description" content="分布式锁，在微服务，多服务器水平扩展以及高并发的场景下，要保证共享资源正确处理，这个锁很重要。我了解到了三种实现方式：  数据库方式，基于主键唯一性约束或行级锁实现 Zookeeper实现，基于其临时有序节点实现 Redis方式，基于setNX操作实现  三种方式各有优缺点，在恢复此博客之前我已经实现了基于Redis版本的分布式锁，现在把另外两种加以实现，并做相应的对比。">
+<meta property="og:description" content="Stay Hungry, Stay Foolish.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-11-18T06:18:54.424Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Distributed Lock">
-<meta name="twitter:description" content="分布式锁，在微服务，多服务器水平扩展以及高并发的场景下，要保证共享资源正确处理，这个锁很重要。我了解到了三种实现方式：  数据库方式，基于主键唯一性约束或行级锁实现 Zookeeper实现，基于其临时有序节点实现 Redis方式，基于setNX操作实现  三种方式各有优缺点，在恢复此博客之前我已经实现了基于Redis版本的分布式锁，现在把另外两种加以实现，并做相应的对比。">
+<meta name="twitter:title" content="Cube Life">
+<meta name="twitter:description" content="Stay Hungry, Stay Foolish.">
 
 
 
 
 
 
-  <link rel="canonical" href="http://gino2010.github.io/2018/10/22/distributed-lock/"/>
+  <link rel="canonical" href="http://gino2010.github.io/archives/2018/12/"/>
 
 
 
@@ -137,7 +135,7 @@
   };
 </script>
 
-  <title>Distributed Lock | Cube Life</title>
+  <title>Archive | Cube Life</title>
   
 
 
@@ -192,7 +190,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left page-archive">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -257,7 +255,7 @@
         
         
           
-          <li class="menu-item menu-item-archives">
+          <li class="menu-item menu-item-archives menu-item-active">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
@@ -285,6 +283,28 @@
 
   
     
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
 
   
 
@@ -344,287 +364,80 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
-  
+      
+      <span class="archive-page-counter">
+        
+        
+        
+          
+        
+        Um..! 17 posts in total. Keep on posting.
+      </span>
+      
 
-  
-  
-  
+      
 
-  
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h1 class="archive-year" id="archive-year-2018">2018</h1>
+          </div>
+        
+        
+
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2018/10/22/distributed-lock/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gino Zhao">
-      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cube Life">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2018/12/08/Modeling-NoSQL/" itemprop="url">
+              
+                <span itemprop="name">Modeling & NoSQL</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">Distributed Lock
-              
-            
-          </h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-12-08T21:54:50+08:00"
+              content="2018-12-08" >
+          12-08
+        </time>
+      </div>
 
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-10-22 09:09:33" itemprop="dateCreated datePublished" datetime="2018-10-22T09:09:33+08:00">2018-10-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-11-18 14:18:54" itemprop="dateModified" datetime="2018-11-18T14:18:54+08:00">2018-11-18</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/10/22/distributed-lock/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/10/22/distributed-lock/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             Views:  
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>分布式锁，在微服务，多服务器水平扩展以及高并发的场景下，要保证共享资源正确处理，这个锁很重要。<br>我了解到了三种实现方式：</p>
-<ul>
-<li>数据库方式，基于主键唯一性约束或行级锁实现</li>
-<li>Zookeeper实现，基于其临时有序节点实现</li>
-<li>Redis方式，基于setNX操作实现</li>
-</ul>
-<p>三种方式各有优缺点，在恢复此博客之前我已经实现了基于Redis版本的分布式锁，现在把另外两种加以实现，并做相应的对比。</p>
-<a id="more"></a>
-<h2 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a><a href="https://github.com/gino2010/javatech/tree/master/distributed_lock_db" target="_blank" rel="noopener">Mysql</a></h2><p>数据库方式实现分布式锁，主要用三种形式：</p>
-<ol>
-<li>乐观锁，version，通过where条件中的version决定是否可以更新成功，从而获得锁</li>
-<li>主键唯一约束方式，是否可以正常写入数据，从而获得锁</li>
-<li>数据库自身锁 for update 来决定是否可以获得锁</li>
-</ol>
-<p>这里我们不讨论乐观锁，为了和zookeeper、redis的锁做对比，这里采用使用主键唯一约束方式实现锁。</p>
-<p>创建锁表，其中method_name需要索引并唯一，时间默认<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> method_lock</span><br><span class="line">(</span><br><span class="line">    <span class="keyword">id</span> <span class="built_in">int</span> PRIMARY <span class="keyword">KEY</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">    method_name <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">    update_time <span class="keyword">timestamp</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">default</span> <span class="keyword">current_timestamp</span> <span class="keyword">on</span> <span class="keyword">update</span> <span class="keyword">current_timestamp</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> <span class="keyword">INDEX</span> method_lock_method_name_uindex <span class="keyword">ON</span> method_lock (method_name);</span><br></pre></td></tr></table></figure></p>
-<p>关闭自动提交，开始手动提交，保证事务中的操作原子性<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connection.setAutoCommit(<span class="keyword">false</span>);</span><br></pre></td></tr></table></figure></p>
-<p>获得锁，两个操作，删除超时的锁（超时自动释放机制），插入数据获得锁<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PreparedStatement preparedDelete = MySQLConfig.connection.prepareStatement(clearSQL);</span><br><span class="line">preparedDelete.setString(<span class="number">1</span>, name);</span><br><span class="line">preparedDelete.setInt(<span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">preparedDelete.executeUpdate();</span><br><span class="line"></span><br><span class="line">PreparedStatement preparedInsert = MySQLConfig.connection.prepareStatement(insertSQL);</span><br><span class="line">preparedInsert.setString(<span class="number">1</span>, name);</span><br><span class="line"></span><br><span class="line">MySQLConfig.connection.commit();</span><br></pre></td></tr></table></figure></p>
-<p>如果提交失败，进行重试，设定时间间隔和重试次数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">getLockTimes</span><span class="params">(String name, <span class="keyword">int</span> times, <span class="keyword">int</span> interval)</span></span></span><br></pre></td></tr></table></figure></p>
-<p>释放锁，直接删除锁占有的记录<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PreparedStatement preparedDelete = MySQLConfig.connection.prepareStatement(deleteSQL);</span><br><span class="line">preparedDelete.setString(<span class="number">1</span>, name);</span><br><span class="line">preparedDelete.executeUpdate();</span><br><span class="line">MySQLConfig.connection.commit();</span><br></pre></td></tr></table></figure></p>
-<h2 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="Zookeeper"></a><a href="https://github.com/gino2010/javatech/tree/master/distributed_lock_zk" target="_blank" rel="noopener">Zookeeper</a></h2><p>不重复造轮子了，轮子原理简单说一下吧，两种实现方式：</p>
-<ol>
-<li>固定节点，利用文件名称唯一性，谁可以创建create指令该节点，谁就获得锁，类似redis中的获取锁操作，删除节点释放锁，其它watch该节点</li>
-<li>利用zookeeper中临时有序节点，尝试获得锁，如果当前线程申请到的节点序号为最小，则获得锁，否则监听前一个序号等待状态改变，然后再次判断。</li>
-</ol>
-<p>建议大家，如果有轮子就不要自己造了，因为绝大多数情况下，我们造的不如已有的轮子。<br>所以，实验使用成熟的CuratorFramework，创建InterProcessMutex锁对象</p>
-<p>通过acquire尝试获得锁，其中3s为可以接受的尝试获得锁的时间，如果太短，可能资源竞争激烈导致获得不到锁，而返回false，所以考虑了重试机制。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mutex.acquire(<span class="number">3</span>, TimeUnit.SECONDS);</span><br></pre></td></tr></table></figure></p>
-<p>释放锁，事务处理完毕后，需要释放锁，最好判断一下，是不是当前线程拥有这个锁，然后尝试释放。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (mutex.isOwnedByCurrentThread()) &#123;</span><br><span class="line">    mutex.release();</span><br><span class="line">    log.info(<span class="string">"release lock...."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果按照网上原理介绍来看，其判断是自增序号的最小值为获得锁，那么其应该是是一个公平锁，这一点我需要再进一步验证一下。</p>
-<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a><a href="https://github.com/gino2010/javatech/tree/master/distributed_lock_redis" target="_blank" rel="noopener">Redis</a></h2><p>Redis分布式锁，redis官网有相应的<a href="https://redis.io/topics/distlock" target="_blank" rel="noopener">文章</a>阐述，这里相当于模仿着造了一个轮子</p>
-<p>首先实现一个redis实例即单节点的例子，这个是基础。通过多线程方式模拟测试，实际应用不应该是多线程环境，否则使用线程同步相关技术就好了。<br>其次，初步实现了RedLock方式，用于多个Redis节点，增强其稳定性。但实际使用可能还是单节点比较多，需要考虑锁失效的弥补方式。</p>
-<p>这里的set方法是关键，其保证了判断是否存在以及设置锁值和有效时间一系列操作的原子性，否则这个分布式锁的实现是不成立的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String res = resource.set(lockKey, uuid, <span class="string">"NX"</span>, <span class="string">"PX"</span>, keyExpire);</span><br><span class="line"><span class="keyword">if</span> (<span class="string">"OK"</span>.equals(res)) &#123;</span><br><span class="line">    resource.close();</span><br><span class="line">    log.info(<span class="string">"Get lock, uuid: &#123;&#125;"</span>, uuid);</span><br><span class="line">    <span class="keyword">return</span> uuid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>设置成功，则获得锁，否则失败。其中设置的值为uuid随机数，所以这个理论上是非公平锁</p>
-<p>释放锁，即删除值，这是需要watch这个值，并在事务内将其删除<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">resource.watch(lockKey);</span><br><span class="line"><span class="keyword">if</span> (uuid.equals(resource.get(lockKey))) &#123;</span><br><span class="line">    Transaction multi = resource.multi();</span><br><span class="line">    Response&lt;Long&gt; del = multi.del(lockKey);</span><br><span class="line">    multi.exec();</span><br><span class="line">    <span class="keyword">if</span> (del.get() == <span class="number">1</span>) &#123;</span><br><span class="line">        log.info(<span class="string">"Release lock, uuid: &#123;&#125;"</span>, uuid);</span><br><span class="line">        retFlag = <span class="keyword">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        log.info(<span class="string">"Release lock, failed!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    multi.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>当redis有多个节点时，我们需要奇数个点来按照多数原则判断是否获得了锁。程序中通过一个redis中的不通DB来模拟的。<br>有效时间内，节点数大于一半，就认为获得成功，否则失败<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ((passNode.get() &gt;= nodes / <span class="number">2</span> + <span class="number">1</span>) &amp;&amp; (end - start) &lt; keyExpire) &#123;</span><br><span class="line">    log.info(<span class="string">"Get RedLock uuid &#123;&#125;, pass node:&#123;&#125;"</span>, uuid, passNode.get());</span><br><span class="line">    <span class="keyword">return</span> uuid;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    log.info(<span class="string">"Get RedLock failed"</span>);</span><br><span class="line">    releaseLock(lockName, uuid);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>无论什么怎样实现分布式锁，都需要考虑一下内容：</p>
-<ul>
-<li>判断锁是否存在和设置锁值，两步需要原子性</li>
-<li>考虑申请锁时，申请的超时时间和尝试次数，具备非阻塞特性</li>
-<li>需要考虑锁的正常销毁方式，主动删除锁</li>
-<li>需要考虑锁的异常销毁方式，例如有效时间或者回话断开删除</li>
-<li>适当考虑重入特性</li>
-</ul>
-<p>使用总结：</p>
-<ul>
-<li>mysql 利用数据库特性还是很方便的，性能有限</li>
-<li>zookeeper实现应该是非常严谨的，但是性能一般</li>
-<li>Redis虽然实现上还存在争议，但是性能很好</li>
-</ul>
-<p>性能: 缓存 &gt; Zookeeper &gt; 数据库<br>可靠性: Zookeeper &gt; 缓存 &gt; 数据库</p>
-<p>实现复杂度，看你对谁熟悉了，我个人感觉得差不多。</p>
-
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/zookeeper/" rel="tag"># zookeeper</a>
-          
-            <a href="/tags/mysql/" rel="tag"># mysql</a>
-          
-            <a href="/tags/redis/" rel="tag"># redis</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/10/18/zookeeper/" rel="next" title="Zookeeper">
-                <i class="fa fa-chevron-left"></i> Zookeeper
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/25/transaction/" rel="prev" title="Transaction">
-                Transaction <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
+
+      
+
+    </div>
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
           
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
-
-
 
         </div>
         
@@ -645,17 +458,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -809,22 +613,6 @@
       </section>
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql"><span class="nav-text">Mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper"><span class="nav-text">Zookeeper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis"><span class="nav-text">Redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
 
@@ -972,10 +760,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
-
-
 
   
 
@@ -990,37 +774,6 @@
     <script id="dsq-count-scr" src="https://myblog-orNkC9OX7o.disqus.com/count.js" async></script>
   
 
-  
-    <script type="text/javascript">
-      var disqus_config = function () {
-        this.page.url = 'http://gino2010.github.io/2018/10/22/distributed-lock/';
-        this.page.identifier = '2018/10/22/distributed-lock/';
-        this.page.title = 'Distributed Lock';
-        };
-      function loadComments () {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://myblog-orNkC9OX7o.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      }
-      
-        $(function () {
-          var offsetTop = $('#comments').offset().top - $(window).height();
-          if (offsetTop <= 0) {
-            // load directly when there's no a scrollbar
-            loadComments();
-          } else {
-            $(window).on('scroll.disqus_scroll', function () {
-              var scrollTop = document.documentElement.scrollTop;
-              if (scrollTop >= offsetTop) {
-                $(window).off('.disqus_scroll');
-                loadComments();
-              }
-            });
-          }
-        });
-      
-    </script>
   
 
 

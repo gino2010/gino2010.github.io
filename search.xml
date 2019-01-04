@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Modeling & NoSQL]]></title>
+    <url>%2F2018%2F12%2F08%2FModeling-NoSQL%2F</url>
+    <content type="text"><![CDATA[建模与NoSQL，这一切源于最近对商品建模的思考。场景，当你有很多产品，他们有不同的属性，并且差异较大，今后新增产品的属性又不确定，那么你的数据应该如何存储，如何建模呢？ Modeling商品数据的建模方式，其实我们平时经常使用，并不少见，但大多时可能只是模仿使用，并没有对其进行深入思考或整理归纳。直观的数据库建模方式就是通过一张商品表对其进行记录，也是我们最常见的行建模方式（Row Modeling）。稍微优点开发经验的朋友理解会意识到，这样的实体对象entity对应一张数据表的方式，不能很好满足我们需要面对的场景。其不适应将表现为： 属性差异过大，造成表字段数量跟随产品类别变化，并且巨大 属性差异过大，造成数据稀疏，表存储空间浪费 今后新增常品，表结构需要调整非常不灵活等等，就不一一列举了，这个思路估计连当今大学毕业设计的同学都不会犯的错误。那么应该怎么做，开发者一般会想到字段拆分，表关联方式处理。那么有什么规范可以遵循吗？答案是：有的，EAV（Entity Attribute Value）方式。他把一个实体拆成三部分，进行建模： Entity 实体，即事物本身，也就是商品 Attribute 属性，将事物所拥有的属性 Value 值，商品的具体属性对应的值简单说，这样形成了，多张关联的数据表，维护商品信息，并实现灵活调整。 这样做的坏处是什么？建模上满足了我们的场景需求，但在其他方面有不如意的地方，主要表现在： 数据表多，数据结构复杂，维护繁琐 查询语句复杂，严重影响查询性能 实际数据使用时，需要大量行列转换操作，可能需要响应试图结构支撑，是CPU密集型操作，对数据库压力大 怎么解决上面的问题，有些朋友可能第一时间想到的是NoSQL，让我们看看他们适合不？ NoSQL说NoSQL是否合适，需要先了解NoSQL的分类参考网上常见分类有四种，如下： 键值存储数据库 相关产品：Redis、Riak、SimpleDB、Chordless、Scalaris、Memcached 应用：内容缓存 优点：扩展性好、灵活性好、大量写操作时性能高 缺点：无法存储结构化信息、条件查询效率较低 列存储数据库 相关产品：BigTable、HBase、Cassandra、HadoopDB、GreenPlum、PNUTS 应用：分布式数据存储与管理 优点：查找速度快、可扩展性强、容易进行分布式扩展、复杂性低 缺点：功能相对局限 文档数据库 相关产品：MongoDB、CouchDB、ThruDB、CloudKit、Perservere、Jackrabbit 应用：存储、索引并管理面向文档的数据或者类似的半结构化数据 优点：性能好、灵活性高、复杂性低、数据结构灵活 缺点：缺乏统一的查询语言 图形数据库 相关产品：Neo4J、OrientDB、InfoGrid、GraphDB 应用：大量复杂、互连接、低结构化的图结构场合，如社交网络、推荐系统等 优点：灵活性高、支持复杂的图形算法、可用于构建复杂的关系图谱 缺点：复杂性高、只能支持一定的数据规模 所以，如果使用NoSQL存储多变的字段数据内容，第一优选就是文档数据库，甚至可以考虑使用ElasticSearch来完成更为复杂的搜索需求。这样的方法是否合理呢？ NoSQL 方案问题增加系统开发复杂度，需要同时操纵两种不同类型的数据库。毕竟原有的业务数据还需要在关系型数据库中保存，同时无法合理关系化的字段数据将存入NoSQL数据库中。 需要考虑两个数据库保证数据一致性问题 数据使用时需要考虑合理的查询方式，拼接数据 简单说数据使用和维护的相关系统实现架构都需要有较好的设计和开发支撑，系统复杂度大，运营维护成本高。同时不否认，这种方式也有其实际应用价值和优势，也是一种常见的处理方式。 那有没有其他方案？ JSON 类型数据引入JSON类型也逐步成为主流，也逐渐成熟。记得最早是PostgreSQL 9.3的一次创新型实验，之后就是MySQL 5.7也添加了相应的支持，Oracle 12cr1 依MySQL为例，简单看一下其功能 创建表1CREATE TABLE t_json(id INT PRIMARY KEY, sname VARCHAR(20) , info JSON); 插入数据123456-- 插入含有json数组的记录INSERT INTO t_json(id,sname,info) VALUES( 1, 'name1', JSON_ARRAY(1, "abc", NULL, TRUE, CURTIME()));-- 插入含有json对象的记录INSERT INTO t_json(id,sname,info) VALUES( 2, 'name2', JSON_OBJECT("age", 20, "time", now()));INSERT INTO t_json(id,sname,info) VALUES( 3, 'name3', '&#123;"age":20, "time":"2018-07-14 10:52:00"&#125;'); 12345-- 查询记录SELECT sname,JSON_EXTRACT(info,'$.age') FROM t_json;SELECT sname,info-&gt;'$.age' FROM t_json;-- 查询keySELECT id,json_keys(info) FROM t_json; 所以，关系库中的JSON类型是可以比较理想的满足我们使用场景，既兼顾了原有业务数据也保证了数据的灵活性，同时维护和使用技术环境统一，降低系统复杂度。缺点，性能略有损失，代码处理略有复杂。针对JSON数据内容也是可以建立索引的，提升查询速度，这个的使用也许合理设计。 总结文章从第一天建立到今天（1-4）补完，经历快一个月。这一个月本人也经历了很多，同时，做了一个从业以来最任性的决定，至于结果如何，那就看自己的努力了。 新的一年开始，感谢我接触过的所有人，感谢你们的帮助。希望个人今后可以走的更好。祝大家安康！ 参考EAV 模型NoSQL 分类数据库 JSON 类型]]></content>
+      <categories>
+        <category>tech</category>
+      </categories>
+      <tags>
+        <tag>Design</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[API Gateway]]></title>
     <url>%2F2018%2F11%2F20%2Fapi-gateway%2F</url>
     <content type="text"><![CDATA[说一说API Gateway，一切服务的入口。也称其为API Management，这是一个比我之前想象还要大的系统，这篇文章我尝试做一些总结。下面提到的API Gateway 和 API Management 将作为等同名词，除非我特殊说明。 什么是API Gateway？它主要做什么事情，提供什么功能简单说就是将后面的微服务的API统一暴露出来的网关的就是API Gateway。他应具备一下能力： 微服务API路由功能自定义路由规则，暴露出访问路径，并可以通过访问路径路由到对应的后端服务中 用户验证及鉴权通过对Request请求中相关信息的判断，鉴别用户和其访问权限 API版本控制和发布API发布、上线、测试、停用已经不同版本的控制 API信息维护这个功能类似于swagger这样的功能，展示接口调用信息 API访问流量控制对API访问进行流量、测试、频率等方面的控制 API调用监控及报警监控API调用执行情况，例如调用时长、是否有异常，并对敏感信息进行报警 参数校验及转换对Request请求中的参数进行校验和转换，防止注入攻击等 当然还有其他功能，这里不一一列举了。 已知的云服务 名称 apigee AWS API 网关 阿里云API网关 腾讯云API网关 网址 apigee.com amazonaws-china.com /cn/api-gateway www.aliyun.com /product/apigateway cloud.tencent.com /product/apigateway 公司 Google Amazon Aliyun Tencent API生命周期管理 Y Y Y Y API身份验证 Y Y Y Y 权限控制 Y Y Y Y 算法签名、SSL Y Y Y Y 流量控制 Y Y Y Y IP访问控制 N Y Y N CORS Y Y Y Y 请求参数校验 Unknow Y Y N 请求参数转换 Unknow Y Y Y API监控 Y Y Y Y 异常报警 Y Y Y N SDK生成 Y Y Y N Mock接口 Y Y Y Y 以上功能总结可能存在错误，可能有些是我没有找到的。同时各个厂商的功能今后可能趋同，目前看AWS和Ali做的最好。 API Gateway有哪些开源框架？目前看到的比较理想的开源框架有：Kong、WSO2、TYK、Spring Cloud Gateway。最近主要研究了前两个，简单说明各自优缺点 Kong使用最为广泛，开源协议Apache License 2.0，有付费商业版，开源版和付费版主要区别在于部分企业版插件 优点： 性能非常出色，基于Nginx Openresty实现，源码简洁 插件功能比较完善，支持自定义插件扩展，灵活易用，基本满足常见场景 支持Docker，K8S等应用场景，部署灵活 官方文档丰富，阐述清楚，上手快 缺点： Lua语言开发，需要Linux编译环境，二次开发环境有特殊要求 已有开源插件中并未覆盖API网关全部功能， WSO2功能十分强大，开源协议Apache License 2.0，提供云服务和商业support支持服务 优点： 功能十分齐全，并提供配套组件项目 Java开发，开发环境普及度高 支持Docker K8S等应用场景，部署灵活 缺点： 源码过于庞大，难以消化，基本都是自定义jar包 官方公开文档信息不全，没有付费Support难以使用（我觉得是对方故意的） ##选型结论最终，团队选了Kong作为实现基础，基于其插件进行二次开发。 ##后记Lua的开发确实不太令人舒服，如果团队中没有人使用过Lua开发还是建议不要轻易使用。Zuul的开发还是更适合Java团队使用，找时间可以看看zuul2的性能是否有所改善。 P.S. 由于刚刚换了工作，所以最近一段时间没有更新文章，稍后会慢慢恢复。]]></content>
@@ -110,8 +121,8 @@
         <category>tech</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
         <tag>zookeeper</tag>
+        <tag>mysql</tag>
         <tag>redis</tag>
       </tags>
   </entry>

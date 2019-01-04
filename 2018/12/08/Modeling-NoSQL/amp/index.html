@@ -2,192 +2,26 @@
 <html ⚡>
   <head>
     <meta charset="utf-8">
-    <link rel="canonical" href="http://gino2010.github.io/2018/10/29/register-discovery/" >
-    <title>Registration and Discovery - Spring - Cube Life</title>
+    <link rel="canonical" href="http://gino2010.github.io/2018/12/08/Modeling-NoSQL/" >
+    <title>Modeling &amp; NoSQL - Cube Life</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     
-    <meta property="og:title" content="Registration and Discovery - Spring">
+    <meta property="og:title" content="Modeling &amp; NoSQL">
 	<meta property="og:type" content="article">
-	<meta property="og:url" content="http://gino2010.github.io/2018/10/29/register-discovery/">
+	<meta property="og:url" content="http://gino2010.github.io/2018/12/08/Modeling-NoSQL/">
 	
 		<meta property="og:image" content="/amp-dist/sample/sample-substituteTitleImage.png">
 	
 	<meta property="og:site_name" content="Cube Life">
 	
-		<meta property="og:description" content="&lt;p&gt;关于Spring Cloud支持的注册发现服务，一直想了解一下对比情况，今天无意间发现这个对比文章，简单直接，可以给你一个直观的初步认识。&lt;br&gt;转载原地址：&lt;a href=&#34;https://luyiisme.github.io/2017/04/22/spring-cloud-service-discovery-products/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;服务发现比较:Consul vs Zookeeper vs Etcd vs Eureka&lt;/a&gt;&lt;br&gt;这里仅贴出总结表格，稍作调整。其它内容请参见原文&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Feature&lt;/th&gt;
-&lt;th&gt;consul&lt;/th&gt;
-&lt;th&gt;zookeeper&lt;/th&gt;
-&lt;th&gt;etcd&lt;/th&gt;
-&lt;th&gt;euerka&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;服务健康检查&lt;/td&gt;
-&lt;td&gt;服务状态，内存，硬盘等&lt;/td&gt;
-&lt;td&gt;(弱)长连接，keepalive&lt;/td&gt;
-&lt;td&gt;连接心跳&lt;/td&gt;
-&lt;td&gt;可配支持&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;多数据中心&lt;/td&gt;
-&lt;td&gt;支持&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;KV存储服务&lt;/td&gt;
-&lt;td&gt;支持&lt;/td&gt;
-&lt;td&gt;支持&lt;/td&gt;
-&lt;td&gt;支持&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;一致性&lt;/td&gt;
-&lt;td&gt;raft&lt;/td&gt;
-&lt;td&gt;zab&lt;/td&gt;
-&lt;td&gt;raft&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;CAP&lt;/td&gt;
-&lt;td&gt;ca&lt;/td&gt;
-&lt;td&gt;cp&lt;/td&gt;
-&lt;td&gt;cp&lt;/td&gt;
-&lt;td&gt;ap&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;使用接口(多语言能力)&lt;/td&gt;
-&lt;td&gt;支持http和dns&lt;/td&gt;
-&lt;td&gt;客户端&lt;/td&gt;
-&lt;td&gt;http/grpc&lt;/td&gt;
-&lt;td&gt;http（sidecar）&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Watch支持&lt;/td&gt;
-&lt;td&gt;全量/支持long polling&lt;/td&gt;
-&lt;td&gt;支持&lt;/td&gt;
-&lt;td&gt;支持 long polling&lt;/td&gt;
-&lt;td&gt;支持 long polling/大部分增量&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;自身监控&lt;/td&gt;
-&lt;td&gt;metrics&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;td&gt;metrics&lt;/td&gt;
-&lt;td&gt;metrics&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;安全&lt;/td&gt;
-&lt;td&gt;acl/https&lt;/td&gt;
-&lt;td&gt;acl&lt;/td&gt;
-&lt;td&gt;https支持（弱）&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Spring Cloud集成&lt;/td&gt;
-&lt;td&gt;已支持&lt;/td&gt;
-&lt;td&gt;已支持&lt;/td&gt;
-&lt;td&gt;已支持&lt;/td&gt;
-&lt;td&gt;已支持，2.0闭源&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;">
+		<meta property="og:description" content="&lt;p&gt;建模与NoSQL，这一切源于最近对商品建模的思考。&lt;br&gt;场景，当你有很多产品，他们有不同的属性，并且差异较大，今后新增产品的属性又不确定，那么你的数据应该如何存储，如何建模呢？&lt;br&gt;">
 	
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="Cube Life">
-	<meta name="twitter:url" content="http://gino2010.github.io/2018/10/29/register-discovery/">
-	<meta name="twitter:title" content="Registration and Discovery - Spring - Cube Life">
+	<meta name="twitter:url" content="http://gino2010.github.io/2018/12/08/Modeling-NoSQL/">
+	<meta name="twitter:title" content="Modeling &amp; NoSQL - Cube Life">
 	
-		<meta name="twitter:description" content="&lt;p&gt;关于Spring Cloud支持的注册发现服务，一直想了解一下对比情况，今天无意间发现这个对比文章，简单直接，可以给你一个直观的初步认识。&lt;br&gt;转载原地址：&lt;a href=&#34;https://luyiisme.github.io/2017/04/22/spring-cloud-service-discovery-products/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;服务发现比较:Consul vs Zookeeper vs Etcd vs Eureka&lt;/a&gt;&lt;br&gt;这里仅贴出总结表格，稍作调整。其它内容请参见原文&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Feature&lt;/th&gt;
-&lt;th&gt;consul&lt;/th&gt;
-&lt;th&gt;zookeeper&lt;/th&gt;
-&lt;th&gt;etcd&lt;/th&gt;
-&lt;th&gt;euerka&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;服务健康检查&lt;/td&gt;
-&lt;td&gt;服务状态，内存，硬盘等&lt;/td&gt;
-&lt;td&gt;(弱)长连接，keepalive&lt;/td&gt;
-&lt;td&gt;连接心跳&lt;/td&gt;
-&lt;td&gt;可配支持&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;多数据中心&lt;/td&gt;
-&lt;td&gt;支持&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;KV存储服务&lt;/td&gt;
-&lt;td&gt;支持&lt;/td&gt;
-&lt;td&gt;支持&lt;/td&gt;
-&lt;td&gt;支持&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;一致性&lt;/td&gt;
-&lt;td&gt;raft&lt;/td&gt;
-&lt;td&gt;zab&lt;/td&gt;
-&lt;td&gt;raft&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;CAP&lt;/td&gt;
-&lt;td&gt;ca&lt;/td&gt;
-&lt;td&gt;cp&lt;/td&gt;
-&lt;td&gt;cp&lt;/td&gt;
-&lt;td&gt;ap&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;使用接口(多语言能力)&lt;/td&gt;
-&lt;td&gt;支持http和dns&lt;/td&gt;
-&lt;td&gt;客户端&lt;/td&gt;
-&lt;td&gt;http/grpc&lt;/td&gt;
-&lt;td&gt;http（sidecar）&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Watch支持&lt;/td&gt;
-&lt;td&gt;全量/支持long polling&lt;/td&gt;
-&lt;td&gt;支持&lt;/td&gt;
-&lt;td&gt;支持 long polling&lt;/td&gt;
-&lt;td&gt;支持 long polling/大部分增量&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;自身监控&lt;/td&gt;
-&lt;td&gt;metrics&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;td&gt;metrics&lt;/td&gt;
-&lt;td&gt;metrics&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;安全&lt;/td&gt;
-&lt;td&gt;acl/https&lt;/td&gt;
-&lt;td&gt;acl&lt;/td&gt;
-&lt;td&gt;https支持（弱）&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Spring Cloud集成&lt;/td&gt;
-&lt;td&gt;已支持&lt;/td&gt;
-&lt;td&gt;已支持&lt;/td&gt;
-&lt;td&gt;已支持&lt;/td&gt;
-&lt;td&gt;已支持，2.0闭源&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;">
+		<meta name="twitter:description" content="&lt;p&gt;建模与NoSQL，这一切源于最近对商品建模的思考。&lt;br&gt;场景，当你有很多产品，他们有不同的属性，并且差异较大，今后新增产品的属性又不确定，那么你的数据应该如何存储，如何建模呢？&lt;br&gt;">
 	
     
     	<meta name="twitter:image" content="/amp-dist/sample/sample-substituteTitleImage.png">
@@ -216,99 +50,16 @@
 		{
 			"@context": "http://schema.org",
 			"@type": "BlogPosting",
-			"headline": "Registration and Discovery - Spring",
+			"headline": "Modeling &amp; NoSQL",
 			
-			"description": "&lt;p&gt;关于Spring Cloud支持的注册发现服务，一直想了解一下对比情况，今天无意间发现这个对比文章，简单直接，可以给你一个直观的初步认识。&lt;br&gt;转载原地址：&lt;a href=&#34;https://luyiisme.github.io/2017/04/22/spring-cloud-service-discovery-products/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;服务发现比较:Consul vs Zookeeper vs Etcd vs Eureka&lt;/a&gt;&lt;br&gt;这里仅贴出总结表格，稍作调整。其它内容请参见原文&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Feature&lt;/th&gt;
-&lt;th&gt;consul&lt;/th&gt;
-&lt;th&gt;zookeeper&lt;/th&gt;
-&lt;th&gt;etcd&lt;/th&gt;
-&lt;th&gt;euerka&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;服务健康检查&lt;/td&gt;
-&lt;td&gt;服务状态，内存，硬盘等&lt;/td&gt;
-&lt;td&gt;(弱)长连接，keepalive&lt;/td&gt;
-&lt;td&gt;连接心跳&lt;/td&gt;
-&lt;td&gt;可配支持&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;多数据中心&lt;/td&gt;
-&lt;td&gt;支持&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;KV存储服务&lt;/td&gt;
-&lt;td&gt;支持&lt;/td&gt;
-&lt;td&gt;支持&lt;/td&gt;
-&lt;td&gt;支持&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;一致性&lt;/td&gt;
-&lt;td&gt;raft&lt;/td&gt;
-&lt;td&gt;zab&lt;/td&gt;
-&lt;td&gt;raft&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;CAP&lt;/td&gt;
-&lt;td&gt;ca&lt;/td&gt;
-&lt;td&gt;cp&lt;/td&gt;
-&lt;td&gt;cp&lt;/td&gt;
-&lt;td&gt;ap&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;使用接口(多语言能力)&lt;/td&gt;
-&lt;td&gt;支持http和dns&lt;/td&gt;
-&lt;td&gt;客户端&lt;/td&gt;
-&lt;td&gt;http/grpc&lt;/td&gt;
-&lt;td&gt;http（sidecar）&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Watch支持&lt;/td&gt;
-&lt;td&gt;全量/支持long polling&lt;/td&gt;
-&lt;td&gt;支持&lt;/td&gt;
-&lt;td&gt;支持 long polling&lt;/td&gt;
-&lt;td&gt;支持 long polling/大部分增量&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;自身监控&lt;/td&gt;
-&lt;td&gt;metrics&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;td&gt;metrics&lt;/td&gt;
-&lt;td&gt;metrics&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;安全&lt;/td&gt;
-&lt;td&gt;acl/https&lt;/td&gt;
-&lt;td&gt;acl&lt;/td&gt;
-&lt;td&gt;https支持（弱）&lt;/td&gt;
-&lt;td&gt;—&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Spring Cloud集成&lt;/td&gt;
-&lt;td&gt;已支持&lt;/td&gt;
-&lt;td&gt;已支持&lt;/td&gt;
-&lt;td&gt;已支持&lt;/td&gt;
-&lt;td&gt;已支持，2.0闭源&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;",
+			"description": "&lt;p&gt;建模与NoSQL，这一切源于最近对商品建模的思考。&lt;br&gt;场景，当你有很多产品，他们有不同的属性，并且差异较大，今后新增产品的属性又不确定，那么你的数据应该如何存储，如何建模呢？&lt;br&gt;",
 			
 			"mainEntityOfPage":{
 			    "@type":"WebPage",
-			    "@id":"http://gino2010.github.io/2018/10/29/register-discovery/"
+			    "@id":"http://gino2010.github.io/2018/12/08/Modeling-NoSQL/"
 			},
-			"datePublished": "2018-10-29T01:52:26.000Z",
-			"dateModified": "2018-11-18T06:18:54.425Z",
+			"datePublished": "2018-12-08T13:54:50.000Z",
+			"dateModified": "2019-01-04T15:21:25.914Z",
 			
 			"image": {
 				"@type": "ImageObject",
@@ -2026,7 +1777,7 @@ h6.categories {
   	<!-- container -->
   	<div id="container">
 	  	<div id="main">
-		    <article id="post-register-discovery" class="post">
+		    <article id="post-Modeling-NoSQL" class="post">
 		    
 		   		<!-- categories and bread crumb -->
 		    	
@@ -2077,7 +1828,7 @@ h6.categories {
 			            <div class="header-cap flx">
 							
 							  <h1 class="article-title entry-title" itemprop="name">
-							    <a href="http://gino2010.github.io/2018/10/29/register-discovery/" target="_blank" itemprop="url">Registration and Discovery - Spring</a>
+							    <a href="http://gino2010.github.io/2018/12/08/Modeling-NoSQL/" target="_blank" itemprop="url">Modeling &amp; NoSQL</a>
 							  </h1>
 							
 						</div>
@@ -2087,7 +1838,7 @@ h6.categories {
 					<div class="entry-meta-header">
 						<span class="meta-elements date">
 							<span class="fa fa-fw fa-clock-o"></span>
-							<time datetime="2018-10-29" itemprop="datePublished">2018.10.29</time>
+							<time datetime="2018-12-08" itemprop="datePublished">2018.12.08</time>
 						</span>
 					</div>
 				</div>
@@ -2104,100 +1855,67 @@ h6.categories {
                     
                     
 			    	<!-- content -->
-			  		<p>&#x5173;&#x4E8E;Spring Cloud&#x652F;&#x6301;&#x7684;&#x6CE8;&#x518C;&#x53D1;&#x73B0;&#x670D;&#x52A1;&#xFF0C;&#x4E00;&#x76F4;&#x60F3;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;&#x5BF9;&#x6BD4;&#x60C5;&#x51B5;&#xFF0C;&#x4ECA;&#x5929;&#x65E0;&#x610F;&#x95F4;&#x53D1;&#x73B0;&#x8FD9;&#x4E2A;&#x5BF9;&#x6BD4;&#x6587;&#x7AE0;&#xFF0C;&#x7B80;&#x5355;&#x76F4;&#x63A5;&#xFF0C;&#x53EF;&#x4EE5;&#x7ED9;&#x4F60;&#x4E00;&#x4E2A;&#x76F4;&#x89C2;&#x7684;&#x521D;&#x6B65;&#x8BA4;&#x8BC6;&#x3002;<br>&#x8F6C;&#x8F7D;&#x539F;&#x5730;&#x5740;&#xFF1A;<a href="https://luyiisme.github.io/2017/04/22/spring-cloud-service-discovery-products/" target="_blank" rel="noopener">&#x670D;&#x52A1;&#x53D1;&#x73B0;&#x6BD4;&#x8F83;:Consul vs Zookeeper vs Etcd vs Eureka</a><br>&#x8FD9;&#x91CC;&#x4EC5;&#x8D34;&#x51FA;&#x603B;&#x7ED3;&#x8868;&#x683C;&#xFF0C;&#x7A0D;&#x4F5C;&#x8C03;&#x6574;&#x3002;&#x5176;&#x5B83;&#x5185;&#x5BB9;&#x8BF7;&#x53C2;&#x89C1;&#x539F;&#x6587;</p>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>consul</th>
-<th>zookeeper</th>
-<th>etcd</th>
-<th>euerka</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>&#x670D;&#x52A1;&#x5065;&#x5EB7;&#x68C0;&#x67E5;</td>
-<td>&#x670D;&#x52A1;&#x72B6;&#x6001;&#xFF0C;&#x5185;&#x5B58;&#xFF0C;&#x786C;&#x76D8;&#x7B49;</td>
-<td>(&#x5F31;)&#x957F;&#x8FDE;&#x63A5;&#xFF0C;keepalive</td>
-<td>&#x8FDE;&#x63A5;&#x5FC3;&#x8DF3;</td>
-<td>&#x53EF;&#x914D;&#x652F;&#x6301;</td>
-</tr>
-<tr>
-<td>&#x591A;&#x6570;&#x636E;&#x4E2D;&#x5FC3;</td>
-<td>&#x652F;&#x6301;</td>
-<td>&#x2014;</td>
-<td>&#x2014;</td>
-<td>&#x2014;</td>
-</tr>
-<tr>
-<td>KV&#x5B58;&#x50A8;&#x670D;&#x52A1;</td>
-<td>&#x652F;&#x6301;</td>
-<td>&#x652F;&#x6301;</td>
-<td>&#x652F;&#x6301;</td>
-<td>&#x2014;</td>
-</tr>
-<tr>
-<td>&#x4E00;&#x81F4;&#x6027;</td>
-<td>raft</td>
-<td>zab</td>
-<td>raft</td>
-<td>&#x2014;</td>
-</tr>
-<tr>
-<td>CAP</td>
-<td>ca</td>
-<td>cp</td>
-<td>cp</td>
-<td>ap</td>
-</tr>
-<tr>
-<td>&#x4F7F;&#x7528;&#x63A5;&#x53E3;(&#x591A;&#x8BED;&#x8A00;&#x80FD;&#x529B;)</td>
-<td>&#x652F;&#x6301;http&#x548C;dns</td>
-<td>&#x5BA2;&#x6237;&#x7AEF;</td>
-<td>http/grpc</td>
-<td>http&#xFF08;sidecar&#xFF09;</td>
-</tr>
-<tr>
-<td>Watch&#x652F;&#x6301;</td>
-<td>&#x5168;&#x91CF;/&#x652F;&#x6301;long polling</td>
-<td>&#x652F;&#x6301;</td>
-<td>&#x652F;&#x6301; long polling</td>
-<td>&#x652F;&#x6301; long polling/&#x5927;&#x90E8;&#x5206;&#x589E;&#x91CF;</td>
-</tr>
-<tr>
-<td>&#x81EA;&#x8EAB;&#x76D1;&#x63A7;</td>
-<td>metrics</td>
-<td>&#x2014;</td>
-<td>metrics</td>
-<td>metrics</td>
-</tr>
-<tr>
-<td>&#x5B89;&#x5168;</td>
-<td>acl/https</td>
-<td>acl</td>
-<td>https&#x652F;&#x6301;&#xFF08;&#x5F31;&#xFF09;</td>
-<td>&#x2014;</td>
-</tr>
-<tr>
-<td>Spring Cloud&#x96C6;&#x6210;</td>
-<td>&#x5DF2;&#x652F;&#x6301;</td>
-<td>&#x5DF2;&#x652F;&#x6301;</td>
-<td>&#x5DF2;&#x652F;&#x6301;</td>
-<td>&#x5DF2;&#x652F;&#x6301;&#xFF0C;2.0&#x95ED;&#x6E90;</td>
-</tr>
-</tbody>
-</table></div>
-<a id="more"></a>
-<p>&#x611F;&#x8C22;&#x539F;&#x4F5C;&#x8005;&#x7684;&#x5206;&#x4EAB;&#xFF0C;&#x5E76;&#x8D34;&#x51FA;&#x4E0E;&#x5176;&#x6587;&#x4E2D;&#x4E00;&#x5904;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#x89C2;&#x70B9;&#xFF0C;zookeeper&#x7684;&#x4E00;&#x81F4;&#x6027;&#x534F;&#x8BAE;&#x4E0D;&#x662F;Paxos&#xFF0C;&#x5E94;&#x8BE5;&#x662F;ZAB&#x3002;<br>&#x6B64;&#x89C2;&#x70B9;&#x4F9D;&#x636E;&#xFF1A;<a href="https://www.elastic.co/blog/found-zookeeper-king-of-coordination#consistency-algorithm" target="_blank" rel="noopener">The core consensus algorithm of ZooKeeper is not Paxos</a></p>
-<p>&#x53E6;&#x5916;&#xFF0C;euerka&#x5BA3;&#x5E03;2.0&#x95ED;&#x6E90;&#x540E;&#xFF0C;&#x76EE;&#x524D;&#x6765;&#x770B;Consul&#x662F;&#x66FF;&#x4EE3;euerka&#x4E00;&#x4E2A;&#x4E0D;&#x9519;&#x7684;&#x65B9;&#x6848;&#x3002;</p>
-<h2 id="CAP-&#x7B80;&#x5355;&#x89E3;&#x91CA;"><a href="#CAP-&#x7B80;&#x5355;&#x89E3;&#x91CA;" class="headerlink" title="CAP &#x7B80;&#x5355;&#x89E3;&#x91CA;"></a>CAP &#x7B80;&#x5355;&#x89E3;&#x91CA;</h2><ul>
-<li>&#x4E00;&#x81F4;&#x6027;(Consistency) (&#x6240;&#x6709;&#x8282;&#x70B9;&#x5728;&#x540C;&#x4E00;&#x65F6;&#x95F4;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x5230;&#x540C;&#x6837;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x679C;)</li>
-<li>&#x53EF;&#x7528;&#x6027;(Availability) (&#x4FDD;&#x8BC1;&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;&#x4E0D;&#x7BA1;&#x6210;&#x529F;&#x6216;&#x8005;&#x5931;&#x8D25;&#x90FD;&#x6709;&#x54CD;&#x5E94;)</li>
-<li>&#x5206;&#x9694;&#x5BB9;&#x5FCD;(Partition tolerance) (&#x7CFB;&#x7EDF;&#x4E2D;&#x4EFB;&#x610F;&#x4FE1;&#x606F;&#x7684;&#x4E22;&#x5931;&#x6216;&#x5931;&#x8D25;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x7CFB;&#x7EDF;&#x7684;&#x7EE7;&#x7EED;&#x8FD0;&#x4F5C;)</li>
+			  		<p>&#x5EFA;&#x6A21;&#x4E0E;NoSQL&#xFF0C;&#x8FD9;&#x4E00;&#x5207;&#x6E90;&#x4E8E;&#x6700;&#x8FD1;&#x5BF9;&#x5546;&#x54C1;&#x5EFA;&#x6A21;&#x7684;&#x601D;&#x8003;&#x3002;<br>&#x573A;&#x666F;&#xFF0C;&#x5F53;&#x4F60;&#x6709;&#x5F88;&#x591A;&#x4EA7;&#x54C1;&#xFF0C;&#x4ED6;&#x4EEC;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5E76;&#x4E14;&#x5DEE;&#x5F02;&#x8F83;&#x5927;&#xFF0C;&#x4ECA;&#x540E;&#x65B0;&#x589E;&#x4EA7;&#x54C1;&#x7684;&#x5C5E;&#x6027;&#x53C8;&#x4E0D;&#x786E;&#x5B9A;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x7684;&#x6570;&#x636E;&#x5E94;&#x8BE5;&#x5982;&#x4F55;&#x5B58;&#x50A8;&#xFF0C;&#x5982;&#x4F55;&#x5EFA;&#x6A21;&#x5462;&#xFF1F;<br><a id="more"></a></p>
+<h2 id="Modeling"><a href="#Modeling" class="headerlink" title="Modeling"></a>Modeling</h2><p>&#x5546;&#x54C1;&#x6570;&#x636E;&#x7684;&#x5EFA;&#x6A21;&#x65B9;&#x5F0F;&#xFF0C;&#x5176;&#x5B9E;&#x6211;&#x4EEC;&#x5E73;&#x65F6;&#x7ECF;&#x5E38;&#x4F7F;&#x7528;&#xFF0C;&#x5E76;&#x4E0D;&#x5C11;&#x89C1;&#xFF0C;&#x4F46;&#x5927;&#x591A;&#x65F6;&#x53EF;&#x80FD;&#x53EA;&#x662F;&#x6A21;&#x4EFF;&#x4F7F;&#x7528;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x6DF1;&#x5165;&#x601D;&#x8003;&#x6216;&#x6574;&#x7406;&#x5F52;&#x7EB3;&#x3002;<br>&#x76F4;&#x89C2;&#x7684;&#x6570;&#x636E;&#x5E93;&#x5EFA;&#x6A21;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x4E00;&#x5F20;&#x5546;&#x54C1;&#x8868;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x8BB0;&#x5F55;&#xFF0C;&#x4E5F;&#x662F;&#x6211;&#x4EEC;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x884C;&#x5EFA;&#x6A21;&#x65B9;&#x5F0F;&#xFF08;Row Modeling&#xFF09;&#x3002;<br>&#x7A0D;&#x5FAE;&#x4F18;&#x70B9;&#x5F00;&#x53D1;&#x7ECF;&#x9A8C;&#x7684;&#x670B;&#x53CB;&#x7406;&#x89E3;&#x4F1A;&#x610F;&#x8BC6;&#x5230;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x5B9E;&#x4F53;&#x5BF9;&#x8C61;entity&#x5BF9;&#x5E94;&#x4E00;&#x5F20;&#x6570;&#x636E;&#x8868;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x4E0D;&#x80FD;&#x5F88;&#x597D;&#x6EE1;&#x8DB3;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x9762;&#x5BF9;&#x7684;&#x573A;&#x666F;&#x3002;&#x5176;&#x4E0D;&#x9002;&#x5E94;&#x5C06;&#x8868;&#x73B0;&#x4E3A;&#xFF1A;</p>
+<ol>
+<li>&#x5C5E;&#x6027;&#x5DEE;&#x5F02;&#x8FC7;&#x5927;&#xFF0C;&#x9020;&#x6210;&#x8868;&#x5B57;&#x6BB5;&#x6570;&#x91CF;&#x8DDF;&#x968F;&#x4EA7;&#x54C1;&#x7C7B;&#x522B;&#x53D8;&#x5316;&#xFF0C;&#x5E76;&#x4E14;&#x5DE8;&#x5927;</li>
+<li>&#x5C5E;&#x6027;&#x5DEE;&#x5F02;&#x8FC7;&#x5927;&#xFF0C;&#x9020;&#x6210;&#x6570;&#x636E;&#x7A00;&#x758F;&#xFF0C;&#x8868;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x6D6A;&#x8D39;</li>
+<li>&#x4ECA;&#x540E;&#x65B0;&#x589E;&#x5E38;&#x54C1;&#xFF0C;&#x8868;&#x7ED3;&#x6784;&#x9700;&#x8981;&#x8C03;&#x6574;&#x975E;&#x5E38;&#x4E0D;&#x7075;&#x6D3B;<br>&#x7B49;&#x7B49;&#xFF0C;&#x5C31;&#x4E0D;&#x4E00;&#x4E00;&#x5217;&#x4E3E;&#x4E86;&#xFF0C;&#x8FD9;&#x4E2A;&#x601D;&#x8DEF;&#x4F30;&#x8BA1;&#x8FDE;&#x5F53;&#x4ECA;&#x5927;&#x5B66;&#x6BD5;&#x4E1A;&#x8BBE;&#x8BA1;&#x7684;&#x540C;&#x5B66;&#x90FD;&#x4E0D;&#x4F1A;&#x72AF;&#x7684;&#x9519;&#x8BEF;&#x3002;<br>&#x90A3;&#x4E48;&#x5E94;&#x8BE5;&#x600E;&#x4E48;&#x505A;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x4E00;&#x822C;&#x4F1A;&#x60F3;&#x5230;&#x5B57;&#x6BB5;&#x62C6;&#x5206;&#xFF0C;&#x8868;&#x5173;&#x8054;&#x65B9;&#x5F0F;&#x5904;&#x7406;&#x3002;&#x90A3;&#x4E48;&#x6709;&#x4EC0;&#x4E48;&#x89C4;&#x8303;&#x53EF;&#x4EE5;&#x9075;&#x5FAA;&#x5417;&#xFF1F;<br>&#x7B54;&#x6848;&#x662F;&#xFF1A;&#x6709;&#x7684;&#xFF0C;<a href="https://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model" target="_blank" rel="noopener">EAV&#xFF08;Entity Attribute Value&#xFF09;</a>&#x65B9;&#x5F0F;&#x3002;<br>&#x4ED6;&#x628A;&#x4E00;&#x4E2A;&#x5B9E;&#x4F53;&#x62C6;&#x6210;&#x4E09;&#x90E8;&#x5206;&#xFF0C;&#x8FDB;&#x884C;&#x5EFA;&#x6A21;&#xFF1A;</li>
+</ol>
+<ul>
+<li>Entity &#x5B9E;&#x4F53;&#xFF0C;&#x5373;&#x4E8B;&#x7269;&#x672C;&#x8EAB;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5546;&#x54C1;</li>
+<li>Attribute &#x5C5E;&#x6027;&#xFF0C;&#x5C06;&#x4E8B;&#x7269;&#x6240;&#x62E5;&#x6709;&#x7684;&#x5C5E;&#x6027;</li>
+<li>Value &#x503C;&#xFF0C;&#x5546;&#x54C1;&#x7684;&#x5177;&#x4F53;&#x5C5E;&#x6027;&#x5BF9;&#x5E94;&#x7684;&#x503C;<br>&#x7B80;&#x5355;&#x8BF4;&#xFF0C;&#x8FD9;&#x6837;&#x5F62;&#x6210;&#x4E86;&#xFF0C;&#x591A;&#x5F20;&#x5173;&#x8054;&#x7684;&#x6570;&#x636E;&#x8868;&#xFF0C;&#x7EF4;&#x62A4;&#x5546;&#x54C1;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x5B9E;&#x73B0;&#x7075;&#x6D3B;&#x8C03;&#x6574;&#x3002;</li>
 </ul>
-<p>CAP &#x4E0D;&#x53EF;&#x80FD;&#x5168;&#x90FD;&#x540C;&#x65F6;&#x6EE1;&#x8DB3;&#xFF0C;&#x8FD9;&#x4E2A;&#x5DF2;&#x7ECF;&#x88AB;&#x8BC1;&#x660E;&#x8FC7;&#x4E86;&#xFF0C;&#x8FD9;&#x91CC;&#x5148;&#x8BB0;&#x4F4F;&#x7ED3;&#x8BBA;&#x5427;&#xFF0C;&#x5177;&#x4F53;&#x89E3;&#x91CA;&#x7F51;&#x4E0A;&#x6587;&#x7AE0;&#x5F88;&#x591A;&#x3002;</p>
-<h2 id="Raft-&#x6F14;&#x793A;"><a href="#Raft-&#x6F14;&#x793A;" class="headerlink" title="Raft &#x6F14;&#x793A;"></a>Raft &#x6F14;&#x793A;</h2><p>&#x76F8;&#x6BD4;Paxos&#xFF0C;raft&#x66F4;&#x5BB9;&#x6613;&#x88AB;&#x4EBA;&#x7406;&#x89E3;&#x548C;&#x63A5;&#x53D7;&#xFF0C;&#x770B;&#x4E00;&#x4E0B;&#x8FD9;&#x4E2A;<a href="http://thesecretlivesofdata.com/raft/" target="_blank" rel="noopener">&#x6F14;&#x793A;&#x52A8;&#x753B;</a>&#x5427;&#xFF0C;&#x7B80;&#x5355;&#x76F4;&#x89C2;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x505A;&#x7684;&#x574F;&#x5904;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;&#x5EFA;&#x6A21;&#x4E0A;&#x6EE1;&#x8DB3;&#x4E86;&#x6211;&#x4EEC;&#x7684;&#x573A;&#x666F;&#x9700;&#x6C42;&#xFF0C;&#x4F46;&#x5728;&#x5176;&#x4ED6;&#x65B9;&#x9762;&#x6709;&#x4E0D;&#x5982;&#x610F;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x4E3B;&#x8981;&#x8868;&#x73B0;&#x5728;&#xFF1A;</p>
+<ol>
+<li>&#x6570;&#x636E;&#x8868;&#x591A;&#xFF0C;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x590D;&#x6742;&#xFF0C;&#x7EF4;&#x62A4;&#x7E41;&#x7410;</li>
+<li>&#x67E5;&#x8BE2;&#x8BED;&#x53E5;&#x590D;&#x6742;&#xFF0C;&#x4E25;&#x91CD;&#x5F71;&#x54CD;&#x67E5;&#x8BE2;&#x6027;&#x80FD;</li>
+<li>&#x5B9E;&#x9645;&#x6570;&#x636E;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x5927;&#x91CF;&#x884C;&#x5217;&#x8F6C;&#x6362;&#x64CD;&#x4F5C;&#xFF0C;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x54CD;&#x5E94;&#x8BD5;&#x56FE;&#x7ED3;&#x6784;&#x652F;&#x6491;&#xFF0C;&#x662F;CPU&#x5BC6;&#x96C6;&#x578B;&#x64CD;&#x4F5C;&#xFF0C;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x538B;&#x529B;&#x5927;</li>
+</ol>
+<p>&#x600E;&#x4E48;&#x89E3;&#x51B3;&#x4E0A;&#x9762;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6709;&#x4E9B;&#x670B;&#x53CB;&#x53EF;&#x80FD;&#x7B2C;&#x4E00;&#x65F6;&#x95F4;&#x60F3;&#x5230;&#x7684;&#x662F;NoSQL&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x770B;&#x4ED6;&#x4EEC;&#x9002;&#x5408;&#x4E0D;&#xFF1F;</p>
+<h2 id="NoSQL"><a href="#NoSQL" class="headerlink" title="NoSQL"></a>NoSQL</h2><p>&#x8BF4;NoSQL&#x662F;&#x5426;&#x5408;&#x9002;&#xFF0C;&#x9700;&#x8981;&#x5148;&#x4E86;&#x89E3;NoSQL&#x7684;&#x5206;&#x7C7B;<br>&#x53C2;&#x8003;&#x7F51;&#x4E0A;&#x5E38;&#x89C1;&#x5206;&#x7C7B;&#x6709;&#x56DB;&#x79CD;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<h3 id="&#x952E;&#x503C;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x5E93;"><a href="#&#x952E;&#x503C;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x5E93;" class="headerlink" title="&#x952E;&#x503C;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x5E93;"></a>&#x952E;&#x503C;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x5E93;</h3><ul>
+<li>&#x76F8;&#x5173;&#x4EA7;&#x54C1;&#xFF1A;Redis&#x3001;Riak&#x3001;SimpleDB&#x3001;Chordless&#x3001;Scalaris&#x3001;Memcached</li>
+<li>&#x5E94;&#x7528;&#xFF1A;&#x5185;&#x5BB9;&#x7F13;&#x5B58;</li>
+<li>&#x4F18;&#x70B9;&#xFF1A;&#x6269;&#x5C55;&#x6027;&#x597D;&#x3001;&#x7075;&#x6D3B;&#x6027;&#x597D;&#x3001;&#x5927;&#x91CF;&#x5199;&#x64CD;&#x4F5C;&#x65F6;&#x6027;&#x80FD;&#x9AD8;</li>
+<li>&#x7F3A;&#x70B9;&#xFF1A;&#x65E0;&#x6CD5;&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#x5316;&#x4FE1;&#x606F;&#x3001;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;&#x6548;&#x7387;&#x8F83;&#x4F4E;</li>
+</ul>
+<h3 id="&#x5217;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x5E93;"><a href="#&#x5217;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x5E93;" class="headerlink" title="&#x5217;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x5E93;"></a>&#x5217;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x5E93;</h3><ul>
+<li>&#x76F8;&#x5173;&#x4EA7;&#x54C1;&#xFF1A;BigTable&#x3001;HBase&#x3001;Cassandra&#x3001;HadoopDB&#x3001;GreenPlum&#x3001;PNUTS</li>
+<li>&#x5E94;&#x7528;&#xFF1A;&#x5206;&#x5E03;&#x5F0F;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x4E0E;&#x7BA1;&#x7406;</li>
+<li>&#x4F18;&#x70B9;&#xFF1A;&#x67E5;&#x627E;&#x901F;&#x5EA6;&#x5FEB;&#x3001;&#x53EF;&#x6269;&#x5C55;&#x6027;&#x5F3A;&#x3001;&#x5BB9;&#x6613;&#x8FDB;&#x884C;&#x5206;&#x5E03;&#x5F0F;&#x6269;&#x5C55;&#x3001;&#x590D;&#x6742;&#x6027;&#x4F4E;</li>
+<li>&#x7F3A;&#x70B9;&#xFF1A;&#x529F;&#x80FD;&#x76F8;&#x5BF9;&#x5C40;&#x9650;</li>
+</ul>
+<h3 id="&#x6587;&#x6863;&#x6570;&#x636E;&#x5E93;"><a href="#&#x6587;&#x6863;&#x6570;&#x636E;&#x5E93;" class="headerlink" title="&#x6587;&#x6863;&#x6570;&#x636E;&#x5E93;"></a>&#x6587;&#x6863;&#x6570;&#x636E;&#x5E93;</h3><ul>
+<li>&#x76F8;&#x5173;&#x4EA7;&#x54C1;&#xFF1A;MongoDB&#x3001;CouchDB&#x3001;ThruDB&#x3001;CloudKit&#x3001;Perservere&#x3001;Jackrabbit</li>
+<li>&#x5E94;&#x7528;&#xFF1A;&#x5B58;&#x50A8;&#x3001;&#x7D22;&#x5F15;&#x5E76;&#x7BA1;&#x7406;&#x9762;&#x5411;&#x6587;&#x6863;&#x7684;&#x6570;&#x636E;&#x6216;&#x8005;&#x7C7B;&#x4F3C;&#x7684;&#x534A;&#x7ED3;&#x6784;&#x5316;&#x6570;&#x636E;</li>
+<li>&#x4F18;&#x70B9;&#xFF1A;&#x6027;&#x80FD;&#x597D;&#x3001;&#x7075;&#x6D3B;&#x6027;&#x9AD8;&#x3001;&#x590D;&#x6742;&#x6027;&#x4F4E;&#x3001;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7075;&#x6D3B;</li>
+<li>&#x7F3A;&#x70B9;&#xFF1A;&#x7F3A;&#x4E4F;&#x7EDF;&#x4E00;&#x7684;&#x67E5;&#x8BE2;&#x8BED;&#x8A00;</li>
+</ul>
+<h3 id="&#x56FE;&#x5F62;&#x6570;&#x636E;&#x5E93;"><a href="#&#x56FE;&#x5F62;&#x6570;&#x636E;&#x5E93;" class="headerlink" title="&#x56FE;&#x5F62;&#x6570;&#x636E;&#x5E93;"></a>&#x56FE;&#x5F62;&#x6570;&#x636E;&#x5E93;</h3><ul>
+<li>&#x76F8;&#x5173;&#x4EA7;&#x54C1;&#xFF1A;Neo4J&#x3001;OrientDB&#x3001;InfoGrid&#x3001;GraphDB</li>
+<li>&#x5E94;&#x7528;&#xFF1A;&#x5927;&#x91CF;&#x590D;&#x6742;&#x3001;&#x4E92;&#x8FDE;&#x63A5;&#x3001;&#x4F4E;&#x7ED3;&#x6784;&#x5316;&#x7684;&#x56FE;&#x7ED3;&#x6784;&#x573A;&#x5408;&#xFF0C;&#x5982;&#x793E;&#x4EA4;&#x7F51;&#x7EDC;&#x3001;&#x63A8;&#x8350;&#x7CFB;&#x7EDF;&#x7B49;</li>
+<li>&#x4F18;&#x70B9;&#xFF1A;&#x7075;&#x6D3B;&#x6027;&#x9AD8;&#x3001;&#x652F;&#x6301;&#x590D;&#x6742;&#x7684;&#x56FE;&#x5F62;&#x7B97;&#x6CD5;&#x3001;&#x53EF;&#x7528;&#x4E8E;&#x6784;&#x5EFA;&#x590D;&#x6742;&#x7684;&#x5173;&#x7CFB;&#x56FE;&#x8C31;</li>
+<li>&#x7F3A;&#x70B9;&#xFF1A;&#x590D;&#x6742;&#x6027;&#x9AD8;&#x3001;&#x53EA;&#x80FD;&#x652F;&#x6301;&#x4E00;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x89C4;&#x6A21;</li>
+</ul>
+<p>&#x6240;&#x4EE5;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;NoSQL&#x5B58;&#x50A8;&#x591A;&#x53D8;&#x7684;&#x5B57;&#x6BB5;&#x6570;&#x636E;&#x5185;&#x5BB9;&#xFF0C;&#x7B2C;&#x4E00;&#x4F18;&#x9009;&#x5C31;&#x662F;&#x6587;&#x6863;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x4F7F;&#x7528;ElasticSearch&#x6765;&#x5B8C;&#x6210;&#x66F4;&#x4E3A;&#x590D;&#x6742;&#x7684;&#x641C;&#x7D22;&#x9700;&#x6C42;&#x3002;<br>&#x8FD9;&#x6837;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x5426;&#x5408;&#x7406;&#x5462;&#xFF1F;</p>
+<h2 id="NoSQL-&#x65B9;&#x6848;&#x95EE;&#x9898;"><a href="#NoSQL-&#x65B9;&#x6848;&#x95EE;&#x9898;" class="headerlink" title="NoSQL &#x65B9;&#x6848;&#x95EE;&#x9898;"></a>NoSQL &#x65B9;&#x6848;&#x95EE;&#x9898;</h2><p>&#x589E;&#x52A0;&#x7CFB;&#x7EDF;&#x5F00;&#x53D1;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x9700;&#x8981;&#x540C;&#x65F6;&#x64CD;&#x7EB5;&#x4E24;&#x79CD;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x5E93;&#x3002;&#x6BD5;&#x7ADF;&#x539F;&#x6709;&#x7684;&#x4E1A;&#x52A1;&#x6570;&#x636E;&#x8FD8;&#x9700;&#x8981;&#x5728;&#x5173;&#x7CFB;&#x578B;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x4FDD;&#x5B58;&#xFF0C;&#x540C;&#x65F6;&#x65E0;&#x6CD5;&#x5408;&#x7406;&#x5173;&#x7CFB;&#x5316;&#x7684;&#x5B57;&#x6BB5;&#x6570;&#x636E;&#x5C06;&#x5B58;&#x5165;NoSQL&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x3002;</p>
+<ol>
+<li>&#x9700;&#x8981;&#x8003;&#x8651;&#x4E24;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x4FDD;&#x8BC1;&#x6570;&#x636E;&#x4E00;&#x81F4;&#x6027;&#x95EE;&#x9898;</li>
+<li>&#x6570;&#x636E;&#x4F7F;&#x7528;&#x65F6;&#x9700;&#x8981;&#x8003;&#x8651;&#x5408;&#x7406;&#x7684;&#x67E5;&#x8BE2;&#x65B9;&#x5F0F;&#xFF0C;&#x62FC;&#x63A5;&#x6570;&#x636E;</li>
+</ol>
+<p>&#x7B80;&#x5355;&#x8BF4;&#x6570;&#x636E;&#x4F7F;&#x7528;&#x548C;&#x7EF4;&#x62A4;&#x7684;&#x76F8;&#x5173;&#x7CFB;&#x7EDF;&#x5B9E;&#x73B0;&#x67B6;&#x6784;&#x90FD;&#x9700;&#x8981;&#x6709;&#x8F83;&#x597D;&#x7684;&#x8BBE;&#x8BA1;&#x548C;&#x5F00;&#x53D1;&#x652F;&#x6491;&#xFF0C;&#x7CFB;&#x7EDF;&#x590D;&#x6742;&#x5EA6;&#x5927;&#xFF0C;&#x8FD0;&#x8425;&#x7EF4;&#x62A4;&#x6210;&#x672C;&#x9AD8;&#x3002;<br>&#x540C;&#x65F6;&#x4E0D;&#x5426;&#x8BA4;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x4E5F;&#x6709;&#x5176;&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x4EF7;&#x503C;&#x548C;&#x4F18;&#x52BF;&#xFF0C;&#x4E5F;&#x662F;&#x4E00;&#x79CD;&#x5E38;&#x89C1;&#x7684;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x3002;</p>
+<p>&#x90A3;&#x6709;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x65B9;&#x6848;&#xFF1F;</p>
+<h2 id="JSON-&#x7C7B;&#x578B;"><a href="#JSON-&#x7C7B;&#x578B;" class="headerlink" title="JSON &#x7C7B;&#x578B;"></a>JSON &#x7C7B;&#x578B;</h2><p>&#x6570;&#x636E;&#x5F15;&#x5165;JSON&#x7C7B;&#x578B;&#x4E5F;&#x9010;&#x6B65;&#x6210;&#x4E3A;&#x4E3B;&#x6D41;&#xFF0C;&#x4E5F;&#x9010;&#x6E10;&#x6210;&#x719F;&#x3002;<br>&#x8BB0;&#x5F97;&#x6700;&#x65E9;&#x662F;PostgreSQL 9.3&#x7684;&#x4E00;&#x6B21;&#x521B;&#x65B0;&#x578B;&#x5B9E;&#x9A8C;&#xFF0C;&#x4E4B;&#x540E;&#x5C31;&#x662F;MySQL 5.7&#x4E5F;&#x6DFB;&#x52A0;&#x4E86;&#x76F8;&#x5E94;&#x7684;&#x652F;&#x6301;&#xFF0C;Oracle 12cr1</p>
+<p>&#x4F9D;MySQL&#x4E3A;&#x4F8B;&#xFF0C;&#x7B80;&#x5355;&#x770B;&#x4E00;&#x4E0B;&#x5176;&#x529F;&#x80FD;</p>
+<p>&#x521B;&#x5EFA;&#x8868;<br></p><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> t_json(<span class="keyword">id</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span>, sname <span class="built_in">VARCHAR</span>(<span class="number">20</span>) , info  <span class="keyword">JSON</span>);</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x63D2;&#x5165;&#x6570;&#x636E;<br></p><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- &#x63D2;&#x5165;&#x542B;&#x6709;json&#x6570;&#x7EC4;&#x7684;&#x8BB0;&#x5F55;</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_json(<span class="keyword">id</span>,sname,info) <span class="keyword">VALUES</span>( <span class="number">1</span>, <span class="string">&apos;name1&apos;</span>, JSON_ARRAY(<span class="number">1</span>, <span class="string">&quot;abc&quot;</span>, <span class="literal">NULL</span>, <span class="literal">TRUE</span>, <span class="keyword">CURTIME</span>()));</span><br><span class="line"></span><br><span class="line"><span class="comment">-- &#x63D2;&#x5165;&#x542B;&#x6709;json&#x5BF9;&#x8C61;&#x7684;&#x8BB0;&#x5F55;</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_json(<span class="keyword">id</span>,sname,info) <span class="keyword">VALUES</span>( <span class="number">2</span>, <span class="string">&apos;name2&apos;</span>, JSON_OBJECT(<span class="string">&quot;age&quot;</span>, <span class="number">20</span>, <span class="string">&quot;time&quot;</span>, <span class="keyword">now</span>()));</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_json(<span class="keyword">id</span>,sname,info) <span class="keyword">VALUES</span>( <span class="number">3</span>, <span class="string">&apos;name3&apos;</span>, <span class="string">&apos;{&quot;age&quot;:20, &quot;time&quot;:&quot;2018-07-14 10:52:00&quot;}&apos;</span>);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- &#x67E5;&#x8BE2;&#x8BB0;&#x5F55;</span></span><br><span class="line"><span class="keyword">SELECT</span> sname,JSON_EXTRACT(info,<span class="string">&apos;$.age&apos;</span>) <span class="keyword">FROM</span> t_json;</span><br><span class="line"><span class="keyword">SELECT</span> sname,info-&gt;<span class="string">&apos;$.age&apos;</span> <span class="keyword">FROM</span> t_json;</span><br><span class="line"><span class="comment">-- &#x67E5;&#x8BE2;key</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>,json_keys(info) <span class="keyword">FROM</span> t_json;</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x6240;&#x4EE5;&#xFF0C;&#x5173;&#x7CFB;&#x5E93;&#x4E2D;&#x7684;JSON&#x7C7B;&#x578B;&#x662F;&#x53EF;&#x4EE5;&#x6BD4;&#x8F83;&#x7406;&#x60F3;&#x7684;&#x6EE1;&#x8DB3;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x573A;&#x666F;&#xFF0C;&#x65E2;&#x517C;&#x987E;&#x4E86;&#x539F;&#x6709;&#x4E1A;&#x52A1;&#x6570;&#x636E;&#x4E5F;&#x4FDD;&#x8BC1;&#x4E86;&#x6570;&#x636E;&#x7684;&#x7075;&#x6D3B;&#x6027;&#xFF0C;&#x540C;&#x65F6;&#x7EF4;&#x62A4;&#x548C;&#x4F7F;&#x7528;&#x6280;&#x672F;&#x73AF;&#x5883;&#x7EDF;&#x4E00;&#xFF0C;&#x964D;&#x4F4E;&#x7CFB;&#x7EDF;&#x590D;&#x6742;&#x5EA6;&#x3002;<br>&#x7F3A;&#x70B9;&#xFF0C;&#x6027;&#x80FD;&#x7565;&#x6709;&#x635F;&#x5931;&#xFF0C;&#x4EE3;&#x7801;&#x5904;&#x7406;&#x7565;&#x6709;&#x590D;&#x6742;&#x3002;&#x9488;&#x5BF9;JSON&#x6570;&#x636E;&#x5185;&#x5BB9;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x5EFA;&#x7ACB;&#x7D22;&#x5F15;&#x7684;&#xFF0C;&#x63D0;&#x5347;&#x67E5;&#x8BE2;&#x901F;&#x5EA6;&#xFF0C;&#x8FD9;&#x4E2A;&#x7684;&#x4F7F;&#x7528;&#x4E5F;&#x8BB8;&#x5408;&#x7406;&#x8BBE;&#x8BA1;&#x3002;</p>
+<h2 id="&#x603B;&#x7ED3;"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h2><p>&#x6587;&#x7AE0;&#x4ECE;&#x7B2C;&#x4E00;&#x5929;&#x5EFA;&#x7ACB;&#x5230;&#x4ECA;&#x5929;&#xFF08;1-4&#xFF09;&#x8865;&#x5B8C;&#xFF0C;&#x7ECF;&#x5386;&#x5FEB;&#x4E00;&#x4E2A;&#x6708;&#x3002;&#x8FD9;&#x4E00;&#x4E2A;&#x6708;&#x672C;&#x4EBA;&#x4E5F;&#x7ECF;&#x5386;&#x4E86;&#x5F88;&#x591A;&#xFF0C;&#x540C;&#x65F6;&#xFF0C;&#x505A;&#x4E86;&#x4E00;&#x4E2A;&#x4ECE;&#x4E1A;&#x4EE5;&#x6765;&#x6700;&#x4EFB;&#x6027;&#x7684;&#x51B3;&#x5B9A;&#xFF0C;&#x81F3;&#x4E8E;&#x7ED3;&#x679C;&#x5982;&#x4F55;&#xFF0C;&#x90A3;&#x5C31;&#x770B;&#x81EA;&#x5DF1;&#x7684;&#x52AA;&#x529B;&#x4E86;&#x3002;</p>
+<p>&#x65B0;&#x7684;&#x4E00;&#x5E74;&#x5F00;&#x59CB;&#xFF0C;&#x611F;&#x8C22;&#x6211;&#x63A5;&#x89E6;&#x8FC7;&#x7684;&#x6240;&#x6709;&#x4EBA;&#xFF0C;&#x611F;&#x8C22;&#x4F60;&#x4EEC;&#x7684;&#x5E2E;&#x52A9;&#x3002;&#x5E0C;&#x671B;&#x4E2A;&#x4EBA;&#x4ECA;&#x540E;&#x53EF;&#x4EE5;&#x8D70;&#x7684;&#x66F4;&#x597D;&#x3002;<br>&#x795D;&#x5927;&#x5BB6;&#x5B89;&#x5EB7;&#xFF01;</p>
+<h2 id="&#x53C2;&#x8003;"><a href="#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</h2><p><a href="https://www.cnblogs.com/sthinker/p/5882520.html" target="_blank" rel="noopener">EAV &#x6A21;&#x578B;</a><br><a href="https://www.cnblogs.com/quinnsun/p/NoSQL_2.html" target="_blank" rel="noopener">NoSQL &#x5206;&#x7C7B;</a><br><a href="https://www.cnblogs.com/ooo0/p/9309277.html" target="_blank" rel="noopener">&#x6570;&#x636E;&#x5E93; JSON &#x7C7B;&#x578B;</a></p>
 
 			  		
 			  		<!-- google Adsense -->
@@ -2225,14 +1943,8 @@ h6.categories {
 						<ul class="article-tag-list">
 							
 					    		<li class="article-tag-list-item">
-					    			<a class="article-tag-list-link" href="/tags/spring-cloud/">
-					    				spring cloud
-					    			</a>
-					    		</li>
-							
-					    		<li class="article-tag-list-item">
-					    			<a class="article-tag-list-link" href="/tags/CAP/">
-					    				CAP
+					    			<a class="article-tag-list-link" href="/tags/Design/">
+					    				Design
 					    			</a>
 					    		</li>
 							
