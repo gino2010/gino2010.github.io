@@ -109,23 +109,25 @@
 
 
 
-  <meta name="description" content="Stay Hungry, Stay Foolish.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Cube Life">
-<meta property="og:url" content="http://gino2010.github.io/tags/scrum/index.html">
+  <meta name="description" content="前言首先声明，此文内容大多为译文，并非原创原文地址：All You Need To Know For Migrating To Java 11并非逐句对应翻译，只对关键内容进行翻译，如有问题请指正，感谢！ 翻译此文章的初衷源于我刚刚第一次搭建了基于Java 11的spring boot工程，遇到了一些包的缺失导致的问题，当然这些问题在Java 8时是不会出现的另外，Java 8的生命周期已经进入尾">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="All You Need To Know For Migrating To Java 11">
+<meta property="og:url" content="http://gino2010.github.io/2019/01/06/java-11-migration-guide/index.html">
 <meta property="og:site_name" content="Cube Life">
-<meta property="og:description" content="Stay Hungry, Stay Foolish.">
+<meta property="og:description" content="前言首先声明，此文内容大多为译文，并非原创原文地址：All You Need To Know For Migrating To Java 11并非逐句对应翻译，只对关键内容进行翻译，如有问题请指正，感谢！ 翻译此文章的初衷源于我刚刚第一次搭建了基于Java 11的spring boot工程，遇到了一些包的缺失导致的问题，当然这些问题在Java 8时是不会出现的另外，Java 8的生命周期已经进入尾">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-01-06T14:16:05.925Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cube Life">
-<meta name="twitter:description" content="Stay Hungry, Stay Foolish.">
+<meta name="twitter:title" content="All You Need To Know For Migrating To Java 11">
+<meta name="twitter:description" content="前言首先声明，此文内容大多为译文，并非原创原文地址：All You Need To Know For Migrating To Java 11并非逐句对应翻译，只对关键内容进行翻译，如有问题请指正，感谢！ 翻译此文章的初衷源于我刚刚第一次搭建了基于Java 11的spring boot工程，遇到了一些包的缺失导致的问题，当然这些问题在Java 8时是不会出现的另外，Java 8的生命周期已经进入尾">
 
 
 
 
 
 
-  <link rel="canonical" href="http://gino2010.github.io/tags/scrum/"/>
+  <link rel="canonical" href="http://gino2010.github.io/2019/01/06/java-11-migration-guide/"/>
 
 
 
@@ -135,7 +137,7 @@
   };
 </script>
 
-  <title>Tag: scrum | Cube Life</title>
+  <title>All You Need To Know For Migrating To Java 11 | Cube Life</title>
   
 
 
@@ -190,7 +192,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,7 +241,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
   </li>
@@ -283,28 +285,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -364,58 +344,291 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>scrum<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2019/01/06/java-11-migration-guide/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gino Zhao">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cube Life">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/10/28/five-events/" itemprop="url">
-              
-                <span itemprop="name">Five Events of Scrum</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">All You Need To Know For Migrating To Java 11
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-28T23:22:34+08:00"
-              content="2018-10-28" >
-          10-28
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-01-06 16:39:37 / Modified: 22:16:05" itemprop="dateCreated datePublished" datetime="2019-01-06T16:39:37+08:00">2019-01-06</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/06/java-11-migration-guide/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/06/java-11-migration-guide/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首先声明，此文内容大多为译文，并非原创<br>原文地址：<a href="https://blog.codefx.org/java/java-11-migration-guide/" target="_blank" rel="noopener">All You Need To Know For Migrating To Java 11</a><br>并非逐句对应翻译，只对关键内容进行翻译，如有问题请指正，感谢！</p>
+<p>翻译此文章的初衷源于我刚刚第一次搭建了基于Java 11的spring boot工程，遇到了一些包的缺失导致的问题，当然这些问题在Java 8时是不会出现的<br>另外，Java 8的生命周期已经进入尾声，开发者必然面临切换到Java 11的局面，所以在搜索相关信息看到了这个文章。我将尝试翻译此文章，也让自己有更为深入的理解</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>Java 11 早在2018年9月25日发布（原文在当日发表）它标志着Java生态系统重大转变的结束（Java 9 &amp; 10都是这个过程的中间态）Java 11是LTS（Long Term Support）版本，伴随着从Java 8迁移到模块化灵活的JDK和6个月release迭代周期<br>在作者看来，我们进入了新纪元，我们需要遵循新的Java规则，很多项目需要考虑从Java 8 迁移到Java 11。此文章将告诉你所有你需要知道的关于从Java 8迁移到Java 11<br><a id="more"></a></p>
+<p>此外列出Java 11的新特性链接：</p>
+<ul>
+<li><a href="https://blog.codefx.org/java/http-2-api-tutorial/" target="_blank" rel="noopener">New HTTP2 Client</a></li>
+<li><a href="https://blog.codefx.org/java/reactive-http-2-requests-responses/" target="_blank" rel="noopener">Reactive</a></li>
+<li><a href="https://blog.codefx.org/java/scripting-java-shebang/" target="_blank" rel="noopener">Scripting</a></li>
+<li><a href="https://blog.codefx.org/java/java-11-gems/" target="_blank" rel="noopener">Eleven Hidden Gems </a></li>
+</ul>
+<p>请注意，我们将在这里讨论迁移，并不是模块化（modularization），Java 11并不要求一定要模块化，那是一个独立步骤，所以这里没有创建模块</p>
+<p>我们先从发布周期，授权方式和支持说起，最后讲解如何克服常见的4个阻碍，做过Java 9 迁移的人可能已经熟悉其中大部分内容。</p>
+<h2 id="发布和授权"><a href="#发布和授权" class="headerlink" title="发布和授权"></a>发布和授权</h2><p>发布周期貌似没有什么，但是这是Oracle JDK商业内容的组成部分，并且相比技术迁移的挑战，公开问题（Open Question）的长期支持可能将对你的项目带来更多的影响。</p>
+<h3 id="发布周期频率"><a href="#发布周期频率" class="headerlink" title="发布周期频率"></a>发布周期频率</h3><ul>
+<li>每六个月，发布一个新的主版本，即每年的三月和九月</li>
+<li>每个主版本将有两个小版本更新，在每个主版本发布后的一或四个月后</li>
+</ul>
+<p>（相比之前Java语言迭代发展缓慢，现在可以看出Java进入了快速发展的时代，展示其顽强的生命力，可以感觉它将继续保持语言霸主的地位）</p>
+<h3 id="OpenJDK是新的默认版本"><a href="#OpenJDK是新的默认版本" class="headerlink" title="OpenJDK是新的默认版本"></a>OpenJDK是新的默认版本</h3><p>（这个我之前的一个文章有所简单涉及，这次说更清楚些）2018年9月之前，Oracle JDK是大家使用的版本，我们一般会认为其功能更为丰富，更加稳定和高效，虽然事实并不一定（OpenJDK其实也表现的不错）。所以大多数人都是选在Oracle JDK，OpenJDK很少使用，但这一情况将在Java 11将改变。<br>Oracle努力将Oracle JDK 11 和 OpenJDK 11 在技术上一样（OpenJDK和Oracle JDK在历史上有过不少的差异，某些时候，其实两个社区是在各自发展，虽然这段历史我可能说不清楚，但之前遇到过版本差异带来的问题），所以现在两个版本的差异只有授权文件了。Oracle期望通过将其JDK商业化方式，推动开发者进入OpenJDK。你可以使用Oracle JDK进行开发和测试，但如果没有授权文件是不可以用于产品中的。<br>结果就是，OpenJDK将成为默认值，同时拥有全部的特性集合、主要性能以及免费的license（GPL+CE）以后可能会出现，Oracle和OpenJDK自定义厂商，都在销售他们长期支持。</p>
+<h3 id="长期支持-Long-Term-Support"><a href="#长期支持-Long-Term-Support" class="headerlink" title="长期支持 Long-Term Support"></a>长期支持 Long-Term Support</h3><p>首先说 <a href="https://jdk.java.net" target="_blank" rel="noopener">Oracle JDK</a> 和 <a href="https://openjdk.java.net" target="_blank" rel="noopener">OpenJDK</a>，6个月内会更新两个小版本，六个月后呢？如果你还想使用Java 11呢？（下一个长期支持版本是Java 17，Oracle计划每三年释放一个新的LTS版本）怎么获得安全或修复补丁呢？两个选择：</p>
+<ul>
+<li>向某人（Oracle或其他供应商）购买商业支持</li>
+<li>期待OpenJDK有免费的支持</li>
+</ul>
+<p>关于商业支持，目前可以想到的提供LTS服务的供应商有：</p>
+<ul>
+<li>Oracle</li>
+<li>IBM</li>
+<li>RedHat</li>
+<li>Azul</li>
+</ul>
+<p>（这样看，oracle不是为了自己收费哦，而是重新定义了Java世界的商业规则，你可能觉得不爽，但是这些vendor都乐在其中呢，这样来看不是一件坏事，良好的商业模式是支持Java发展的动力）</p>
+<p>那么OpenJDK呢？<br>根据社区讨论的邮件来看，建议对应相同的版本，将有4年左右的长期公开升级支持(Oracle Java 11 主支持要到2023年，扩展支持可到2026年，这样看，OpenJDK社区支持可以到2022年，也还不错，现在是否定下来这样执行还需进一步考证)<br>最有可能，每一个LTS版本将有一个专属的升级负责人，例如Java 11可能由Red Hat负责。这些都是针对源码，那么我们哪里可以获得二进制文件（Binaries）呢？<a href="https://adoptopenjdk.net/" target="_blank" rel="noopener">AdoptOpenJDK</a>将持续生成不同平台的OpenJDK版本<br>总结，我们可以获得免费的OpenJDK，由Java社区知名企业共同维护，并通过AdoptOpenJDK持续更新，这非常棒！</p>
+<h3 id="关于Amazon-Corretto"><a href="#关于Amazon-Corretto" class="headerlink" title="关于Amazon Corretto"></a>关于Amazon Corretto</h3><p>财大气粗的Amazon宣布进入OpenJDK供应商行列，并发布了<a href="https://amazonaws-china.com/corretto/" target="_blank" rel="noopener">Corretto</a>，并提供的长期免费的服务（目前，它只放出了Java 8，Java 11预计4月放出），关键信息如下：</p>
+<ul>
+<li>基于OpenJDK，添加亚马逊实现的安全、性能、稳定、bug等修复</li>
+<li>支持Linux Mac OS Windows</li>
+<li>免费使用，GPL+CE授权（这就是个”搅局者”说好的供应商可以自己定制，然后买服务的你怎么不按套路出牌呢？答：有钱任性）</li>
+<li>长期支持Java 8 到2023</li>
+<li>长期支持Java 11 到2024</li>
+<li>季度更新和不定期的紧急更新</li>
+</ul>
+<p>参考其对OpenJDK的贡献，Amazon从2017年开始为OpenJDK贡献，所以其很可能将其Corretto的更新到OpenJDK中，这样大家就可以都使用了（好人做到底啦，贡献出来吧）。如果没有，自己看<a href="https://github.com/corretto" target="_blank" rel="noopener">Corretto的源码</a>，自己搞合并吧。<br>简单说，Amazon会合并Oracle的补丁到其Corretto分支上，即使他们没有这么做，我们自己做也不难。这样使得免费的长期支持，社区驱动OpenJDK11更可行，非常酷～</p>
+<h2 id="准备你的迁移"><a href="#准备你的迁移" class="headerlink" title="准备你的迁移"></a>准备你的迁移</h2><p>（简化翻译以下内容）<br>好了，我们准备迁移</p>
+<h3 id="长痛还是短痛？"><a href="#长痛还是短痛？" class="headerlink" title="长痛还是短痛？"></a>长痛还是短痛？</h3><p>建议短痛：</p>
+<ul>
+<li>不要建立长期合并分支，直接在开发分支尝试Java 11，避免不要的合并冲突</li>
+<li>配置的你的持续集成服务器，普通编译一次，Java 11编译一次</li>
+<li>学习配置编译工具特殊配置，添加新Java版本支持</li>
+<li>版本特殊化配置尽可能的小，更新依赖好于在命令行中添加参数</li>
+</ul>
+<h3 id="更新所有"><a href="#更新所有" class="headerlink" title="更新所有"></a>更新所有</h3><p>开发工具建议更新：</p>
+<ul>
+<li>IntelliJ IDEA：2018.2以上</li>
+<li>Eclipse：Photon 4.9RC2 with Java 11 plugin以上</li>
+<li>Maven：3.5.0以上</li>
+<li>compiler plugin: 3.8.0</li>
+<li>surefire and failsafe: 2.22.0</li>
+<li>gradle 4.10.2以上</li>
+</ul>
+<p>所有操作字节码的包需要更行，因为Java版本变动，字节码的Level会每6个月更新一次</p>
+<ul>
+<li>ASM </li>
+<li>Byte Buddy </li>
+<li>cglib </li>
+<li>Javassist</li>
+<li>Spring</li>
+<li>Hibernate</li>
+<li>Mockito</li>
+</ul>
+<p>注意此方面的错误，例如升级Hibernate：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.hibernate<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hibernate-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- LOOK OUT: YOU SHOULD USE A NEWER VERSION! --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.2.12.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- update Hibernate dependency on</span></span><br><span class="line"><span class="comment">            Javassist from 3.20.0 to 3.23.1</span></span><br><span class="line"><span class="comment">            for Java 11 compatibility --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.javassist<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javassist<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.23.1-GA<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>如果不行，那就要深入问题，查找其他原因</p>
+<h3 id="关于模块系统"><a href="#关于模块系统" class="headerlink" title="关于模块系统"></a>关于模块系统</h3><p>就一个原则，Java 9以后，你并不需要模块化，所以该怎么组织package就怎么组织</p>
+<h2 id="开始迁移"><a href="#开始迁移" class="headerlink" title="开始迁移"></a>开始迁移</h2><p>准备就绪，看看Java 11都会遇到什么，然后怎么解决。</p>
+<p>未完待续……</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/08/Modeling-NoSQL/" rel="next" title="Modeling & NoSQL">
+                <i class="fa fa-chevron-left"></i> Modeling & NoSQL
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -436,8 +649,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -591,6 +813,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-text">正文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布和授权"><span class="nav-text">发布和授权</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发布周期频率"><span class="nav-text">发布周期频率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenJDK是新的默认版本"><span class="nav-text">OpenJDK是新的默认版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#长期支持-Long-Term-Support"><span class="nav-text">长期支持 Long-Term Support</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于Amazon-Corretto"><span class="nav-text">关于Amazon Corretto</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备你的迁移"><span class="nav-text">准备你的迁移</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#长痛还是短痛？"><span class="nav-text">长痛还是短痛？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新所有"><span class="nav-text">更新所有</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于模块系统"><span class="nav-text">关于模块系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始迁移"><span class="nav-text">开始迁移</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -738,6 +976,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
 
   
 
@@ -752,6 +994,37 @@
     <script id="dsq-count-scr" src="https://myblog-orNkC9OX7o.disqus.com/count.js" async></script>
   
 
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://gino2010.github.io/2019/01/06/java-11-migration-guide/';
+        this.page.identifier = '2019/01/06/java-11-migration-guide/';
+        this.page.title = 'All You Need To Know For Migrating To Java 11';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://myblog-orNkC9OX7o.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        $(function () {
+          var offsetTop = $('#comments').offset().top - $(window).height();
+          if (offsetTop <= 0) {
+            // load directly when there's no a scrollbar
+            loadComments();
+          } else {
+            $(window).on('scroll.disqus_scroll', function () {
+              var scrollTop = document.documentElement.scrollTop;
+              if (scrollTop >= offsetTop) {
+                $(window).off('.disqus_scroll');
+                loadComments();
+              }
+            });
+          }
+        });
+      
+    </script>
   
 
 
