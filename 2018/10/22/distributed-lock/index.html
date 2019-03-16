@@ -110,7 +110,7 @@
 
 
   <meta name="description" content="分布式锁，在微服务，多服务器水平扩展以及高并发的场景下，要保证共享资源正确处理，这个锁很重要。我了解到了三种实现方式：  数据库方式，基于主键唯一性约束或行级锁实现 Zookeeper实现，基于其临时有序节点实现 Redis方式，基于setNX操作实现  三种方式各有优缺点，在恢复此博客之前我已经实现了基于Redis版本的分布式锁，现在把另外两种加以实现，并做相应的对比。">
-<meta name="keywords" content="zookeeper,mysql,redis">
+<meta name="keywords" content="mysql,zookeeper,redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Distributed Lock">
 <meta property="og:url" content="http://gino2010.github.io/2018/10/22/distributed-lock/index.html">
@@ -561,9 +561,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/zookeeper/" rel="tag"># zookeeper</a>
-          
             <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+            <a href="/tags/zookeeper/" rel="tag"># zookeeper</a>
           
             <a href="/tags/redis/" rel="tag"># redis</a>
           
@@ -674,7 +674,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -754,7 +754,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -794,6 +796,18 @@
                 
                   <li class="links-of-blogroll-item">
                     <a href="http://zhangzhixing.win/" title="Zhixing" target="_blank">Zhixing</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://terran1942.github.io/" title="Terran" target="_blank">Terran</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://28code.github.io" title="28Code" target="_blank">28Code</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cuisongliu.github.io/" title="cuisongliu" target="_blank">cuisongliu</a>
                   </li>
                 
               </ul>
