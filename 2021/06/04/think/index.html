@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="你熟悉数据结构和算法吗？个人以为：对于大多数程序员或者开发工程师答案都是否定的吧。在我说出此话的同时，你也可以猜到我此方面的能力了。 其实，在我看来，可以专心写代码，追求代码质量的工程师是令人羡慕的。那个过程如同艺术家在完成自己心爱的作品；如同科学家在专心论证自己的假设，如同一位匠人在追求那凡人无法企及的技艺。 然而，现实中一位IT工程师的工作不是这么”简单”的。多数情况下每日书写代码时间不会超过">
+<meta name="keywords" content="Java,life">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Code and Think">
+<meta property="og:url" content="http://gino2010.github.io/2021/06/04/think/index.html">
+<meta property="og:site_name" content="Cube Life">
+<meta property="og:description" content="你熟悉数据结构和算法吗？个人以为：对于大多数程序员或者开发工程师答案都是否定的吧。在我说出此话的同时，你也可以猜到我此方面的能力了。 其实，在我看来，可以专心写代码，追求代码质量的工程师是令人羡慕的。那个过程如同艺术家在完成自己心爱的作品；如同科学家在专心论证自己的假设，如同一位匠人在追求那凡人无法企及的技艺。 然而，现实中一位IT工程师的工作不是这么”简单”的。多数情况下每日书写代码时间不会超过">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-06-05T02:40:21.178Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Code and Think">
+<meta name="twitter:description" content="你熟悉数据结构和算法吗？个人以为：对于大多数程序员或者开发工程师答案都是否定的吧。在我说出此话的同时，你也可以猜到我此方面的能力了。 其实，在我看来，可以专心写代码，追求代码质量的工程师是令人羡慕的。那个过程如同艺术家在完成自己心爱的作品；如同科学家在专心论证自己的假设，如同一位匠人在追求那凡人无法企及的技艺。 然而，现实中一位IT工程师的工作不是这么”简单”的。多数情况下每日书写代码时间不会超过">
+
+
+
+
+
+
+  <link rel="canonical" href="http://gino2010.github.io/2021/06/04/think/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Code and Think | Cube Life</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-3162018766725403",
+      enable_page_level_ads: true
+    });
+</script>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cube Life</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">My journey of life</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/gino2010" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2021/06/04/think/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gino Zhao">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cube Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Code and Think
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2021-06-04 22:48:40" itemprop="dateCreated datePublished" datetime="2021-06-04T22:48:40+08:00">2021-06-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2021-06-05 10:40:21" itemprop="dateModified" datetime="2021-06-05T10:40:21+08:00">2021-06-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/06/04/think/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/04/think/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>你熟悉数据结构和算法吗？个人以为：对于大多数程序员或者开发工程师答案都是否定的吧。在我说出此话的同时，你也可以猜到我此方面的能力了。</p>
+<p>其实，在我看来，可以专心写代码，追求代码质量的工程师是令人羡慕的。那个过程如同艺术家在完成自己心爱的作品；如同科学家在专心论证自己的假设，如同一位匠人在追求那凡人无法企及的技艺。</p>
+<p>然而，现实中一位IT工程师的工作不是这么”简单”的。多数情况下每日书写代码时间不会超过4个小时。为何如此，原因各有不同，我想不少人会有此问题。</p>
+<a id="more"></a>
+
+<h2 id="心态"><a href="#心态" class="headerlink" title="心态"></a>心态</h2><p>当有一天你发现，看着手中的工作，你所积累的经验和你想象中的目标有差距时，你会怎么办？<br>我会选择顺其自然，放下一些执念，做好当前该做的事情，时不时的享受一下生活，这一切不是挺好吗？</p>
+<p>那还要尝试新东西和改变吗？当然要，但心中不是想着”一定要怎样”，而是放平心态。尝试会有两个结果：</p>
+<ol>
+<li>让自己更加了解自己，思考以及启发，成长于此过程中</li>
+<li>发现自己的积累还可以做些其他事情，给自己一个改变的机会。</li>
+</ol>
+<p>这个过程有些微妙，如同心中湖水平如镜时，也会有那突然涟漪泛起一刻，而你会去欣赏和感受，直到再此平如镜，看着镜中的自己更加清晰。</p>
+<p>可能有人会说，你不抱着”一定要怎样”态度去做事情，不会成功。我不反驳，但要想清楚何为成功。   </p>
+<p>简单说：我愿意保持平常心去尝试一些机会，如果感觉还不错可以投入一些精力，毕竟想把事情做的有点模样，投入还是不可少的。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>说回Code或者是一段program，我喜欢这样描述它，它是对一组规则的描述。<br>人类有很多语言，计算机也是如此。在我看来，所有语言都可以用于描述所有事物（或规则，我喜欢把周围的一切都看成”规则” 这个话题今后有机会儿再聊）<br>而学习一门计算机语言也如同学一门外语一样，你通常掌握的只是描述事物的表达方式。</p>
+<p>那数据结构和算法的晦涩难懂，又是一个什么感觉。其如同你学习了英语，可以用于日常沟通。突然有一天，在法律场景下，你需要用法律专业措辞描述一个场景。<br>没错，就是这样一个感觉，你需要熟悉很多专业词汇，术语，如同数据结构；你需要搞明白法律相关基本规则和思维逻辑，如同算法。<br>所以一时有点蒙也是很正常的。面对这样的场景，这时你有一个主动问题，你想做吗？ 还有一个被动问题，有机会做吗？</p>
+<p>此时不得不承认，如果你有相关经验的积累，你获得此次机会的概率会高一些。毕竟你一眼看去会很快懂得相关的数据结构和算法的设计意图和目的。如果你没有，你可能很长时间都无法理解其想表达的本意，也就无从下手描述具体规则细节了。此时你的”想做”可能就变得微乎其微了。</p>
+<p>此时回到最初的话题，心终会平静，如果还想，那就投入一些精力。如果接受现状，那就放下。<br>此时我更愿意放平心态做一些事情，平衡生活和工作，平衡兴趣和专业。保持学习心态</p>
+<p>下面说点实际的吧，最近遇到的一些有趣的程序。本人平时工作中很少遇到此类场景，偶尔遇到值得深入一下</p>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p>这个问题实际上我至今没有搞清楚，没有清楚的部分是此结构使用的场景和存在的意义（要解决什么问题）。</p>
+<p>构建此结构是基于一个代码说明文档（非Java语言）实现的，所以只有猜测着写了。就像我之前所说，如果你没有相关经验，可能一时间无法理解其真实意义，构建具体逻辑也就变得困难了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.gino;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.function.Function;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Collectors;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.IntStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyEither</span>&lt;<span class="title">L</span>, <span class="title">R</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;L&gt; left = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">private</span> List&lt;R&gt; right = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Class&lt;L&gt; leftClass;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Class&lt;R&gt; rightClass;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyEither</span><span class="params">(Class&lt;L&gt; leftClass, Class&lt;R&gt; rightClass)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.leftClass = leftClass;</span><br><span class="line">        <span class="keyword">this</span>.rightClass = rightClass;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasLeft</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.left.size() != <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasRight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.right.size() != <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isLeft</span><span class="params">(L value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.left.contains(value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isRight</span><span class="params">(R value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.right.contains(value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> L <span class="title">fromLeft</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (hasLeft()) &#123;</span><br><span class="line">            L l = left.get(<span class="number">0</span>);</span><br><span class="line">            left.remove(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">return</span> l;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">fromRight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (hasRight()) &#123;</span><br><span class="line">            R r = right.get(<span class="number">0</span>);</span><br><span class="line">            right.remove(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">return</span> r;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(Object value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.leftClass.isInstance(value)) &#123;</span><br><span class="line">            <span class="keyword">this</span>.left.add((L) value);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.rightClass.isInstance(value)) &#123;</span><br><span class="line">            <span class="keyword">this</span>.right.add((R) value);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ClassCastException();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;L&gt; <span class="title">getLefts</span><span class="params">(Function&lt;List&lt;L&gt;, List&lt;L&gt;&gt; fun)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> fun.apply(<span class="keyword">this</span>.left);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;R&gt; <span class="title">getRights</span><span class="params">(Function&lt;List&lt;R&gt;, List&lt;R&gt;&gt; fun)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> fun.apply(<span class="keyword">this</span>.right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;L, R&gt; <span class="title">map</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = Math.max(left.size(), right.size());</span><br><span class="line">        <span class="keyword">return</span> IntStream.range(<span class="number">0</span>, i).boxed()</span><br><span class="line">                .collect(Collectors.toMap(index -&gt; index &gt; left.size() - <span class="number">1</span> ? <span class="keyword">null</span> : left.get(index), index -&gt; index &gt; right.size() - <span class="number">1</span> ? <span class="keyword">null</span> : right.get(index)));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MyEither&lt;String, Double&gt; myEither = <span class="keyword">new</span> MyEither&lt;&gt;(String.class, Double.class);</span><br><span class="line">        myEither.put(<span class="number">10</span>D);</span><br><span class="line">        myEither.put(<span class="string">"test"</span>);</span><br><span class="line">        myEither.put(<span class="number">101</span>D);</span><br><span class="line">        myEither.put(<span class="number">102</span>D);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        System.out.println(myEither.hasLeft());</span><br><span class="line">        System.out.println(myEither.isLeft(<span class="string">"test"</span>));</span><br><span class="line">        System.out.println(myEither.getLefts(x -&gt; x.stream().map(String::toUpperCase).collect(Collectors.toList())));</span><br><span class="line">        System.out.println(myEither.hasRight());</span><br><span class="line">        System.out.println(myEither.isRight(<span class="number">10</span>D));</span><br><span class="line">        System.out.println(myEither.getRights(x -&gt; x.stream().map(v -&gt; v / <span class="number">100</span>D).collect(Collectors.toList())));</span><br><span class="line"></span><br><span class="line">        System.out.println(Collections.singletonList(myEither.map()));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// negative case</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            myEither.put(<span class="number">10</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"wrong type"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结构阐述</p>
+<ul>
+<li>左右两个元素，类型不同，最初实现只是单元素，看到文档中有获取左右元素的list类型返回，修改为list类型左右元素</li>
+<li>根据不同类型放置到左右两边</li>
+<li>map转化是有问题的，当右元素长度比左元素长度多2及以上时，map转换是有问题的。</li>
+<li>由于不了解其使用场景，所以总是感觉其存在价值不大，为何不用直接用Map处理呢？</li>
+</ul>
+<p>写此结构时还是锻炼一下Java基础，有收获的</p>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>经典算法题，硬币问题，非贪婪算法</p>
+<p>题目描述：如有你手里有面值为1，7，10的货币（也可设定为其它组合），数量充足。现给出一个具体金额，你如何找到货币个数最小的组合</p>
+<p>废话不多说，直接上答案</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.gino;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Collectors;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Coin</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> List&lt;List&lt;Integer&gt;&gt; solutions = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">count</span><span class="params">(List&lt;Integer&gt; coins, <span class="keyword">int</span> num, <span class="keyword">int</span> charge, List&lt;Integer&gt; solution)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (charge == <span class="number">0</span>) &#123;</span><br><span class="line">            solutions.add(solution);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (charge &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (num &lt;= <span class="number">0</span> &amp;&amp; charge &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        List&lt;Integer&gt; copy = solution.size() == <span class="number">0</span> ? solution : <span class="keyword">new</span> ArrayList&lt;&gt;(solution);</span><br><span class="line">        solution.add(coins.get(num - <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> count(coins, num - <span class="number">1</span>, charge, copy) + count(coins, num, charge - coins.get(num - <span class="number">1</span>), solution);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"Enter your charge: "</span>);</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> charge = scanner.nextInt();</span><br><span class="line">        Coin coin = <span class="keyword">new</span> Coin();</span><br><span class="line">        List&lt;Integer&gt; coins = Arrays.asList(<span class="number">1</span>, <span class="number">7</span>, <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(coin.count(coins, coins.size(), charge, <span class="keyword">new</span> ArrayList&lt;&gt;()));</span><br><span class="line"></span><br><span class="line">        System.out.println(Arrays.toString(solutions.toArray()));</span><br><span class="line">        List&lt;Integer&gt; min = solutions.stream().min(Comparator.comparingInt(List::size)).orElse(<span class="keyword">new</span> ArrayList&lt;&gt;());</span><br><span class="line">        System.out.println(Arrays.toString(min.toArray()));</span><br><span class="line"></span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; collect = solutions.stream().min(Comparator.comparingInt(List::size)).stream().collect(Collectors.toList());</span><br><span class="line">        System.out.println(Arrays.toString(collect.toArray()));</span><br><span class="line"></span><br><span class="line">        System.out.println(solutions.stream().mapToInt(List::size).min().orElse(<span class="number">0</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我给出的解决方法是其中一种，非动态规划（说实话，那种我没有看懂）此解题思路还是很有意思的，使用递归，核心思想是：<br>在尝试路径中，要么钱减少，要么货币种类减少，列举所有组合可能性，获得最终结果</p>
+<p>程序输出了所有组合的可能性，以及寻找到最优解。感觉这个解题思路和睿智，思路来自于网络。收获：</p>
+<ul>
+<li>解题过程的思考，很有意思</li>
+<li>Stream的实际场景使用</li>
+</ul>
+<h3 id="简单应用"><a href="#简单应用" class="headerlink" title="简单应用"></a>简单应用</h3><p>一个实际场景应用，其实也是数据结构问题，但是这个使用场景明确，所以容易清晰实现思路</p>
+<p>主要思想，寻找最近汇率数据，或给定搜索日期，查询当日最新的汇率数据。不多解释了，代码很容懂。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.gino;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.time.LocalDate;</span><br><span class="line"><span class="keyword">import</span> java.time.LocalDateTime;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FxRate</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Item</span> </span>&#123;</span><br><span class="line">        LocalDate localDate;</span><br><span class="line">        String assetName;</span><br><span class="line">        Double value;</span><br><span class="line">        LocalDateTime localDateTime;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Item</span><span class="params">(LocalDate localDate, String assetName, Double value, LocalDateTime localDateTime)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.localDate = localDate;</span><br><span class="line">            <span class="keyword">this</span>.assetName = assetName;</span><br><span class="line">            <span class="keyword">this</span>.value = value;</span><br><span class="line">            <span class="keyword">this</span>.localDateTime = localDateTime;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> LocalDateTime <span class="title">getLocalDateTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.localDateTime;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    List&lt;Item&gt; cacheList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String, Double&gt; <span class="title">getData</span><span class="params">(LocalDate localDate, List&lt;String&gt; assetNameList, Optional&lt;LocalDateTime&gt; localDateTime)</span> </span>&#123;</span><br><span class="line">        HashMap&lt;String, Double&gt; result = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (localDateTime.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">for</span> (String assetName : assetNameList) &#123;</span><br><span class="line">                Item item = cacheList.stream().filter(x -&gt; assetName.equals(x.assetName)).filter(x -&gt; localDate.equals(x.localDate)).max(Comparator.comparing(Item::getLocalDateTime)).orElse(<span class="keyword">null</span>);</span><br><span class="line">                result.put(assetName, item.value);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (String assetName : assetNameList) &#123;</span><br><span class="line">                Item item = cacheList.stream().filter(x -&gt; assetName.equals(x.assetName)).filter(x -&gt; localDate.equals(x.localDate)).filter(x -&gt; !localDateTime.get().isBefore(x.localDateTime)).max(Comparator.comparing(Item::getLocalDateTime)).orElse(<span class="keyword">null</span>);</span><br><span class="line">                result.put(assetName, item.value);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addData</span><span class="params">(LocalDate localDate, String assetName, Double value, LocalDateTime localDateTime)</span> </span>&#123;</span><br><span class="line">        cacheList.add(<span class="keyword">new</span> Item(localDate, assetName, value, localDateTime));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        FxRate fxRate = <span class="keyword">new</span> FxRate();</span><br><span class="line">        fxRate.addData(LocalDate.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">1</span>), <span class="string">"USDSGD"</span>, <span class="number">1.33</span>, LocalDateTime.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">40</span>));</span><br><span class="line">        fxRate.addData(LocalDate.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">1</span>), <span class="string">"USDAUD"</span>, <span class="number">1.29</span>, LocalDateTime.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">40</span>));</span><br><span class="line">        fxRate.addData(LocalDate.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">1</span>), <span class="string">"USDSGD"</span>, <span class="number">1.34</span>, LocalDateTime.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">14</span>, <span class="number">30</span>));</span><br><span class="line">        fxRate.addData(LocalDate.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">1</span>), <span class="string">"USDAUD"</span>, <span class="number">1.28</span>, LocalDateTime.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">14</span>, <span class="number">30</span>));</span><br><span class="line">        fxRate.addData(LocalDate.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">2</span>), <span class="string">"USDSGD"</span>, <span class="number">1.31</span>, LocalDateTime.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">40</span>));</span><br><span class="line">        fxRate.addData(LocalDate.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">2</span>), <span class="string">"USDAUD"</span>, <span class="number">1.30</span>, LocalDateTime.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">40</span>));</span><br><span class="line">        fxRate.addData(LocalDate.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">2</span>), <span class="string">"USDSGD"</span>, <span class="number">1.29</span>, LocalDateTime.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">14</span>, <span class="number">30</span>));</span><br><span class="line">        fxRate.addData(LocalDate.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">2</span>), <span class="string">"USDAUD"</span>, <span class="number">1.32</span>, LocalDateTime.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">14</span>, <span class="number">30</span>));</span><br><span class="line"></span><br><span class="line">        List&lt;String&gt; assetNameList = Arrays.asList(<span class="string">"USDSGD"</span>, <span class="string">"USDAUD"</span>);</span><br><span class="line"></span><br><span class="line">        Map&lt;String, Double&gt; result = fxRate.getData(LocalDate.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">1</span>), assetNameList, Optional.empty());</span><br><span class="line">        System.out.println(Collections.singletonList(result));</span><br><span class="line">        result = fxRate.getData(LocalDate.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">1</span>), assetNameList, Optional.of(LocalDateTime.of(<span class="number">2020</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">14</span>, <span class="number">20</span>)));</span><br><span class="line">        System.out.println(Arrays.asList(result));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其实代码还有”优化”空间，还可以把方法继续简化，但是炫技、代码可读性、代码性能还是要平衡一下的，我觉此状态已经不错了。代码写的太复杂，过后自己读起来也是痛苦的。<br>收获：</p>
+<ul>
+<li>一个实际问题解决的思考过程</li>
+<li>Optional 和 Stream的使用，此类处理可以使用parallelStream哦</li>
+<li>我真的是记忆不好，很多方法调用还需要去查，还是用的太少，如果天天写也形成”肌肉记忆”了</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>再说几句相关感受，最近在给团队面试候选人，不知道各位对现在的面试什么感觉？我的是：</p>
+<ol>
+<li>面试难度往往大于实际工作难度，我也是这么做的，问了一些超出实际工作的问题</li>
+<li>应试般的准备一些问题，”套路”式的问与答，是否真的可以解决今后的问题不知道。（大厂带出的风格，你不刷题，都不好意思参加面试）</li>
+<li>“客观”考察技术，忽略”人格”属性。满足基本条件时，能做与想做，你要那一个？面试往往无法充分了解一个人</li>
+</ol>
+<p>这样的面试有问题？有点问题，但是无法避免，因为你需要在短时间基于标准内量化，评定一个候选人就不可避免。<br>如果我今后遇到此类问题，我应该都刷刷leetcode然后再去面试吗？顺其自然吧～ 哈哈～</p>
+<p>个人观点，欢迎交流，不必”认真”，一切随缘。</p>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>最近在思考学习、投资、生活、孩子教育等问题，四十不惑，心态也在发生着细小的变化，眼光需要放远些了。</p>
+<p>上周末参加了 PMP 和 MBA 两个活动，多和人交流感觉还不错的。老师也在说，大家都是有那么一股拼劲所以才会聚到一起。我现在更想把这股劲使到更有”价值”的点上，这是我目前的需求。一两句无法说清，有机会以后再说吧。</p>
+<p>收～～～</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/life/" rel="tag"># life</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/02/21/Year/" rel="next" title="Niu Year">
+                <i class="fa fa-chevron-left"></i> Niu Year
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Gino Zhao">
+            
+              <p class="site-author-name" itemprop="name">Gino Zhao</p>
+              <p class="site-description motion-element" itemprop="description">Stay Hungry, Stay Foolish.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/gino2010" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:ginozhao2010[@]gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhangzhixing.win/" title="Zhixing" target="_blank">Zhixing</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://terran1942.github.io/" title="Terran" target="_blank">Terran</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://28code.github.io" title="28Code" target="_blank">28Code</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cuisongliu.github.io/" title="cuisongliu" target="_blank">cuisongliu</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#心态"><span class="nav-text">心态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构"><span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法"><span class="nav-text">算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单应用"><span class="nav-text">简单应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题外话"><span class="nav-text">题外话</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gino Zhao</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.4.1</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://myblog-orNkC9OX7o.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://gino2010.github.io/2021/06/04/think/';
+        this.page.identifier = '2021/06/04/think/';
+        this.page.title = 'Code and Think';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://myblog-orNkC9OX7o.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        $(function () {
+          var offsetTop = $('#comments').offset().top - $(window).height();
+          if (offsetTop <= 0) {
+            // load directly when there's no a scrollbar
+            loadComments();
+          } else {
+            $(window).on('scroll.disqus_scroll', function () {
+              var scrollTop = document.documentElement.scrollTop;
+              if (scrollTop >= offsetTop) {
+                $(window).off('.disqus_scroll');
+                loadComments();
+              }
+            });
+          }
+        });
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
