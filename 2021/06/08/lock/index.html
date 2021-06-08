@@ -109,25 +109,25 @@
 
 
 
-  <meta name="description" content="最近重温吴军老师的硅谷来信，想起了Google人员采用的目标管理方法OKR(Objectives and Key Results)全称为“目标和关键成果”。吴军老师在其硅谷来信114封信中分享了这个方法（不仅可以用于工作也可以用于自己的生活）并结合他个人的2017年目标做了阐述。这也使我产生了同样念头，用OKR方式管理我自己的目标。">
-<meta name="keywords" content="OKR">
+  <meta name="description" content="锁，多线程开发的基础，线程安全结构的基础，今天研究一下锁 说到多线程，我们还会想到synchronized关键字，锁和同步块相比，区别是什么？先说结论，锁比同步关键字更实用，建议用锁  Lock 是 interface, Synchronized 是关键字. Synchronized 自动释放锁, Lock 需要手动释放. Lock 在等待时可以被打断, 但是Synchronized 不可以，需要">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的OKR(2018.10)">
-<meta property="og:url" content="http://gino2010.github.io/2018/09/29/okr/index.html">
+<meta property="og:title" content="Lock">
+<meta property="og:url" content="http://gino2010.github.io/2021/06/08/lock/index.html">
 <meta property="og:site_name" content="Cube Life">
-<meta property="og:description" content="最近重温吴军老师的硅谷来信，想起了Google人员采用的目标管理方法OKR(Objectives and Key Results)全称为“目标和关键成果”。吴军老师在其硅谷来信114封信中分享了这个方法（不仅可以用于工作也可以用于自己的生活）并结合他个人的2017年目标做了阐述。这也使我产生了同样念头，用OKR方式管理我自己的目标。">
+<meta property="og:description" content="锁，多线程开发的基础，线程安全结构的基础，今天研究一下锁 说到多线程，我们还会想到synchronized关键字，锁和同步块相比，区别是什么？先说结论，锁比同步关键字更实用，建议用锁  Lock 是 interface, Synchronized 是关键字. Synchronized 自动释放锁, Lock 需要手动释放. Lock 在等待时可以被打断, 但是Synchronized 不可以，需要">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-11-18T06:18:54.423Z">
+<meta property="og:updated_time" content="2021-06-08T14:32:38.875Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的OKR(2018.10)">
-<meta name="twitter:description" content="最近重温吴军老师的硅谷来信，想起了Google人员采用的目标管理方法OKR(Objectives and Key Results)全称为“目标和关键成果”。吴军老师在其硅谷来信114封信中分享了这个方法（不仅可以用于工作也可以用于自己的生活）并结合他个人的2017年目标做了阐述。这也使我产生了同样念头，用OKR方式管理我自己的目标。">
+<meta name="twitter:title" content="Lock">
+<meta name="twitter:description" content="锁，多线程开发的基础，线程安全结构的基础，今天研究一下锁 说到多线程，我们还会想到synchronized关键字，锁和同步块相比，区别是什么？先说结论，锁比同步关键字更实用，建议用锁  Lock 是 interface, Synchronized 是关键字. Synchronized 自动释放锁, Lock 需要手动释放. Lock 在等待时可以被打断, 但是Synchronized 不可以，需要">
 
 
 
 
 
 
-  <link rel="canonical" href="http://gino2010.github.io/2018/09/29/okr/">
+  <link rel="canonical" href="http://gino2010.github.io/2021/06/08/lock/">
 
 
 
@@ -137,7 +137,7 @@
   };
 </script>
 
-  <title>我的OKR(2018.10) | Cube Life</title>
+  <title>Lock | Cube Life</title>
   
 
 
@@ -358,7 +358,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2018/09/29/okr/">
+    <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2021/06/08/lock/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gino Zhao">
@@ -375,7 +375,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">我的OKR(2018.10)
+          <h1 class="post-title" itemprop="name headline">Lock
               
             
           </h1>
@@ -400,24 +400,12 @@
                 
               
 
-              <time title="Created: 2018-09-29 23:09:22" itemprop="dateCreated datePublished" datetime="2018-09-29T23:09:22+08:00">2018-09-29</time>
+              <time title="Created: 2021-06-08 21:39:24 / Modified: 22:32:38" itemprop="dateCreated datePublished" datetime="2021-06-08T21:39:24+08:00">2021-06-08</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-11-18 14:18:54" itemprop="dateModified" datetime="2018-11-18T14:18:54+08:00">2018-11-18</time>
               
             
           </span>
@@ -434,7 +422,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a></span>
 
                 
                 
@@ -449,9 +437,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/29/okr/#comments" itemprop="discussionUrl">
+                <a href="/2021/06/08/lock/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/29/okr/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/08/lock/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -486,59 +474,34 @@
       
 
       
-        <p>最近重温吴军老师的硅谷来信，想起了Google人员采用的目标管理方法<a href="https://wiki.mbalib.com/wiki/OKR" target="_blank" rel="noopener">OKR</a>(Objectives and Key Results)全称为“目标和关键成果”。<br>吴军老师在其硅谷来信114封信中分享了这个方法（不仅可以用于工作也可以用于自己的生活）并结合他个人的2017年目标做了阐述。这也使我产生了同样念头，用OKR方式管理我自己的目标。</p>
+        <p>锁，多线程开发的基础，线程安全结构的基础，今天研究一下锁</p>
+<p>说到多线程，我们还会想到synchronized关键字，锁和同步块相比，区别是什么？<br>先说结论，锁比同步关键字更实用，建议用锁</p>
+<ol>
+<li>Lock 是 interface, Synchronized 是关键字.</li>
+<li>Synchronized 自动释放锁, Lock 需要手动释放.</li>
+<li>Lock 在等待时可以被打断, 但是Synchronized 不可以，需要一直等待.</li>
+<li>Lock 明确知道是否有锁, 但是Synchronized 做不到.</li>
+<li>Synchronized 是CPU悲观锁机制，多线程时需要频繁切换CPU上下文，Lock是乐观锁机制，多线程是性能更高.</li>
+<li>Synchronized 可以用于class, methods, 和代码块, Lock可以用于代码逻辑</li>
+<li>Synchronized 不能实现公平锁， Lock 可以实现</li>
+</ol>
 <a id="more"></a>
 
-<h2 id="初衷和理解"><a href="#初衷和理解" class="headerlink" title="初衷和理解"></a>初衷和理解</h2><p>我希望我可以不断进步，可以用更为有效方式使自己获得成长，而对OKR目标管理初步了解下来，我认为是合适我的想法。</p>
-<p>OKR的目标制定一般是需要一些挑战性的，这样才能达到自我提升的目的，我也将逐步加大目标达成的难度，同时开始也可能会有些设定不合理。</p>
-<p>其次，目标不能太多，否则难以集中注意力，一般在5个以内。</p>
-<p>时间不易太长或太短，太短难以实现有挑战性的目标。太长过程有可能有太多不确定性的事情打破原有的计划，使得制定意义减弱。所以借鉴Google的做法，制定季度OKR。</p>
-<h2 id="季度-OKR"><a href="#季度-OKR" class="headerlink" title="季度 OKR"></a>季度 OKR</h2><p>正好九月底了，10月开始正好是2018年最后一个季度，也将是我的第一个OKR季度。</p>
-<h3 id="目标一-英语流利说学习达标"><a href="#目标一-英语流利说学习达标" class="headerlink" title="目标一 英语流利说学习达标"></a>目标一 英语流利说学习达标</h3><p>近期参加了英语流利说付费课程，提升自己的口语能力，也是近期主要的学习内容。</p>
-<ul>
-<li>连续打卡，每天学习时间平均不低于70分钟</li>
-<li>所有课程分数不低于3颗星🌟（满星4颗）</li>
-<li>流利说评定的口语等级上升一级。（按照当前进度应该可以做到）</li>
-</ul>
-<p>除此之外，我还在得到APP上购买了《吴军的谷歌方法论》和《香帅的北大金融学课》<br>这个学习也会保持，但这个基本没有什么挑战了。</p>
-<h3 id="目标二-深入一个计算机中的流行技术"><a href="#目标二-深入一个计算机中的流行技术" class="headerlink" title="目标二 深入一个计算机中的流行技术"></a>目标二 深入一个计算机中的流行技术</h3><p>学习掌握并深入一个流行的计算机技术</p>
-<ul>
-<li>深入了解和掌握 Kubernets</li>
-</ul>
-<p>这是我最近最想掌握的一个技术。除此之外我还会不定期更新个人github中的一些小例子，来记录我零碎的技术总结。</p>
-<h3 id="目标三-看完一本非计算机类书"><a href="#目标三-看完一本非计算机类书" class="headerlink" title="目标三 看完一本非计算机类书"></a>目标三 看完一本非计算机类书</h3><p>我的书单已经列了很久、很多了，是需要花些时间看看书了</p>
-<ul>
-<li>看完赫拉利的《今日简史》，看看都提出了什么问题</li>
-</ul>
-<p>因为时间原因，这个目标可能最难完成。<br>之前把赫拉利的《人类简史》看完了，《未来简史》看了一部分，看不下去了，再找时间吧。而《今日简史》中的当今问题使我比较感兴趣的，想读读，也算是把赫拉利的著作都看了看。<br>题外话，近半年还看了两个小说《副本》和《头号玩家》这两个都有对应的影视作品，感兴趣的朋友可以看看，纯当消遣。</p>
-<h3 id="目标四-锻炼身体，保持身体健康"><a href="#目标四-锻炼身体，保持身体健康" class="headerlink" title="目标四 锻炼身体，保持身体健康"></a>目标四 锻炼身体，保持身体健康</h3><p>天气转凉，终于可以锻炼身体了，天气热时真的是懒得动，极爱出汗的我更喜欢冬天。</p>
-<ul>
-<li>每周用Keep（一个健身APP）不少于2次，</li>
-<li>每周 跑步不小于3公里（我知道这个目标定低了一些，我需要先适应一下）</li>
-<li>每日睡眠（包含午休）不少于7个小时。</li>
-</ul>
-<p>这个估计难度也不小，我可以支配的时间太有限了，现在晚上睡眠平均小于6小时，很少运动，这是我精力有些疲倦，所以需要改变一下。</p>
-<h3 id="目标五-陪孩子"><a href="#目标五-陪孩子" class="headerlink" title="目标五 陪孩子"></a>目标五 陪孩子</h3><p>Family is first，我一直提醒自己，孩子又是其中最关键的。</p>
-<ul>
-<li>每日至少用半个小时与孩子做有效沟通，了解一天的情况或讨论一个小事情</li>
-<li>平均每周用完整的3个小时陪孩子做些有意义或者有趣的事情，包含户外活动等。</li>
-</ul>
-<p>五个目标，不多不少，希望可以在下面一个季度都可以做到。</p>
-<h2 id="年度-OKR"><a href="#年度-OKR" class="headerlink" title="年度 OKR"></a>年度 OKR</h2><p>索性再列几个年度的OKR吧，希望后面一年可以做到</p>
-<h3 id="目标一-付费课程学习"><a href="#目标一-付费课程学习" class="headerlink" title="目标一 付费课程学习"></a>目标一 付费课程学习</h3><ul>
-<li>购买付费课程，全年不少于三门，并完成学习内容</li>
-</ul>
-<h3 id="目标二-读书"><a href="#目标二-读书" class="headerlink" title="目标二 读书"></a>目标二 读书</h3><ul>
-<li>读非计算机类、非小说类书，全年不少于5本。</li>
-</ul>
-<h3 id="目标三-英语口语"><a href="#目标三-英语口语" class="headerlink" title="目标三 英语口语"></a>目标三 英语口语</h3><ul>
-<li>完成流利说口语付费课程内容</li>
-<li>按照流利说标准，达到Level 6级或以上</li>
-</ul>
-<p>当然还有工作上的一些目标，这里就详述了。</p>
-<p>列出这些和大家分享，同时也是督促自己，如果你也感兴趣，不妨试试。<br>如有好的建议和想法欢迎留言，谢谢！</p>
-<p>I wanna improve myself, better late than never.</p>
-<p><a href="https://blog.csdn.net/kaka1121/article/details/52486541" target="_blank" rel="noopener">OKR参考文章</a></p>
+<h2 id="Lock-Interface"><a href="#Lock-Interface" class="headerlink" title="Lock Interface"></a>Lock Interface</h2><p>java.util.concurrent.locks.lock</p>
+<h2 id="常见实现"><a href="#常见实现" class="headerlink" title="常见实现"></a>常见实现</h2><h3 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h3><p>直接代码，来自网络</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SharedObject</span> </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    ReentrantLock lock = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">perform</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        lock.lock();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// Critical section here</span></span><br><span class="line">            count++;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">performTryLock</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">        <span class="keyword">boolean</span> isLockAcquired = lock.tryLock(<span class="number">1</span>, TimeUnit.SECONDS);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(isLockAcquired) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="comment">//Critical section here</span></span><br><span class="line">                count++;</span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                lock.unlock();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ReentrantReadWriteLock"><a href="#ReentrantReadWriteLock" class="headerlink" title="ReentrantReadWriteLock"></a>ReentrantReadWriteLock</h3><p>读写锁，读等待写，写等待读</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SynchronizedHashMapWithReadWriteLock</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    Map&lt;String,String&gt; syncHashMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    ReadWriteLock lock = <span class="keyword">new</span> ReentrantReadWriteLock();</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    Lock writeLock = lock.writeLock();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(String key, String value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            writeLock.lock();</span><br><span class="line">            syncHashMap.put(key, value);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            writeLock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">remove</span><span class="params">(String key)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            writeLock.lock();</span><br><span class="line">            <span class="keyword">return</span> syncHashMap.remove(key);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            writeLock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Lock readLock = lock.readLock();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">(String key)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            readLock.lock();</span><br><span class="line">            <span class="keyword">return</span> syncHashMap.get(key);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            readLock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsKey</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            readLock.lock();</span><br><span class="line">            <span class="keyword">return</span> syncHashMap.containsKey(key);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            readLock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="StampedLock"><a href="#StampedLock" class="headerlink" title="StampedLock"></a>StampedLock</h3><p>Java 8 新引入的一个锁实现，可以返回stamp，用其解锁或检查锁是否还有效</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StampedLockDemo</span> </span>&#123;</span><br><span class="line">    Map&lt;String,String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">private</span> StampedLock lock = <span class="keyword">new</span> StampedLock();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(String key, String value)</span></span>&#123;</span><br><span class="line">        <span class="keyword">long</span> stamp = lock.writeLock();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            map.put(key, value);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            lock.unlockWrite(stamp);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">(String key)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> stamp = lock.readLock();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> map.get(key);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            lock.unlockRead(stamp);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">readWithOptimisticLock</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> stamp = lock.tryOptimisticRead();</span><br><span class="line">        String value = map.get(key);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(!lock.validate(stamp)) &#123;</span><br><span class="line">            stamp = lock.readLock();</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> map.get(key);</span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                lock.unlock(stamp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Condition-接口"><a href="#Condition-接口" class="headerlink" title="Condition 接口"></a>Condition 接口</h3><p>条件接口可以定义自己的条件约束，制定等待逻辑</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReentrantLockWithCondition</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    Stack&lt;String&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    <span class="keyword">int</span> CAPACITY = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">    ReentrantLock lock = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line">    Condition stackEmptyCondition = lock.newCondition();</span><br><span class="line">    Condition stackFullCondition = lock.newCondition();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pushToStack</span><span class="params">(String item)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            lock.lock();</span><br><span class="line">            <span class="keyword">while</span>(stack.size() == CAPACITY) &#123;</span><br><span class="line">                stackFullCondition.await();</span><br><span class="line">            &#125;</span><br><span class="line">            stack.push(item);</span><br><span class="line">            stackEmptyCondition.signalAll();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">popFromStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            lock.lock();</span><br><span class="line">            <span class="keyword">while</span>(stack.size() == <span class="number">0</span>) &#123;</span><br><span class="line">                stackEmptyCondition.await();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> stack.pop();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            stackFullCondition.signalAll();</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>还有一些细节没有深入研究。ConcurrentHashMap中同时看到了synchronized和ReentrantLock身影</p>
+<p>下次应该总结一下Thread了吧</p>
 
       
     </div>
@@ -559,7 +522,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/OKR/" rel="tag"># OKR</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
         </div>
       
@@ -572,8 +535,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/27/Java-11/" rel="next" title="Java 11">
-                <i class="fa fa-chevron-left"></i> Java 11
+              <a href="/2021/06/07/interface-function/" rel="next" title="Functional Interface">
+                <i class="fa fa-chevron-left"></i> Functional Interface
               </a>
             
           </div>
@@ -581,10 +544,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/11/openstack/" rel="prev" title="OpenStack 从入门到继续">
-                OpenStack 从入门到继续 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -832,7 +791,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初衷和理解"><span class="nav-text">初衷和理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#季度-OKR"><span class="nav-text">季度 OKR</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目标一-英语流利说学习达标"><span class="nav-text">目标一 英语流利说学习达标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标二-深入一个计算机中的流行技术"><span class="nav-text">目标二 深入一个计算机中的流行技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标三-看完一本非计算机类书"><span class="nav-text">目标三 看完一本非计算机类书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标四-锻炼身体，保持身体健康"><span class="nav-text">目标四 锻炼身体，保持身体健康</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标五-陪孩子"><span class="nav-text">目标五 陪孩子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#年度-OKR"><span class="nav-text">年度 OKR</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目标一-付费课程学习"><span class="nav-text">目标一 付费课程学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标二-读书"><span class="nav-text">目标二 读书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标三-英语口语"><span class="nav-text">目标三 英语口语</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lock-Interface"><span class="nav-text">Lock Interface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见实现"><span class="nav-text">常见实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ReentrantLock"><span class="nav-text">ReentrantLock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ReentrantReadWriteLock"><span class="nav-text">ReentrantReadWriteLock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StampedLock"><span class="nav-text">StampedLock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Condition-接口"><span class="nav-text">Condition 接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -1007,9 +966,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://gino2010.github.io/2018/09/29/okr/';
-        this.page.identifier = '2018/09/29/okr/';
-        this.page.title = '我的OKR(2018.10)';
+        this.page.url = 'http://gino2010.github.io/2021/06/08/lock/';
+        this.page.identifier = '2021/06/08/lock/';
+        this.page.title = 'Lock';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
