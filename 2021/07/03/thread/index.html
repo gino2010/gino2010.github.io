@@ -109,27 +109,25 @@
 
 
 
-  <meta name="description" content="昨天得知Java 11发布。请允许我说：我的天啊，竟然Java 11了。 连Java 8还没有完全熟练使用的我，一时间有点恍惚。 近期，Java更新如此频繁，让人有点应接不暇，新的features层出不穷，而我们又真的学习使用了几个呢？ 反正我只用了一小部分吧。这里不列举Java 8之后各个版本中的features了，大家可以自行Google。">
+  <meta name="description" content="来了，来了，如约而至，今天说一下Java中的Thread。 在正式开始前，说一点题外话，最近在翻这些基础知识时，感受到如下：  学习知识最好时一次性系统学习，这样最高效，节省时间，后面只需要通过实践深入就好了 我的记忆一向不是很”可靠”，时间一长很多知道东西就开始模糊了，这个确实需要翻一翻回忆一下。其实还是用得少  之前给同事分享过一个presentation关于K8S的，结果这两天和人聊天时其中">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 11">
-<meta property="og:url" content="http://gino2010.github.io/2018/09/27/Java-11/index.html">
+<meta property="og:title" content="Thread">
+<meta property="og:url" content="http://gino2010.github.io/2021/07/03/thread/index.html">
 <meta property="og:site_name" content="Cube Life">
-<meta property="og:description" content="昨天得知Java 11发布。请允许我说：我的天啊，竟然Java 11了。 连Java 8还没有完全熟练使用的我，一时间有点恍惚。 近期，Java更新如此频繁，让人有点应接不暇，新的features层出不穷，而我们又真的学习使用了几个呢？ 反正我只用了一小部分吧。这里不列举Java 8之后各个版本中的features了，大家可以自行Google。">
+<meta property="og:description" content="来了，来了，如约而至，今天说一下Java中的Thread。 在正式开始前，说一点题外话，最近在翻这些基础知识时，感受到如下：  学习知识最好时一次性系统学习，这样最高效，节省时间，后面只需要通过实践深入就好了 我的记忆一向不是很”可靠”，时间一长很多知道东西就开始模糊了，这个确实需要翻一翻回忆一下。其实还是用得少  之前给同事分享过一个presentation关于K8S的，结果这两天和人聊天时其中">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://gino2010.github.io/images/post/20180927/java11zgc.png">
-<meta property="og:updated_time" content="2018-11-18T06:18:54.423Z">
+<meta property="og:updated_time" content="2021-07-10T17:26:47.863Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java 11">
-<meta name="twitter:description" content="昨天得知Java 11发布。请允许我说：我的天啊，竟然Java 11了。 连Java 8还没有完全熟练使用的我，一时间有点恍惚。 近期，Java更新如此频繁，让人有点应接不暇，新的features层出不穷，而我们又真的学习使用了几个呢？ 反正我只用了一小部分吧。这里不列举Java 8之后各个版本中的features了，大家可以自行Google。">
-<meta name="twitter:image" content="http://gino2010.github.io/images/post/20180927/java11zgc.png">
+<meta name="twitter:title" content="Thread">
+<meta name="twitter:description" content="来了，来了，如约而至，今天说一下Java中的Thread。 在正式开始前，说一点题外话，最近在翻这些基础知识时，感受到如下：  学习知识最好时一次性系统学习，这样最高效，节省时间，后面只需要通过实践深入就好了 我的记忆一向不是很”可靠”，时间一长很多知道东西就开始模糊了，这个确实需要翻一翻回忆一下。其实还是用得少  之前给同事分享过一个presentation关于K8S的，结果这两天和人聊天时其中">
 
 
 
 
 
 
-  <link rel="canonical" href="http://gino2010.github.io/2018/09/27/Java-11/">
+  <link rel="canonical" href="http://gino2010.github.io/2021/07/03/thread/">
 
 
 
@@ -139,7 +137,7 @@
   };
 </script>
 
-  <title>Java 11 | Cube Life</title>
+  <title>Thread | Cube Life</title>
   
 
 
@@ -360,7 +358,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2018/09/27/Java-11/">
+    <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2021/07/03/thread/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gino Zhao">
@@ -377,7 +375,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java 11
+          <h1 class="post-title" itemprop="name headline">Thread
               
             
           </h1>
@@ -402,7 +400,7 @@
                 
               
 
-              <time title="Created: 2018-09-27 09:56:46" itemprop="dateCreated datePublished" datetime="2018-09-27T09:56:46+08:00">2018-09-27</time>
+              <time title="Created: 2021-07-03 15:47:02" itemprop="dateCreated datePublished" datetime="2021-07-03T15:47:02+08:00">2021-07-03</time>
             
 
             
@@ -419,7 +417,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-11-18 14:18:54" itemprop="dateModified" datetime="2018-11-18T14:18:54+08:00">2018-11-18</time>
+                <time title="Modified: 2021-07-11 01:26:47" itemprop="dateModified" datetime="2021-07-11T01:26:47+08:00">2021-07-11</time>
               
             
           </span>
@@ -451,9 +449,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/27/Java-11/#comments" itemprop="discussionUrl">
+                <a href="/2021/07/03/thread/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/27/Java-11/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/03/thread/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -488,17 +486,82 @@
       
 
       
-        <p>昨天得知Java 11发布。<br>请允许我说：我的天啊，竟然Java 11了。 连Java 8还没有完全熟练使用的我，一时间有点恍惚。</p>
-<p>近期，Java更新如此频繁，让人有点应接不暇，新的features层出不穷，而我们又真的学习使用了几个呢？ 反正我只用了一小部分吧。<br>这里不列举Java 8之后各个版本中的features了，大家可以自行Google。</p>
+        <p>来了，来了，如约而至，今天说一下Java中的Thread。</p>
+<p>在正式开始前，说一点题外话，最近在翻这些基础知识时，感受到如下：</p>
+<ul>
+<li>学习知识最好时一次性系统学习，这样最高效，节省时间，后面只需要通过实践深入就好了</li>
+<li>我的记忆一向不是很”可靠”，时间一长很多知道东西就开始模糊了，这个确实需要翻一翻回忆一下。其实还是用得少</li>
+</ul>
+<p>之前给同事分享过一个presentation关于K8S的，结果这两天和人聊天时其中一个概念就印象不深了，还好后来回忆起来了</p>
+<p>昨天晚上（7月2日）一口气写了六个服务的OCP部署脚步，有点晕，没有感到一丝的成就感，纯体力劳动。吐槽一下，跑题了，收～～</p>
 <a id="more"></a>
 
-<p>这里只想说：<br>Java作为生命力极强的大型服务类开发语言，Oracle好像在给其注入新的活力，也在打破Java原有的墨守陈规。<br>我们可以看出它的很多新特性是源于这个时代技术的发展，也有很多借鉴了其它语言的特性，在”提(da)升(po)”原有的语法结构方式给用户带来新的开发体验。<br>这也是在满足新加入Java世界的开发者？ 不知Java老程序员如何感受，就我而言，我更喜欢不断更新，虽然最近更新确实有点频繁了。</p>
-<p>当然除了语法特性的改变意外，还有很多底层结构的改进，当然这才是其核心。例如类库发展、模块化管理、安全特性与补丁、新的JVM GC、脚本化、黑匣子(JFR)等。</p>
-<p><img src="/images/post/20180927/java11zgc.png" alt></p>
-<h2 id="试试不？"><a href="#试试不？" class="headerlink" title="试试不？"></a>试试不？</h2><p>Java 9 和 10 简直就是一闪而过，印象中好像就一两个小版本号，而Java 11 不同了，它可是LTS。Oracle官方承诺对其会有持续的update更新。<br>同时大家深爱的Java 8马上就要不更新了，所以这次真的可以尝试进行JDK企业级切换了。</p>
-<p>个人感觉Java 每半年更新的方式，看来要止住其语言发展的颓势，重新崛起了。Java作为主要的开发语言还是值得大家技术投入的。<br>小伙伴们跟上这波更新吧。后面我也希望多尝试JDK新的开发特性。</p>
-<p>你的感觉呢？</p>
-<p><a href="http://www.infoq.com/cn/news/2018/09/java11-new-feature" target="_blank" rel="noopener">参考网站 infoq</a></p>
+<p>Thread的定义我就不再赘述了，大家还是上网自行查找吧，毕竟我自己描述会不太准确，而每个人想了解的深度也有所不同，是否需要深入到计算机原理层面，请自行决定。<br>这里我所描述的内容，主要是为了帮助自己的记忆和记录一些发现，如果大家想深入还是多看看官方文档和Java源码，然后自己多试试吧</p>
+<h2 id="Thread-amp-Runnable"><a href="#Thread-amp-Runnable" class="headerlink" title="Thread &amp; Runnable"></a>Thread &amp; Runnable</h2><p>线程的开头就是这两个家伙了，Thread class 和 Runnable 接口<br>Java多线程的鼻祖，从1.0版本就有了</p>
+<p>我们可以继承Thread 类，也可以实现Runnable 接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">NewThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> startTime = System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            System.out.println(<span class="keyword">this</span>.getName());</span><br><span class="line">            System.out.println(Thread.currentThread().getName() + <span class="string">": New Thread is running..."</span> + i++);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="comment">//Wait for one sec so it doesn't print too fast</span></span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                <span class="keyword">if</span> (i &gt;= <span class="number">10</span>) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如上，你能说出this.getName() 和 Thread.currentThread().getName()的区别吗？<br>以及在什么操作下可以呈现这个区别，如果你可以回答这个问题，我相信你已经深入理解Thread的部分知识</p>
+<h2 id="Executors"><a href="#Executors" class="headerlink" title="Executors"></a>Executors</h2><p>1.5开始就引入了Executors，来声明多线程。此时我们开始关注java.util.concurrent<br>这里我们会关注如下几点</p>
+<ul>
+<li>atomic 原子类型</li>
+<li>locks 一堆锁，前一篇文章已经提到</li>
+<li>Concurrent* 各种并发安全的基础数据结构类型</li>
+<li>callable 以及各种Future 实现</li>
+<li>以及现在所说的 ExecutorService 相关实现</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ExecutorService executor = Executors.newFixedThreadPool(<span class="number">10</span>);</span><br><span class="line">executor.submit(<span class="keyword">new</span> NewThread());</span><br><span class="line">executor.submit(<span class="keyword">new</span> NewThread());</span><br><span class="line">executor.shutdown();</span><br></pre></td></tr></table></figure>
+
+<p>常见的有这三个线程池创建方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Executors.newFixedThreadPool(<span class="number">10</span>);</span><br><span class="line">Executors.newCachedThreadPool();</span><br><span class="line">Executors.newSingleThreadExecutor();</span><br></pre></td></tr></table></figure>
+
+<p>其实都是ThreadPoolExecutor不同参数化<br>有一个比较特殊的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ScheduledExecutorService executorService = Executors.newScheduledThreadPool(<span class="number">2</span>);</span><br><span class="line">executorService.schedule(<span class="keyword">new</span> NewThread(), <span class="number">1</span>, TimeUnit.SECONDS);</span><br></pre></td></tr></table></figure>
+
+<p>这个来自ScheduledThreadPoolExecutor方法创建，可以周期执行</p>
+<p>此处要注意一个小问题，executor默认不会自己释放，所以需要手动shutdown。shutdown相关有两个方法，区别请自行查找</p>
+<p>另一个思考题，你能清晰的认识到以下两个写法的区别吗？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">executor.submit(NewThread::<span class="keyword">new</span>);</span><br><span class="line">executor.submit(<span class="keyword">new</span> NewThread());</span><br></pre></td></tr></table></figure>
+
+<h2 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h2><p>Future 接口实现也很多，最常用，最简单使用的莫过于CompletableFuture吧，只需要简单将要处理的内容包裹一下，就可以启动多线程了<br>值得注意的是，supplyAsync 方法默认使用的也是 ForkJoinPool.commonPool()，后面也会提到。 当然也是可以指定自己定义的executor的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CompletableFuture&lt;String&gt; stringCompletableFuture = CompletableFuture.supplyAsync(() -&gt; <span class="string">"Hello"</span>);</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  System.out.println(stringCompletableFuture.get());</span><br><span class="line">&#125; <span class="keyword">catch</span> (InterruptedException | ExecutionException e) &#123;</span><br><span class="line">  e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>CompletableFuture 在Java9之后完善了很多，添加很多新方法,其实针对completableFuture 就可以单独喝一壶的，大家还是自行去深入吧。<br>这里只是点到为止。CompletableFuture可以将计算步骤形成一个链，合并处理结果，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CompletableFuture&lt;String&gt; completableFuture </span><br><span class="line">  = CompletableFuture.supplyAsync(() -&gt; <span class="string">"Hello"</span>)</span><br><span class="line">    .thenCompose(s -&gt; CompletableFuture.supplyAsync(() -&gt; s + <span class="string">" World"</span>));</span><br><span class="line"></span><br><span class="line">assertEquals(<span class="string">"Hello World"</span>, completableFuture.get());</span><br></pre></td></tr></table></figure>
+
+<p>其另一个优势在于，他可以handle异常，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CompletableFuture&lt;String&gt; completableFuture  </span><br><span class="line">  =  CompletableFuture.supplyAsync(() -&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (name == <span class="keyword">null</span>) &#123;</span><br><span class="line">          <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Computation error!"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"Hello, "</span> + name;</span><br><span class="line">  &#125;).handle((s, t) -&gt; s != <span class="keyword">null</span> ? s : <span class="string">"Hello, Stranger!"</span>);</span><br><span class="line"></span><br><span class="line">assertEquals(<span class="string">"Hello, Stranger!"</span>, completableFuture.get());</span><br></pre></td></tr></table></figure>
+
+<p>关于completableFuture中方法，每个主要分三类：</p>
+<ul>
+<li>普通当前线程方法 </li>
+<li>Async结尾使用默认ForkJoinPool.commonPool()线程池的，异步方法</li>
+<li>Async结尾使用自定义Executor线程的，异步方法</li>
+</ul>
+<p>大家自行查看源码吧<br>我也是看了一些网上的文章，大致了解了一下，以后会在实际工作中合适的场下尝试各个功能。</p>
+<h2 id="TimerTask"><a href="#TimerTask" class="headerlink" title="TimerTask"></a>TimerTask</h2><p>刚才提到了ScheduledExecutorService，在其之前还有一个TimerTask创建定时线程的方式，只是了解一下，估计后面不会太多使用了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">TimerTask task = <span class="keyword">new</span> TimerTask() &#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"Task performed on: "</span> + <span class="keyword">new</span> Date() + <span class="string">"n"</span></span><br><span class="line">        + <span class="string">"Thread's name: "</span> + Thread.currentThread().getName());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">Timer timer = <span class="keyword">new</span> Timer(<span class="string">"Timer"</span>);</span><br><span class="line"><span class="keyword">long</span> delay = <span class="number">1000L</span>;</span><br><span class="line">timer.schedule(task, delay);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Callable"><a href="#Callable" class="headerlink" title="Callable"></a>Callable</h2><p>与Runnable对应，一个只是执行，一个可以返回结果。现在来看Callable使用更加频繁一些<br>同时Callable执行后对应的接受类型为Future类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FactorialTask</span> <span class="keyword">implements</span> <span class="title">Callable</span>&lt;<span class="title">Integer</span>&gt; </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">FactorialTask task = <span class="keyword">new</span> FactorialTask(<span class="number">5</span>);</span><br><span class="line">Future&lt;Integer&gt; future = executorService.submit(task);</span><br><span class="line"></span><br><span class="line">assertEquals(<span class="number">120</span>, future.get().intValue());</span><br></pre></td></tr></table></figure>
+
+<h2 id="ForkJoinPool"><a href="#ForkJoinPool" class="headerlink" title="ForkJoinPool"></a>ForkJoinPool</h2><p>它的设计目的就是将问题分段处理，逐一解决然后在合并，这就是Fork/Join两个步骤的意思。<br>今后应该会关注其实际应用，貌似应用场景很多，功能非常使用<br>至于Worker是如何管理的，这个我就没有深入研究了，有时间再深入了</p>
+<p>默认使用ForkJoinPool.commonPool()，我们也可以自己定义新的ForkJoinPool，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ForkJoinPool forkJoinPool = <span class="keyword">new</span> ForkJoinPool(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<p>和Thread相比，下面的代码最大的问题你知道是什么吗？记得Thread setDaemon(true)吗？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ForkJoinPool forkJoinPool = <span class="keyword">new</span> ForkJoinPool(<span class="number">2</span>);</span><br><span class="line">forkJoinPool.execute(<span class="keyword">new</span> NewThread());</span><br></pre></td></tr></table></figure>
+
+<p>如何使用ForkJoinPool，可以创建一个递归任务， RecursiveTask继承自ForkJoinTask</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.gino.thread;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ForkJoinTask;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.RecursiveTask;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomRecursiveTask</span> <span class="keyword">extends</span> <span class="title">RecursiveTask</span>&lt;<span class="title">Integer</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] arr;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> THRESHOLD = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CustomRecursiveTask</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.arr = arr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Integer <span class="title">compute</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (arr.length &gt; THRESHOLD) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> ForkJoinTask.invokeAll(createSubtasks()).stream().mapToInt(ForkJoinTask::join).sum();</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> processing(arr);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Collection&lt;CustomRecursiveTask&gt; <span class="title">createSubtasks</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;CustomRecursiveTask&gt; dividedTasks = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        dividedTasks.add(<span class="keyword">new</span> CustomRecursiveTask(Arrays.copyOfRange(arr, <span class="number">0</span>, arr.length / <span class="number">2</span>)));</span><br><span class="line">        dividedTasks.add(<span class="keyword">new</span> CustomRecursiveTask(Arrays.copyOfRange(arr, arr.length / <span class="number">2</span>, arr.length)));</span><br><span class="line">        <span class="keyword">return</span> dividedTasks;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Integer <span class="title">processing</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        System.out.println(Arrays.toString(arr)+<span class="string">"processed by "</span> + Thread.currentThread().getName());</span><br><span class="line">        <span class="keyword">return</span> Arrays.stream(arr).filter(a -&gt; a &gt; <span class="number">10</span> &amp;&amp; a &lt; <span class="number">27</span>).map(a -&gt; a * <span class="number">10</span>).sum();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CustomRecursiveTask customRecursiveTask = <span class="keyword">new</span> CustomRecursiveTask(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">32</span>, <span class="number">12</span>, <span class="number">54</span>, <span class="number">22</span>, <span class="number">20</span>, <span class="number">19</span>&#125;);</span><br><span class="line">ForkJoinPool forkJoinPool = ForkJoinPool.commonPool();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这两行分别运行一下，观察他们的区别，你会发现什么？</span></span><br><span class="line">Integer compute = customRecursiveTask.compute();</span><br><span class="line">Integer compute = forkJoinPool.invoke(customRecursiveTask);</span><br><span class="line"></span><br><span class="line">System.out.println(compute);</span><br></pre></td></tr></table></figure>
+
+<p>最近实验了不少，先记录这些吧。写这些内容主要是为了自己的学习总结，并不是为了知识分享，所以内容不会很细致讲解到位。<br>看到的人，如有疑问可以自己搜索相关细节，深入研究。 代码都是来自网络，自己稍加修改。</p>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>其实这篇文章7月3日就创建了，由于个人时间紧张迟迟没有时间完成，现在是7月11日凌晨1点，终于总结完了。</p>
+<p>窗外已经开始下雨，如果按照预报说，白天可能还会有大暴雨。 如果没有，我就继续去游泳，自由泳换气转体还是差很多，继续改进。<br>鞭腿推进力不足，还是有些吃力，难道这就老了吗？不服～～哈哈</p>
+<p>下一个总结目标，各种实用的基础类型，各种list map queue deque等，应该是数据结构方面</p>
 
       
     </div>
@@ -532,8 +595,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/26/note/" rel="next" title="Restart">
-                <i class="fa fa-chevron-left"></i> Restart
+              <a href="/2021/07/03/swim/" rel="next" title="Swim️">
+                <i class="fa fa-chevron-left"></i> Swim️
               </a>
             
           </div>
@@ -541,10 +604,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/29/okr/" rel="prev" title="我的OKR(2018.10)">
-                我的OKR(2018.10) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -792,7 +851,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#试试不？"><span class="nav-text">试试不？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Thread-amp-Runnable"><span class="nav-text">Thread &amp; Runnable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Executors"><span class="nav-text">Executors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Future"><span class="nav-text">Future</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TimerTask"><span class="nav-text">TimerTask</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Callable"><span class="nav-text">Callable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ForkJoinPool"><span class="nav-text">ForkJoinPool</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题外话"><span class="nav-text">题外话</span></a></li></ol></div>
             
 
           </div>
@@ -967,9 +1026,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://gino2010.github.io/2018/09/27/Java-11/';
-        this.page.identifier = '2018/09/27/Java-11/';
-        this.page.title = 'Java 11';
+        this.page.url = 'http://gino2010.github.io/2021/07/03/thread/';
+        this.page.identifier = '2021/07/03/thread/';
+        this.page.title = 'Thread';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
