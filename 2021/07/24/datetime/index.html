@@ -109,25 +109,25 @@
 
 
 
-  <meta name="description" content="最近”沉迷”于游泳🏊，基本上每周一游（恨不得一天一游，工作、时间、金钱貌似都不太支持这个频率😂），一次会游3～4个小时吧。 小时候学过游泳，但是超级怕水，记得当时学游泳，每次上课前都很痛苦，心里十分的抗拒。并且那时的教练也是”简单粗暴”式教学，不会考虑个人对水的反应。简单说，在个人对水的恐惧心里下，我基本没有学会啥。 不知何时起，我不再对水那么恐惧，可以用很平常的心态对待它，也开始享受在水里的">
-<meta name="keywords" content="life">
+  <meta name="description" content="按照之前说的，今天总结一下时间相关的类和方法。 在使用Java 8 之前，大家应该使用过 Joda Time Library 吧。Java 8 中的时间相关类就是源于这个Lib 废话不多说，开始总结一下。 这里说的package为Java 8 及以上中的 java.time package, 讨论其中的相关class和方法">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swim️">
-<meta property="og:url" content="http://gino2010.github.io/2021/07/03/swim/index.html">
+<meta property="og:title" content="Datetime in Java 8">
+<meta property="og:url" content="http://gino2010.github.io/2021/07/24/datetime/index.html">
 <meta property="og:site_name" content="Cube Life">
-<meta property="og:description" content="最近”沉迷”于游泳🏊，基本上每周一游（恨不得一天一游，工作、时间、金钱貌似都不太支持这个频率😂），一次会游3～4个小时吧。 小时候学过游泳，但是超级怕水，记得当时学游泳，每次上课前都很痛苦，心里十分的抗拒。并且那时的教练也是”简单粗暴”式教学，不会考虑个人对水的反应。简单说，在个人对水的恐惧心里下，我基本没有学会啥。 不知何时起，我不再对水那么恐惧，可以用很平常的心态对待它，也开始享受在水里的">
+<meta property="og:description" content="按照之前说的，今天总结一下时间相关的类和方法。 在使用Java 8 之前，大家应该使用过 Joda Time Library 吧。Java 8 中的时间相关类就是源于这个Lib 废话不多说，开始总结一下。 这里说的package为Java 8 及以上中的 java.time package, 讨论其中的相关class和方法">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-07-03T07:36:52.280Z">
+<meta property="og:updated_time" content="2021-07-24T14:15:42.450Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swim️">
-<meta name="twitter:description" content="最近”沉迷”于游泳🏊，基本上每周一游（恨不得一天一游，工作、时间、金钱貌似都不太支持这个频率😂），一次会游3～4个小时吧。 小时候学过游泳，但是超级怕水，记得当时学游泳，每次上课前都很痛苦，心里十分的抗拒。并且那时的教练也是”简单粗暴”式教学，不会考虑个人对水的反应。简单说，在个人对水的恐惧心里下，我基本没有学会啥。 不知何时起，我不再对水那么恐惧，可以用很平常的心态对待它，也开始享受在水里的">
+<meta name="twitter:title" content="Datetime in Java 8">
+<meta name="twitter:description" content="按照之前说的，今天总结一下时间相关的类和方法。 在使用Java 8 之前，大家应该使用过 Joda Time Library 吧。Java 8 中的时间相关类就是源于这个Lib 废话不多说，开始总结一下。 这里说的package为Java 8 及以上中的 java.time package, 讨论其中的相关class和方法">
 
 
 
 
 
 
-  <link rel="canonical" href="http://gino2010.github.io/2021/07/03/swim/">
+  <link rel="canonical" href="http://gino2010.github.io/2021/07/24/datetime/">
 
 
 
@@ -137,7 +137,7 @@
   };
 </script>
 
-  <title>Swim️ | Cube Life</title>
+  <title>Datetime in Java 8 | Cube Life</title>
   
 
 
@@ -358,7 +358,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2021/07/03/swim/">
+    <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2021/07/24/datetime/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gino Zhao">
@@ -375,7 +375,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Swim️
+          <h1 class="post-title" itemprop="name headline">Datetime in Java 8
               
             
           </h1>
@@ -400,7 +400,7 @@
                 
               
 
-              <time title="Created: 2021-07-03 14:42:04 / Modified: 15:36:52" itemprop="dateCreated datePublished" datetime="2021-07-03T14:42:04+08:00">2021-07-03</time>
+              <time title="Created: 2021-07-24 15:04:12 / Modified: 22:15:42" itemprop="dateCreated datePublished" datetime="2021-07-24T15:04:12+08:00">2021-07-24</time>
             
 
             
@@ -422,7 +422,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a></span>
 
                 
                 
@@ -437,9 +437,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2021/07/03/swim/#comments" itemprop="discussionUrl">
+                <a href="/2021/07/24/datetime/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/03/swim/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/24/datetime/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -474,21 +474,78 @@
       
 
       
-        <p>最近”沉迷”于游泳🏊，基本上每周一游（恨不得一天一游，工作、时间、金钱貌似都不太支持这个频率😂），一次会游3～4个小时吧。</p>
-<p>小时候学过游泳，但是超级怕水，记得当时学游泳，每次上课前都很痛苦，心里十分的抗拒。<br>并且那时的教练也是”简单粗暴”式教学，不会考虑个人对水的反应。<br>简单说，在个人对水的恐惧心里下，我基本没有学会啥。</p>
-<p>不知何时起，我不再对水那么恐惧，可以用很平常的心态对待它，也开始享受在水里的快乐。<br>正好最近可以带着家人一起游泳，借这个机会把游泳自学起来。</p>
-<p>通过一段时间的练习，蛙泳终于可以一次游满25米了（1.5米浅水区泳道长度），换气技巧也得到提升，可以用鼻子在水下吐气，抬头嘴换气。<br>水性有了不少的进步，可在水中停留和做一些基本动作，但应该还没有达到开阔水域自救能力</p>
-<p>下一步练习计划，在增强水性的同时，开始自学自由泳和练习踩水。最近跟着 <a href="https://space.bilibili.com/7283282" target="_blank" rel="noopener">“梦觉教游泳”</a> up主，从基础练习，感觉很系统，并且解答了我很多之前的疑问</p>
-<p>小提示💡：浮板很重要，各个练习阶段都用的上它，最近正在用浮板练习自由泳鞭腿，之前用它练习蛙泳腿。<br>现在我的练习装备是：泳衣，泳帽，泳镜和浮板</p>
-<p>希望这个夏天过后，可以自由泳小成，下深水区游一圈。我也打算就这样么一直游下去，加油～～<br>越来越感觉游泳是最好的运动，对身体关节损伤小，还可以增强心肺功能，冷热刺激对身体也好，防止心血管疾病</p>
+        <p>按照之前说的，今天总结一下时间相关的类和方法。</p>
+<p>在使用Java 8 之前，大家应该使用过 <a href="https://www.joda.org/joda-time/" target="_blank" rel="noopener">Joda Time Library</a> 吧。Java 8 中的时间相关类就是源于这个Lib</p>
+<p>废话不多说，开始总结一下。</p>
+<p>这里说的package为Java 8 及以上中的 java.time package, 讨论其中的相关class和方法</p>
 <a id="more"></a>
 
-<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>我还有个小想法，要不要冬天开始学滑板🛹 这样我就又多了一个代步工具。能到自如刷街层面就好，要求不高。</p>
-<p>下半年的小期待：</p>
+<h2 id="为何引入新的时间包"><a href="#为何引入新的时间包" class="headerlink" title="为何引入新的时间包"></a>为何引入新的时间包</h2><p>既然引入新的，那说明老的不好用呗。<br>其新特点在于：</p>
 <ul>
-<li>Metroid NS 新作，已经好久没有新作了。突然让我想起另一个系列，瓦里奥大陆，希望有一天可以在NS上发布新作</li>
-<li>Macbook pro 14，钱已经准备好，就等发布了</li>
+<li>线程安全，按照源码注解所示：This class is immutable and thread-safe</li>
+<li>很容易使用，方法更容易理解，更适合人类常规使用习惯和思维方式</li>
+<li>更好的时区处理和支持</li>
 </ul>
+<h2 id="LocalDate"><a href="#LocalDate" class="headerlink" title="LocalDate"></a>LocalDate</h2><p>名字很直接，当地日期，基于系统时钟获得</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LocalDate localDate = LocalDate.now();</span><br></pre></td></tr></table></figure>
+
+<p>如何format也是大家经常使用的功能</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">localDate.format(DateTimeFormatter.ISO_DATE);</span><br><span class="line">localDate.format(DateTimeFormatter.ofPattern(<span class="string">"yyyy/MM/dd"</span>));</span><br></pre></td></tr></table></figure>
+
+<p>还是很容易的，可以使用系统已经预置的format格式或者自己自定义，或者可以使用DateTimeFormatterBuilder进行更复杂的自定义</p>
+<p>时间解析也是很直观</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LocalDate.of(<span class="number">2021</span>, <span class="number">07</span>, <span class="number">24</span>);</span><br><span class="line">LocalDate.parse(<span class="string">"2021-07-24"</span>);</span><br><span class="line">LocalDate.parse(<span class="string">"2021/07/24"</span>, DateTimeFormatter.ofPattern(<span class="string">"yyyy/MM/dd"</span>))</span><br></pre></td></tr></table></figure>
+
+<p>日期的计算</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LocalDate tomorrow = LocalDate.now().plusDays(<span class="number">1</span>);</span><br><span class="line">LocalDate previousMonthSameDay = LocalDate.now().minus(<span class="number">1</span>, ChronoUnit.MONTHS);</span><br></pre></td></tr></table></figure>
+
+<p>常用的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LocalDate.now().getDayOfMonth();</span><br><span class="line">LocalDate.now().getDayOfWeek();</span><br><span class="line">LocalDate.now().getDayOfYear();</span><br><span class="line">LocalDate.now().isLeapYear();</span><br></pre></td></tr></table></figure>
+
+<p>日期比较</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> notBefore = LocalDate.parse(<span class="string">"2021-07-12"</span>).isBefore(LocalDate.parse(<span class="string">"2021-07-11"</span>));</span><br><span class="line"><span class="keyword">boolean</span> isAfter = LocalDate.parse(<span class="string">"2021-07-12"</span>).isAfter(LocalDate.parse(<span class="string">"2021-07-11"</span>));</span><br></pre></td></tr></table></figure>
+
+<p>其它</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LocalDate.now().atStartOfDay();</span><br><span class="line">LocalDate.now().with(TemporalAdjusters.firstDayOfMonth());</span><br><span class="line">LocalDate.now().with(TemporalAdjusters.lastDayOfMonth());</span><br></pre></td></tr></table></figure>
+
+<h2 id="LocalTime"><a href="#LocalTime" class="headerlink" title="LocalTime"></a>LocalTime</h2><p>和上面用法基本类似</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LocalTime.now();</span><br><span class="line">now.format(DateTimeFormatter.ISO_TIME);</span><br><span class="line">now.format(DateTimeFormatter.ofPattern(<span class="string">"HH:mm:ss"</span>));</span><br></pre></td></tr></table></figure>
+
+<p>解析时间</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LocalTime.of(<span class="number">6</span>, <span class="number">30</span>);</span><br><span class="line">LocalTime.parse(<span class="string">"06:30"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>时间计算</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LocalTime.now().plus(<span class="number">1</span>, ChronoUnit.HOURS);</span><br><span class="line">LocalTime.now().plusHours(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<p>获取和比较</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LocalTime.now().getHour();</span><br><span class="line">LocalTime.parse(<span class="string">"06:30"</span>).isBefore(LocalTime.parse(<span class="string">"07:30"</span>));</span><br><span class="line">LocalTime.MAX;</span><br></pre></td></tr></table></figure>
+
+<h2 id="LocalDateTime"><a href="#LocalDateTime" class="headerlink" title="LocalDateTime"></a>LocalDateTime</h2><p>哈哈，内容基本重复了，同上类似，不再赘述了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LocalDateTime.now();</span><br><span class="line">LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME);</span><br><span class="line">LocalDateTime.now().format(DateTimeFormatter.ofPattern(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>));</span><br><span class="line"></span><br><span class="line">LocalDateTime.of(<span class="number">2021</span>, Month.JULY, <span class="number">20</span>, <span class="number">06</span>, <span class="number">30</span>);</span><br><span class="line">LocalDateTime.parse(<span class="string">"2021-07-24T06:30:00"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>其它的自己看吧，不列了</p>
+<h2 id="ZonedDateTime-amp-OffsetDateTime"><a href="#ZonedDateTime-amp-OffsetDateTime" class="headerlink" title="ZonedDateTime &amp; OffsetDateTime"></a>ZonedDateTime &amp; OffsetDateTime</h2><p>用于通过时区和时间偏移方式来支持跨时区的时间操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;String&gt; allZoneIds = ZoneId.getAvailableZoneIds();</span><br><span class="line">System.out.println(allZoneIds);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将新加坡时间转换为巴黎时间</span></span><br><span class="line">LocalDateTime now = LocalDateTime.now();</span><br><span class="line">ZoneId asiaSingapore = ZoneId.of(<span class="string">"Asia/Singapore"</span>);</span><br><span class="line">ZoneId europeParis = ZoneId.of(<span class="string">"Europe/Paris"</span>);</span><br><span class="line">ZonedDateTime zonedDateTimeSingapore = ZonedDateTime.of(now, asiaSingapore);</span><br><span class="line">System.out.println(zonedDateTimeSingapore);</span><br><span class="line">ZonedDateTime zonedDateTimeParis = zonedDateTimeSingapore.withZoneSameInstant(europeParis);</span><br><span class="line">System.out.println(zonedDateTimeParis);</span><br><span class="line"></span><br><span class="line">System.out.println(zonedDateTimeSingapore.format(DateTimeFormatter.ISO_ZONED_DATE_TIME));</span><br><span class="line">System.out.println(zonedDateTimeSingapore.format(DateTimeFormatter.ofPattern(<span class="string">"yyyy-MM-dd HH:mm:ss.SSSSSSZ zzzz"</span>)));</span><br><span class="line"></span><br><span class="line">ZonedDateTime parse = ZonedDateTime.parse(<span class="string">"2021-07-24T15:15:30+02:00[Europe/Paris]"</span>);</span><br><span class="line">System.out.println(parse);</span><br><span class="line">System.out.println(parse.withZoneSameInstant(asiaSingapore));</span><br></pre></td></tr></table></figure>
+
+<p>OffsetDateTime 感觉和使用ZonedDateTime类似，一个用时区，一个用偏移量</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">LocalDateTime now = LocalDateTime.now();</span><br><span class="line">ZoneOffset offset = ZoneOffset.of(<span class="string">"+08:00"</span>);</span><br><span class="line">OffsetDateTime offSetByEight = OffsetDateTime.of(now, offset);</span><br><span class="line">System.out.println(offSetByEight.toLocalDateTime());</span><br><span class="line">System.out.println(offSetByEight.withOffsetSameInstant(ZoneOffset.of(<span class="string">"+09:00"</span>)));</span><br><span class="line"></span><br><span class="line">ZoneId asiaTokyo = ZoneId.of(<span class="string">"Asia/Tokyo"</span>);</span><br><span class="line">System.out.println(offSetByEight.atZoneSameInstant(asiaTokyo));</span><br></pre></td></tr></table></figure>
+
+<p>关于时间格式化样式字符串，发现还是有个很复杂的标准，目前只知道常用的表达，其它格式详细可以参见<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank" rel="noopener">Wiki</a><br>P.S.之前寻找国家语言等代码也是通过Wiki来找到相应的标准</p>
+<h2 id="Period-and-Duration"><a href="#Period-and-Duration" class="headerlink" title="Period and Duration"></a>Period and Duration</h2><p>用于支持日期和时间的区间计算</p>
+<p>例如获得两localDate之间的天数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Period.between(initialDate, finalDate).getDays();</span><br><span class="line">ChronoUnit.DAYS.between(initialDate, finalDate);</span><br></pre></td></tr></table></figure>
+
+<p>获得两个time时间的秒数或分钟数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Duration.between(initialTime, finalTime).getSeconds();</span><br><span class="line">ChronoUnit.SECONDS.between(initialTime, finalTime);</span><br></pre></td></tr></table></figure>
+
+<h2 id="EpochSecond"><a href="#EpochSecond" class="headerlink" title="EpochSecond"></a>EpochSecond</h2><p>这个值的处理应该是很常用的，我们在传递数据是还是用原点时间戳数值比较多<br>但是要注意的是，时间戳数值并没有表明时区，但按照Unix系统的定义，我们应该使用UTC时区为基准，计算时间戳，所以都是基于UTC时间转换出的数值<br>你可以使用此工具进行查看<a href="https://www.epochconverter.com/" target="_blank" rel="noopener">epoch converter</a></p>
+<p>如下，同一个时间戳数值，通过不同的offset获得不同时区的localDateTime</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LocalDateTime utcDateTime = LocalDateTime.ofEpochSecond(Instant.now().getEpochSecond(), <span class="number">0</span>, ZoneOffset.UTC);</span><br><span class="line">System.out.println(utcDateTime);</span><br><span class="line">localDateTime = LocalDateTime.ofEpochSecond(Instant.now().getEpochSecond(), <span class="number">0</span>, ZoneOffset.of(<span class="string">"+08:00"</span>));</span><br><span class="line">System.out.println(localDateTime);</span><br></pre></td></tr></table></figure>
+
+<p>或者通过ZonedDateTime</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Instant nowUtc = Instant.now();</span><br><span class="line">ZoneId paris = ZoneId.of(<span class="string">"Europe/Paris"</span>);</span><br><span class="line">ZoneId asiaSingapore = ZoneId.of(<span class="string">"Asia/Singapore"</span>);</span><br><span class="line"></span><br><span class="line">ZonedDateTime nowParis = ZonedDateTime.ofInstant(nowUtc, paris);</span><br><span class="line">System.out.println(nowParis);</span><br><span class="line"></span><br><span class="line">ZonedDateTime nowAsiaSingapore = ZonedDateTime.ofInstant(nowUtc, asiaSingapore);</span><br><span class="line">System.out.println(nowAsiaSingapore);</span><br><span class="line"></span><br><span class="line">System.out.println(nowParis.toLocalDateTime());</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>看似简单的时间类，其实还是有很多细节值得注意的<br>还一些不错的方法这里没有一一列出.<br>对于时区和时间戳部分，引发了一些思考，还是有收获的</p>
 
       
     </div>
@@ -509,7 +566,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/life/" rel="tag"># life</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
         </div>
       
@@ -522,8 +579,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/06/19/stop-loss/" rel="next" title="Stop Loss">
-                <i class="fa fa-chevron-left"></i> Stop Loss
+              <a href="/2021/07/16/data-structure/" rel="next" title="Data Structure">
+                <i class="fa fa-chevron-left"></i> Data Structure
               </a>
             
           </div>
@@ -531,10 +588,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/07/03/thread/" rel="prev" title="Thread">
-                Thread <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -782,7 +835,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题外话"><span class="nav-text">题外话</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为何引入新的时间包"><span class="nav-text">为何引入新的时间包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LocalDate"><span class="nav-text">LocalDate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LocalTime"><span class="nav-text">LocalTime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LocalDateTime"><span class="nav-text">LocalDateTime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ZonedDateTime-amp-OffsetDateTime"><span class="nav-text">ZonedDateTime &amp; OffsetDateTime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Period-and-Duration"><span class="nav-text">Period and Duration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EpochSecond"><span class="nav-text">EpochSecond</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -957,9 +1010,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://gino2010.github.io/2021/07/03/swim/';
-        this.page.identifier = '2021/07/03/swim/';
-        this.page.title = 'Swim️';
+        this.page.url = 'http://gino2010.github.io/2021/07/24/datetime/';
+        this.page.identifier = '2021/07/24/datetime/';
+        this.page.title = 'Datetime in Java 8';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
