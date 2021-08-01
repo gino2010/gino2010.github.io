@@ -109,28 +109,25 @@
 
 
 
-  <meta name="description" content="公司终于要重构一个非常古老的项目了（之前我建议了好多次，也讨论了好多次，这次终于动工了），将其按照微服务方式搭建，采用spring cloud框架（之前已经在其它项目中使用了很久）很期待此项目可以顺利实现，可以支撑未来的业务发展，然而这一次稍微来的晚了一些，我就要离开了。走之前我还是站好最后一班岗，把新版工程的微服务架构搭建一下，并实现统一gateway入口路由和oauth认证逻辑还有Member">
-<meta name="keywords" content="spring cloud,consul">
+  <meta name="description" content="如果一切顺利，后面应该需要开始使用Haskell 这个函数式编程语言。 今天要解决的问题是Haskell基础环境搭建，即安装问题当然如果你的网络条件正常，一句话就可以搞定安装： 1curl --proto &apos;=https&apos; --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh  本人使用mac os系统，详情是可以从https://www.haskel">
+<meta name="keywords" content="Haskell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Consul的多实例注册问题">
-<meta property="og:url" content="http://gino2010.github.io/2018/11/09/consul/index.html">
+<meta property="og:title" content="Haskell 安装">
+<meta property="og:url" content="http://gino2010.github.io/2021/08/01/Haskell/index.html">
 <meta property="og:site_name" content="Cube Life">
-<meta property="og:description" content="公司终于要重构一个非常古老的项目了（之前我建议了好多次，也讨论了好多次，这次终于动工了），将其按照微服务方式搭建，采用spring cloud框架（之前已经在其它项目中使用了很久）很期待此项目可以顺利实现，可以支撑未来的业务发展，然而这一次稍微来的晚了一些，我就要离开了。走之前我还是站好最后一班岗，把新版工程的微服务架构搭建一下，并实现统一gateway入口路由和oauth认证逻辑还有Member">
+<meta property="og:description" content="如果一切顺利，后面应该需要开始使用Haskell 这个函数式编程语言。 今天要解决的问题是Haskell基础环境搭建，即安装问题当然如果你的网络条件正常，一句话就可以搞定安装： 1curl --proto &apos;=https&apos; --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh  本人使用mac os系统，详情是可以从https://www.haskel">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://gino2010.github.io/images/post/20181109/single.png">
-<meta property="og:image" content="http://gino2010.github.io/images/post/20181109/two.png">
-<meta property="og:updated_time" content="2018-11-18T06:18:54.426Z">
+<meta property="og:updated_time" content="2021-08-01T06:51:55.326Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Consul的多实例注册问题">
-<meta name="twitter:description" content="公司终于要重构一个非常古老的项目了（之前我建议了好多次，也讨论了好多次，这次终于动工了），将其按照微服务方式搭建，采用spring cloud框架（之前已经在其它项目中使用了很久）很期待此项目可以顺利实现，可以支撑未来的业务发展，然而这一次稍微来的晚了一些，我就要离开了。走之前我还是站好最后一班岗，把新版工程的微服务架构搭建一下，并实现统一gateway入口路由和oauth认证逻辑还有Member">
-<meta name="twitter:image" content="http://gino2010.github.io/images/post/20181109/single.png">
+<meta name="twitter:title" content="Haskell 安装">
+<meta name="twitter:description" content="如果一切顺利，后面应该需要开始使用Haskell 这个函数式编程语言。 今天要解决的问题是Haskell基础环境搭建，即安装问题当然如果你的网络条件正常，一句话就可以搞定安装： 1curl --proto &apos;=https&apos; --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh  本人使用mac os系统，详情是可以从https://www.haskel">
 
 
 
 
 
 
-  <link rel="canonical" href="http://gino2010.github.io/2018/11/09/consul/">
+  <link rel="canonical" href="http://gino2010.github.io/2021/08/01/Haskell/">
 
 
 
@@ -140,7 +137,7 @@
   };
 </script>
 
-  <title>Consul的多实例注册问题 | Cube Life</title>
+  <title>Haskell 安装 | Cube Life</title>
   
 
 
@@ -361,7 +358,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2018/11/09/consul/">
+    <link itemprop="mainEntityOfPage" href="http://gino2010.github.io/2021/08/01/Haskell/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gino Zhao">
@@ -378,7 +375,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Consul的多实例注册问题
+          <h1 class="post-title" itemprop="name headline">Haskell 安装
               
             
           </h1>
@@ -403,24 +400,12 @@
                 
               
 
-              <time title="Created: 2018-11-09 16:27:57" itemprop="dateCreated datePublished" datetime="2018-11-09T16:27:57+08:00">2018-11-09</time>
+              <time title="Created: 2021-08-01 13:52:41 / Modified: 14:51:55" itemprop="dateCreated datePublished" datetime="2021-08-01T13:52:41+08:00">2021-08-01</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-11-18 14:18:54" itemprop="dateModified" datetime="2018-11-18T14:18:54+08:00">2018-11-18</time>
               
             
           </span>
@@ -452,9 +437,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/11/09/consul/#comments" itemprop="discussionUrl">
+                <a href="/2021/08/01/Haskell/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/09/consul/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/08/01/Haskell/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -489,19 +474,46 @@
       
 
       
-        <p>公司终于要重构一个非常古老的项目了（之前我建议了好多次，也讨论了好多次，这次终于动工了），将其按照微服务方式搭建，采用spring cloud框架（之前已经在其它项目中使用了很久）<br>很期待此项目可以顺利实现，可以支撑未来的业务发展，然而这一次稍微来的晚了一些，我就要离开了。<br>走之前我还是站好最后一班岗，把新版工程的微服务架构搭建一下，并实现统一gateway入口路由和oauth认证逻辑还有Member用户中心微服务中必要的接口，算是遗产了。<br>按照我的习惯，只要是全新的项目，我将尽可能更新之前使用到的技术。<br>由于之前我们使用的是Eureka作为注册服务，而它在2.0宣布闭源，这个对今后会带来什么影响未知，所以我决定将新版工程架构注册服务迁移到Consul。<br>这不就遇到问题了……</p>
+        <p>如果一切顺利，后面应该需要开始使用<a href="https://www.haskell.org/" target="_blank" rel="noopener">Haskell</a> 这个函数式编程语言。</p>
+<p>今天要解决的问题是Haskell基础环境搭建，即安装问题<br>当然如果你的网络条件正常，一句话就可以搞定安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh</span><br></pre></td></tr></table></figure>
+
+<p>本人使用mac os系统，详情是可以从<a href="https://www.haskell.org/downloads/" target="_blank" rel="noopener">https://www.haskell.org/downloads/</a> 这里获得</p>
+<p>那这么简单的事情有必要写个文章记录一下吗？ 有的，很不幸，我所在区域这个网站需要代理才可以访问。<br>而且我的软路由已经报废（为了省钱和时间，近期不打算再买了），所以我需要尝试通过其它方式解决此问题。</p>
 <a id="more"></a>
 
-<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>我有一个Member用户中心服务，当我在不同主机（不同ip地址）上运行两个Member微服务时，Consul中心只能看到一个服务实例。<br>第一反应，What！？ 这个和我想象的完全不一样啊，这应该是默认功能啊，服务的多节点哪里去了！？如图：<br><img src="/images/post/20181109/single.png" alt><br>我运行了两个实例，但只能看见一个</p>
-<p>我这里的consul用的是1.3版本</p>
-<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>Consul团队具体怎么考虑这个实例名称生成规则的，我不是很清楚，但是问题就是因为它<br><a href="https://github.com/spring-cloud/spring-cloud-consul/issues/318" target="_blank" rel="noopener">https://github.com/spring-cloud/spring-cloud-consul/issues/318</a><br>一年多前开的issue竟然还没有关，问题就是instance id的默认组成规则是 application name - port<br>没有ip地址，所以当我启动Member服务时，虽然在不同主机上，但是端口相同，所以instance id是一样一样的😂<br>所以，我们只能看到最后启动的那个实例<br>虽然下面回复中，中国朋友（推断）给出了明确的问题所在和建议的解决方法，然而Consul开发团队还是继续坚持他们的想法（或是spring cloud discovery包没有及时更新！？，issue没有关可能consul团队问题更多一些，人家spring团队也只是整合而已啦），额～～～为什么不改，没有理解</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>程序员DD给出了<a href="https://blog.csdn.net/dyc87112/article/details/82226960" target="_blank" rel="noopener">解决办法</a><br>顺便提及一句，程序员DD非常不错，值得关注</p>
-<p>随机端口方式我就不说了，这个不可取，我没有用。</p>
-<p>直接final way，重新实现ConsulServiceRegistry</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 调整consul服务注册实例名称</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> gino</span></span><br><span class="line"><span class="comment"> * Created on 2018/11/9</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConsulServiceRegistry</span> <span class="keyword">extends</span> <span class="title">ConsulServiceRegistry</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyConsulServiceRegistry</span><span class="params">(ConsulClient client, ConsulDiscoveryProperties properties, TtlScheduler ttlScheduler, HeartbeatProperties heartbeatProperties)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(client, properties, ttlScheduler, heartbeatProperties);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">register</span><span class="params">(ConsulRegistration reg)</span> </span>&#123;</span><br><span class="line">        reg.getService().setId(reg.getService().getName() + <span class="string">"-"</span> + reg.getService().getAddress() + <span class="string">"-"</span> + reg.getService().getPort());</span><br><span class="line">        <span class="keyword">super</span>.register(reg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="环境描述"><a href="#环境描述" class="headerlink" title="环境描述"></a>环境描述</h2><ul>
+<li>MacBook Pro 11.5 系统，个人感觉后面描述的方法和具体版本号无关</li>
+<li>网络受限，不可以直接访问Haskell官网，看来没啥人用这个语言，或者……</li>
+<li>具备一个Http代理可以通过其访问</li>
+</ul>
+<h2 id="方法一-网络全局代理"><a href="#方法一-网络全局代理" class="headerlink" title="方法一 网络全局代理"></a>方法一 网络全局代理</h2><p>应该是最简单的方法，通过配置全局网络代理实现。我使用Wi-Fi网络，指令如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">networksetup -setwebproxy Wi-Fi &lt;IP&gt;:&lt;PORT&gt;</span><br><span class="line">networksetup --setsecurewebproxy Wi-Fi &lt;IP&gt;:&lt;PORT&gt;</span><br><span class="line"><span class="meta">#</span> enable</span><br><span class="line">networksetup -setwebproxystate Wi-Fi on</span><br><span class="line">networksetup -setsecurewebproxystate Wi-Fi on</span><br><span class="line"><span class="meta">#</span> disable</span><br><span class="line">networksetup -setwebproxystate Wi-Fi off</span><br><span class="line">networksetup -setsecurewebproxystate Wi-Fi off</span><br></pre></td></tr></table></figure>
 
-<p>没有什么好解释的，在此启动就有两个服务了，如图<br><img src="/images/post/20181109/two.png" alt><br>两个服务，正常注册上了，红色区域就是我们要解决的问题最终结果。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>除了Consul中的一些小改变，其实每次Spring Cloud的版本升级（当前使用的Greenwich.M1）都会这样那样的问题，我们需要慢慢踩雷，慢慢成长。 </p>
+<p>当然这和你在System Settings &gt; Network &gt; Wi-Fi &gt; Advanced &gt; Proxies &gt; Web Proxy 设置是同理的<br>当然你还应该需要设置Secure Web Proxy，毕竟安装访问路径是Https的</p>
+<p><strong>BUT</strong>， 这个方法对于我来说是行不通的，因为我的公司电脑权限受限，没有权限可以在网络中修改代理。</p>
+<h2 id="方法二，Terminal中的代理"><a href="#方法二，Terminal中的代理" class="headerlink" title="方法二，Terminal中的代理"></a>方法二，Terminal中的代理</h2><p>如前所提到的，大家可以一眼看出安装指令其实是执行一个shell安装脚本<br>在Terminal中运行，那我们就尝试将Terminal设置代理就好了</p>
+<p>本人使用.bash_profile来进行terminal的环境配置，添加如下指令来启动terminal代理</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy="&lt;IP&gt;:&lt;PORT&gt;"</span><br></pre></td></tr></table></figure>
+
+<p>注意这里<strong>不携带</strong>代理协议，例如http://</p>
+<p>只是terminal代理还是不够的，因为安装shell脚本使用的curl进行下载，该指令有自己的代理，还需要创建.curlrc文件来设置curl的代理。文件中内容为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy = "&lt;IP&gt;:&lt;PORT&gt;"</span><br></pre></td></tr></table></figure>
+
+<p>也是不包含代理协议，为什么这样做，而不是使用 -x 或者 –proxy 来指明curl的代理呢，原因就是：配置一次curlrc，搞定所有curl指令，简单啊。<br>现在就可以通过代理安装Haskell了。</p>
+<p>此方法同理可以使用到Linux系统中，如果以后遇到了，到时再尝试了<br>值得注意的是，Linux系统的http_proxy是应该指明代理协议的</p>
+<h2 id="其它方法"><a href="#其它方法" class="headerlink" title="其它方法"></a>其它方法</h2><p>除了软路由，我还知道另一个方法<br>那就是通过其它代理工具将Mac系统中http请求都拦截并代理出去。<br>当然这也需要管理员权限去安装软件和允许一些代理操作，例如更新证书链等<br>大家可以自行尝试</p>
+<h2 id="题外话：网络限制"><a href="#题外话：网络限制" class="headerlink" title="题外话：网络限制"></a>题外话：网络限制</h2><p>关于网络限制，个人观点：我是十分理解的，但也深受其”害”，浪费了很多时间，也学到很多知识。<br>在我们这里，如果你不懂点网络代理相关知识，你都无法成为一名优秀的程序员（呵呵，说笑了）</p>
+<p>作为程序员，平时会发现很多技术网站收到限制。我虽然可以保证自己的行为，但是谁可以保证全网人民的行为是得当呢<br>所以网络限制是可以理解。</p>
+<p><strong>没有限制的自由将会是无序</strong></p>
+<h2 id="题外话：本周上线小结"><a href="#题外话：本周上线小结" class="headerlink" title="题外话：本周上线小结"></a>题外话：本周上线小结</h2><p>本周做了一次系统上线，去修复一个production issue（我之前挖的一个坑），review一下：</p>
+<ul>
+<li>这个issue 本可以避免，今后应该注意和其它团队的沟通，不能做Assumption，要Confirm</li>
+<li>从发现Issue到解决，速度还是很快的，5天之内，完成修复，走完上线流程，拿到各种approval，并上线成功</li>
+<li>关于PT的Dispensation，PT Header的判断虽然带来了一些额外effort，但是也从中学到一些新观点，还好通过个人努力按时解决了，没有耽误上线</li>
+</ul>
+<p>下周回归新项目组，开始新的功能实现</p>
+<p>P.S. 周五无意间闪到了腰，S**T现在还有点酸痛，弯腰费劲</p>
 
       
     </div>
@@ -522,9 +534,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/spring-cloud/" rel="tag"># spring cloud</a>
-          
-            <a href="/tags/consul/" rel="tag"># consul</a>
+            <a href="/tags/Haskell/" rel="tag"># Haskell</a>
           
         </div>
       
@@ -537,8 +547,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/05/minsky/" rel="next" title="Minsky Moment">
-                <i class="fa fa-chevron-left"></i> Minsky Moment
+              <a href="/2021/07/24/datetime/" rel="next" title="Datetime in Java 8">
+                <i class="fa fa-chevron-left"></i> Datetime in Java 8
               </a>
             
           </div>
@@ -546,10 +556,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/20/api-gateway/" rel="prev" title="API Gateway">
-                API Gateway <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -799,7 +805,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题原因"><span class="nav-text">问题原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法"><span class="nav-text">解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境描述"><span class="nav-text">环境描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一-网络全局代理"><span class="nav-text">方法一 网络全局代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二，Terminal中的代理"><span class="nav-text">方法二，Terminal中的代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它方法"><span class="nav-text">其它方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题外话：网络限制"><span class="nav-text">题外话：网络限制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题外话：本周上线小结"><span class="nav-text">题外话：本周上线小结</span></a></li></ol></div>
             
 
           </div>
@@ -974,9 +980,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://gino2010.github.io/2018/11/09/consul/';
-        this.page.identifier = '2018/11/09/consul/';
-        this.page.title = 'Consul的多实例注册问题';
+        this.page.url = 'http://gino2010.github.io/2021/08/01/Haskell/';
+        this.page.identifier = '2021/08/01/Haskell/';
+        this.page.title = 'Haskell 安装';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
