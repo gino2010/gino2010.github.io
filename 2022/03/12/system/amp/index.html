@@ -2,40 +2,32 @@
 <html ⚡>
   <head>
     <meta charset="utf-8">
-    <link rel="canonical" href="http://gino2010.github.io/2018/10/16/mq/" >
-    <title>Message Queue 初探 - Cube Life</title>
+    <link rel="canonical" href="http://gino2010.github.io/2022/03/12/system/" >
+    <title>System - Cube Life</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     
-    <meta property="og:title" content="Message Queue 初探">
+    <meta property="og:title" content="System">
 	<meta property="og:type" content="article">
-	<meta property="og:url" content="http://gino2010.github.io/2018/10/16/mq/">
+	<meta property="og:url" content="http://gino2010.github.io/2022/03/12/system/">
 	
 		<meta property="og:image" content="/amp-dist/sample/sample-substituteTitleImage.png">
 	
 	<meta property="og:site_name" content="Cube Life">
 	
-		<meta property="og:description" content="&lt;p&gt;消息队列（MQ），平时经常遇到的中间件技术。个人工作中已经使用的RabbitMQ，最近开始使用Kafka，因此也打算把ActiveMQ实验一下。&lt;br&gt;所以本文章将围绕这三个MQ产品进行相应的实验。&lt;/p&gt;
-&lt;h2 id=&#34;创建实验工程&#34;&gt;&lt;a href=&#34;#创建实验工程&#34; class=&#34;headerlink&#34; title=&#34;创建实验工程&#34;&gt;&lt;/a&gt;创建实验工程&lt;/h2&gt;&lt;p&gt;三个MQ&lt;a href=&#34;https://github.com/gino2010/javatech/tree/master/mqtest&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;实验工程地址&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;工程使用spring boot创建，所有实现都将基于spring全家桶，已经很完毕了，拿来直接用吧。&lt;/li&gt;
-&lt;li&gt;为了后续实验方便，分别多个mq的producer和consumer工程&lt;/li&gt;
-&lt;li&gt;使用gradle管理项目结构&lt;/li&gt;
-&lt;li&gt;使用docker搭建测试所需要的服务器，文件可以&lt;a href=&#34;https://github.com/gino2010/cicdtech/tree/master/mq-docker&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;参考&lt;/a&gt;，实际部署环境有所调整&lt;/li&gt;
-&lt;/ul&gt;">
+		<meta property="og:description" content="&lt;p&gt;系统，今天说说这个主题，记录一下最近有关这个主题的一个想法。&lt;/p&gt;
+&lt;p&gt;大家应该都可以认同，我们生活在”系统”中，生活在人类构建的”系统”的中，自然构建的”系统”中。&lt;br&gt;我经常会说，我们所学的所有知识归根到底学习的是规则，是各个系统的规则。&lt;br&gt;数学，文学，语言，技术，职场，等等，这些都可以是一个个系统，我们从出生开始就学习系统中的规则，以便在系统中生存。&lt;/p&gt;
+&lt;p&gt;当然，广义看宇宙万物都是在系统中，构建着一个极其复杂的系统。这个话题很大，我穷极一生也最多窥见一斑吧，不是今天要说的内容。&lt;/p&gt;
+&lt;p&gt;今天我想说的是人类构建的一个系统，一个影响全世界的系统，金融系统&lt;/p&gt;">
 	
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="Cube Life">
-	<meta name="twitter:url" content="http://gino2010.github.io/2018/10/16/mq/">
-	<meta name="twitter:title" content="Message Queue 初探 - Cube Life">
+	<meta name="twitter:url" content="http://gino2010.github.io/2022/03/12/system/">
+	<meta name="twitter:title" content="System - Cube Life">
 	
-		<meta name="twitter:description" content="&lt;p&gt;消息队列（MQ），平时经常遇到的中间件技术。个人工作中已经使用的RabbitMQ，最近开始使用Kafka，因此也打算把ActiveMQ实验一下。&lt;br&gt;所以本文章将围绕这三个MQ产品进行相应的实验。&lt;/p&gt;
-&lt;h2 id=&#34;创建实验工程&#34;&gt;&lt;a href=&#34;#创建实验工程&#34; class=&#34;headerlink&#34; title=&#34;创建实验工程&#34;&gt;&lt;/a&gt;创建实验工程&lt;/h2&gt;&lt;p&gt;三个MQ&lt;a href=&#34;https://github.com/gino2010/javatech/tree/master/mqtest&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;实验工程地址&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;工程使用spring boot创建，所有实现都将基于spring全家桶，已经很完毕了，拿来直接用吧。&lt;/li&gt;
-&lt;li&gt;为了后续实验方便，分别多个mq的producer和consumer工程&lt;/li&gt;
-&lt;li&gt;使用gradle管理项目结构&lt;/li&gt;
-&lt;li&gt;使用docker搭建测试所需要的服务器，文件可以&lt;a href=&#34;https://github.com/gino2010/cicdtech/tree/master/mq-docker&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;参考&lt;/a&gt;，实际部署环境有所调整&lt;/li&gt;
-&lt;/ul&gt;">
+		<meta name="twitter:description" content="&lt;p&gt;系统，今天说说这个主题，记录一下最近有关这个主题的一个想法。&lt;/p&gt;
+&lt;p&gt;大家应该都可以认同，我们生活在”系统”中，生活在人类构建的”系统”的中，自然构建的”系统”中。&lt;br&gt;我经常会说，我们所学的所有知识归根到底学习的是规则，是各个系统的规则。&lt;br&gt;数学，文学，语言，技术，职场，等等，这些都可以是一个个系统，我们从出生开始就学习系统中的规则，以便在系统中生存。&lt;/p&gt;
+&lt;p&gt;当然，广义看宇宙万物都是在系统中，构建着一个极其复杂的系统。这个话题很大，我穷极一生也最多窥见一斑吧，不是今天要说的内容。&lt;/p&gt;
+&lt;p&gt;今天我想说的是人类构建的一个系统，一个影响全世界的系统，金融系统&lt;/p&gt;">
 	
     
     	<meta name="twitter:image" content="/amp-dist/sample/sample-substituteTitleImage.png">
@@ -64,23 +56,19 @@
 		{
 			"@context": "http://schema.org",
 			"@type": "BlogPosting",
-			"headline": "Message Queue 初探",
+			"headline": "System",
 			
-			"description": "&lt;p&gt;消息队列（MQ），平时经常遇到的中间件技术。个人工作中已经使用的RabbitMQ，最近开始使用Kafka，因此也打算把ActiveMQ实验一下。&lt;br&gt;所以本文章将围绕这三个MQ产品进行相应的实验。&lt;/p&gt;
-&lt;h2 id=&#34;创建实验工程&#34;&gt;&lt;a href=&#34;#创建实验工程&#34; class=&#34;headerlink&#34; title=&#34;创建实验工程&#34;&gt;&lt;/a&gt;创建实验工程&lt;/h2&gt;&lt;p&gt;三个MQ&lt;a href=&#34;https://github.com/gino2010/javatech/tree/master/mqtest&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;实验工程地址&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;工程使用spring boot创建，所有实现都将基于spring全家桶，已经很完毕了，拿来直接用吧。&lt;/li&gt;
-&lt;li&gt;为了后续实验方便，分别多个mq的producer和consumer工程&lt;/li&gt;
-&lt;li&gt;使用gradle管理项目结构&lt;/li&gt;
-&lt;li&gt;使用docker搭建测试所需要的服务器，文件可以&lt;a href=&#34;https://github.com/gino2010/cicdtech/tree/master/mq-docker&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;参考&lt;/a&gt;，实际部署环境有所调整&lt;/li&gt;
-&lt;/ul&gt;",
+			"description": "&lt;p&gt;系统，今天说说这个主题，记录一下最近有关这个主题的一个想法。&lt;/p&gt;
+&lt;p&gt;大家应该都可以认同，我们生活在”系统”中，生活在人类构建的”系统”的中，自然构建的”系统”中。&lt;br&gt;我经常会说，我们所学的所有知识归根到底学习的是规则，是各个系统的规则。&lt;br&gt;数学，文学，语言，技术，职场，等等，这些都可以是一个个系统，我们从出生开始就学习系统中的规则，以便在系统中生存。&lt;/p&gt;
+&lt;p&gt;当然，广义看宇宙万物都是在系统中，构建着一个极其复杂的系统。这个话题很大，我穷极一生也最多窥见一斑吧，不是今天要说的内容。&lt;/p&gt;
+&lt;p&gt;今天我想说的是人类构建的一个系统，一个影响全世界的系统，金融系统&lt;/p&gt;",
 			
 			"mainEntityOfPage":{
 			    "@type":"WebPage",
-			    "@id":"http://gino2010.github.io/2018/10/16/mq/"
+			    "@id":"http://gino2010.github.io/2022/03/12/system/"
 			},
-			"datePublished": "2018-10-16T08:41:44.000Z",
-			"dateModified": "2018-11-18T06:18:54.424Z",
+			"datePublished": "2022-03-12T06:45:12.000Z",
+			"dateModified": "2022-03-12T08:37:34.849Z",
 			
 			"image": {
 				"@type": "ImageObject",
@@ -1798,7 +1786,7 @@ h6.categories {
   	<!-- container -->
   	<div id="container">
 	  	<div id="main">
-		    <article id="post-mq" class="post">
+		    <article id="post-system" class="post">
 		    
 		   		<!-- categories and bread crumb -->
 		    	
@@ -1817,11 +1805,11 @@ h6.categories {
 								
 						    		<li itemprop="itemListElement" itemscope
 									      itemtype="http://schema.org/ListItem">
-									    <a itemprop="item" href="/categories/tech/">
+									    <a itemprop="item" href="/categories/note/">
 									      
 									      	<span class="sns-icon folder-icon"></span>
 									      
-									      <span itemprop="name">tech</span>
+									      <span itemprop="name">note</span>
 									    </a>
 									    <meta itemprop="position" content="2" />
 									</li>
@@ -1849,7 +1837,7 @@ h6.categories {
 			            <div class="header-cap flx">
 							
 							  <h1 class="article-title entry-title" itemprop="name">
-							    <a href="http://gino2010.github.io/2018/10/16/mq/" target="_blank" itemprop="url">Message Queue 初探</a>
+							    <a href="http://gino2010.github.io/2022/03/12/system/" target="_blank" itemprop="url">System</a>
 							  </h1>
 							
 						</div>
@@ -1859,7 +1847,7 @@ h6.categories {
 					<div class="entry-meta-header">
 						<span class="meta-elements date">
 							<span class="fa fa-fw fa-clock-o"></span>
-							<time datetime="2018-10-16" itemprop="datePublished">2018.10.16</time>
+							<time datetime="2022-03-12" itemprop="datePublished">2022.03.12</time>
 						</span>
 					</div>
 				</div>
@@ -1876,134 +1864,35 @@ h6.categories {
                     
                     
 			    	<!-- content -->
-			  		<p>&#x6D88;&#x606F;&#x961F;&#x5217;&#xFF08;MQ&#xFF09;&#xFF0C;&#x5E73;&#x65F6;&#x7ECF;&#x5E38;&#x9047;&#x5230;&#x7684;&#x4E2D;&#x95F4;&#x4EF6;&#x6280;&#x672F;&#x3002;&#x4E2A;&#x4EBA;&#x5DE5;&#x4F5C;&#x4E2D;&#x5DF2;&#x7ECF;&#x4F7F;&#x7528;&#x7684;RabbitMQ&#xFF0C;&#x6700;&#x8FD1;&#x5F00;&#x59CB;&#x4F7F;&#x7528;Kafka&#xFF0C;&#x56E0;&#x6B64;&#x4E5F;&#x6253;&#x7B97;&#x628A;ActiveMQ&#x5B9E;&#x9A8C;&#x4E00;&#x4E0B;&#x3002;<br>&#x6240;&#x4EE5;&#x672C;&#x6587;&#x7AE0;&#x5C06;&#x56F4;&#x7ED5;&#x8FD9;&#x4E09;&#x4E2A;MQ&#x4EA7;&#x54C1;&#x8FDB;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x5B9E;&#x9A8C;&#x3002;</p>
-<h2 id="&#x521B;&#x5EFA;&#x5B9E;&#x9A8C;&#x5DE5;&#x7A0B;"><a href="#&#x521B;&#x5EFA;&#x5B9E;&#x9A8C;&#x5DE5;&#x7A0B;" class="headerlink" title="&#x521B;&#x5EFA;&#x5B9E;&#x9A8C;&#x5DE5;&#x7A0B;"></a>&#x521B;&#x5EFA;&#x5B9E;&#x9A8C;&#x5DE5;&#x7A0B;</h2><p>&#x4E09;&#x4E2A;MQ<a href="https://github.com/gino2010/javatech/tree/master/mqtest" target="_blank" rel="noopener">&#x5B9E;&#x9A8C;&#x5DE5;&#x7A0B;&#x5730;&#x5740;</a></p>
-<ul>
-<li>&#x5DE5;&#x7A0B;&#x4F7F;&#x7528;spring boot&#x521B;&#x5EFA;&#xFF0C;&#x6240;&#x6709;&#x5B9E;&#x73B0;&#x90FD;&#x5C06;&#x57FA;&#x4E8E;spring&#x5168;&#x5BB6;&#x6876;&#xFF0C;&#x5DF2;&#x7ECF;&#x5F88;&#x5B8C;&#x6BD5;&#x4E86;&#xFF0C;&#x62FF;&#x6765;&#x76F4;&#x63A5;&#x7528;&#x5427;&#x3002;</li>
-<li>&#x4E3A;&#x4E86;&#x540E;&#x7EED;&#x5B9E;&#x9A8C;&#x65B9;&#x4FBF;&#xFF0C;&#x5206;&#x522B;&#x591A;&#x4E2A;mq&#x7684;producer&#x548C;consumer&#x5DE5;&#x7A0B;</li>
-<li>&#x4F7F;&#x7528;gradle&#x7BA1;&#x7406;&#x9879;&#x76EE;&#x7ED3;&#x6784;</li>
-<li>&#x4F7F;&#x7528;docker&#x642D;&#x5EFA;&#x6D4B;&#x8BD5;&#x6240;&#x9700;&#x8981;&#x7684;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x6587;&#x4EF6;&#x53EF;&#x4EE5;<a href="https://github.com/gino2010/cicdtech/tree/master/mq-docker" target="_blank" rel="noopener">&#x53C2;&#x8003;</a>&#xFF0C;&#x5B9E;&#x9645;&#x90E8;&#x7F72;&#x73AF;&#x5883;&#x6709;&#x6240;&#x8C03;&#x6574;</li>
-</ul>
+			  		<p>&#x7CFB;&#x7EDF;&#xFF0C;&#x4ECA;&#x5929;&#x8BF4;&#x8BF4;&#x8FD9;&#x4E2A;&#x4E3B;&#x9898;&#xFF0C;&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;&#x6700;&#x8FD1;&#x6709;&#x5173;&#x8FD9;&#x4E2A;&#x4E3B;&#x9898;&#x7684;&#x4E00;&#x4E2A;&#x60F3;&#x6CD5;&#x3002;</p>
+<p>&#x5927;&#x5BB6;&#x5E94;&#x8BE5;&#x90FD;&#x53EF;&#x4EE5;&#x8BA4;&#x540C;&#xFF0C;&#x6211;&#x4EEC;&#x751F;&#x6D3B;&#x5728;&#x201D;&#x7CFB;&#x7EDF;&#x201D;&#x4E2D;&#xFF0C;&#x751F;&#x6D3B;&#x5728;&#x4EBA;&#x7C7B;&#x6784;&#x5EFA;&#x7684;&#x201D;&#x7CFB;&#x7EDF;&#x201D;&#x7684;&#x4E2D;&#xFF0C;&#x81EA;&#x7136;&#x6784;&#x5EFA;&#x7684;&#x201D;&#x7CFB;&#x7EDF;&#x201D;&#x4E2D;&#x3002;<br>&#x6211;&#x7ECF;&#x5E38;&#x4F1A;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x6240;&#x5B66;&#x7684;&#x6240;&#x6709;&#x77E5;&#x8BC6;&#x5F52;&#x6839;&#x5230;&#x5E95;&#x5B66;&#x4E60;&#x7684;&#x662F;&#x89C4;&#x5219;&#xFF0C;&#x662F;&#x5404;&#x4E2A;&#x7CFB;&#x7EDF;&#x7684;&#x89C4;&#x5219;&#x3002;<br>&#x6570;&#x5B66;&#xFF0C;&#x6587;&#x5B66;&#xFF0C;&#x8BED;&#x8A00;&#xFF0C;&#x6280;&#x672F;&#xFF0C;&#x804C;&#x573A;&#xFF0C;&#x7B49;&#x7B49;&#xFF0C;&#x8FD9;&#x4E9B;&#x90FD;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x4E2A;&#x7CFB;&#x7EDF;&#xFF0C;&#x6211;&#x4EEC;&#x4ECE;&#x51FA;&#x751F;&#x5F00;&#x59CB;&#x5C31;&#x5B66;&#x4E60;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x89C4;&#x5219;&#xFF0C;&#x4EE5;&#x4FBF;&#x5728;&#x7CFB;&#x7EDF;&#x4E2D;&#x751F;&#x5B58;&#x3002;</p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x5E7F;&#x4E49;&#x770B;&#x5B87;&#x5B99;&#x4E07;&#x7269;&#x90FD;&#x662F;&#x5728;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x6784;&#x5EFA;&#x7740;&#x4E00;&#x4E2A;&#x6781;&#x5176;&#x590D;&#x6742;&#x7684;&#x7CFB;&#x7EDF;&#x3002;&#x8FD9;&#x4E2A;&#x8BDD;&#x9898;&#x5F88;&#x5927;&#xFF0C;&#x6211;&#x7A77;&#x6781;&#x4E00;&#x751F;&#x4E5F;&#x6700;&#x591A;&#x7AA5;&#x89C1;&#x4E00;&#x6591;&#x5427;&#xFF0C;&#x4E0D;&#x662F;&#x4ECA;&#x5929;&#x8981;&#x8BF4;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<p>&#x4ECA;&#x5929;&#x6211;&#x60F3;&#x8BF4;&#x7684;&#x662F;&#x4EBA;&#x7C7B;&#x6784;&#x5EFA;&#x7684;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#xFF0C;&#x4E00;&#x4E2A;&#x5F71;&#x54CD;&#x5168;&#x4E16;&#x754C;&#x7684;&#x7CFB;&#x7EDF;&#xFF0C;&#x91D1;&#x878D;&#x7CFB;&#x7EDF;</p>
 <a id="more"></a>
 
-<h2 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a><a href="https://kafka.apache.org/" target="_blank" rel="noopener">Kafka</a></h2><p>&#x9996;&#x5148;&#x5B9E;&#x9A8C;&#x4E86;Kafka&#x7684;&#x751F;&#x4EA7;&#x548C;&#x6D88;&#x8D39;&#x57FA;&#x672C;&#x4EE3;&#x7801;<br>procuder&#xFF1A;</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.kafkaTemplate.send(topic, message);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>consumer:</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@KafkaListener</span>(topics = <span class="string">&quot;<!--figure1-->#123;app.topic}&quot;</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="&#x8FD0;&#x884C;&#x8BF4;&#x660E;"><a href="#&#x8FD0;&#x884C;&#x8BF4;&#x660E;" class="headerlink" title="&#x8FD0;&#x884C;&#x8BF4;&#x660E;"></a>&#x8FD0;&#x884C;&#x8BF4;&#x660E;</h3><ol>
-<li><p>&#x4F7F;&#x7528;&#x4E09;&#x4E2A;kafka broker &#x8282;&#x70B9;&#xFF0C;&#x4F7F;&#x7528;docker-compose&#x5BF9;&#x5E94;&#x7684;service&#x5B9E;&#x73B0;<br>![](/images/post/20181016/kafka brokers.png)</p>
-</li>
-<li><p>&#x521B;&#x5EFA;topic&#xFF0C;&#x4F7F;&#x7528;&#x4E09;&#x4E2A;&#x5206;&#x533A;&#x548C;&#x4E24;&#x4E2A;&#x526F;&#x672C;<br>![](/images/post/20181016/kafka topic.png)</p>
-</li>
-<li><p>&#x4F7F;&#x7528;idea&#xFF0C;&#x8FD0;&#x884C;&#x5DE5;&#x7A0B;&#xFF0C;&#x914D;&#x7F6E;&#x591A;&#x4E2A;&#x8FD0;&#x884C;&#x5B9E;&#x4F8B;<br>![](/images/post/20181016/kafka run dashboard.png)</p>
-</li>
-</ol>
-<h3 id="&#x7279;&#x6027;&#x603B;&#x7ED3;"><a href="#&#x7279;&#x6027;&#x603B;&#x7ED3;" class="headerlink" title="&#x7279;&#x6027;&#x603B;&#x7ED3;"></a>&#x7279;&#x6027;&#x603B;&#x7ED3;</h3><ul>
-<li>&#x4E00;&#x4E2A;&#x5206;&#x533A;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x6D88;&#x8D39;&#x8005;</li>
-<li>&#x4E00;&#x4E2A;&#x5206;&#x533A;&#x5185;&#x6D88;&#x606F;&#x987A;&#x5E8F;&#x6D88;&#x8D39;</li>
-<li>&#x5206;&#x533A;&#x548C;&#x548C;&#x670D;&#x52A1;&#x5668;&#x5E94;&#x8BE5;&#x6210;&#x500D;&#x6570;&#x5173;&#x7CFB;&#xFF0C;&#x4FDD;&#x8BC1;&#x5206;&#x533A;&#x5747;&#x5300;&#x5206;&#x5E03;</li>
-<li>&#x526F;&#x672C;&#x6570;&#x91CF;&#x5E94;&#x8BE5;&#x5C0F;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#x6570;&#x91CF;&#xFF0C;&#x5F53;&#x53EF;&#x7528;&#x5206;&#x533A;&#x5931;&#x6548;&#x65F6;&#xFF0C;&#x4ECE;&#x526F;&#x672C;&#x4E2D;&#x9009;&#x51FA;leader&#xFF0C;&#x6210;&#x4E3A;&#x65B0;&#x7684;&#x53EF;&#x7528;&#x5206;&#x533A;</li>
-<li>&#x8282;&#x70B9;&#x9AD8;&#x53EF;&#x7528;&#x6027;&#xFF0C;&#x6D88;&#x8D39;&#x670D;&#x52A1;&#x77AC;&#x95F4;&#x5207;&#x6362;</li>
-<li>&#x4FDD;&#x5B58;&#x8FD1;&#x671F;&#x6240;&#x6709;&#x6570;&#x636E;&#xFF0C;&#x901A;&#x8FC7;offset&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x4EFB;&#x610F;&#x4F4D;&#x7F6E;&#x7684;&#x6D88;&#x606F;</li>
-<li>&#x662F;&#x5426;&#x5141;&#x8BB8;&#x81EA;&#x52A8;&#x521B;&#x5EFA;topic&#x9700;&#x8981;&#x5728;kafka&#x4E2D;&#x914D;&#x7F6E;</li>
-</ul>
-<h3 id="ACK-MODE-&#x548C;-Commit"><a href="#ACK-MODE-&#x548C;-Commit" class="headerlink" title="ACK MODE &#x548C; Commit"></a>ACK MODE &#x548C; Commit</h3><p>&#x9700;&#x8981;&#x6CE8;&#x610F;ack mode&#x548C; commit&#xFF0C;&#x6B64;&#x9879;&#x5F71;&#x54CD;&#x6570;&#x636E;&#x7684;&#x5237;&#x76D8;&#x673A;&#x5236;&#x3002;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x9009;&#x62E9;</p>
-<ul>
-<li>RECORD &#x9010;&#x7B14;ack&#x5E76;&#x63D0;&#x4EA4;</li>
-<li>BATCH &#x4E00;&#x4E2A;poll&#x5468;&#x671F;&#x8FDB;&#x884C;ack&#x63D0;&#x4EA4;</li>
-<li>TIME &#x901A;&#x8FC7;&#x8BBE;&#x7F6E;ackTime&#x5B9A;&#x65F6;&#x63D0;&#x4EA4;</li>
-<li>COUNT &#x901A;&#x8FC7;&#x8BBE;&#x7F6E;ackCount&#x7D2F;&#x8BA1;&#x6570;&#x91CF;&#x63D0;&#x4EA4;</li>
-<li>COUNT_TIME &#x540C;&#x4E0A;&#x7EC4;&#x5408;&#xFF0C;&#x54EA;&#x4E2A;&#x590D;&#x5408;&#x6267;&#x884C;&#x54EA;&#x4E2A;</li>
-<li>MANUAL &#x624B;&#x52A8;&#x65B9;&#x5F0F;&#x751F;&#x6210;ack&#xFF0C;&#x6279;&#x91CF;&#x63D0;&#x4EA4;</li>
-<li>MANUAL_IMMEDIATE &#x624B;&#x52A8;&#x65B9;&#x5F0F;&#x751F;&#x6210;ack&#x5E76;&#x7ACB;&#x5373;&#x63D0;&#x4EA4;</li>
-</ul>
-<h3 id="&#x5E7F;&#x64AD;&#x4E0E;&#x70B9;&#x5BF9;&#x70B9;"><a href="#&#x5E7F;&#x64AD;&#x4E0E;&#x70B9;&#x5BF9;&#x70B9;" class="headerlink" title="&#x5E7F;&#x64AD;&#x4E0E;&#x70B9;&#x5BF9;&#x70B9;"></a>&#x5E7F;&#x64AD;&#x4E0E;&#x70B9;&#x5BF9;&#x70B9;</h3><p>&#x5E7F;&#x64AD;&#x6709;&#x65F6;&#x4E5F;&#x53EB;pub&#x548C;sub&#xFF0C;&#x5C31;&#x662F;&#x4E00;&#x4E2A;topic&#xFF0C;&#x591A;&#x4E2A;&#x8BA2;&#x9605;&#x8005;&#x3002;&#x6BCF;&#x4E2A;&#x8BA2;&#x9605;&#x8005;&#x90FD;&#x4F1A;&#x6536;&#x5230;&#x76F8;&#x540C;&#x7684;&#x6D88;&#x606F;&#xFF0C;&#x6D88;&#x606F;&#x88AB;&#x591A;&#x6B21;&#x6D88;&#x8D39;&#x3002;<br>&#x70B9;&#x5BF9;&#x70B9;&#xFF0C;&#x4E00;&#x4E2A;topic&#x4E2D;&#x7684;&#x6D88;&#x606F;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#xFF0C;&#x6D88;&#x606F;&#x53EA;&#x4F1A;&#x88AB;&#x6D88;&#x8D39;&#x4E00;&#x6B21;</p>
-<p>&#x5728;Kafka&#x7684;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x5982;&#x4F55;&#x533A;&#x5206;&#x4EE5;&#x4E0A;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x662F;&#x901A;&#x8FC7;consumer group&#x5B9E;&#x73B0;&#x7684;&#x3002;</p>
-<p>&#x591A;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#x5728;&#x4E00;&#x4E2A;consumer group&#x4E2D;&#xFF0C;&#x90A3;&#x4E48;&#x4ED6;&#x4EEC;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x6D88;&#x8D39;&#x6574;&#x4F53;&#xFF0C;&#x6D88;&#x606F;&#x53EA;&#x4F1A;&#x88AB;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x6D88;&#x8D39;&#x8005;&#x6D88;&#x8D39;&#x4E00;&#x6B21;<br>&#x5982;&#x679C;&#x60F3;&#x591A;&#x4E2A;&#x540C;&#x65F6;&#x6D88;&#x8D39;&#xFF0C;&#x90A3;&#x4E48;&#x9700;&#x8981;&#x591A;&#x4E2A;consumer group&#x3002;<br>&#x8FD9;&#x6837;&#x6765;&#x770B;consumer group&#x9700;&#x8981;&#x4E0E;&#x5177;&#x4F53;&#x670D;&#x52A1;&#x5BF9;&#x5E94;&#xFF0C;&#x4E00;&#x822C;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x670D;&#x52A1;&#x9700;&#x8981;&#x6D88;&#x8D39;&#x4E00;&#x6B21;&#x6D88;&#x606F;&#x3002;</p>
-<p>&#x603B;&#x7684;&#x6765;&#x8BF4;&#xFF0C;&#x4F53;&#x4F1A;&#x5230;&#x4E86;&#x5927;&#x5BB6;&#x559C;&#x6B22;&#x7684;&#x5B83;&#x539F;&#x56E0;&#xFF0C;&#x5177;&#x4F53;&#x4E00;&#x4E9B;&#x5B9E;&#x9A8C;&#x540E;&#x7EED;&#x5C06;&#x6DF1;&#x5165;&#x3002;<br><a href="http://www.jasongj.com/2015/03/10/KafkaColumn1/" target="_blank" rel="noopener">&#x5EFA;&#x8BAE;&#x53C2;&#x8003;&#x9605;&#x8BFB;</a></p>
-<h2 id="ActiveMQ"><a href="#ActiveMQ" class="headerlink" title="ActiveMQ"></a><a href="http://activemq.apache.org/" target="_blank" rel="noopener">ActiveMQ</a></h2><p>&#x6BCF;&#x4E2A;MQ&#x4E2D;&#x7684;&#x672F;&#x8BED;&#x5927;&#x540C;&#x5C0F;&#x5F02;&#xFF0C;&#x4F46;&#x53C8;&#x5341;&#x5206;&#x4E0D;&#x7EDF;&#x4E00;&#xFF0C;&#x968F;&#x7740;&#x9075;&#x5FAA;&#x7684;&#x534F;&#x8BAE;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x770B;ActiveMQ&#xFF0C;&#x5B83;&#x4F7F;&#x7528;JMS&#x534F;&#x8BAE;</p>
-<h3 id="Queue-&#x548C;-Topic"><a href="#Queue-&#x548C;-Topic" class="headerlink" title="Queue &#x548C; Topic"></a>Queue &#x548C; Topic</h3><p>Topics<br>In JMS a Topic implements publish and subscribe semantics. When you publish a message it goes to all the subscribers who are interested - so zero to many subscribers will receive a copy of the message. Only subscribers who had an active subscription at the time the broker receives the message will get a copy of the message.<br>![](/images/post/20181016/jms topic.png)</p>
-<p>Queues<br>A JMS Queue implements load balancer semantics. A single message will be received by exactly one consumer. If there are no consumers available at the time the message is sent it will be kept until a consumer is available that can process the message. If a consumer receives a message and does not acknowledge it before closing then the message will be redelivered to another consumer. A queue can have many consumers with messages load balanced across the available consumers.<br>![](/images/post/20181016/jms queue.png)</p>
-<p>&#x8FD9;&#x91CC;&#x7684; topics &#x7C7B;&#x4F3C;kafka&#x4E2D;&#x7684;&#x5E7F;&#x64AD;&#xFF0C;pub/sub &#x6A21;&#x5F0F;&#xFF0C;queue&#x662F;&#x961F;&#x5217;&#x662F;&#x70B9;&#x5BF9;&#x70B9;&#x6A21;&#x5F0F;&#x3002;<br>&#x4ED6;&#x7684;&#x4E3B;&#x8981;&#x533A;&#x522B;&#x662F;&#xFF0C;&#x6D88;&#x8D39;&#x65B9;&#x5F0F;&#x7684;&#x786E;&#x5B9A;&#x4E0D;&#x662F;&#x5728;consumer&#x8BBE;&#x7F6E;&#xFF0C;&#x800C;&#x662F;&#x5728;MQ Server&#x4E2D;&#x8BBE;&#x7F6E;<br>&#x6D88;&#x8D39;&#x6027;&#x8D28;&#x4E0A;&#x540C;&#x4E0A;&#xFF1A;</p>
-<ul>
-<li>topic&#x7684;&#x6D88;&#x606F;&#x4F1A;&#x591A;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#x540C;&#x65F6;&#x6D88;&#x8D39;&#xFF0C;&#x4F46;&#x5E76;&#x4E0D;&#x505A;&#x6D88;&#x606F;&#x5806;&#x79EF;&#xFF0C;&#x6CA1;&#x6709;&#x4E4B;&#x524D;&#x7684;&#x6D88;&#x606F;</li>
-<li>queue&#x6D88;&#x606F;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#x6D88;&#x8D39;&#xFF0C;&#x5E76;&#x505A;&#x6D88;&#x606F;&#x7F13;&#x5B58;&#x5806;&#x79EF;&#xFF0C;&#x76F4;&#x5230;&#x6D88;&#x8D39;&#x4E3A;&#x6B62;</li>
-<li>&#x540C;&#x65F6;queue&#x7684;&#x6D88;&#x8D39;&#x8005;&#x662F;&#x8D1F;&#x8D23;&#x5747;&#x8861;&#x7684;&#x4F1A;&#x5206;&#x644A;&#x6D88;&#x606F;&#x961F;&#x5217;&#x7684;&#x4E2D;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x6309;&#x987A;&#x5E8F;&#x6267;&#x884C;<br>![](/images/post/20181016/activemq consumer.png)</li>
-</ul>
-<h3 id="&#x5173;&#x952E;&#x4EE3;&#x7801;"><a href="#&#x5173;&#x952E;&#x4EE3;&#x7801;" class="headerlink" title="&#x5173;&#x952E;&#x4EE3;&#x7801;"></a>&#x5173;&#x952E;&#x4EE3;&#x7801;</h3><p>&#x6D88;&#x8D39;&#x7AEF;</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> JmsListenerContainerFactory&lt;?&gt; queueListenerFactory(ConnectionFactory connectionFactory,</span><br><span class="line">                                                           DefaultJmsListenerContainerFactoryConfigurer configurer) {</span><br><span class="line">    DefaultJmsListenerContainerFactory factory = <span class="keyword">new</span> DefaultJmsListenerContainerFactory();</span><br><span class="line">    configurer.configure(factory, connectionFactory);</span><br><span class="line">    <span class="keyword">return</span> factory;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> JmsListenerContainerFactory&lt;?&gt; topicListenerFactory(ConnectionFactory connectionFactory,</span><br><span class="line">                                                           DefaultJmsListenerContainerFactoryConfigurer configurer) {</span><br><span class="line">    DefaultJmsListenerContainerFactory factory = <span class="keyword">new</span> DefaultJmsListenerContainerFactory();</span><br><span class="line">    factory.setConnectionFactory(connectionFactory);</span><br><span class="line">    configurer.configure(factory, connectionFactory);</span><br><span class="line">    factory.setPubSubDomain(<span class="keyword">true</span>);</span><br><span class="line">    <span class="keyword">return</span> factory;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>&#x901A;&#x8FC7;spring boot &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x53EF;&#x4EE5;&#x6307;&#x660E;&#x6D88;&#x8D39;&#x65B9;&#x5F0F;&#xFF0C;&#x662F;topic&#x8FD8;&#x662F;queue&#xFF0C;&#x4F46;&#x662F;&#x53EA;&#x80FD;&#x53EA;&#x4E00;&#x79CD;&#x3002;<br>&#x4E3A;&#x4E86;&#x540C;&#x65F6;&#x652F;&#x6301;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x6211;&#x4E48;&#x9700;&#x8981;&#x58F0;&#x660E;JmsListenerContainerFactory&#x3002;&#x662F;&#x5426;&#x5F00;&#x542F;pub sub domain&#xFF0C;&#x51B3;&#x5B9A;&#x662F;queue&#x8FD8;&#x662F;topic</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">factory.setPubSubDomain(<span class="keyword">true</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>&#x540C;&#x65F6;&#x914D;&#x5408;JmsListener&#x6CE8;&#x89E3;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x6307;&#x660E;&#x6D88;&#x8D39;&#x65B9;&#x5F0F;&#x4E86;&#x3002;&#x5982;&#x679C;&#x6307;&#x660E;&#x7684;&#x6D88;&#x8D39;&#x65B9;&#x5F0F;&#x4E0E;ActiveMQ&#x6240;&#x521B;&#x5EFA;&#x7684;queue&#x6216;topic&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x5219;&#x6D88;&#x606F;&#x4E0D;&#x80FD;&#x6B63;&#x5E38;&#x6D88;&#x8D39;&#x3002;</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JmsListener</span>(destination = <span class="string">&quot;<!--figure4-->#123;app.queue}&quot;</span>, containerFactory = <span class="string">&quot;queueListenerFactory&quot;</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>&#x751F;&#x4EA7;&#x7AEF;</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Queue <span class="title">queue</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ActiveMQQueue(queueName);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Topic <span class="title">topic</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ActiveMQTopic(topicName);</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
-
-<p>&#x901A;&#x8FC7;&#x4E0D;&#x901A;&#x7C7B;&#x578B;&#x6307;&#x660E;&#x662F;topic&#x8FD8;&#x662F;queue</p>
-<h3 id="&#x8FD0;&#x884C;&#x8BF4;&#x660E;-1"><a href="#&#x8FD0;&#x884C;&#x8BF4;&#x660E;-1" class="headerlink" title="&#x8FD0;&#x884C;&#x8BF4;&#x660E;"></a>&#x8FD0;&#x884C;&#x8BF4;&#x660E;</h3><p>&#x540C;&#x6837;&#x521B;&#x5EFA;&#x591A;&#x4E2A;&#x8FD0;&#x884C;&#x5B9E;&#x4F8B;&#xFF0C;&#x6765;&#x89C2;&#x5BDF;&#x6D88;&#x8D39;&#x60C5;&#x51B5;<br>![](/images/post/20181016/activemq run dashboard.png)</p>
-<p>&#x89C2;&#x5BDF;ActiveMQ&#x7BA1;&#x7406;&#x540E;&#x53F0;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x76F8;&#x5173;&#x7684;&#x914D;&#x7F6E;&#x4FE1;&#x606F;<br>![](/images/post/20181016/activemq queue.png)<br>![](/images/post/20181016/activemq topic.png)</p>
-<h3 id="&#x7279;&#x6027;&#x603B;&#x7ED3;-1"><a href="#&#x7279;&#x6027;&#x603B;&#x7ED3;-1" class="headerlink" title="&#x7279;&#x6027;&#x603B;&#x7ED3;"></a>&#x7279;&#x6027;&#x603B;&#x7ED3;</h3><ul>
-<li>&#x7B80;&#x5355;&#xFF0C;&#x4E24;&#x79CD;&#x6D88;&#x8D39;&#x6A21;&#x5F0F;&#x975E;&#x5E38;&#x6E05;&#x6670;&#xFF0C;&#x6CA1;&#x6709;&#x590D;&#x6742;&#x7684;&#x7CFB;&#x7EDF;&#x7ED3;&#x6784;</li>
-<li>&#x81EA;&#x5E26;&#x7BA1;&#x7406;&#x540E;&#x53F0;&#x8FD8;&#x7B97;&#x597D;&#x7528;</li>
-</ul>
-<p>&#x8FD8;&#x9700;&#x8981;&#x6DF1;&#x5165;&#x4F53;&#x4F1A;&#x5176;&#x4E00;&#x4E9B;&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#xFF0C;&#x521D;&#x6B65;&#x611F;&#x89C9;&#x4E2D;&#x89C4;&#x4E2D;&#x77E9;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x597D;&#x8BF4;&#x7684;&#x3002;&#x1F61C;</p>
-<h2 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a><a href="https://www.rabbitmq.com/" target="_blank" rel="noopener">RabbitMQ</a></h2><p>&#x6700;&#x540E;&#x8BF4;&#x719F;&#x6089;&#x7684;RabbitMQ&#x5427;&#x3002;<br>&#x6211;&#x5F88;&#x559C;&#x6B22;RabbitMQ&#xFF0C;&#x529F;&#x80FD;&#x4E0A;&#x4E30;&#x5BCC;&#xFF0C;&#x6027;&#x80FD;&#x4E0D;&#x9519;&#xFF0C;&#x76F8;&#x6BD4;ActiveMQ&#xFF0C;&#x6211;&#x66F4;&#x559C;&#x6B22;RabbitMQ&#x5427;&#x3002;&#x5F53;&#x7136;&#x5177;&#x4F53;&#x4F7F;&#x7528;&#xFF0C;&#x8FD8;&#x662F;&#x8981;&#x5206;&#x5E94;&#x7528;&#x573A;&#x666F;&#x3002;</p>
-<h3 id="&#x57FA;&#x672C;&#x6982;&#x5FF5;"><a href="#&#x57FA;&#x672C;&#x6982;&#x5FF5;" class="headerlink" title="&#x57FA;&#x672C;&#x6982;&#x5FF5;"></a>&#x57FA;&#x672C;&#x6982;&#x5FF5;</h3><p>RabbitMQ&#x4E2D;&#x6709;&#x51E0;&#x4E2A;&#x4E3B;&#x8981;&#x6982;&#x5FF5;&#xFF0C;&#x548C;&#x5176;&#x5B83;MQ&#x7684;&#x5B9A;&#x4E49;&#x6709;&#x4E9B;&#x533A;&#x522B;&#xFF0C;&#x5176;&#x4E3A;AMQP&#x534F;&#x8BAE;</p>
-<ul>
-<li>Exchange &#x4EA4;&#x6362;&#x673A;&#xFF0C;&#x7528;&#x4E8E;&#x6D88;&#x606F;&#x7684;&#x5206;&#x53D1;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x6307;&#x5B9A;&#x5219;&#x4F1A;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;</li>
-<li>Queue &#x961F;&#x5217;&#xFF0C;&#x5B9E;&#x9645;&#x7F13;&#x5B58;&#x6570;&#x636E;&#x7684;&#x6D88;&#x606F;&#x961F;&#x5217;&#xFF0C;&#x53EF;&#x5BF9;&#x5E94;&#x591A;&#x4E2A;&#x6D88;&#x8D39;&#x8005;</li>
-<li>Topic &#x4E3B;&#x9898;&#xFF0C;&#x6D88;&#x606F;&#x53EF;&#x4EE5;&#x6709;&#x4E3B;&#x9898;&#xFF0C;&#x7528;&#x4E8E;exchange&#x5206;&#x914D;&#x6D88;&#x606F;&#x662F;&#x7684;&#x5224;&#x65AD;&#x4F9D;&#x636E;</li>
-<li>virtual host &#x865A;&#x62DF;&#x8DEF;&#x5F84;&#xFF0C;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x865A;&#x62DF;&#x8DEF;&#x5F84;&#x5C06;&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x5206;&#x5F00;&#x5E76;&#x8BBE;&#x5B9A;&#x7279;&#x5B9A;&#x7528;&#x6237;&#x7528;&#x4E8E;&#x8BBF;&#x95EE;&#x63A7;&#x5236;</li>
-</ul>
-<p>![](/images/post/20181016/exchanges topic fanout direct.png)</p>
-<h3 id="&#x6D88;&#x8D39;&#x65B9;&#x5F0F;"><a href="#&#x6D88;&#x8D39;&#x65B9;&#x5F0F;" class="headerlink" title="&#x6D88;&#x8D39;&#x65B9;&#x5F0F;"></a>&#x6D88;&#x8D39;&#x65B9;&#x5F0F;</h3><p>RabiitMQ&#x7684;&#x6D88;&#x8D39;&#x65B9;&#x5F0F;&#x548C;&#x7075;&#x6D3B;&#x5EA6;&#x4E0A;&#x5E94;&#x8BE5;&#x662F;&#x8FD9;&#x4E09;&#x8005;&#x4E2D;&#x6700;&#x597D;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x5B98;&#x65B9;&#x7ED9;&#x51FA;&#x4E86;&#x8BE6;&#x7EC6;&#x7684;&#x5B9E;&#x4F8B;&#x8BF4;&#x660E;&#xFF0C;&#x8D85;&#x6709;&#x7231;&#x2764;&#xFE0F;<br>&#x5F53;&#x7136;&#x7531;&#x4E8E;&#x6A21;&#x5F0F;&#x591A;&#xFF0C;&#x5B83;&#x4E5F;&#x5C31;&#x662F;&#x6700;&#x590D;&#x6742;&#x7684;&#x3002;&#x5B98;&#x65B9;&#x7ED9;&#x51FA;&#x7684;&#x516D;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x8FD9;&#x91CC;&#x7B80;&#x5355;&#x8BF4;&#x4E00;&#x4E0B;&#xFF0C;&#x5177;&#x4F53;&#x4EE3;&#x7801;&#x770B;<a href="https://www.rabbitmq.com/getstarted.html" target="_blank" rel="noopener">&#x539F;&#x5740;</a></p>
-<ul>
-<li>Hello World &#x6700;&#x666E;&#x901A;&#x7684;&#x751F;&#x4EA7;&#x6D88;&#x8D39;&#x4EE3;&#x7801; <div class="amp-img-wrapper"><amp-img src="https://www.rabbitmq.com/img/tutorials/python-one.png" width="392" height="59" layout="responsive"></amp-img></div></li>
-<li>Work Queue &#x9ED8;&#x8BA4;exchange&#xFF0C;&#x5DE5;&#x4F5C;&#x961F;&#x5217;&#xFF0C;&#x4E00;&#x4E2A;&#x961F;&#x5217;&#x88AB;&#x591A;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#x6D88;&#x8D39;&#xFF0C;&#x4E14;&#x4E00;&#x4E2A;&#x6D88;&#x606F;&#x53EA;&#x6D88;&#x8D39;&#x4E00;&#x6B21;<!-- This img tag couldn't replace. src: <img src="https://www.rabbitmq.com/img/tutorials/python-two.png" alt>--></li>
-<li>Publish/Subscribe &#x53D1;&#x5E03;&#x8BA2;&#x9605;&#xFF0C;&#x901A;&#x8FC7;exchange Fanout&#x6A21;&#x5F0F;&#x8FDB;&#x884C;&#x961F;&#x5217;&#x5206;&#x53D1;&#xFF0C;&#x5B9E;&#x73B0;&#x4E00;&#x6761;&#x6D88;&#x606F;&#x53EF;&#x4EE5;&#x88AB;&#x591A;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#x6D88;&#x8D39;<div class="amp-img-wrapper"><amp-img src="https://www.rabbitmq.com/img/tutorials/python-three.png" width="434" height="111" layout="responsive"></amp-img></div></li>
-<li>Routing &#x8DEF;&#x7531;&#x65B9;&#x5F0F;&#xFF0C;&#x901A;&#x8FC7;exchange&#x548C;routing key&#x6307;&#x5B9A;&#x6D88;&#x606F;&#x8DEF;&#x7531;&#x5230;&#x5177;&#x4F53;&#x7684;&#x961F;&#x5217;&#x522B;&#x7279;&#x5B9A;&#x7684;&#x6D88;&#x8D39;&#x8005;&#x6D88;&#x8D39;<div class="amp-img-wrapper"><amp-img src="https://www.rabbitmq.com/img/tutorials/python-four.png" width="423" height="171" layout="responsive"></amp-img></div></li>
-<li>Topics &#x4E3B;&#x9898;&#x65B9;&#x5F0F;&#xFF0C;&#x901A;&#x8FC7;exchange&#x548C;topic&#x6BD4;&#x914D;&#x89C4;&#x5219;&#x6307;&#x5B9A;&#x6D88;&#x606F;&#x8DEF;&#x7531;&#x5230;&#x5177;&#x4F53;&#x7684;&#x961F;&#x5217;&#x522B;&#x7279;&#x5B9A;&#x7684;&#x6D88;&#x8D39;&#x8005;&#x6D88;&#x8D39;<div class="amp-img-wrapper"><amp-img src="https://www.rabbitmq.com/img/tutorials/python-five.png" width="424" height="171" layout="responsive"></amp-img></div></li>
-<li>RPC &#x901A;&#x8FC7;&#x6D88;&#x606F;&#x961F;&#x5217;&#x5B9E;&#x73B0;RPC&#x8C03;&#x7528;&#x8FC7;&#x7A0B;<div class="amp-img-wrapper"><amp-img src="https://www.rabbitmq.com/img/tutorials/python-six.png" width="576" height="200" layout="responsive"></amp-img></div></li>
-</ul>
-<p>Exchange &#x65B9;&#x5F0F;&#xFF1A;</p>
+<p>&#x9996;&#x5148;&#xFF0C;&#x6211;&#x8981;&#x8BF4;&#x7684;&#x662F;&#xFF0C;&#x6211;&#x4E0D;&#x662F;&#x91D1;&#x878D;&#x76F8;&#x5173;&#x4E13;&#x4E1A;&#x51FA;&#x8EAB;&#xFF0C;&#x4E5F;&#x4E0D;&#x4ECE;&#x4E8B;&#x76F8;&#x5173;&#x7814;&#x7A76;&#xFF0C;&#x5B8C;&#x5168;&#x4ECE;&#x6700;&#x6734;&#x7D20;&#x7684;&#x666E;&#x901A;&#x4EBA;&#x89C6;&#x89D2;&#xFF0C;&#x9610;&#x8FF0;&#x4E00;&#x4E9B;&#x6211;&#x7684;&#x60F3;&#x6CD5;&#x3002;&#x5FC5;&#x6709;&#x7EB0;&#x6F0F;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x770B;&#x89C1;&#x4E86;&#xFF0C;&#x5C31;&#x5F53;&#x4E00;&#x4E50;&#x5427;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x4E13;&#x4E1A;&#x4EBA;&#x58EB;&#x53EF;&#x80FD;&#x4F1A;&#x8BA4;&#x4E3A;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x601D;&#x8003;&#x6CA1;&#x6709;&#x4EF7;&#x503C;&#x3002; &#x53EF;&#x80FD;&#x662F;&#x7684;&#xFF0C;&#x4F46;&#x8FD9;&#x4E0D;&#x59A8;&#x788D;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x65C1;&#x89C2;&#x8005;&#x7684;&#x6211;&#x8868;&#x8FBE;&#x4E00;&#x4E9B;&#x89C2;&#x70B9;&#x3002;</p>
+<h2 id="&#x601D;&#x8003;"><a href="#&#x601D;&#x8003;" class="headerlink" title="&#x601D;&#x8003;"></a>&#x601D;&#x8003;</h2><p>&#x91D1;&#x878D;&#x7CFB;&#x7EDF;&#xFF0C;&#x8D77;&#x521D;&#x5C31;&#x662F;&#x7B80;&#x5355;&#x8BA1;&#x4EF7;&#xFF0C;&#x4EA4;&#x6613;&#xFF0C;&#x8D38;&#x6613;&#x5F80;&#x6765;&#xFF0C;&#x540E;&#x6765;&#x884D;&#x751F;&#x51FA;&#x4FDD;&#x9669;&#x3001;&#x80A1;&#x6743;&#x3001;&#x503A;&#x5238;&#xFF0C;&#x5404;&#x79CD;&#x91D1;&#x878D;&#x884D;&#x751F;&#x54C1;&#x548C;&#x5DE5;&#x5177;&#x3002;<br>&#x5185;&#x5BB9;&#x5DF2;&#x7ECF;&#x591A;&#x5230;&#x9700;&#x8981;&#x4E13;&#x4E1A;&#x5B66;&#x4E60;&#x5F88;&#x591A;&#x5E74;&#x624D;&#x80FD;&#x638C;&#x63E1;&#x7684;&#x7A0B;&#x5EA6;&#x3002;&#x4EBA;&#x7C7B;&#x6784;&#x5EFA;&#x4E86;&#x4E00;&#x5957;&#x975E;&#x5E38;&#x590D;&#x6742;&#x7684;&#x91D1;&#x878D;&#x4F53;&#x7CFB;&#xFF0C;&#x5E76;&#x5728;&#x5176;&#x4E2D;&#x201D;&#x7CBE;&#x5FC3;&#x201D;&#x7EF4;&#x62A4;&#x7740;&#x5176;&#x7A33;&#x5B9A;&#x8FD0;&#x8F6C;&#x3002;</p>
+<p>&#x9010;&#x6E10;&#xFF0C;&#x5927;&#x5BB6;&#x6DF1;&#x9677;&#x7CFB;&#x7EDF;&#x5176;&#x4E2D;&#xFF0C;&#x9010;&#x6E10;&#x5FD8;&#x4E86;&#x5B83;&#x7684;&#x521D;&#x8877;&#xFF0C;&#x504F;&#x79BB;&#x4E86;&#x5B83;&#x7684;&#x672C;&#x8D28;&#x3002;&#x6211;&#x76F8;&#x4FE1;&#x6700;&#x521D;&#x5B83;&#x7684;&#x76EE;&#x7684;&#x5E94;&#x8BE5;&#x662F;&#x4E3A;&#x4E86;&#x4EBA;&#x7C7B;&#x516C;&#x5E73;&#x4EA4;&#x6613;&#xFF0C;&#x5408;&#x7406;&#x56DE;&#x62A5;&#x4F60;&#x7684;&#x4ED8;&#x51FA;&#xFF0C;&#x51FA;&#x4E8E;&#x5982;&#x4F55;&#x7EF4;&#x62A4;&#x201D;&#x516C;&#x5E73;&#x201D;&#x7B49;&#x539F;&#x56E0;&#xFF0C;&#x5927;&#x5BB6;&#x5236;&#x5B9A;&#x4E86;&#x89C4;&#x5219;&#xFF0C;&#x6784;&#x5EFA;&#x4E86;&#x8FD9;&#x4E2A;&#x7CFB;&#x7EDF;<br>&#x800C;&#x540E;&#x6765;&#xFF0C;&#x4E3A;&#x4E86;&#x4F7F;&#x91D1;&#x878D;&#x673A;&#x5668;&#x66F4;&#x597D;&#x7684;&#x201D;&#x987A;&#x6ED1;&#x201D;&#x8FD0;&#x8F6C;&#x6211;&#x4EEC;&#x53D1;&#x660E;&#x4E86;&#x5F88;&#x591A;&#x91D1;&#x878D;&#x5DE5;&#x5177;&#xFF0C;&#x6162;&#x6162;&#x4EBA;&#x4EEC;&#x5F00;&#x59CB;&#x53EA;&#x5173;&#x5FC3;&#x5DE5;&#x5177;&#x4E86;&#xFF0C;&#x5FD8;&#x4E86;&#x7CFB;&#x7EDF;&#x8BBE;&#x8BA1;&#x7684;&#x521D;&#x8877;&#x3002;</p>
+<p>&#x4F60;&#x6709;&#x6CA1;&#x6709;&#x60F3;&#x8FC7;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x7A0D;&#x5FAE;&#x5173;&#x5FC3;&#x8FC7;&#x7F8E;&#x5143;&#x4F53;&#x7CFB;&#x5EFA;&#x7ACB;&#x5386;&#x53F2;&#x7684;&#x4EBA;&#x90FD;&#x5E94;&#x8BE5;&#x77E5;&#x9053;&#x7F8E;&#x5143;&#x662F;&#x6784;&#x5EFA;&#x5728;&#x503A;&#x52A1;&#x7CFB;&#x7EDF;&#x4E0A;&#x7684;&#x3002;&#x90A3;&#x5B83;&#x7684;&#x6269;&#x8868;&#x548C;&#x7F29;&#x8868;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x5BF9;&#x5168;&#x7403;&#x5E02;&#x573A;&#x5F71;&#x54CD;&#x90A3;&#x4E48;&#x5462;&#xFF1F;<br>&#x4E0D;&#x8981;&#x548C;&#x6211;&#x89E3;&#x91CA;&#x6574;&#x4E2A;&#x91D1;&#x878D;&#x7CFB;&#x7EDF;&#x7684;&#x8FD0;&#x884C;&#x673A;&#x5236;&#xFF0C;&#x56FD;&#x503A;&#x3001;&#x5229;&#x7387;&#x3001;&#x80A1;&#x5E02;&#x3001;&#x8D44;&#x672C;&#x3001;&#x6536;&#x76CA;&#x554A;&#x3002;&#x629B;&#x5F00;&#x4EBA;&#x7C7B;&#x6784;&#x5EFA;&#x7684;&#x590D;&#x6742;&#x91D1;&#x878D;&#x7CFB;&#x7EDF;&#x3002;<br>&#x4F60;&#x80FD;&#x6734;&#x7D20;&#x76F4;&#x63A5;&#x544A;&#x8BC9;&#x6211;&#xFF0C;&#x7F8E;&#x5143;&#x5230;&#x5E95;&#x4EE3;&#x8868;&#x4EC0;&#x4E48;&#xFF1F;&#x5B83;&#x7684;&#x591A;&#x4E0E;&#x5C11;&#x5F71;&#x54CD;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;&#x5982;&#x679C;&#x7F8E;&#x56FD;&#x503A;&#x52A1;&#x8FDD;&#x7EA6;&#x5230;&#x5E95;&#x8C01;&#x635F;&#x5931;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<p>&#x6211;&#x4EEC;&#x5176;&#x5B9E;&#x5DF2;&#x7ECF;&#x6DF1;&#x9677;&#x5728;&#x590D;&#x6742;&#x7684;&#x91D1;&#x878D;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x5F88;&#x5C11;&#x6709;&#x4EBA;&#x53EF;&#x4EE5;&#x770B;&#x6E05;&#x5176;&#x672C;&#x8D28;&#x4E86;&#xFF0C;&#x4E5F;&#x6709;&#x4EBA;&#x5FD8;&#x8BB0;&#x4E86;&#xFF0C;&#x800C;&#x8FD9;&#x6B63;&#x662F;&#x67D0;&#x4E9B;&#x4EBA;&#x6240;&#x5E0C;&#x671B;&#x7684;&#x3002;&#x4ED6;&#x4EEC;&#x5728;&#x770B;&#x7740;&#x4F60;&#xFF0C;&#x7CFB;&#x7EDF;&#x89C4;&#x5219;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x4F60;&#x4EEC;&#x64CD;&#x4F5C;&#x5931;&#x8BEF;&#x5BFC;&#x81F4;&#x4E86;&#x4E00;&#x4E9B;&#x5217;&#x7684;&#x95EE;&#x9898;&#x3002;<br>&#x4ECE;&#x6765;&#x6CA1;&#x6709;&#x4EBA;&#x6000;&#x7591;&#x8FC7;&#xFF0C;&#x7CFB;&#x7EDF;&#x7684;&#x672C;&#x8D28;&#xFF0C;&#x6784;&#x5EFA;&#x7684;&#x57FA;&#x7840;&#x3002;</p>
+<p>&#x6211;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x6709;&#x8FD9;&#x6837;&#x7684;&#x60F3;&#x6CD5;&#xFF0C;&#x53EF;&#x80FD;&#x662F;&#x56E0;&#x4E3A;&#x6211;&#x642D;&#x5EFA;&#x8FC7;&#xFF0C;&#x770B;&#x89C1;&#x8FC7;&#x5F88;&#x591A;IT&#x7CFB;&#x7EDF;&#xFF0C;&#x4EBA;&#x4EEC;&#x66F4;&#x591A;&#x65F6;&#x5019;&#x90FD;&#x5728;&#x6700;&#x4E0A;&#x5C42;&#x7684;&#x7CFB;&#x7EDF;&#x95EE;&#x9898;&#x4E0A;&#x5FD9;&#x788C;&#x7740;&#xFF0C;&#x4FEE;&#x590D;&#x7740;&#xFF0C;&#x5F88;&#x5C11;&#x53BB;&#x5173;&#x5FC3;&#x5E95;&#x5C42;&#x672C;&#x8D28;&#x6216;&#x67B6;&#x6784;&#xFF0C;&#x7B80;&#x5355;&#x8BF4;&#x56E0;&#x4E3A;&#x90A3;&#x6837;&#x7684;&#x4FEE;&#x6539;&#x592A;&#x96BE;&#x4E86;&#x3002;</p>
+<p>&#x540C;&#x7406;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x60F3;&#x60F3;&#x5982;&#x4ECA;&#x7684;&#x91D1;&#x878D;&#x7CFB;&#x7EDF;&#xFF0C;&#x5982;&#x6B64;&#x5E9E;&#x5927;&#x590D;&#x6742;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4E0D;&#x65AD;&#x7684;&#x6784;&#x5EFA;&#x3001;&#x8C03;&#x6574;&#x5176;&#x76F8;&#x5173;&#x89C4;&#x5219;&#xFF0C;&#x6765;&#x5B9E;&#x73B0;&#x6216;&#x5F25;&#x8865;&#x6211;&#x4EEC;&#x7684;&#x4E0A;&#x5C42;&#x60F3;&#x6CD5;&#x3002;&#x8FD8;&#x6709;&#x591A;&#x5C11;&#x4EBA;&#x4F1A;&#x518D;&#x5BA1;&#x89C6;&#x5E95;&#x5C42;&#x539F;&#x7406;&#x548C;&#x521D;&#x8877;&#xFF1F;&#x8FD8;&#x6709;&#x8C01;&#x6562;&#x52A8;&#x5B83;&#x5462;&#xFF1F;<br>&#x5F53;&#x7136;&#x91CD;&#x6784;&#x4E0D;&#x73B0;&#x5B9E;&#xFF0C;&#x4E5F;&#x4E0D;&#x4E00;&#x5B9A;&#x4F1A;&#x6BD4;&#x73B0;&#x5728;&#x597D;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x4F1A;&#x66F4;&#x5931;&#x8D25;&#x3002;&#x4F46;&#x6211;&#x4EEC;&#x8FD8;&#x662F;&#x5E94;&#x8BE5;&#x662F;&#x4E0D;&#x662F;&#x5BA1;&#x89C6;&#x4EE5;&#x4E0B;&#x5E95;&#x5C42;&#x672C;&#x8D28;&#xFF0C;&#x63D0;&#x9192;&#x81EA;&#x5DF1;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#x7684;&#x91D1;&#x878D;&#x7CFB;&#x7EDF;&#x5145;&#x65A5;&#x7740;&#x5E38;&#x4EBA;&#x65E0;&#x6CD5;&#x7406;&#x89E3;&#x7684;&#x7406;&#x8BBA;&#x548C;&#x516C;&#x5F0F;&#xFF0C;&#x5B8C;&#x5168;&#x662F;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x6570;&#x5B66;&#x6E38;&#x620F;&#x3002;&#x6570;&#x5B66;&#x5E94;&#x8BE5;&#x662F;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x4E86;&#x89E3;&#x4E07;&#x7269;&#x672C;&#x8D28;&#x7684;&#x4E00;&#x95E8;&#x8BED;&#x8A00;&#xFF0C;&#x5374;&#x53D8;&#x6210;&#x4E86;&#x6211;&#x4EEC;&#x4EBA;&#x7C7B;&#x81EA;&#x5DF1;&#x7B97;&#x8BA1;&#x81EA;&#x5DF1;&#x7684;&#x5DE5;&#x5177;&#x3002;&#x4F60;&#x7684;&#x611F;&#x89C9;&#x5462;&#xFF1F;</p>
+<h2 id="&#x672C;&#x8D28;"><a href="#&#x672C;&#x8D28;" class="headerlink" title="&#x672C;&#x8D28;"></a>&#x672C;&#x8D28;</h2><p>&#x5728;&#x6211;&#x770B;&#x6765;&#xFF0C;&#x91D1;&#x878D;&#x7CFB;&#x7EDF;&#x7684;&#x672C;&#x8D28;&#x662F;&#x8D44;&#x6E90;&#xFF0C;&#x4E16;&#x754C;&#x7ECF;&#x6D4E;&#x603B;&#x91CF;&#x5E94;&#x8BE5;&#x7B49;&#x4E8E;&#x4EBA;&#x7C7B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684;&#x8D44;&#x6E90;&#xFF08;&#x5B9E;&#x4F53;&#xFF09;&#x603B;&#x91CF;&#x3002;&#x800C;&#x91D1;&#x878D;&#x7CFB;&#x7EDF;&#x5E73;&#x65F6;&#x5C31;&#x662F;&#x5728;&#x5E2E;&#x52A9;&#x4EBA;&#x4EEC;&#x5408;&#x7406;&#x8BA1;&#x7B97;&#x7ECF;&#x6D4E;&#x603B;&#x91CF;&#xFF08;&#x8D27;&#x5E01;&#x8BA1;&#x4EF7;&#xFF0C;&#x4E5F;&#x5C31;&#x5728;&#x7528;&#x7F8E;&#x5143;&#x8BA1;&#x4EF7;&#xFF09;&#xFF0C;&#x5E2E;&#x52A9;&#x4EBA;&#x4EEC;&#x4EA4;&#x6613;&#xFF0C;&#x8BA9;&#x4EF7;&#x683C;&#x56F4;&#x7ED5;&#x4EF7;&#x503C;&#x5468;&#x56F4;&#x6CE2;&#x52A8;&#x3002;<br>&#x5F15;&#x5BFC;&#x4EBA;&#x4EEC;&#x5408;&#x7406;&#x5F00;&#x53D1;&#x5229;&#x7528;&#x66F4;&#x591A;&#x8D44;&#x6E90;&#xFF0C;&#x53D1;&#x5C55;&#x4EBA;&#x7C7B;&#x6587;&#x660E;&#x3002;</p>
+<p>&#x800C;&#x7F8E;&#x5143;&#x91CF;&#x5316;&#x5BBD;&#x677E;&#xFF0C;&#x5C31;&#x662F;&#x4EBA;&#x7C7B;&#x5C06;&#x7ECF;&#x6D4E;&#x603B;&#x91CF;&#xFF08;&#x8D27;&#x5E01;&#x8BA1;&#x4EF7;&#xFF09;&#x4EBA;&#x4E3A;&#x6269;&#x5927;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x4E0E;&#x4EBA;&#x7C7B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684;&#x8D44;&#x6E90;&#x603B;&#x91CF;&#x4E0D;&#x5BF9;&#x7B49;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x901A;&#x80C0;&#x4E86;&#xFF0C;&#x5F15;&#x53D1;&#x4E86;&#x91D1;&#x878D;&#x7CFB;&#x7EDF;&#x6027;&#x98CE;&#x9669;&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;&#x89E6;&#x53D1;&#x8FC7;&#x7A0B;&#x5728;&#x901A;&#x8FC7;&#x4EBA;&#x7C7B;&#x6784;&#x5EFA;&#x7684;&#x91D1;&#x878D;&#x7CFB;&#x7EDF;&#x65F6;&#xFF0C;&#x51FA;&#x73B0;&#x4E86;&#x4E25;&#x91CD;&#x7684;&#x53CD;&#x9988;&#x5EF6;&#x65F6;&#x3002;</p>
+<p>&#x6700;&#x521D;&#x7F8E;&#x56FD;&#x91CF;&#x5316;&#x5BBD;&#x677E;&#x65F6;&#xFF0C;&#x91D1;&#x878D;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x8868;&#x73B0;&#x6B23;&#x6B23;&#x5411;&#x8363;&#xFF0C;&#x5927;&#x5BB6;&#x90FD;&#x8BA4;&#x4E3A;&#x6211;&#x7684;&#x8D44;&#x6E90;&#x589E;&#x503C;&#x4E86;&#xFF0C;&#x5F00;&#x5FC3;&#x7684;&#x5F88;&#x3002;&#x6162;&#x6162;&#x7684;&#x7CFB;&#x7EDF;&#x624D;&#x8868;&#x73B0;&#x51FA;&#x6765;&#x6CA1;&#x6709;&#x90A3;&#x4E48;&#x591A;&#x7684;&#x8D44;&#x6E90;&#x4E0E;&#x4E4B;&#x5339;&#x914D;&#xFF0C;&#x4EF7;&#x683C;&#x865A;&#x9AD8;&#xFF0C;&#x901A;&#x80C0;&#x4E86;&#x3002;&#x7F8E;&#x56FD;&#x53EA;&#x597D;&#x52A0;&#x606F;&#x7F29;&#x8868;&#xFF0C;&#x8C03;&#x6574;&#x4E24;&#x8005;&#x76F4;&#x63A5;&#x7684;&#x6BD4;&#x4F8B;&#x5173;&#x7CFB;<br>&#x8BA9;&#x4EF7;&#x683C;&#x56DE;&#x5F52;&#xFF0C;&#x6240;&#x4EE5;&#x539F;&#x5148;&#x9AD8;&#x4F30;&#x7684;&#x8D44;&#x672C;&#x4EF7;&#x683C;&#x5F00;&#x59CB;&#x4E0B;&#x8DCC;&#xFF0C;&#x4F8B;&#x5982;&#x80A1;&#x5E02;&#x3002;&#x5927;&#x5B97;&#x8FD1;&#x671F;&#x8FD8;&#x5728;&#x72C2;&#x6DA8;&#x4E3A;&#x4EC0;&#x4E48;&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x590D;&#x6742;&#x91D1;&#x878D;&#x7CFB;&#x7EDF;&#x7684;&#x5E26;&#x6765;&#x7684;&#x53CD;&#x9988;&#x504F;&#x79BB;&#x548C;&#x6EDE;&#x540E;&#x9020;&#x6210;&#x7684;&#xFF08;&#x4E0D;&#x7EC6;&#x8BF4;&#x4EBA;&#x4E3A;&#x56E0;&#x7D20;&#x592A;&#x591A;&#xFF09;&#x3002;&#x653E;&#x5FC3;&#x6700;&#x7EC8;&#x7ED3;&#x679C;&#x662F;&#x5927;&#x5B97;&#x5546;&#x54C1;&#x4EF7;&#x683C;&#x7684;&#x56DE;&#x843D;&#x3002;<br>&#x7136;&#x540E;&#x91D1;&#x878D;&#x7CFB;&#x7EDF;&#x8868;&#x73B0;&#x51FA;&#x8FC7;&#x6FC0;&#x53CD;&#x5E94;&#xFF0C;&#x653E;&#x5927;&#x98CE;&#x9669;&#xFF0C;&#x51FA;&#x73B0;&#x4EF7;&#x683C;&#x548C;&#x8D44;&#x6E90;&#x7684;&#x80CC;&#x79BB;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4EF7;&#x683C;&#x66B4;&#x8DCC;&#xFF0C;&#x4E0D;&#x80FD;&#x6B63;&#x786E;&#x53CD;&#x5E94;&#x8D44;&#x6E90;&#x603B;&#x91CF;&#x3002;&#x3002;&#x3002;&#x3002;&#x3002;&#x3002;</p>
+<p>&#x4F60;&#x6709;&#x6CA1;&#x6709;&#x601D;&#x8003;&#x8FC7;&#x8FD9;&#x6837;&#x51E0;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;</p>
 <ol>
-<li>direct exchange &#x76F4;&#x63A5;&#x70B9;&#x5BF9;&#x70B9;</li>
-<li>fanout exchange &#x5168;&#x4F53;&#x5E7F;&#x64AD;</li>
-<li>topic exchange &#x4E3B;&#x9898;&#x5E7F;&#x64AD;</li>
-<li>headers exchange &#x8FD8;&#x6CA1;&#x6709;&#x7528;&#x8FC7;</li>
-<li>system exchange &#x8FD8;&#x6CA1;&#x6709;&#x7528;&#x8FC7;</li>
+<li>&#x7F8E;&#x5143;&#x503A;&#x52A1;&#x7684;&#x80CC;&#x540E;&#x662F;&#x8C01;&#xFF0C;&#x8C01;&#x662F;&#x503A;&#x6743;&#x4EBA;&#xFF1F;&#x4ED6;&#x4EEC;&#x626E;&#x6F14;&#x4EC0;&#x4E48;&#x89D2;&#x8272;&#xFF0C;&#x8D77;&#x5230;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;&#xFF1F;</li>
+<li>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;&#x7F8E;&#x5143;&#x6765;&#x7EDF;&#x8BA1;&#x5168;&#x7403;&#x7ECF;&#x6D4E;&#xFF08;&#x8BA1;&#x4EF7;&#x8D44;&#x6E90;&#x603B;&#x91CF;&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x7528;&#x4F1A;&#x600E;&#x6837;&#xFF1F;</li>
 </ol>
-<h3 id="&#x5173;&#x952E;&#x4EE3;&#x7801;-1"><a href="#&#x5173;&#x952E;&#x4EE3;&#x7801;-1" class="headerlink" title="&#x5173;&#x952E;&#x4EE3;&#x7801;"></a>&#x5173;&#x952E;&#x4EE3;&#x7801;</h3><p>&#x751F;&#x4EA7;&#x7AEF;</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x58F0;&#x660E;queue</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Queue <span class="title">queue</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Queue(queueName);</span><br><span class="line">}</span><br><span class="line"><span class="comment">// &#x58F0;&#x660E;fanout exchange</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> FanoutExchange <span class="title">exchange</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> FanoutExchange(broadcast, <span class="keyword">false</span>, <span class="keyword">true</span>);</span><br><span class="line">}</span><br><span class="line"><span class="comment">// &#x58F0;&#x660E; queue&#x4E0E;exchange&#x7684;&#x7ED1;&#x5B9A;&#x5173;&#x7CFB;</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function">Binding <span class="title">binding1</span><span class="params">(Queue queueBroadone, FanoutExchange exchange)</span> </span>{</span><br><span class="line">    <span class="keyword">return</span> BindingBuilder.bind(queueBroadone).to(exchange);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>&#x6D88;&#x8D39;&#x7AEF;</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RabbitListener</span>(queues = <span class="string">&quot;<!--figure7-->#123;app.broadone}&quot;</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">recevieOne</span><span class="params">(String message)</span> </span>{</span><br><span class="line">    log.info(<span class="string">&quot;consumer receive broadcast one: {}&quot;</span>, message);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="&#x8FD0;&#x884C;&#x8BF4;&#x660E;-2"><a href="#&#x8FD0;&#x884C;&#x8BF4;&#x660E;-2" class="headerlink" title="&#x8FD0;&#x884C;&#x8BF4;&#x660E;"></a>&#x8FD0;&#x884C;&#x8BF4;&#x660E;</h3><p>&#x8FD9;&#x91CC;&#x6211;&#x53EA;&#x505A;&#x6D88;&#x606F;&#x5728;&#x591A;&#x6D88;&#x8D39;&#x8005;&#x4E0B;&#x987A;&#x5E8F;&#x6D88;&#x8D39;&#x89C2;&#x5BDF;&#x548C;&#x5E7F;&#x64AD;&#x89C2;&#x5BDF;&#xFF0C;&#x5176;&#x5B83;&#x5B9E;&#x4F8B;&#x53C2;&#x8003;&#x5B98;&#x7F51;&#x4EE3;&#x7801;&#x5427;&#xFF0C;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x91CD;&#x590D;&#x4E86;&#x3002;</p>
-<p>&#x4E00;&#x4E2A;&#x751F;&#x4EA7;&#x8005;&#x3001;&#x4E00;&#x4E2A;queue&#x3001;&#x591A;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#xFF0C;&#x548C;ActiveMQ queue&#x65B9;&#x5F0F;&#xFF0C;&#x89C2;&#x5BDF;&#x6548;&#x679C;&#x4E00;&#x81F4;&#xFF1A;</p>
-<ul>
-<li>&#x591A;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#x7684;&#x6D88;&#x606F;&#x5206;&#x644A;&#xFF0C;&#x5982;&#x679C;&#x6BCF;&#x6761;&#x6D88;&#x8D39;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x5DEE;&#x5F02;&#x8F83;&#x5927;&#xFF0C;&#x6D88;&#x8D39;&#x987A;&#x5E8F;&#x4E0D;&#x4FDD;&#x8BC1;&#x4E00;&#x81F4;<br>![](/images/post/20181016/rabbitmq consumer.png)</li>
-<li>&#x6D88;&#x8D39;&#x9000;&#x51FA;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#x4F1A;&#x63A5;&#x66FF;&#x672A;&#x5B8C;&#x6210;&#x7684;&#x6D88;&#x606F;&#x5DE5;&#x4F5C;</li>
-<li>&#x5E7F;&#x64AD;&#x6D88;&#x606F;&#x9ED8;&#x8BA4;&#x5806;&#x79EF;&#xFF0C;&#x5176;&#x672C;&#x8D28;&#x8FD8;&#x662F;&#x6D88;&#x8D39;&#x961F;&#x5217;&#xFF0C;&#x4E0D;&#x80FD;&#x591A;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#x6D88;&#x8D39;&#x4E00;&#x4E2A;queue&#x5B9E;&#x73B0;pub/sub</li>
-</ul>
-<p>&#x540C;&#x6837;&#x521B;&#x5EFA;&#x591A;&#x4E2A;&#x8FD0;&#x884C;&#x5B9E;&#x4F8B;&#xFF0C;&#x6765;&#x89C2;&#x5BDF;&#x6D88;&#x8D39;&#x60C5;&#x51B5;<br>![](/images/post/20181016/rabbitmq run dashboard.png)</p>
-<p>&#x7BA1;&#x7406;&#x540E;&#x53F0;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x7684;&#x4FE1;&#x606F;<br>![](/images/post/20181016/rabbitmq queue.png)<br>![](/images/post/20181016/rabbitmq exchange.png)</p>
-<h3 id="&#x7279;&#x6027;&#x603B;&#x7ED3;-2"><a href="#&#x7279;&#x6027;&#x603B;&#x7ED3;-2" class="headerlink" title="&#x7279;&#x6027;&#x603B;&#x7ED3;"></a>&#x7279;&#x6027;&#x603B;&#x7ED3;</h3><ul>
-<li>&#x529F;&#x80FD;&#x591A;&#xFF0C;&#x4F7F;&#x7528;&#x7075;&#x6D3B;</li>
-<li>AMQP&#xFF0C;&#x6027;&#x80FD;&#x4E0D;&#x9519;</li>
-<li>&#x7BA1;&#x7406;&#x540E;&#x53F0;&#x65B9;&#x4FBF;</li>
-</ul>
-<h2 id="&#x5B9E;&#x9A8C;&#x603B;&#x7ED3;"><a href="#&#x5B9E;&#x9A8C;&#x603B;&#x7ED3;" class="headerlink" title="&#x5B9E;&#x9A8C;&#x603B;&#x7ED3;"></a>&#x5B9E;&#x9A8C;&#x603B;&#x7ED3;</h2><ul>
-<li>&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x6D88;&#x606F;&#x987A;&#x5E8F;&#x6D88;&#x8D39;&#x3001;&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7684;&#x9AD8;&#x53EF;&#x7528;&#x6027;&#xFF0C;&#x6307;&#x5B9A;&#x6D88;&#x606F;&#x4F4D;&#x7F6E;&#x518D;&#x6B21;&#x6D88;&#x8D39;&#xFF0C;&#x8F83;&#x9AD8;&#x7684;&#x541E;&#x5410; &#x2014;&#x2014; Kafka</li>
-<li>&#x5982;&#x679C;&#x4F60;&#x8981;&#x6D88;&#x606F;&#x6B63;&#x5E38;&#x6D88;&#x8D39;&#xFF0C;&#x65E0;&#x987A;&#x5E8F;&#x8981;&#x6C42;&#x3001;&#x65E0;&#x7279;&#x6B8A;&#x8DEF;&#x7531;&#x8981;&#x6C42;&#x3002;&#x5E7F;&#x64AD;&#x6D88;&#x8D39;&#x65F6;&#xFF0C;&#x591A;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#x53EF;&#x4EE5;&#x76D1;&#x542C;&#x4E00;&#x4E2A;queue&#x7684;&#x65B9;&#x5F0F;&#x5B8C;&#x6210; &#x2014;&#x2014; ActiveMQ</li>
-<li>&#x5982;&#x679C;&#x4F60;&#x8981;&#x9002;&#x5408;&#x591A;&#x79CD;&#x6D88;&#x606F;&#x6839;&#x636E;&#x81EA;&#x5B9A;&#x4E49;&#x89C4;&#x5219;&#xFF08;&#x901A;&#x914D;&#x7B26;&#x7B49;&#xFF09;&#x8DEF;&#x7531;&#x9053;&#x4E0D;&#x540C;&#x7684;&#x6D88;&#x606F;&#x961F;&#x5217;&#xFF0C;&#x6216;&#x517C;&#x5BB9;&#x4E0D;&#x901A;&#x573A;&#x666F;&#xFF0C;&#x5E0C;&#x671B;&#x5E7F;&#x64AD;&#x6D88;&#x606F;&#x6709;&#x5806;&#x79EF;&#x4E0D;&#x4E22;&#x5931; &#x2014;&#x2014; RabbitMQ </li>
-</ul>
-<p>&#x4EE5;&#x4E0A;MQ&#x90FD;&#x8FD8;&#x6709;&#x5F88;&#x591A;&#x914D;&#x7F6E;&#x53C2;&#x6570;&#x5E94;&#x5BF9;&#x4E0D;&#x901A;&#x7684;&#x5E94;&#x7528;&#x9700;&#x6C42;&#xFF0C;&#x53EF;&#x80FD;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x5B9E;&#x73B0;&#x9ED8;&#x8BA4;&#x4E0D;&#x652F;&#x6301;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x5177;&#x4F53;&#x4F7F;&#x7528;&#x60C5;&#x51B5;&#xFF0C;&#x5982;&#x679C;&#x4EE5;&#x540E;&#x9047;&#x5230;&#x6211;&#x518D;&#x5355;&#x72EC;&#x8BF4;&#x660E;&#x3002;</p>
+<p>&#x7F8E;&#x5143;&#x6240;&#x5BF9;&#x5E94;&#x7684;&#x7F8E;&#x503A;&#xFF0C;&#x591A;&#x4E0E;&#x5C11;&#xFF0C;&#x5BF9;&#x4E8E;&#x7F8E;&#x503A;&#x80CC;&#x540E;&#x8D22;&#x56E2;&#x6765;&#x8BB2;&#x6709;&#x4EC0;&#x4E48;&#x635F;&#x5931;&#x5417;&#xFF1F; &#x6211;&#x89C9;&#x5F97;&#x6CA1;&#x6709;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x5728;&#x4E00;&#x4E2A;&#x684C;&#x6E38;&#x5E97;&#x91CC;&#xFF0C;&#x73A9;&#x5927;&#x5BCC;&#x8C6A;&#x6E38;&#x620F;&#xFF0C;&#x4F60;&#x5728;&#x8BA1;&#x7B97;&#x5F97;&#x5931;&#x3002;&#x4F46;&#x662F;&#x684C;&#x6E38;&#x5E97;&#x8001;&#x677F;&#x6709;&#x635F;&#x5931;&#x5417;&#xFF1F;&#x663E;&#x7136;&#x6CA1;&#x6709;&#xFF0C;&#x5BF9;&#x4E8E;&#x4ED6;&#x4EEC;&#x6765;&#x8BF4;&#xFF0C;&#x8FD9;&#x53EA;&#x662F;&#x4F60;&#x7684;&#x6E38;&#x620F;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x770B;&#x6765;&#xFF0C;&#x90A3;&#x4E9B;&#x9AD8;&#x4E8E;&#x56FD;&#x5BB6;&#x5B58;&#x5728;&#x7684;&#x8D22;&#x56E2;&#xFF08;&#x5982;&#x679C;&#x771F;&#x7684;&#x6709;&#x7684;&#x8BDD;&#xFF09;&#x624D;&#x662F;&#x4EBA;&#x7C7B;&#x6587;&#x660E;&#x53D1;&#x5C55;&#x7684;&#x524D;&#x77BB;&#x8005;&#xFF0C;&#x4ED6;&#x4EEC;&#x6784;&#x5EFA;&#x4E86;&#x7CFB;&#x7EDF;&#xFF0C;&#x5E76;&#x7528;&#x5176;&#x5E2E;&#x52A9;&#x4EBA;&#x7C7B;&#x5F00;&#x91C7;&#x638C;&#x63E1;&#x66F4;&#x591A;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x4ECE;&#x800C;&#x63D0;&#x5347;&#x5168;&#x7403;&#x7ECF;&#x6D4E;&#x603B;&#x91CF;&#x548C;&#x4EBA;&#x7C7B;&#x6574;&#x4F53;&#x6587;&#x660E;&#x6C34;&#x5E73;&#x3002;<br>&#x5BF9;&#x4E8E;&#x80CC;&#x540E;&#x8D22;&#x56E2;&#x662F;&#x8C01;&#xFF0C;&#x5B58;&#x5728;&#x4E0E;&#x5426;&#xFF0C;&#x6211;&#x89C9;&#x5F97;&#x771F;&#x7684;&#x4E0D;&#x9700;&#x8981;&#x5173;&#x5FC3;&#x8FD9;&#x4E2A;&#xFF0C;&#x56E0;&#x4E3A;&#x5B8C;&#x5168;&#x6CA1;&#x5FC5;&#x8981;&#x3002;</p>
+<h2 id="&#x672A;&#x6765;"><a href="#&#x672A;&#x6765;" class="headerlink" title="&#x672A;&#x6765;"></a>&#x672A;&#x6765;</h2><p>&#x5176;&#x5B9E;&#x80CC;&#x540E;&#x7684;&#x8D22;&#x56E2;&#x601D;&#x60F3;&#x8FD8;&#x662F;&#x72ED;&#x9698;&#x4E86;&#x3002;&#x901A;&#x8FC7;&#x6218;&#x4E89;&#x65F6;&#x4EE3;&#x53D1;&#x5C55;&#x51FA;&#x6765;&#x7684;&#x601D;&#x7EF4;&#xFF0C;&#x8FDB;&#x800C;&#x6784;&#x5EFA;&#x7684;&#x91D1;&#x878D;&#x7CFB;&#x7EDF;&#xFF0C;&#x4E0D;&#x4EC5;&#x5145;&#x65A5;&#x7740;&#x7ADE;&#x4E89;&#x8FD8;&#x6709;&#x5F88;&#x5F3A;&#x7684;&#x6392;&#x4ED6;&#x6027;&#x548C;&#x63A0;&#x593A;&#x6027;&#x3002;<br>&#x6211;&#x4F1A;&#x8BA4;&#x540C;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x7CFB;&#x7EDF;&#x6700;&#x7EC8;&#x7ED3;&#x679C;&#x5E94;&#x8BE5;&#x662F;&#x88AB;&#x65F6;&#x4EE3;&#x629B;&#x5F03;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x5F7B;&#x5E95;&#x7684;&#x5D29;&#x584C;&#x3002;&#x7136;&#x540E;&#x8FDB;&#x5165;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x4EBA;&#x7C7B;&#x6587;&#x660E;&#x9636;&#x6BB5;&#xFF0C;&#x4E00;&#x4E2A;&#x5171;&#x8D62;&#x7684;&#x53D1;&#x5C55;&#x65B9;&#x5F0F;&#x3002;<br>&#x81F3;&#x4E8E;&#x5982;&#x4F55;&#x629B;&#x5F03;&#xFF0C;&#x8FC7;&#x7A0B;&#x662F;&#x5426;&#x4F1A;&#x5F88;&#x75DB;&#x82E6;&#xFF0C;&#x5E94;&#x8BE5;&#x4F1A;&#x5F88;&#x75DB;&#x82E6;&#x5427;&#x3002;</p>
+<p>&#x56DE;&#x5230;&#x6211;&#x7684;&#x5047;&#x8BBE;&#xFF0C;&#x5982;&#x679C;&#x4EBA;&#x7C7B;&#x6587;&#x660E;&#x7684;&#x8861;&#x91CF;&#x6807;&#x51C6;&#x662F;&#x7ECF;&#x6D4E;&#x603B;&#x91CF;&#xFF0C;&#x800C;&#x7ECF;&#x6D4E;&#x603B;&#x91CF;&#x7684;&#x6700;&#x76F4;&#x89C2;&#x8868;&#x662F;&#x8981;&#x53EF;&#x5229;&#x7528;&#x8D44;&#x6E90;&#x7684;&#x603B;&#x548C;&#xFF0C;&#x90A3;&#x4E48;&#x4EFB;&#x4F55;&#x6291;&#x5236;&#x80FD;&#x6E90;&#x6D41;&#x901A;&#x548C;&#x5408;&#x7406;&#x6D88;&#x8017;&#x7684;&#x884C;&#x4E3A;&#x90FD;&#x662F;&#x5728;&#x62D6;&#x6162;&#x4EBA;&#x7C7B;&#x6587;&#x660E;&#x53D1;&#x5C55;&#x7684;&#x5217;&#x8F66;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x7B80;&#x5355;&#x6734;&#x7D20;&#x7684;&#x9053;&#x7406;&#xFF0C;&#x6211;&#x4EEC;&#x662F;&#x4E0D;&#x662F;&#x5E94;&#x8BE5;&#x5173;&#x6CE8;&#x601D;&#x8003;&#x4E00;&#x4E0B;&#x5462;&#x3002;</p>
+<h2 id="&#x540E;&#x8BB0;"><a href="#&#x540E;&#x8BB0;" class="headerlink" title="&#x540E;&#x8BB0;"></a>&#x540E;&#x8BB0;</h2><p>&#x5F53;&#x4ECA;&#x4E16;&#x754C;&#x683C;&#x5C40;&#x592A;&#x590D;&#x6742;&#x4E86;&#xFF0C;&#x6211;&#x60F3;&#x6CD5;&#x4E5F;&#x5F88;&#x7247;&#x9762;&#x3002;&#x53EA;&#x662F;&#x559C;&#x6B22;&#x601D;&#xFF08;luan&#xFF09;&#x8003;&#xFF08;xiang&#xFF09;&#xFF0C;&#x8981;&#x4E0D;&#x6D3B;&#x7740;&#x4E3A;&#x4E86;&#x5565;&#x5462;&#xFF1F;&#x1F61B;<br>&#x6709;&#x65F6;&#x95F4;&#x8FD8;&#x662F;&#x591A;&#x770B;&#x770B;&#x4E66;&#xFF0C;&#x4E5F;&#x8BB8;&#x4F1A;&#x6709;&#x5F88;&#x591A;&#x65B0;&#x7684;&#x8BA4;&#x8BC6;&#xFF0C;&#x5E76;&#x7EA0;&#x6B63;&#x6211;&#x7684;&#x4E00;&#x4E9B;&#x9519;&#x8BEF;&#x8BA4;&#x77E5;</p>
 
 			  		
 			  		<!-- google Adsense -->
@@ -2031,32 +1920,8 @@ h6.categories {
 						<ul class="article-tag-list">
 							
 					    		<li class="article-tag-list-item">
-					    			<a class="article-tag-list-link" href="/tags/MQ/">
-					    				MQ
-					    			</a>
-					    		</li>
-							
-					    		<li class="article-tag-list-item">
-					    			<a class="article-tag-list-link" href="/tags/middleware/">
-					    				middleware
-					    			</a>
-					    		</li>
-							
-					    		<li class="article-tag-list-item">
-					    			<a class="article-tag-list-link" href="/tags/Kafka/">
-					    				Kafka
-					    			</a>
-					    		</li>
-							
-					    		<li class="article-tag-list-item">
-					    			<a class="article-tag-list-link" href="/tags/ActiveMQ/">
-					    				ActiveMQ
-					    			</a>
-					    		</li>
-							
-					    		<li class="article-tag-list-item">
-					    			<a class="article-tag-list-link" href="/tags/RabbitMQ/">
-					    				RabbitMQ
+					    			<a class="article-tag-list-link" href="/tags/life/">
+					    				life
 					    			</a>
 					    		</li>
 							
