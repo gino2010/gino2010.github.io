@@ -15,10 +15,10 @@
 
 
 <html class="theme-next mist use-motion" lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
 
 
@@ -33,8 +33,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -57,9 +57,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=6.4.1">
@@ -84,7 +84,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '6.4.1',
     sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -110,24 +110,24 @@
 
 
   <meta name="description" content="系统学习金融基础知识，还有对应的英文表达。后面也许用的到，机会都是留个有准备的人，哈哈～ 以下内容仅作为学习笔记，此章节学习目标：  定义汇率并区分名义汇率(nominal exchange)和实际汇率(real exchange)以及即期(spot)和远期(forward)汇率 描述外汇（foreign exchange FX）市场的功能和参与者 计算和解释一种货币相对于另一种货币的百分比变化">
-<meta name="keywords" content="CFA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Currency Exchange Rates">
 <meta property="og:url" content="http://gino2010.github.io/2021/09/24/currency-exchange-rates/index.html">
 <meta property="og:site_name" content="Cube Life">
 <meta property="og:description" content="系统学习金融基础知识，还有对应的英文表达。后面也许用的到，机会都是留个有准备的人，哈哈～ 以下内容仅作为学习笔记，此章节学习目标：  定义汇率并区分名义汇率(nominal exchange)和实际汇率(real exchange)以及即期(spot)和远期(forward)汇率 描述外汇（foreign exchange FX）市场的功能和参与者 计算和解释一种货币相对于另一种货币的百分比变化">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-10-08T09:16:39.451Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-24T14:12:38.000Z">
+<meta property="article:modified_time" content="2021-10-08T09:16:39.451Z">
+<meta property="article:author" content="Gino Zhao">
+<meta property="article:tag" content="CFA">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Currency Exchange Rates">
-<meta name="twitter:description" content="系统学习金融基础知识，还有对应的英文表达。后面也许用的到，机会都是留个有准备的人，哈哈～ 以下内容仅作为学习笔记，此章节学习目标：  定义汇率并区分名义汇率(nominal exchange)和实际汇率(real exchange)以及即期(spot)和远期(forward)汇率 描述外汇（foreign exchange FX）市场的功能和参与者 计算和解释一种货币相对于另一种货币的百分比变化">
 
 
 
 
 
 
-  <link rel="canonical" href="http://gino2010.github.io/2021/09/24/currency-exchange-rates/">
+  <link rel="canonical" href="http://gino2010.github.io/2021/09/24/currency-exchange-rates/"/>
 
 
 
@@ -183,7 +183,7 @@
     });
 </script>
 
-</head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
@@ -235,7 +235,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -243,7 +243,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
   </li>
         
         
@@ -251,7 +251,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -259,7 +259,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
         
         
@@ -267,7 +267,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
 
       
@@ -277,7 +277,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
         </li>
       
     </ul>
@@ -300,7 +300,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -328,7 +330,7 @@
     
       
     
-    <a href="https://github.com/gino2010" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg>
+    <a href="https://github.com/gino2010" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
     
       </a>
     
@@ -423,7 +425,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -451,7 +453,8 @@
                 </span>
                 <a href="/2021/09/24/currency-exchange-rates/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/09/24/currency-exchange-rates/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2021/09/24/currency-exchange-rates/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -462,10 +465,11 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon">
+            <span class="post-meta-item-icon"
+            >
             <i class="fa fa-eye"></i>
              Views:  
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
 
@@ -500,7 +504,7 @@
 <li>描述汇率制度(regimes)</li>
 <li>解释汇率对各国国际贸易和资本流动的影响</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>通过阅读此章节介绍才知道，外汇市场交易如此巨大，是我们熟知的证券市场50倍，真正的全球市场，全时区，个人和机构都能参与的市场。<br>让我对其有了新的认识。同时我好奇的是，如此巨大的市场，为何Reading的篇幅却很少，也许看完后我就有答案了。</p>
 <p>计划尽快阅读完此章节，先读一个周末看看进度，毕竟是第一次深入阅读CFA，10月还有个假期，应该是可以完成的，看看能多快完成吧<br>其实很久之前就想看了，时间就这么流走了，现在学习也不迟</p>
@@ -621,7 +625,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Gino Zhao">
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Gino Zhao" />
             
               <p class="site-author-name" itemprop="name">Gino Zhao</p>
               <p class="site-description motion-element" itemprop="description">Stay Hungry, Stay Foolish.</p>
@@ -632,9 +638,9 @@
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/archives/">
+                  <a href="/archives/%20%7C%7C%20archive">
                 
-                    <span class="site-state-item-count">56</span>
+                    <span class="site-state-item-count">57</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -671,8 +677,6 @@
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
                     
-                    
-                      
                     
                       
                     
@@ -810,7 +814,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习总结"><span class="nav-text">学习总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#意外惊喜"><span class="nav-text">意外惊喜</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93"><span class="nav-text">学习总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%84%8F%E5%A4%96%E6%83%8A%E5%96%9C"><span class="nav-text">意外惊喜</span></a></li></ol></div>
             
 
           </div>
@@ -830,7 +834,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2024</span>
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2025</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -844,7 +848,7 @@
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.9.0</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v7.3.0</div>
 
 
 

@@ -15,10 +15,10 @@
 
 
 <html class="theme-next mist use-motion" lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
 
 
@@ -33,8 +33,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -57,9 +57,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=6.4.1">
@@ -84,7 +84,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '6.4.1',
     sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -110,23 +110,27 @@
 
 
   <meta name="description" content="消息队列（MQ），平时经常遇到的中间件技术。个人工作中已经使用的RabbitMQ，最近开始使用Kafka，因此也打算把ActiveMQ实验一下。所以本文章将围绕这三个MQ产品进行相应的实验。 创建实验工程三个MQ实验工程地址  工程使用spring boot创建，所有实现都将基于spring全家桶，已经很完毕了，拿来直接用吧。 为了后续实验方便，分别多个mq的producer和consumer工程">
-<meta name="keywords" content="MQ,middleware,Kafka,ActiveMQ,RabbitMQ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Message Queue 初探">
 <meta property="og:url" content="http://gino2010.github.io/2018/10/16/mq/index.html">
 <meta property="og:site_name" content="Cube Life">
 <meta property="og:description" content="消息队列（MQ），平时经常遇到的中间件技术。个人工作中已经使用的RabbitMQ，最近开始使用Kafka，因此也打算把ActiveMQ实验一下。所以本文章将围绕这三个MQ产品进行相应的实验。 创建实验工程三个MQ实验工程地址  工程使用spring boot创建，所有实现都将基于spring全家桶，已经很完毕了，拿来直接用吧。 为了后续实验方便，分别多个mq的producer和consumer工程">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.rabbitmq.com/img/tutorials/python-one.png">
 <meta property="og:image" content="https://www.rabbitmq.com/img/tutorials/python-two.png">
 <meta property="og:image" content="https://www.rabbitmq.com/img/tutorials/python-three.png">
 <meta property="og:image" content="https://www.rabbitmq.com/img/tutorials/python-four.png">
 <meta property="og:image" content="https://www.rabbitmq.com/img/tutorials/python-five.png">
 <meta property="og:image" content="https://www.rabbitmq.com/img/tutorials/python-six.png">
-<meta property="og:updated_time" content="2018-11-18T06:18:54.424Z">
+<meta property="article:published_time" content="2018-10-16T08:41:44.000Z">
+<meta property="article:modified_time" content="2018-11-18T06:18:54.424Z">
+<meta property="article:author" content="Gino Zhao">
+<meta property="article:tag" content="MQ">
+<meta property="article:tag" content="middleware">
+<meta property="article:tag" content="Kafka">
+<meta property="article:tag" content="ActiveMQ">
+<meta property="article:tag" content="RabbitMQ">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Message Queue 初探">
-<meta name="twitter:description" content="消息队列（MQ），平时经常遇到的中间件技术。个人工作中已经使用的RabbitMQ，最近开始使用Kafka，因此也打算把ActiveMQ实验一下。所以本文章将围绕这三个MQ产品进行相应的实验。 创建实验工程三个MQ实验工程地址  工程使用spring boot创建，所有实现都将基于spring全家桶，已经很完毕了，拿来直接用吧。 为了后续实验方便，分别多个mq的producer和consumer工程">
 <meta name="twitter:image" content="https://www.rabbitmq.com/img/tutorials/python-one.png">
 
 
@@ -134,7 +138,7 @@
 
 
 
-  <link rel="canonical" href="http://gino2010.github.io/2018/10/16/mq/">
+  <link rel="canonical" href="http://gino2010.github.io/2018/10/16/mq/"/>
 
 
 
@@ -190,7 +194,7 @@
     });
 </script>
 
-</head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
@@ -242,7 +246,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -250,7 +254,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
   </li>
         
         
@@ -258,7 +262,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -266,7 +270,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
         
         
@@ -274,7 +278,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
 
       
@@ -284,7 +288,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
         </li>
       
     </ul>
@@ -307,7 +311,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -335,7 +341,7 @@
     
       
     
-    <a href="https://github.com/gino2010" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg>
+    <a href="https://github.com/gino2010" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
     
       </a>
     
@@ -430,7 +436,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -458,7 +464,8 @@
                 </span>
                 <a href="/2018/10/16/mq/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/10/16/mq/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/10/16/mq/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -469,10 +476,11 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon">
+            <span class="post-meta-item-icon"
+            >
             <i class="fa fa-eye"></i>
              Views:  
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
 
@@ -494,27 +502,27 @@
 
       
         <p>消息队列（MQ），平时经常遇到的中间件技术。个人工作中已经使用的RabbitMQ，最近开始使用Kafka，因此也打算把ActiveMQ实验一下。<br>所以本文章将围绕这三个MQ产品进行相应的实验。</p>
-<h2 id="创建实验工程"><a href="#创建实验工程" class="headerlink" title="创建实验工程"></a>创建实验工程</h2><p>三个MQ<a href="https://github.com/gino2010/javatech/tree/master/mqtest" target="_blank" rel="noopener">实验工程地址</a></p>
+<h2 id="创建实验工程"><a href="#创建实验工程" class="headerlink" title="创建实验工程"></a>创建实验工程</h2><p>三个MQ<a href="https://github.com/gino2010/javatech/tree/master/mqtest">实验工程地址</a></p>
 <ul>
 <li>工程使用spring boot创建，所有实现都将基于spring全家桶，已经很完毕了，拿来直接用吧。</li>
 <li>为了后续实验方便，分别多个mq的producer和consumer工程</li>
 <li>使用gradle管理项目结构</li>
-<li>使用docker搭建测试所需要的服务器，文件可以<a href="https://github.com/gino2010/cicdtech/tree/master/mq-docker" target="_blank" rel="noopener">参考</a>，实际部署环境有所调整</li>
+<li>使用docker搭建测试所需要的服务器，文件可以<a href="https://github.com/gino2010/cicdtech/tree/master/mq-docker">参考</a>，实际部署环境有所调整</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 
-<h2 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a><a href="https://kafka.apache.org/" target="_blank" rel="noopener">Kafka</a></h2><p>首先实验了Kafka的生产和消费基本代码<br>procuder：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.kafkaTemplate.send(topic, message);</span><br></pre></td></tr></table></figure>
+<h2 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a><a href="https://kafka.apache.org/">Kafka</a></h2><p>首先实验了Kafka的生产和消费基本代码<br>procuder：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.kafkaTemplate.send(topic, message);</span><br></pre></td></tr></table></figure>
 
 <p>consumer:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@KafkaListener</span>(topics = <span class="string">"$&#123;app.topic&#125;"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@KafkaListener(topics = &quot;$&#123;app.topic&#125;&quot;)</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="运行说明"><a href="#运行说明" class="headerlink" title="运行说明"></a>运行说明</h3><ol>
-<li><p>使用三个kafka broker 节点，使用docker-compose对应的service实现<br>![](/images/post/20181016/kafka brokers.png)</p>
+<li><p>使用三个kafka broker 节点，使用docker-compose对应的service实现<br>![](&#x2F;images&#x2F;post&#x2F;20181016&#x2F;kafka brokers.png)</p>
 </li>
-<li><p>创建topic，使用三个分区和两个副本<br>![](/images/post/20181016/kafka topic.png)</p>
+<li><p>创建topic，使用三个分区和两个副本<br>![](&#x2F;images&#x2F;post&#x2F;20181016&#x2F;kafka topic.png)</p>
 </li>
-<li><p>使用idea，运行工程，配置多个运行实例<br>![](/images/post/20181016/kafka run dashboard.png)</p>
+<li><p>使用idea，运行工程，配置多个运行实例<br>![](&#x2F;images&#x2F;post&#x2F;20181016&#x2F;kafka run dashboard.png)</p>
 </li>
 </ol>
 <h3 id="特性总结"><a href="#特性总结" class="headerlink" title="特性总结"></a>特性总结</h3><ul>
@@ -539,37 +547,35 @@
 <h3 id="广播与点对点"><a href="#广播与点对点" class="headerlink" title="广播与点对点"></a>广播与点对点</h3><p>广播有时也叫pub和sub，就是一个topic，多个订阅者。每个订阅者都会收到相同的消息，消息被多次消费。<br>点对点，一个topic中的消息对应一个消费者，消息只会被消费一次</p>
 <p>在Kafka的系统中，如何区分以上两种方式，是通过consumer group实现的。</p>
 <p>多个消费者在一个consumer group中，那么他们就是一个消费整体，消息只会被一个具体的消费者消费一次<br>如果想多个同时消费，那么需要多个consumer group。<br>这样来看consumer group需要与具体服务对应，一般一个独立的服务需要消费一次消息。</p>
-<p>总的来说，体会到了大家喜欢的它原因，具体一些实验后续将深入。<br><a href="http://www.jasongj.com/2015/03/10/KafkaColumn1/" target="_blank" rel="noopener">建议参考阅读</a></p>
-<h2 id="ActiveMQ"><a href="#ActiveMQ" class="headerlink" title="ActiveMQ"></a><a href="http://activemq.apache.org/" target="_blank" rel="noopener">ActiveMQ</a></h2><p>每个MQ中的术语大同小异，但又十分不统一，随着遵循的协议不一样，让我们看看ActiveMQ，它使用JMS协议</p>
-<h3 id="Queue-和-Topic"><a href="#Queue-和-Topic" class="headerlink" title="Queue 和 Topic"></a>Queue 和 Topic</h3><p>Topics<br>In JMS a Topic implements publish and subscribe semantics. When you publish a message it goes to all the subscribers who are interested - so zero to many subscribers will receive a copy of the message. Only subscribers who had an active subscription at the time the broker receives the message will get a copy of the message.<br>![](/images/post/20181016/jms topic.png)</p>
-<p>Queues<br>A JMS Queue implements load balancer semantics. A single message will be received by exactly one consumer. If there are no consumers available at the time the message is sent it will be kept until a consumer is available that can process the message. If a consumer receives a message and does not acknowledge it before closing then the message will be redelivered to another consumer. A queue can have many consumers with messages load balanced across the available consumers.<br>![](/images/post/20181016/jms queue.png)</p>
-<p>这里的 topics 类似kafka中的广播，pub/sub 模式，queue是队列是点对点模式。<br>他的主要区别是，消费方式的确定不是在consumer设置，而是在MQ Server中设置<br>消费性质上同上：</p>
+<p>总的来说，体会到了大家喜欢的它原因，具体一些实验后续将深入。<br><a href="http://www.jasongj.com/2015/03/10/KafkaColumn1/">建议参考阅读</a></p>
+<h2 id="ActiveMQ"><a href="#ActiveMQ" class="headerlink" title="ActiveMQ"></a><a href="http://activemq.apache.org/">ActiveMQ</a></h2><p>每个MQ中的术语大同小异，但又十分不统一，随着遵循的协议不一样，让我们看看ActiveMQ，它使用JMS协议</p>
+<h3 id="Queue-和-Topic"><a href="#Queue-和-Topic" class="headerlink" title="Queue 和 Topic"></a>Queue 和 Topic</h3><p>Topics<br>In JMS a Topic implements publish and subscribe semantics. When you publish a message it goes to all the subscribers who are interested - so zero to many subscribers will receive a copy of the message. Only subscribers who had an active subscription at the time the broker receives the message will get a copy of the message.<br>![](&#x2F;images&#x2F;post&#x2F;20181016&#x2F;jms topic.png)</p>
+<p>Queues<br>A JMS Queue implements load balancer semantics. A single message will be received by exactly one consumer. If there are no consumers available at the time the message is sent it will be kept until a consumer is available that can process the message. If a consumer receives a message and does not acknowledge it before closing then the message will be redelivered to another consumer. A queue can have many consumers with messages load balanced across the available consumers.<br>![](&#x2F;images&#x2F;post&#x2F;20181016&#x2F;jms queue.png)</p>
+<p>这里的 topics 类似kafka中的广播，pub&#x2F;sub 模式，queue是队列是点对点模式。<br>他的主要区别是，消费方式的确定不是在consumer设置，而是在MQ Server中设置<br>消费性质上同上：</p>
 <ul>
 <li>topic的消息会多个消费者同时消费，但并不做消息堆积，没有之前的消息</li>
 <li>queue消息只有一个消费者消费，并做消息缓存堆积，直到消费为止</li>
-<li>同时queue的消费者是负责均衡的会分摊消息队列的中的数据，但是不能保证按顺序执行<br>![](/images/post/20181016/activemq consumer.png)</li>
+<li>同时queue的消费者是负责均衡的会分摊消息队列的中的数据，但是不能保证按顺序执行<br>![](&#x2F;images&#x2F;post&#x2F;20181016&#x2F;activemq consumer.png)</li>
 </ul>
 <h3 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h3><p>消费端</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> JmsListenerContainerFactory&lt;?&gt; queueListenerFactory(ConnectionFactory connectionFactory,</span><br><span class="line">                                                           DefaultJmsListenerContainerFactoryConfigurer configurer) &#123;</span><br><span class="line">    DefaultJmsListenerContainerFactory factory = <span class="keyword">new</span> DefaultJmsListenerContainerFactory();</span><br><span class="line">    configurer.configure(factory, connectionFactory);</span><br><span class="line">    <span class="keyword">return</span> factory;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> JmsListenerContainerFactory&lt;?&gt; topicListenerFactory(ConnectionFactory connectionFactory,</span><br><span class="line">                                                           DefaultJmsListenerContainerFactoryConfigurer configurer) &#123;</span><br><span class="line">    DefaultJmsListenerContainerFactory factory = <span class="keyword">new</span> DefaultJmsListenerContainerFactory();</span><br><span class="line">    factory.setConnectionFactory(connectionFactory);</span><br><span class="line">    configurer.configure(factory, connectionFactory);</span><br><span class="line">    factory.setPubSubDomain(<span class="keyword">true</span>);</span><br><span class="line">    <span class="keyword">return</span> factory;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> JmsListenerContainerFactory&lt;?&gt; queueListenerFactory(ConnectionFactory connectionFactory,</span><br><span class="line">                                                           DefaultJmsListenerContainerFactoryConfigurer configurer) &#123;</span><br><span class="line">    <span class="type">DefaultJmsListenerContainerFactory</span> <span class="variable">factory</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DefaultJmsListenerContainerFactory</span>();</span><br><span class="line">    configurer.configure(factory, connectionFactory);</span><br><span class="line">    <span class="keyword">return</span> factory;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> JmsListenerContainerFactory&lt;?&gt; topicListenerFactory(ConnectionFactory connectionFactory,</span><br><span class="line">                                                           DefaultJmsListenerContainerFactoryConfigurer configurer) &#123;</span><br><span class="line">    <span class="type">DefaultJmsListenerContainerFactory</span> <span class="variable">factory</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DefaultJmsListenerContainerFactory</span>();</span><br><span class="line">    factory.setConnectionFactory(connectionFactory);</span><br><span class="line">    configurer.configure(factory, connectionFactory);</span><br><span class="line">    factory.setPubSubDomain(<span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">return</span> factory;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>通过spring boot 配置文件可以指明消费方式，是topic还是queue，但是只能只一种。<br>为了同时支持两种方式，我么需要声明JmsListenerContainerFactory。是否开启pub sub domain，决定是queue还是topic</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">factory.setPubSubDomain(<span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">factory.setPubSubDomain(<span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
 <p>同时配合JmsListener注解，就可以指明消费方式了。如果指明的消费方式与ActiveMQ所创建的queue或topic不一致，则消息不能正常消费。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JmsListener</span>(destination = <span class="string">"$&#123;app.queue&#125;"</span>, containerFactory = <span class="string">"queueListenerFactory"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JmsListener(destination = &quot;$&#123;app.queue&#125;&quot;, containerFactory = &quot;queueListenerFactory&quot;)</span></span><br></pre></td></tr></table></figure>
 
 <p>生产端</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Queue <span class="title">queue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ActiveMQQueue(queueName);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Topic <span class="title">topic</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ActiveMQTopic(topicName);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Queue <span class="title function_">queue</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ActiveMQQueue</span>(queueName);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Topic <span class="title function_">topic</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ActiveMQTopic</span>(topicName);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>通过不通类型指明是topic还是queue</p>
-<h3 id="运行说明-1"><a href="#运行说明-1" class="headerlink" title="运行说明"></a>运行说明</h3><p>同样创建多个运行实例，来观察消费情况<br>![](/images/post/20181016/activemq run dashboard.png)</p>
-<p>观察ActiveMQ管理后台，你可以看到相关的配置信息<br>![](/images/post/20181016/activemq queue.png)<br>![](/images/post/20181016/activemq topic.png)</p>
+<h3 id="运行说明-1"><a href="#运行说明-1" class="headerlink" title="运行说明"></a>运行说明</h3><p>同样创建多个运行实例，来观察消费情况<br>![](&#x2F;images&#x2F;post&#x2F;20181016&#x2F;activemq run dashboard.png)</p>
+<p>观察ActiveMQ管理后台，你可以看到相关的配置信息<br>![](&#x2F;images&#x2F;post&#x2F;20181016&#x2F;activemq queue.png)<br>![](&#x2F;images&#x2F;post&#x2F;20181016&#x2F;activemq topic.png)</p>
 <h3 id="特性总结-1"><a href="#特性总结-1" class="headerlink" title="特性总结"></a>特性总结</h3><ul>
 <li>简单，两种消费模式非常清晰，没有复杂的系统结构</li>
 <li>自带管理后台还算好用</li>
 </ul>
 <p>还需要深入体会其一些参数设置，初步感觉中规中矩没有什么好说的。😜</p>
-<h2 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a><a href="https://www.rabbitmq.com/" target="_blank" rel="noopener">RabbitMQ</a></h2><p>最后说熟悉的RabbitMQ吧。<br>我很喜欢RabbitMQ，功能上丰富，性能不错，相比ActiveMQ，我更喜欢RabbitMQ吧。当然具体使用，还是要分应用场景。</p>
+<h2 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a><a href="https://www.rabbitmq.com/">RabbitMQ</a></h2><p>最后说熟悉的RabbitMQ吧。<br>我很喜欢RabbitMQ，功能上丰富，性能不错，相比ActiveMQ，我更喜欢RabbitMQ吧。当然具体使用，还是要分应用场景。</p>
 <h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>RabbitMQ中有几个主要概念，和其它MQ的定义有些区别，其为AMQP协议</p>
 <ul>
 <li>Exchange 交换机，用于消息的分发，如果不指定则会使用默认的</li>
@@ -577,15 +583,15 @@
 <li>Topic 主题，消息可以有主题，用于exchange分配消息是的判断依据</li>
 <li>virtual host 虚拟路径，可以创建虚拟路径将相关配置分开并设定特定用户用于访问控制</li>
 </ul>
-<p>![](/images/post/20181016/exchanges topic fanout direct.png)</p>
-<h3 id="消费方式"><a href="#消费方式" class="headerlink" title="消费方式"></a>消费方式</h3><p>RabiitMQ的消费方式和灵活度上应该是这三者中最好的，并且官方给出了详细的实例说明，超有爱❤️<br>当然由于模式多，它也就是最复杂的。官方给出的六个实例，这里简单说一下，具体代码看<a href="https://www.rabbitmq.com/getstarted.html" target="_blank" rel="noopener">原址</a></p>
+<p>![](&#x2F;images&#x2F;post&#x2F;20181016&#x2F;exchanges topic fanout direct.png)</p>
+<h3 id="消费方式"><a href="#消费方式" class="headerlink" title="消费方式"></a>消费方式</h3><p>RabiitMQ的消费方式和灵活度上应该是这三者中最好的，并且官方给出了详细的实例说明，超有爱❤️<br>当然由于模式多，它也就是最复杂的。官方给出的六个实例，这里简单说一下，具体代码看<a href="https://www.rabbitmq.com/getstarted.html">原址</a></p>
 <ul>
-<li>Hello World 最普通的生产消费代码 <img src="https://www.rabbitmq.com/img/tutorials/python-one.png" alt></li>
-<li>Work Queue 默认exchange，工作队列，一个队列被多个消费者消费，且一个消息只消费一次<img src="https://www.rabbitmq.com/img/tutorials/python-two.png" alt></li>
-<li>Publish/Subscribe 发布订阅，通过exchange Fanout模式进行队列分发，实现一条消息可以被多个消费者消费<img src="https://www.rabbitmq.com/img/tutorials/python-three.png" alt></li>
-<li>Routing 路由方式，通过exchange和routing key指定消息路由到具体的队列别特定的消费者消费<img src="https://www.rabbitmq.com/img/tutorials/python-four.png" alt></li>
-<li>Topics 主题方式，通过exchange和topic比配规则指定消息路由到具体的队列别特定的消费者消费<img src="https://www.rabbitmq.com/img/tutorials/python-five.png" alt></li>
-<li>RPC 通过消息队列实现RPC调用过程<img src="https://www.rabbitmq.com/img/tutorials/python-six.png" alt></li>
+<li>Hello World 最普通的生产消费代码 <img src="https://www.rabbitmq.com/img/tutorials/python-one.png"></li>
+<li>Work Queue 默认exchange，工作队列，一个队列被多个消费者消费，且一个消息只消费一次<img src="https://www.rabbitmq.com/img/tutorials/python-two.png"></li>
+<li>Publish&#x2F;Subscribe 发布订阅，通过exchange Fanout模式进行队列分发，实现一条消息可以被多个消费者消费<img src="https://www.rabbitmq.com/img/tutorials/python-three.png"></li>
+<li>Routing 路由方式，通过exchange和routing key指定消息路由到具体的队列别特定的消费者消费<img src="https://www.rabbitmq.com/img/tutorials/python-four.png"></li>
+<li>Topics 主题方式，通过exchange和topic比配规则指定消息路由到具体的队列别特定的消费者消费<img src="https://www.rabbitmq.com/img/tutorials/python-five.png"></li>
+<li>RPC 通过消息队列实现RPC调用过程<img src="https://www.rabbitmq.com/img/tutorials/python-six.png"></li>
 </ul>
 <p>Exchange 方式：</p>
 <ol>
@@ -596,20 +602,20 @@
 <li>system exchange 还没有用过</li>
 </ol>
 <h3 id="关键代码-1"><a href="#关键代码-1" class="headerlink" title="关键代码"></a>关键代码</h3><p>生产端</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明queue</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Queue <span class="title">queue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Queue(queueName);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 声明fanout exchange</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> FanoutExchange <span class="title">exchange</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> FanoutExchange(broadcast, <span class="keyword">false</span>, <span class="keyword">true</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 声明 queue与exchange的绑定关系</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function">Binding <span class="title">binding1</span><span class="params">(Queue queueBroadone, FanoutExchange exchange)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> BindingBuilder.bind(queueBroadone).to(exchange);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明queue</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> Queue <span class="title function_">queue</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Queue</span>(queueName);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 声明fanout exchange</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> FanoutExchange <span class="title function_">exchange</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">FanoutExchange</span>(broadcast, <span class="literal">false</span>, <span class="literal">true</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 声明 queue与exchange的绑定关系</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line">Binding <span class="title function_">binding1</span><span class="params">(Queue queueBroadone, FanoutExchange exchange)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> BindingBuilder.bind(queueBroadone).to(exchange);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>消费端</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RabbitListener</span>(queues = <span class="string">"$&#123;app.broadone&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">recevieOne</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">    log.info(<span class="string">"consumer receive broadcast one: &#123;&#125;"</span>, message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RabbitListener(queues = &quot;$&#123;app.broadone&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">recevieOne</span><span class="params">(String message)</span> &#123;</span><br><span class="line">    log.info(<span class="string">&quot;consumer receive broadcast one: &#123;&#125;&quot;</span>, message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="运行说明-2"><a href="#运行说明-2" class="headerlink" title="运行说明"></a>运行说明</h3><p>这里我只做消息在多消费者下顺序消费观察和广播观察，其它实例参考官网代码吧，没有必要重复了。</p>
 <p>一个生产者、一个queue、多个消费者，和ActiveMQ queue方式，观察效果一致：</p>
 <ul>
-<li>多个消费者的消息分摊，如果每条消费执行时间差异较大，消费顺序不保证一致<br>![](/images/post/20181016/rabbitmq consumer.png)</li>
+<li>多个消费者的消息分摊，如果每条消费执行时间差异较大，消费顺序不保证一致<br>![](&#x2F;images&#x2F;post&#x2F;20181016&#x2F;rabbitmq consumer.png)</li>
 <li>消费退出，另一个消费者会接替未完成的消息工作</li>
-<li>广播消息默认堆积，其本质还是消费队列，不能多个消费者消费一个queue实现pub/sub</li>
+<li>广播消息默认堆积，其本质还是消费队列，不能多个消费者消费一个queue实现pub&#x2F;sub</li>
 </ul>
-<p>同样创建多个运行实例，来观察消费情况<br>![](/images/post/20181016/rabbitmq run dashboard.png)</p>
-<p>管理后台可以看到的信息<br>![](/images/post/20181016/rabbitmq queue.png)<br>![](/images/post/20181016/rabbitmq exchange.png)</p>
+<p>同样创建多个运行实例，来观察消费情况<br>![](&#x2F;images&#x2F;post&#x2F;20181016&#x2F;rabbitmq run dashboard.png)</p>
+<p>管理后台可以看到的信息<br>![](&#x2F;images&#x2F;post&#x2F;20181016&#x2F;rabbitmq queue.png)<br>![](&#x2F;images&#x2F;post&#x2F;20181016&#x2F;rabbitmq exchange.png)</p>
 <h3 id="特性总结-2"><a href="#特性总结-2" class="headerlink" title="特性总结"></a>特性总结</h3><ul>
 <li>功能多，使用灵活</li>
 <li>AMQP，性能不错</li>
@@ -618,7 +624,7 @@
 <h2 id="实验总结"><a href="#实验总结" class="headerlink" title="实验总结"></a>实验总结</h2><ul>
 <li>如果你需要消息顺序消费、分布式存储的高可用性，指定消息位置再次消费，较高的吞吐 —— Kafka</li>
 <li>如果你要消息正常消费，无顺序要求、无特殊路由要求。广播消费时，多个消费者可以监听一个queue的方式完成 —— ActiveMQ</li>
-<li>如果你要适合多种消息根据自定义规则（通配符等）路由道不同的消息队列，或兼容不通场景，希望广播消息有堆积不丢失 —— RabbitMQ </li>
+<li>如果你要适合多种消息根据自定义规则（通配符等）路由道不同的消息队列，或兼容不通场景，希望广播消息有堆积不丢失 —— RabbitMQ</li>
 </ul>
 <p>以上MQ都还有很多配置参数应对不通的应用需求，可能通过配置实现默认不支持的功能，具体使用情况，如果以后遇到我再单独说明。</p>
 
@@ -743,7 +749,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Gino Zhao">
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Gino Zhao" />
             
               <p class="site-author-name" itemprop="name">Gino Zhao</p>
               <p class="site-description motion-element" itemprop="description">Stay Hungry, Stay Foolish.</p>
@@ -754,9 +762,9 @@
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/archives/">
+                  <a href="/archives/%20%7C%7C%20archive">
                 
-                    <span class="site-state-item-count">56</span>
+                    <span class="site-state-item-count">57</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -793,8 +801,6 @@
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
                     
-                    
-                      
                     
                       
                     
@@ -932,7 +938,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建实验工程"><span class="nav-text">创建实验工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka"><span class="nav-text">Kafka</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行说明"><span class="nav-text">运行说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特性总结"><span class="nav-text">特性总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ACK-MODE-和-Commit"><span class="nav-text">ACK MODE 和 Commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广播与点对点"><span class="nav-text">广播与点对点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ActiveMQ"><span class="nav-text">ActiveMQ</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue-和-Topic"><span class="nav-text">Queue 和 Topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键代码"><span class="nav-text">关键代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行说明-1"><span class="nav-text">运行说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特性总结-1"><span class="nav-text">特性总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RabbitMQ"><span class="nav-text">RabbitMQ</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消费方式"><span class="nav-text">消费方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键代码-1"><span class="nav-text">关键代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行说明-2"><span class="nav-text">运行说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特性总结-2"><span class="nav-text">特性总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验总结"><span class="nav-text">实验总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%9E%E9%AA%8C%E5%B7%A5%E7%A8%8B"><span class="nav-text">创建实验工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka"><span class="nav-text">Kafka</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E8%AF%B4%E6%98%8E"><span class="nav-text">运行说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93"><span class="nav-text">特性总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ACK-MODE-%E5%92%8C-Commit"><span class="nav-text">ACK MODE 和 Commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%BF%E6%92%AD%E4%B8%8E%E7%82%B9%E5%AF%B9%E7%82%B9"><span class="nav-text">广播与点对点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ActiveMQ"><span class="nav-text">ActiveMQ</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue-%E5%92%8C-Topic"><span class="nav-text">Queue 和 Topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81"><span class="nav-text">关键代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E8%AF%B4%E6%98%8E-1"><span class="nav-text">运行说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93-1"><span class="nav-text">特性总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RabbitMQ"><span class="nav-text">RabbitMQ</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E8%B4%B9%E6%96%B9%E5%BC%8F"><span class="nav-text">消费方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81-1"><span class="nav-text">关键代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E8%AF%B4%E6%98%8E-2"><span class="nav-text">运行说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93-2"><span class="nav-text">特性总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93"><span class="nav-text">实验总结</span></a></li></ol></div>
             
 
           </div>
@@ -952,7 +958,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2024</span>
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2025</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -966,7 +972,7 @@
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.9.0</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v7.3.0</div>
 
 
 

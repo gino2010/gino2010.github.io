@@ -15,10 +15,10 @@
 
 
 <html class="theme-next mist use-motion" lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
 
 
@@ -33,8 +33,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -57,9 +57,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=6.4.1">
@@ -84,7 +84,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '6.4.1',
     sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -110,24 +110,24 @@
 
 
   <meta name="description" content="近期在做MQ的实验，所以又接触了一下Zookeeper，之所说又是因为之前碰到过，但是只是用而已没有了解过一些细节。 Zookeeper 做什么？引用官方原话：ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronizat">
-<meta name="keywords" content="zookeeper">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Zookeeper">
 <meta property="og:url" content="http://gino2010.github.io/2018/10/18/zookeeper/index.html">
 <meta property="og:site_name" content="Cube Life">
 <meta property="og:description" content="近期在做MQ的实验，所以又接触了一下Zookeeper，之所说又是因为之前碰到过，但是只是用而已没有了解过一些细节。 Zookeeper 做什么？引用官方原话：ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronizat">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-11-18T06:18:54.424Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-10-18T01:05:27.000Z">
+<meta property="article:modified_time" content="2018-11-18T06:18:54.424Z">
+<meta property="article:author" content="Gino Zhao">
+<meta property="article:tag" content="zookeeper">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zookeeper">
-<meta name="twitter:description" content="近期在做MQ的实验，所以又接触了一下Zookeeper，之所说又是因为之前碰到过，但是只是用而已没有了解过一些细节。 Zookeeper 做什么？引用官方原话：ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronizat">
 
 
 
 
 
 
-  <link rel="canonical" href="http://gino2010.github.io/2018/10/18/zookeeper/">
+  <link rel="canonical" href="http://gino2010.github.io/2018/10/18/zookeeper/"/>
 
 
 
@@ -183,7 +183,7 @@
     });
 </script>
 
-</head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
@@ -235,7 +235,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -243,7 +243,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
   </li>
         
         
@@ -251,7 +251,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -259,7 +259,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
         
         
@@ -267,7 +267,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
 
       
@@ -277,7 +277,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
         </li>
       
     </ul>
@@ -300,7 +300,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -328,7 +330,7 @@
     
       
     
-    <a href="https://github.com/gino2010" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg>
+    <a href="https://github.com/gino2010" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
     
       </a>
     
@@ -423,7 +425,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -451,7 +453,8 @@
                 </span>
                 <a href="/2018/10/18/zookeeper/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/10/18/zookeeper/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/10/18/zookeeper/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -462,10 +465,11 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon">
+            <span class="post-meta-item-icon"
+            >
             <i class="fa fa-eye"></i>
              Views:  
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
 
@@ -486,11 +490,11 @@
       
 
       
-        <p>近期在做MQ的实验，所以又接触了一下<a href="https://zookeeper.apache.org/" target="_blank" rel="noopener">Zookeeper</a>，之所说又是因为之前碰到过，但是只是用而已没有了解过一些细节。</p>
+        <p>近期在做MQ的实验，所以又接触了一下<a href="https://zookeeper.apache.org/">Zookeeper</a>，之所说又是因为之前碰到过，但是只是用而已没有了解过一些细节。</p>
 <h2 id="Zookeeper-做什么？"><a href="#Zookeeper-做什么？" class="headerlink" title="Zookeeper 做什么？"></a>Zookeeper 做什么？</h2><p>引用官方原话：<br>ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. </p>
 <p>他可以提供高可靠的分布式协调服务，包括中心化配置服务等。<br>之前我用它做了什么，注册发现服务器，你是不是也是用了这个功能，但是具体怎么实现的，Spring Cloud都已经实现了，没有深入关心过。</p>
 <p>这个文章我们补一些必要的知识，更加深入的了解Zookeeper。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="Zookeeper-怎么玩？"><a href="#Zookeeper-怎么玩？" class="headerlink" title="Zookeeper 怎么玩？"></a>Zookeeper 怎么玩？</h2><p>首先，简单说他好似一个文件目录，是一个可以存储数据的服务器，这里我们先忽略其集群中的一些特性（选举制度等），我们看它对外可以提供什么。</p>
 <ul>
@@ -499,21 +503,20 @@
 <li>节点数据大小有限，不可以超过1M</li>
 <li>可以通过接口获得数据，这也是我们用其分布式协调服务的关键</li>
 </ul>
-<p>补充，数据过大怎么办，目前了解到的有两个思路，<font color="red">没有实验过</font>：</p>
+<p>补充，数据过大怎么办，目前了解到的有两个思路，<font color=red>没有实验过</font>：</p>
 <ul>
 <li>使用专业的分布式存储HDFS等</li>
 <li>使用Redis，然后zookeeper记录索引就好了</li>
 </ul>
 <h3 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h3><p>两种形式，分别对应查看管理 服务器状态和内部存储。</p>
 <p>查看管理服务器状态，可以通过telnet 和 nc发出指令，一般使用nc比较方便（具体命令参考网上信息）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">echo stat| nc 127.0.0.1 2181 # 来查看哪个节点被选择作为follower或者leader</span><br><span class="line">echo ruok| nc 127.0.0.1 2181 # 测试是否启动了该Server，若回复imok表示已经启动。</span><br><span class="line">echo dump| nc 127.0.0.1 2181 # 列出未经处理的会话和临时节点。</span><br><span class="line">echo kill | nc 127.0.0.1 2181 # 关掉server</span><br><span class="line">echo conf | nc 127.0.0.1 2181 # 输出相关服务配置的详细信息。</span><br><span class="line">echo cons | nc 127.0.0.1 2181 # 列出所有连接到服务器的客户端的完全的连接 / 会话的详细信息。</span><br><span class="line">echo envi | nc 127.0.0.1 2181 # 输出关于服务环境的详细信息（区别于 conf 命令）。</span><br><span class="line">echo reqs | nc 127.0.0.1 2181 # 列出未经处理的请求。</span><br><span class="line">echo wchs | nc 127.0.0.1 2181 # 列出服务器 watch 的详细信息。</span><br><span class="line">echo wchc | nc 127.0.0.1 2181 # 通过 session 列出服务器 watch 的详细信息，它的输出是一个与 watch 相关的会话的列表。</span><br><span class="line">echo wchp | nc 127.0.0.1 2181 # 通过路径列出服务器 watch 的详细信息。它输出一个与 session 相关的路径。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">echo stat| nc 127.0.0.1 2181 # 来查看哪个节点被选择作为follower或者leader</span><br><span class="line">echo ruok| nc 127.0.0.1 2181 # 测试是否启动了该Server，若回复imok表示已经启动。</span><br><span class="line">echo dump| nc 127.0.0.1 2181 # 列出未经处理的会话和临时节点。</span><br><span class="line">echo kill | nc 127.0.0.1 2181 # 关掉server</span><br><span class="line">echo conf | nc 127.0.0.1 2181 # 输出相关服务配置的详细信息。</span><br><span class="line">echo cons | nc 127.0.0.1 2181 # 列出所有连接到服务器的客户端的完全的连接 / 会话的详细信息。</span><br><span class="line">echo envi | nc 127.0.0.1 2181 # 输出关于服务环境的详细信息（区别于 conf 命令）。</span><br><span class="line">echo reqs | nc 127.0.0.1 2181 # 列出未经处理的请求。</span><br><span class="line">echo wchs | nc 127.0.0.1 2181 # 列出服务器 watch 的详细信息。</span><br><span class="line">echo wchc | nc 127.0.0.1 2181 # 通过 session 列出服务器 watch 的详细信息，它的输出是一个与 watch 相关的会话的列表。</span><br><span class="line">echo wchp | nc 127.0.0.1 2181 # 通过路径列出服务器 watch 的详细信息。它输出一个与 session 相关的路径。</span><br></pre></td></tr></table></figure>
 
-<p>如果提示：xxx is not executed because it is not in the whitelist.<br>请在conf/zoo.cfg中添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4lw.commands.whitelist=* #或者具体指令stat, ruok</span><br></pre></td></tr></table></figure>
+<p>如果提示：xxx is not executed because it is not in the whitelist.<br>请在conf&#x2F;zoo.cfg中添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4lw.commands.whitelist=* #或者具体指令stat, ruok</span><br></pre></td></tr></table></figure>
 
 <p>查看管理服务中的节点信息，需要zkCli命令（客户端），这个在zookeeper所对应的bin目录下有，zkCli进入后，随便敲点啥，你可以看到如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">[zk: localhost:2181(CONNECTED) 0] ?</span><br><span class="line">ZooKeeper -server host:port cmd args</span><br><span class="line">	addauth scheme auth</span><br><span class="line">	close</span><br><span class="line">	config [-c] [-w] [-s]</span><br><span class="line">	connect host:port</span><br><span class="line">	create [-s] [-e] [-c] [-t ttl] path [data] [acl]</span><br><span class="line">	delete [-v version] path</span><br><span class="line">	deleteall path</span><br><span class="line">	delquota [-n|-b] path</span><br><span class="line">	get [-s] [-w] path</span><br><span class="line">	getAcl [-s] path</span><br><span class="line">	history</span><br><span class="line">	listquota path</span><br><span class="line">	ls [-s] [-w] [-R] path</span><br><span class="line">	ls2 path [watch]</span><br><span class="line">	printwatches on|off</span><br><span class="line">	quit</span><br><span class="line">	reconfig [-s] [-v version] [[-file path] | [-members serverID=host:port1:port2;port3[,...]*]] | [-add serverId=host:port1:port2;port3[,...]]* [-remove serverId[,...]*]</span><br><span class="line">	redo cmdno</span><br><span class="line">	removewatches path [-c|-d|-a] [-l]</span><br><span class="line">	rmr path</span><br><span class="line">	set [-s] [-v version] path data</span><br><span class="line">	setAcl [-s] [-v version] path acl</span><br><span class="line">	setquota -n|-b val path</span><br><span class="line">	stat [-w] path</span><br><span class="line">	sync path</span><br><span class="line">Command not found: Command not found ?</span><br><span class="line">[zk: localhost:2181(CONNECTED) 1]</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">[zk: localhost:2181(CONNECTED) 0] ?</span><br><span class="line">ZooKeeper -server host:port cmd args</span><br><span class="line">	addauth scheme auth</span><br><span class="line">	close</span><br><span class="line">	config [-c] [-w] [-s]</span><br><span class="line">	connect host:port</span><br><span class="line">	create [-s] [-e] [-c] [-t ttl] path [data] [acl]</span><br><span class="line">	delete [-v version] path</span><br><span class="line">	deleteall path</span><br><span class="line">	delquota [-n|-b] path</span><br><span class="line">	get [-s] [-w] path</span><br><span class="line">	getAcl [-s] path</span><br><span class="line">	history</span><br><span class="line">	listquota path</span><br><span class="line">	ls [-s] [-w] [-R] path</span><br><span class="line">	ls2 path [watch]</span><br><span class="line">	printwatches on|off</span><br><span class="line">	quit</span><br><span class="line">	reconfig [-s] [-v version] [[-file path] | [-members serverID=host:port1:port2;port3[,...]*]] | [-add serverId=host:port1:port2;port3[,...]]* [-remove serverId[,...]*]</span><br><span class="line">	redo cmdno</span><br><span class="line">	removewatches path [-c|-d|-a] [-l]</span><br><span class="line">	rmr path</span><br><span class="line">	set [-s] [-v version] path data</span><br><span class="line">	setAcl [-s] [-v version] path acl</span><br><span class="line">	setquota -n|-b val path</span><br><span class="line">	stat [-w] path</span><br><span class="line">	sync path</span><br><span class="line">Command not found: Command not found ?</span><br><span class="line">[zk: localhost:2181(CONNECTED) 1]</span><br></pre></td></tr></table></figure>
 <p>我主要使用了：</p>
 <ol>
 <li>ls 显示znode</li>
@@ -523,7 +526,7 @@
 <li>delete 删除znode</li>
 <li>退出客户端： quit</li>
 </ol>
-<h2 id="实验工程"><a href="#实验工程" class="headerlink" title="实验工程"></a>实验工程</h2><p><a href="https://github.com/gino2010/javatech/tree/master/zookeeper" target="_blank" rel="noopener">测试工程地址</a> ，开发环境：</p>
+<h2 id="实验工程"><a href="#实验工程" class="headerlink" title="实验工程"></a>实验工程</h2><p><a href="https://github.com/gino2010/javatech/tree/master/zookeeper">测试工程地址</a> ，开发环境：</p>
 <ul>
 <li>mac os x &amp; idea &amp; gradle</li>
 <li>spring cloud &amp; zookeeper config &amp; discovery</li>
@@ -531,29 +534,31 @@
 </ul>
 <p>请注意，其中使用的最新版的curator包只支持zookeeper3.5</p>
 <h3 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h3><p>通过CuratorFramework 设置或读取zookeeper中的节点</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">curatorFramework.blockUntilConnected();</span><br><span class="line">Stat stat = curatorFramework.checkExists().forPath(<span class="string">"/test"</span>);</span><br><span class="line"><span class="keyword">if</span>(stat==<span class="keyword">null</span>) &#123;</span><br><span class="line">    curatorFramework.create().creatingParentsIfNeeded()</span><br><span class="line">            .withACL(ZooDefs.Ids.OPEN_ACL_UNSAFE)</span><br><span class="line">            .forPath(<span class="string">"/test"</span>, <span class="string">"data"</span>.getBytes());</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">byte</span>[] bytes = curatorFramework.getData().forPath(<span class="string">"/test"</span>);</span><br><span class="line">log.info(<span class="string">"path test:&#123;&#125;"</span>, <span class="keyword">new</span> String(bytes));</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">curatorFramework.blockUntilConnected();</span><br><span class="line"><span class="type">Stat</span> <span class="variable">stat</span> <span class="operator">=</span> curatorFramework.checkExists().forPath(<span class="string">&quot;/test&quot;</span>);</span><br><span class="line"><span class="keyword">if</span>(stat==<span class="literal">null</span>) &#123;</span><br><span class="line">    curatorFramework.create().creatingParentsIfNeeded()</span><br><span class="line">            .withACL(ZooDefs.Ids.OPEN_ACL_UNSAFE)</span><br><span class="line">            .forPath(<span class="string">&quot;/test&quot;</span>, <span class="string">&quot;data&quot;</span>.getBytes());</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">byte</span>[] bytes = curatorFramework.getData().forPath(<span class="string">&quot;/test&quot;</span>);</span><br><span class="line">log.info(<span class="string">&quot;path test:&#123;&#125;&quot;</span>, <span class="keyword">new</span> <span class="title class_">String</span>(bytes));</span><br></pre></td></tr></table></figure>
 
 <p>将zookeeper作为配置中心，通过value注解获取zookeeper中的配置信息，这样可以做到在不重新启动服务的情况下，动态加载配置信息<br>代码需要：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value</span>(<span class="string">"$&#123;zc&#125;"</span>)</span><br><span class="line"><span class="keyword">private</span> String zc;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value(&quot;$&#123;zc&#125;&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String zc;</span><br></pre></td></tr></table></figure>
 
 <p>也可以将配置信息加载到一个对象上，并实现动态刷新</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@RefreshScope</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(<span class="string">"demopro"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoProperties</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String key;</span><br><span class="line">    <span class="keyword">private</span> String value;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//get set</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@RefreshScope</span></span><br><span class="line"><span class="meta">@ConfigurationProperties(&quot;demopro&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DemoProperties</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String key;</span><br><span class="line">    <span class="keyword">private</span> String value;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//get set</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
 <p>配置文件需要：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">application:</span><br><span class="line">  name: zookeeperDemo</span><br><span class="line">  </span><br><span class="line">config:</span><br><span class="line">  enabled: <span class="literal">true</span></span><br><span class="line">  root: <span class="regexp">/demo</span></span><br><span class="line"><span class="regexp">  defaultContext: context</span></span><br><span class="line"><span class="regexp">  profileSeparator: ','</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">application</span>:</span><br><span class="line">  <span class="attr">name</span>: zookeeperDemo</span><br><span class="line">  </span><br><span class="line"><span class="attr">config</span>:</span><br><span class="line">  <span class="attr">enabled</span>: <span class="literal">true</span></span><br><span class="line">  <span class="attr">root</span>: /demo</span><br><span class="line">  <span class="attr">defaultContext</span>: context</span><br><span class="line">  <span class="attr">profileSeparator</span>: <span class="string">&#x27;,&#x27;</span></span><br></pre></td></tr></table></figure>
+
 
 <p>因为spring cloud支持active profile，所以对应的zookeeper的znode路径可以是：</p>
 <ul>
-<li>/demo/zookeeperDemo,default</li>
-<li>/demo/zookeeperDemo</li>
-<li>/demo/context,default</li>
-<li>/demo/context</li>
+<li>&#x2F;demo&#x2F;zookeeperDemo,default</li>
+<li>&#x2F;demo&#x2F;zookeeperDemo</li>
+<li>&#x2F;demo&#x2F;context,default</li>
+<li>&#x2F;demo&#x2F;context</li>
 </ul>
-<p>具体到zc这个配置，对应在default下的全路径是：/demo/zookeeperDemo,default/zc，你可以在zookeeper中创建一个：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create /demo/zookeeperDemo,default/zc data</span><br></pre></td></tr></table></figure>
+<p>具体到zc这个配置，对应在default下的全路径是：&#x2F;demo&#x2F;zookeeperDemo,default&#x2F;zc，你可以在zookeeper中创建一个：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create /demo/zookeeperDemo,default/zc data</span><br></pre></td></tr></table></figure>
 
 <p>具体到DemoProperties配置对应在default下的全路径是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create /demo/zookeeperDemo,default/demopro.key prokey</span><br><span class="line">create /demo/zookeeperDemo,default/demopro.value provalue</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create /demo/zookeeperDemo,default/demopro.key prokey</span><br><span class="line">create /demo/zookeeperDemo,default/demopro.value provalue</span><br></pre></td></tr></table></figure>
 
 <p>以上为工程实验的关键点，具体工程参考源码，工程后续可能还会更新。</p>
 <h2 id="吐槽"><a href="#吐槽" class="headerlink" title="吐槽"></a>吐槽</h2><p>这些问题不是针对zookeeper，只是借此表达一下，其它国内实例代码也有类似的普遍现象</p>
@@ -676,7 +681,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Gino Zhao">
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Gino Zhao" />
             
               <p class="site-author-name" itemprop="name">Gino Zhao</p>
               <p class="site-description motion-element" itemprop="description">Stay Hungry, Stay Foolish.</p>
@@ -687,9 +694,9 @@
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/archives/">
+                  <a href="/archives/%20%7C%7C%20archive">
                 
-                    <span class="site-state-item-count">56</span>
+                    <span class="site-state-item-count">57</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -726,8 +733,6 @@
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
                     
-                    
-                      
                     
                       
                     
@@ -865,7 +870,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper-做什么？"><span class="nav-text">Zookeeper 做什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper-怎么玩？"><span class="nav-text">Zookeeper 怎么玩？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行"><span class="nav-text">命令行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验工程"><span class="nav-text">实验工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关键代码"><span class="nav-text">关键代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#吐槽"><span class="nav-text">吐槽</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper-%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">Zookeeper 做什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper-%E6%80%8E%E4%B9%88%E7%8E%A9%EF%BC%9F"><span class="nav-text">Zookeeper 怎么玩？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="nav-text">命令行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%B7%A5%E7%A8%8B"><span class="nav-text">实验工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81"><span class="nav-text">关键代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%90%E6%A7%BD"><span class="nav-text">吐槽</span></a></li></ol></div>
             
 
           </div>
@@ -885,7 +890,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2024</span>
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2025</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -899,7 +904,7 @@
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.9.0</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v7.3.0</div>
 
 
 
